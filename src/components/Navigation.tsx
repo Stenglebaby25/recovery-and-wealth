@@ -15,9 +15,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-              Recovery & Wealth
-            </h1>
+            <img 
+              src="/src/assets/recovery-wealth-logo.png" 
+              alt="Recovery & Wealth" 
+              className="h-8 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
