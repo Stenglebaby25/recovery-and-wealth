@@ -29,20 +29,29 @@ const HeroSection = () => {
             Build the money skills that support lasting sobriety.
           </p>
           
-          {/* Key Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-2xl mx-auto">
+          {/* Recovery Gap Statistics */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-3xl mx-auto">
             <div className="bg-card/50 backdrop-blur-sm rounded-lg p-4 shadow-soft">
               <div className="text-2xl font-bold text-primary">27%</div>
-              <div className="text-sm text-muted-foreground">of relapses linked to financial stress</div>
+              <div className="text-sm text-muted-foreground">cite financial issues as major relapse reason</div>
             </div>
             <div className="bg-card/50 backdrop-blur-sm rounded-lg p-4 shadow-soft">
-              <div className="text-2xl font-bold text-secondary">8 Weeks</div>
-              <div className="text-sm text-muted-foreground">to financial wellness basics</div>
+              <div className="text-2xl font-bold text-secondary">63%</div>
+              <div className="text-sm text-muted-foreground">of Americans live paycheck-to-paycheck</div>
             </div>
             <div className="bg-card/50 backdrop-blur-sm rounded-lg p-4 shadow-soft">
-              <div className="text-2xl font-bold text-accent">20M+</div>
-              <div className="text-sm text-muted-foreground">Americans in recovery</div>
+              <div className="text-2xl font-bold text-accent">40-60%</div>
+              <div className="text-sm text-muted-foreground">relapse rate in first year of recovery</div>
             </div>
+          </div>
+          
+          {/* Recovery Gap Explanation */}
+          <div className="bg-card/30 backdrop-blur-sm rounded-lg p-6 mb-10 max-w-3xl mx-auto border border-primary/20">
+            <h3 className="text-lg font-semibold text-foreground mb-2">The Recovery Gap</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Traditional treatment programs overlook critical life skills like financial literacy, leaving a dangerous gap 
+              that contributes to relapse. We bridge that gap with practical money skills that support lasting recovery.
+            </p>
           </div>
           
           {/* CTA Buttons */}
