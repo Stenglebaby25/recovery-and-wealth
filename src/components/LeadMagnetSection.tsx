@@ -95,6 +95,9 @@ const LeadMagnetSection = () => {
                   <p className="text-xs text-muted-foreground text-center">
                     No spam. Unsubscribe anytime. Your privacy is protected.
                   </p>
+                  <p className="text-sm text-center text-muted-foreground mt-2">
+                    Want regular updates? <a href="https://recoveryandwealth.beehiiv.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Subscribe to our newsletter</a>
+                  </p>
                 </form>
               </div>
             </CardContent>
