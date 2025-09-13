@@ -28,6 +28,9 @@ const Navigation = () => {
             <a href="#coaching" className="text-foreground hover:text-primary transition-colors">
               Coaching
             </a>
+            <a href="https://recoveryandwealth.mn.co" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
+              Community
+            </a>
             <a href="#pricing" className="text-foreground hover:text-primary transition-colors">
               Pricing
             </a>
@@ -71,6 +74,15 @@ const Navigation = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Coaching
+              </a>
+              <a 
+                href="https://recoveryandwealth.mn.co" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Community
               </a>
               <a 
                 href="#pricing" 

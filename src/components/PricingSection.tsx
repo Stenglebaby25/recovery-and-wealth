@@ -6,70 +6,70 @@ import { Check, Star, Building, Users } from "lucide-react";
 const PricingSection = () => {
   const individualPlans = [
     {
-      name: "Trial",
+      name: "Freemium",
       price: "Free",
-      period: "7 days",
-      description: "Get started with basic financial recovery tools",
+      period: "forever",
+      description: "Try our basic tools and see the difference",
       features: [
-        "Week 1 & 2 course access",
-        "Basic budgeting worksheets",
+        "Week 1 course access",
+        "Basic budgeting worksheet",
         "Community forum access",
         "Mobile app access"
       ],
-      cta: "Start Free Trial",
+      cta: "Start Free",
       variant: "outline" as const,
       popular: false,
     },
     {
       name: "Monthly",
-      price: "$19",
+      price: "$4.99",
       period: "per month",
-      description: "Full access to all courses and community features",
+      description: "Full access plus 2 coaching sessions included",
       features: [
         "Complete 8-week course",
         "All worksheets & tools",
-        "Community support",
-        "Group coaching sessions",
+        "Mighty Networks community access",
+        "2 coaching sessions included",
         "Progress tracking",
         "Mobile app access"
       ],
       cta: "Get Started",
       variant: "default" as const,
-      popular: true,
+      popular: false,
     },
     {
       name: "Annual",
-      price: "$199",
+      price: "$99",
       period: "per year",
-      description: "Best value with 2 months free plus exclusive perks",
+      description: "Save over 60% with 2 coaching sessions included",
       features: [
         "Everything in Monthly",
-        "2 months free",
+        "Save $60+ annually", 
+        "2 coaching sessions included",
         "Priority community access",
-        "Monthly 1-on-1 coaching call",
         "Advanced goal tracking",
         "Certificate of completion"
       ],
-      cta: "Save 2 Months",
+      cta: "Save Big",
       variant: "secondary" as const,
       popular: false,
     },
     {
       name: "Lifetime",
-      price: "$499",
+      price: "$65",
       period: "one-time",
-      description: "Permanent access with all future updates included",
+      description: "Most popular! Lifetime access with 1 coaching session",
       features: [
         "Everything in Annual",
-        "Lifetime access",
+        "Lifetime access forever",
         "All future course updates",
-        "Quarterly 1-on-1 sessions",
+        "1 coaching session included",
         "Alumni network access",
-        "Coaching certification track"
+        "Additional coaching at $150/hour"
       ],
       cta: "Get Lifetime Access",
       variant: "accent" as const,
-      popular: false,
+      popular: true,
     },
   ];
 
