@@ -27,12 +27,10 @@ const HeroSection = () => {
           </div>
           
           {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-hero bg-clip-text text-transparent">
-              Recovery
-            </span>
-            <span className="text-foreground"> & </span>
-            <span className="bg-gradient-hero bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in">
+            <span className="text-foreground">Recovery</span>
+            <span className="text-muted-foreground"> & </span>
+            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-pulse">
               Wealth
             </span>
           </h1>
@@ -44,18 +42,18 @@ const HeroSection = () => {
           </p>
           
           {/* Recovery Gap Statistics */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-3xl mx-auto">
-            <div className="bg-card/50 backdrop-blur-sm rounded-lg p-4 shadow-soft">
-              <div className="text-2xl font-bold text-primary">27%</div>
-              <div className="text-sm text-muted-foreground">cite financial issues as major relapse reason</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-3xl mx-auto animate-fade-in">
+            <div className="bg-card/50 backdrop-blur-sm rounded-lg p-4 shadow-soft hover-scale">
+              <div className="text-3xl font-bold text-primary">27%</div>
+              <div className="text-sm text-muted-foreground font-medium">cite financial issues as major relapse reason</div>
             </div>
-            <div className="bg-card/50 backdrop-blur-sm rounded-lg p-4 shadow-soft">
-              <div className="text-2xl font-bold text-secondary">63%</div>
-              <div className="text-sm text-muted-foreground">of Americans live paycheck-to-paycheck</div>
+            <div className="bg-card/50 backdrop-blur-sm rounded-lg p-4 shadow-soft hover-scale">
+              <div className="text-3xl font-bold text-secondary">63%</div>
+              <div className="text-sm text-muted-foreground font-medium">of Americans live paycheck-to-paycheck</div>
             </div>
-            <div className="bg-card/50 backdrop-blur-sm rounded-lg p-4 shadow-soft">
-              <div className="text-2xl font-bold text-accent">40-60%</div>
-              <div className="text-sm text-muted-foreground">relapse rate in first year of recovery</div>
+            <div className="bg-card/50 backdrop-blur-sm rounded-lg p-4 shadow-soft hover-scale">
+              <div className="text-3xl font-bold text-accent">40-60%</div>
+              <div className="text-sm text-muted-foreground font-medium">relapse rate in first year of recovery</div>
             </div>
           </div>
           
@@ -69,11 +67,11 @@ const HeroSection = () => {
           </div>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" className="text-lg px-8 py-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+            <Button variant="hero" size="lg" className="text-lg px-8 py-4 hover-scale">
               Start Your Financial Recovery
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4 hover-scale">
               For Treatment Centers
             </Button>
           </div>
