@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { MessageSquare, Video, Users, Calendar } from "lucide-react";
+import communityTreeImage from "@/assets/family-tree-community.png";
 
 const CoachingSection = () => {
   const coachingTypes = [
@@ -136,15 +137,22 @@ const CoachingSection = () => {
           </div>
 
           {/* Community Stats */}
-          <div className="bg-card rounded-xl p-8 shadow-medium">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Join a Supportive Community
-              </h3>
-              <p className="text-muted-foreground">
-                Connect with others who understand your journey
-              </p>
-            </div>
+          <div className="relative bg-card rounded-xl p-8 shadow-medium overflow-hidden">
+            {/* Background Image */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-5"
+              style={{ backgroundImage: `url(${communityTreeImage})` }}
+            />
+            
+            <div className="relative z-10">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold text-foreground mb-4">
+                  Join a Supportive Community
+                </h3>
+                <p className="text-muted-foreground">
+                  Connect with others who understand your journey
+                </p>
+              </div>
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
               <div>
@@ -165,11 +173,12 @@ const CoachingSection = () => {
               </div>
             </div>
 
-            <div className="text-center mt-8">
-              <Button variant="hero" size="lg">
-                <MessageSquare className="w-5 h-5 mr-2" />
-                Join the Community
-              </Button>
+              <div className="text-center mt-8">
+                <Button variant="hero" size="lg">
+                  <MessageSquare className="w-5 h-5 mr-2" />
+                  Join the Community
+                </Button>
+              </div>
             </div>
           </div>
         </div>

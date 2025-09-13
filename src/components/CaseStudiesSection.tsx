@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Quote, TrendingUp, Heart, Shield } from "lucide-react";
+import transformationImage from "@/assets/transformation-mindset.png";
 
 const CaseStudiesSection = () => {
   const caseStudies = [
@@ -37,8 +38,14 @@ const CaseStudiesSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-subtle">
-      <div className="container mx-auto px-4">
+    <section className="py-16 bg-gradient-subtle relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-3"
+        style={{ backgroundImage: `url(${transformationImage})` }}
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Recovery Success Stories

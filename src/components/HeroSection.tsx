@@ -1,13 +1,15 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
+import serenityImage from "@/assets/serenity-meditation.jpg";
+import soberMoneyLogo from "@/assets/sober-money-mindset-logo.png";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
+        style={{ backgroundImage: `url(${serenityImage})` }}
       />
       
       {/* Gradient Overlay */}
@@ -15,6 +17,15 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
+          {/* Sober Money Mindset Logo */}
+          <div className="mb-8 flex justify-center">
+            <img 
+              src={soberMoneyLogo} 
+              alt="Sober Money Mindset" 
+              className="h-16 md:h-20 object-contain"
+            />
+          </div>
+          
           {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
             Recovery &{" "}

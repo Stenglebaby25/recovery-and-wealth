@@ -17,28 +17,28 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 13% 18%;
 
-    /* Recovery-focused primary: Teal green from logo for trust and growth */
-    --primary: 167 67% 45%;
+    /* Recovery-focused primary: Bold blue from Sober Money Mindset logo */
+    --primary: 220 85% 55%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 167 55% 58%;
+    --primary-glow: 220 75% 68%;
 
-    /* Growth green for progress and hope - yellowish green from logo */
-    --secondary: 78 41% 72%;
-    --secondary-foreground: 167 67% 20%;
+    /* Growth green for progress and hope - vibrant green from logo */
+    --secondary: 150 70% 45%;
+    --secondary-foreground: 0 0% 98%;
 
     --muted: 210 20% 96%;
     --muted-foreground: 215 13% 55%;
 
-    /* Warm accent for encouragement - lighter version of primary */
-    --accent: 167 35% 85%;
-    --accent-foreground: 167 67% 25%;
+    /* Warm accent for encouragement - complementary teal */
+    --accent: 180 60% 50%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 214 25% 90%;
     --input: 214 25% 90%;
-    --ring: 167 67% 45%;
+    --ring: 220 85% 55%;
 
     /* Recovery-specific design tokens */
     --success: 160 70% 45%;
@@ -47,10 +47,10 @@ All colors MUST be HSL.
     --warning: 45 90% 60%;
     --warning-foreground: 220 13% 18%;
 
-    /* Gradients for beautiful UI - using logo colors */
-    --gradient-hero: linear-gradient(135deg, hsl(167, 67%, 45%), hsl(78, 41%, 72%));
-    --gradient-progress: linear-gradient(90deg, hsl(167, 67%, 45%), hsl(167, 55%, 58%));
-    --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(167, 35%, 95%));
+    /* Gradients for beautiful UI - using bold blue-green colors */
+    --gradient-hero: linear-gradient(135deg, hsl(220, 85%, 55%), hsl(150, 70%, 45%));
+    --gradient-progress: linear-gradient(90deg, hsl(220, 85%, 55%), hsl(180, 60%, 50%));
+    --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(220, 35%, 95%));
 
     /* Shadows for depth */
     --shadow-soft: 0 4px 6px -1px hsl(var(--primary) / 0.1);
