@@ -70,35 +70,21 @@ const LeadMagnetSection = () => {
                   </ul>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm font-medium">
-                      Enter your email to download
-                    </Label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="your@email.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="pl-10"
-                        required
-                      />
-                    </div>
+                <div className="space-y-4">
+                  <div className="bg-card/50 rounded-lg p-1 border">
+                    <iframe 
+                      allowFullScreen
+                      src="https://designrr.page?id=216760&token=1866725815&h=5820" 
+                      height="600" 
+                      width="100%" 
+                      className="rounded border-0"
+                      title="Money Mindset Free Guide"
+                    />
                   </div>
-                  <Button type="submit" className="w-full" size="lg">
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Free Guide
-                  </Button>
-                  <p className="text-xs text-muted-foreground text-center">
-                    No spam. Unsubscribe anytime. Your privacy is protected.
-                  </p>
-                  <p className="text-sm text-center text-muted-foreground mt-2">
+                  <p className="text-sm text-center text-muted-foreground">
                     Want regular updates? <a href="https://recoveryandwealth.beehiiv.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Subscribe to our newsletter</a>
                   </p>
-                </form>
+                </div>
               </div>
             </CardContent>
           </Card>
