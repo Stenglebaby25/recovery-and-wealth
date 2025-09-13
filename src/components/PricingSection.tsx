@@ -75,7 +75,7 @@ const PricingSection = () => {
 
   const businessPlans = [
     {
-      name: "Small Center",
+      name: "Starter",
       price: "$250",
       period: "per month",
       description: "Perfect for facilities with 20-40 clients",
@@ -90,10 +90,10 @@ const PricingSection = () => {
       icon: Building,
     },
     {
-      name: "Medium Center",
+      name: "Innovator",
       price: "$500",
       period: "per month",
-      description: "Ideal for facilities with 40-100 clients",
+      description: "Most popular for facilities with 40-100 clients",
       features: [
         "Up to 150 client accounts",
         "Advanced analytics",
@@ -103,9 +103,10 @@ const PricingSection = () => {
       ],
       cta: "Contact Sales",
       icon: Users,
+      popular: true,
     },
     {
-      name: "Large Center",
+      name: "Pioneer",
       price: "$1,250",
       period: "per month",
       description: "For large facilities with 100+ clients",
@@ -185,7 +186,17 @@ const PricingSection = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {businessPlans.map((plan) => (
-              <Card key={plan.name} className="transition-all duration-300 hover:shadow-medium">
+              <Card 
+                key={plan.name} 
+                className={`relative transition-all duration-300 hover:shadow-medium ${
+                  plan.popular ? 'ring-2 ring-primary shadow-glow' : ''
+                }`}
+              >
+                {plan.popular && (
+                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
+                    Most Popular
+                  </Badge>
+                )}
                 <CardHeader className="pb-4 text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4 mx-auto">
                     <plan.icon className="w-8 h-8 text-primary" />
@@ -214,17 +225,17 @@ const PricingSection = () => {
             ))}
           </div>
 
-          {/* Enterprise CTA */}
+          {/* Trendsetter CTA */}
           <div className="mt-16 text-center bg-gradient-card rounded-xl p-8 shadow-medium">
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Enterprise & White-Label Solutions
+              Trendsetter - Enterprise & White-Label Solutions
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               For large treatment networks like Recovery Centers of America with thousands of patients. 
               Get fully customized solutions with dedicated account management.
             </p>
             <Button variant="hero" size="lg">
-              Discuss Enterprise Needs
+              Discuss Trendsetter Needs
             </Button>
           </div>
         </div>
