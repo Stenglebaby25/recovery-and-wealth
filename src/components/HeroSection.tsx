@@ -27,8 +27,11 @@ const HeroSection = () => {
           </div>
           
           {/* Main Headline */}
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
-            Recovery &{" "}
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <span className="bg-gradient-hero bg-clip-text text-transparent">
+              Recovery
+            </span>
+            <span className="text-foreground"> & </span>
             <span className="bg-gradient-hero bg-clip-text text-transparent">
               Wealth
             </span>

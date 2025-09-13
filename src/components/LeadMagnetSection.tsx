@@ -7,12 +7,17 @@ import { useState } from "react";
 
 const LeadMagnetSection = () => {
   const [email, setEmail] = useState("");
+  const [hasAccess, setHasAccess] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Integrate with email service
-    console.log("Email submitted:", email);
-    setEmail("");
+    if (email.trim()) {
+      // TODO: Integrate with email service
+      console.log("Email submitted:", email);
+      setHasAccess(true);
+      // Redirect to newsletter signup
+      window.open("https://recoveryandwealth.beehiiv.com/", "_blank");
+    }
   };
 
   return (
@@ -71,19 +76,66 @@ const LeadMagnetSection = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <div className="bg-card/50 rounded-lg p-1 border">
-                    <iframe 
-                      allowFullScreen
-                      src="https://designrr.page?id=216760&token=1866725815&h=5820" 
-                      height="600" 
-                      width="100%" 
-                      className="rounded border-0"
-                      title="Money Mindset Free Guide"
-                    />
-                  </div>
-                  <p className="text-sm text-center text-muted-foreground">
-                    Want regular updates? <a href="https://recoveryandwealth.beehiiv.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Subscribe to our newsletter</a>
-                  </p>
+                  {!hasAccess ? (
+                    // Email capture form
+                    <div className="bg-gradient-card rounded-lg p-6 border border-primary/20">
+                      <div className="text-center mb-6">
+                        <div className="w-24 h-32 bg-primary/10 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                          <BookOpen className="w-12 h-12 text-primary" />
+                        </div>
+                        <h3 className="text-lg font-semibold text-foreground mb-2">
+                          Get Instant Access
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          Enter your email to unlock the complete guide and join our recovery community
+                        </p>
+                      </div>
+                      
+                      <form onSubmit={handleSubmit} className="space-y-4">
+                        <div>
+                          <Label htmlFor="email" className="text-sm font-medium">Email Address</Label>
+                          <Input
+                            id="email"
+                            type="email"
+                            placeholder="your.email@example.com"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="mt-1"
+                            required
+                          />
+                        </div>
+                        <Button type="submit" className="w-full" size="lg">
+                          <Download className="w-4 h-4 mr-2" />
+                          Get Free Guide & Join Newsletter
+                        </Button>
+                        <p className="text-xs text-center text-muted-foreground">
+                          By subscribing, you'll get the guide plus weekly financial recovery tips. Unsubscribe anytime.
+                        </p>
+                      </form>
+                    </div>
+                  ) : (
+                    // Show e-book after email capture
+                    <div className="space-y-4">
+                      <div className="bg-card/50 rounded-lg p-1 border">
+                        <iframe 
+                          allowFullScreen
+                          src="https://designrr.page?id=216760&token=1866725815&h=5820" 
+                          height="600" 
+                          width="100%" 
+                          className="rounded border-0"
+                          title="Money Mindset Free Guide"
+                        />
+                      </div>
+                      <div className="text-center p-4 bg-primary/5 rounded-lg">
+                        <p className="text-sm text-foreground font-medium mb-2">
+                          🎉 Welcome to the Recovery & Wealth community!
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          Check your email for your newsletter confirmation and additional resources.
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </CardContent>
