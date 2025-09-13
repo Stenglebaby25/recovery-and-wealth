@@ -28,9 +28,9 @@ const HeroSection = () => {
           
           {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in">
-            <span className="text-foreground">Recovery</span>
+            <span className="text-primary">Recovery</span>
             <span className="text-muted-foreground"> & </span>
-            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-pulse">
+            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               Wealth
             </span>
           </h1>
