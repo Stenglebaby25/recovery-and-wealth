@@ -38,10 +38,18 @@ const CaseStudiesSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-background relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden">
+      {/* Full section background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url(${transformationImage})` }}
+      />
+      {/* Overlay for better contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background/90" />
+      
       <div className="container mx-auto px-4 relative z-10">
         {/* Header with solid background for better readability */}
-        <div className="text-center mb-12 bg-card/95 backdrop-blur rounded-xl p-8 shadow-soft">
+        <div className="text-center mb-12 bg-card/95 backdrop-blur-sm rounded-xl p-8 shadow-medium border border-white/10">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
             Recovery Success Stories
           </h2>
@@ -50,18 +58,11 @@ const CaseStudiesSection = () => {
           </p>
         </div>
 
-        {/* Cards section with background image */}
-        <div className="relative">
-          {/* Background Image for cards area only */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-5 rounded-xl"
-            style={{ backgroundImage: `url(${transformationImage})` }}
-          />
-          
-          <div className="relative z-10 py-8">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {caseStudies.map((study, index) => (
-                <Card key={index} className="shadow-medium bg-card/95 backdrop-blur hover:shadow-glow transition-all duration-300">
+        {/* Cards section */}
+        <div className="relative py-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {caseStudies.map((study, index) => (
+              <Card key={index} className="shadow-medium bg-card/95 backdrop-blur-sm hover:shadow-glow transition-all duration-300 border border-white/20">
                   <CardHeader className="pb-4">
                     <div className="flex items-center justify-between mb-4">
                       <div className={`inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full`}>
@@ -102,13 +103,12 @@ const CaseStudiesSection = () => {
                     </div>
                   </CardContent>
                 </Card>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
 
         <div className="text-center mt-12">
-          <div className="bg-card/95 backdrop-blur rounded-xl p-8 shadow-medium max-w-2xl mx-auto relative z-10">
+          <div className="bg-card/95 backdrop-blur-sm rounded-xl p-8 shadow-medium max-w-2xl mx-auto relative z-10 border border-white/10">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Your Story Could Be Next
             </h3>
