@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useAuth } from "@/hooks/useAuth";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -24,31 +26,36 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#course" className="text-foreground hover:text-primary transition-colors">
-              Course
+            <a href="#calculators" className="text-foreground hover:text-primary transition-colors">
+              Free Tools
+            </a>
+            <a href="#learning-hub" className="text-foreground hover:text-primary transition-colors">
+              Learning Hub
             </a>
             <a href="#coaching" className="text-foreground hover:text-primary transition-colors">
               Coaching
             </a>
-            <a href="https://recoveryandwealth.mn.co" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
-              Community
-            </a>
-            <a href="#pricing" className="text-foreground hover:text-primary transition-colors">
-              Pricing
-            </a>
-            <a href="#business" className="text-foreground hover:text-primary transition-colors">
-              For Centers
+            <a href="#case-studies" className="text-foreground hover:text-primary transition-colors">
+              Success Stories
             </a>
           </div>
 
-          {/* Desktop CTA Buttons */}
+          {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost">
-              Sign In
-            </Button>
-            <Button variant="hero">
-              Get Started
-            </Button>
+            {user ? (
+              <div className="flex items-center space-x-4">
+                <span className="text-sm text-muted-foreground">
+                  Welcome back!
+                </span>
+                <Button variant="outline" onClick={signOut}>
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              <Button variant="hero" onClick={() => window.location.href = '/auth'}>
+                Sign In
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -64,11 +71,18 @@ const Navigation = () => {
           <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <a 
-                href="#course" 
+                href="#calculators" 
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Course
+                Free Tools
+              </a>
+              <a 
+                href="#learning-hub" 
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Learning Hub
               </a>
               <a 
                 href="#coaching" 
@@ -78,35 +92,22 @@ const Navigation = () => {
                 Coaching
               </a>
               <a 
-                href="https://recoveryandwealth.mn.co" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                href="#case-studies" 
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Community
-              </a>
-              <a 
-                href="#pricing" 
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Pricing
-              </a>
-              <a 
-                href="#business" 
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                For Centers
+                Success Stories
               </a>
               <div className="px-3 py-2 space-y-2">
-                <Button variant="ghost" className="w-full justify-start">
-                  Sign In
-                </Button>
-                <Button variant="hero" className="w-full">
-                  Get Started
-                </Button>
+                {user ? (
+                  <Button variant="outline" className="w-full" onClick={signOut}>
+                    Sign Out
+                  </Button>
+                ) : (
+                  <Button variant="hero" className="w-full" onClick={() => window.location.href = '/auth'}>
+                    Sign In
+                  </Button>
+                )}
               </div>
             </div>
           </div>

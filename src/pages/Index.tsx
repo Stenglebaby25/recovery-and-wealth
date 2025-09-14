@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import LeadMagnetSection from "@/components/LeadMagnetSection";
 import CalculatorsSection from "@/components/CalculatorsSection";
-import CoursePreview from "@/components/CoursePreview";
+import LearningHub from "@/components/LearningHub";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
 import CoachingSection from "@/components/CoachingSection";
 import PricingSection from "@/components/PricingSection";
@@ -16,7 +16,7 @@ const Index = () => {
         <HeroSection />
         <LeadMagnetSection />
         <CalculatorsSection />
-        <CoursePreview />
+        <LearningHub />
         <CaseStudiesSection />
         <CoachingSection />
         <PricingSection />
