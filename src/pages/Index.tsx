@@ -1,13 +1,7 @@
 import Navigation from "@/components/Navigation";
-import HeroSection from "@/components/HeroSection";
-import LeadMagnetSection from "@/components/LeadMagnetSection";
-import CalculatorsSection from "@/components/CalculatorsSection";
-import LearningHub from "@/components/LearningHub";
 import Dashboard from "@/components/Dashboard";
-import CaseStudiesSection from "@/components/CaseStudiesSection";
-import CoachingSection from "@/components/CoachingSection";
-import PricingSection from "@/components/PricingSection";
-import SocialSection from "@/components/SocialSection";
+import LearningHub from "@/components/LearningHub";
+import MarketingHomepage from "@/components/MarketingHomepage";
 import { useAuth } from "@/hooks/useAuth";
 
 const Index = () => {
@@ -23,16 +17,10 @@ const Index = () => {
             <Dashboard />
           </>
         ) : (
-          // Marketing experience for non-logged-in users
+          // Marketing experience for non-logged-in users - strategic lead generation
           <>
-            <HeroSection />
-            <LeadMagnetSection />
-            <CalculatorsSection />
+            <MarketingHomepage />
             <LearningHub />
-            <CaseStudiesSection />
-            <CoachingSection />
-            <PricingSection />
-            <SocialSection />
           </>
         )}
       </main>

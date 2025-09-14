@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,18 +27,27 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#calculators" className="text-foreground hover:text-primary transition-colors">
+            <Link to="/tools" className="text-foreground hover:text-primary transition-colors">
               Free Tools
-            </a>
-            <a href={user ? "#dashboard" : "#learning-hub"} className="text-foreground hover:text-primary transition-colors">
-              {user ? "Dashboard" : "Learning Hub"}
-            </a>
-            <a href="#coaching" className="text-foreground hover:text-primary transition-colors">
+            </Link>
+            {user ? (
+              <a href="#dashboard" className="text-foreground hover:text-primary transition-colors">
+                Dashboard
+              </a>
+            ) : (
+              <a href="#learning-hub" className="text-foreground hover:text-primary transition-colors">
+                Learning Hub
+              </a>
+            )}
+            <Link to="/coaching" className="text-foreground hover:text-primary transition-colors">
               Coaching
-            </a>
-            <a href="#case-studies" className="text-foreground hover:text-primary transition-colors">
+            </Link>
+            <Link to="/success-stories" className="text-foreground hover:text-primary transition-colors">
               Success Stories
-            </a>
+            </Link>
+            <Link to="/pricing" className="text-foreground hover:text-primary transition-colors">
+              Pricing
+            </Link>
           </div>
 
           {/* Desktop Auth Buttons */}
@@ -70,34 +80,51 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <a 
-                href="#calculators" 
+              <Link 
+                to="/tools" 
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Free Tools
-              </a>
-              <a 
-                href={user ? "#dashboard" : "#learning-hub"} 
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {user ? "Dashboard" : "Learning Hub"}
-              </a>
-              <a 
-                href="#coaching" 
+              </Link>
+              {user ? (
+                <a 
+                  href="#dashboard" 
+                  className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Dashboard
+                </a>
+              ) : (
+                <a 
+                  href="#learning-hub" 
+                  className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Learning Hub
+                </a>
+              )}
+              <Link 
+                to="/coaching" 
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Coaching
-              </a>
-              <a 
-                href="#case-studies" 
+              </Link>
+              <Link 
+                to="/success-stories" 
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Success Stories
-              </a>
+              </Link>
+              <Link 
+                to="/pricing" 
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Pricing
+              </Link>
               <div className="px-3 py-2 space-y-2">
                 {user ? (
                   <Button variant="outline" className="w-full" onClick={signOut}>
