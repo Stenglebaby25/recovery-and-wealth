@@ -17,18 +17,24 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <main>
-        <HeroSection />
-        <LeadMagnetSection />
-        <CalculatorsSection />
         {user ? (
-          <Dashboard />
+          // Logged-in user experience - clean dashboard focused
+          <>
+            <Dashboard />
+          </>
         ) : (
-          <LearningHub />
+          // Marketing experience for non-logged-in users
+          <>
+            <HeroSection />
+            <LeadMagnetSection />
+            <CalculatorsSection />
+            <LearningHub />
+            <CaseStudiesSection />
+            <CoachingSection />
+            <PricingSection />
+            <SocialSection />
+          </>
         )}
-        <CaseStudiesSection />
-        <CoachingSection />
-        <PricingSection />
-        <SocialSection />
       </main>
     </div>
   );
