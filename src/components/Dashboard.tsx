@@ -11,7 +11,9 @@ import {
   FileText,
   TrendingUp,
   Star,
-  Gift
+  Gift,
+  Brain,
+  Shield
 } from 'lucide-react';
 import LearningHub from './LearningHub';
 import ProgressDashboard from './gamification/ProgressDashboard';
@@ -19,6 +21,8 @@ import HabitTracker from './gamification/HabitTracker';
 import RewardsCenter from './gamification/RewardsCenter';
 import ResourceLibrary from './premium/ResourceLibrary';
 import SponsorManagement from './premium/SponsorManagement';
+import MoodJournal from './behavioral/MoodJournal';
+import StressPrevention from './behavioral/StressPrevention';
 
 const Dashboard = () => {
   const { user, isPremium } = useAuth();
@@ -56,7 +60,7 @@ const Dashboard = () => {
 
           {/* Dashboard Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-7 h-auto">
+            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-9 h-auto">
               <TabsTrigger value="overview" className="flex flex-col gap-1 py-3">
                 <TrendingUp className="w-5 h-5" />
                 <span className="text-xs">Overview</span>
@@ -76,6 +80,14 @@ const Dashboard = () => {
               <TabsTrigger value="rewards" className="flex flex-col gap-1 py-3">
                 <Gift className="w-5 h-5" />
                 <span className="text-xs">Rewards</span>
+              </TabsTrigger>
+              <TabsTrigger value="journal" className="flex flex-col gap-1 py-3">
+                <Brain className="w-5 h-5" />
+                <span className="text-xs">Journal</span>
+              </TabsTrigger>
+              <TabsTrigger value="prevention" className="flex flex-col gap-1 py-3">
+                <Shield className="w-5 h-5" />
+                <span className="text-xs">Prevention</span>
               </TabsTrigger>
               <TabsTrigger value="resources" className="flex flex-col gap-1 py-3">
                 <FileText className="w-5 h-5" />
@@ -159,6 +171,16 @@ const Dashboard = () => {
             {/* Rewards Tab */}
             <TabsContent value="rewards">
               <RewardsCenter />
+            </TabsContent>
+
+            {/* Journal Tab */}
+            <TabsContent value="journal">
+              <MoodJournal />
+            </TabsContent>
+
+            {/* Prevention Tab */}
+            <TabsContent value="prevention">
+              <StressPrevention />
             </TabsContent>
 
             {/* Resources Tab */}

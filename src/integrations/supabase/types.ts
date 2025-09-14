@@ -163,6 +163,45 @@ export type Database = {
         }
         Relationships: []
       }
+      mood_journal: {
+        Row: {
+          created_at: string
+          emotional_state: string
+          id: string
+          mood_rating: number
+          notes: string | null
+          spending_amount: number | null
+          spending_category: string | null
+          spending_trigger: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          emotional_state: string
+          id?: string
+          mood_rating: number
+          notes?: string | null
+          spending_amount?: number | null
+          spending_category?: string | null
+          spending_trigger?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          emotional_state?: string
+          id?: string
+          mood_rating?: number
+          notes?: string | null
+          spending_amount?: number | null
+          spending_category?: string | null
+          spending_trigger?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -318,6 +357,39 @@ export type Database = {
           sponsor_name?: string
           sponsor_phone?: string | null
           updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      stress_prevention_events: {
+        Row: {
+          amount_considered: number | null
+          created_at: string
+          id: string
+          intervention_used: string | null
+          notes: string | null
+          prevented: boolean | null
+          trigger_type: string
+          user_id: string
+        }
+        Insert: {
+          amount_considered?: number | null
+          created_at?: string
+          id?: string
+          intervention_used?: string | null
+          notes?: string | null
+          prevented?: boolean | null
+          trigger_type: string
+          user_id: string
+        }
+        Update: {
+          amount_considered?: number | null
+          created_at?: string
+          id?: string
+          intervention_used?: string | null
+          notes?: string | null
+          prevented?: boolean | null
+          trigger_type?: string
           user_id?: string
         }
         Relationships: []
