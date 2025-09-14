@@ -51,6 +51,7 @@ All colors MUST be HSL.
     --gradient-hero: linear-gradient(135deg, hsl(220, 85%, 55%), hsl(150, 70%, 45%));
     --gradient-progress: linear-gradient(90deg, hsl(220, 85%, 55%), hsl(180, 60%, 50%));
     --gradient-card: linear-gradient(145deg, hsl(var(--background)), hsl(220, 35%, 95%));
+    --gradient-subtle: linear-gradient(180deg, hsl(220, 35%, 96%), hsl(210, 30%, 94%));
 
     /* Shadows for depth */
     --shadow-soft: 0 4px 6px -1px hsl(var(--primary) / 0.1);

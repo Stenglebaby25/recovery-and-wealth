@@ -47,10 +47,10 @@ const CaseStudiesSection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
             Recovery Success Stories
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-foreground max-w-2xl mx-auto">
             Real people, real transformation. See how the Sober Money Mindset has changed lives in lasting recovery.
           </p>
         </div>
