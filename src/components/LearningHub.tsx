@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle, Lock, Clock, Users, Target, Play } from 'lucide-react';
+import { CheckCircle, Lock, Clock, Users, Target, Play, BookOpen, GraduationCap } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 
 interface Course {
@@ -17,6 +17,7 @@ interface Course {
   video_url?: string;
   content?: string;
   order_index: number;
+  learning_pathway?: string;
 }
 
 interface UserProgress {
@@ -30,6 +31,7 @@ const LearningHub = () => {
   const [courses, setCourses] = useState<Course[]>([]);
   const [userProgress, setUserProgress] = useState<UserProgress[]>([]);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState<'foundation' | 'advanced'>('foundation');
 
   useEffect(() => {
     fetchCourses();
@@ -67,8 +69,23 @@ const LearningHub = () => {
     return userProgress.find(p => p.course_id === courseId);
   };
 
+  const foundationCourses = courses.filter(c => c.learning_pathway === 'foundation' || !c.learning_pathway);
+  const advancedCourses = courses.filter(c => c.learning_pathway === 'advanced');
+  
+  const completedFoundation = userProgress.filter(p => {
+    const course = courses.find(c => c.id === p.course_id);
+    return p.completed && (course?.learning_pathway === 'foundation' || !course?.learning_pathway);
+  }).length;
+  
+  const completedAdvanced = userProgress.filter(p => {
+    const course = courses.find(c => c.id === p.course_id);
+    return p.completed && course?.learning_pathway === 'advanced';
+  }).length;
+  
   const completedCourses = userProgress.filter(p => p.completed).length;
   const progressPercentage = courses.length > 0 ? (completedCourses / courses.length) * 100 : 0;
+  
+  const canAccessAdvanced = completedFoundation >= foundationCourses.length * 0.8; // 80% foundation completion
 
   const handleStartLesson = async (course: Course) => {
     if (!user) {
@@ -113,20 +130,20 @@ const LearningHub = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Learning Hub
+              Recovery Learning Hub
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Master your financial recovery with our proven 8-week program. 
-              Build the money skills that support lasting sobriety.
+              Build financial skills that support lasting recovery. From foundation concepts for early sobriety 
+              to advanced strategies for those in outpatient programs and sober living.
             </p>
           </div>
 
           {/* Premium Upgrade Banner */}
           {user && !isPremium && (
             <div className="bg-gradient-hero rounded-xl p-6 mb-12 text-white text-center">
-              <h3 className="text-2xl font-bold mb-2">Unlock Your Financial Recovery Journey</h3>
+              <h3 className="text-2xl font-bold mb-2">Unlock Your Complete Recovery Learning Path</h3>
               <p className="mb-4 opacity-90">
-                Get full access to all 8 weeks of course content, video lessons, and progress tracking.
+                Access advanced modules designed for outpatient programs, plus foundation courses, progress tracking, and recovery-focused financial tools.
               </p>
               <Button variant="outline" size="lg" className="bg-white text-primary hover:bg-white/90">
                 Upgrade to Premium
@@ -176,9 +193,69 @@ const LearningHub = () => {
             </div>
           )}
 
+          {/* Learning Path Tabs */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-card rounded-lg p-1 inline-flex shadow-medium">
+              <button
+                onClick={() => setActiveTab('foundation')}
+                className={`px-6 py-3 rounded-md font-medium transition-all flex items-center gap-2 ${
+                  activeTab === 'foundation'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <BookOpen className="w-4 h-4" />
+                Foundation Recovery
+                <Badge variant="secondary" className="ml-2">{foundationCourses.length}</Badge>
+              </button>
+              <button
+                onClick={() => setActiveTab('advanced')}
+                className={`px-6 py-3 rounded-md font-medium transition-all flex items-center gap-2 ${
+                  activeTab === 'advanced'
+                    ? 'bg-primary text-primary-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+                disabled={!canAccessAdvanced && !isPremium}
+              >
+                <GraduationCap className="w-4 h-4" />
+                Advanced Recovery
+                <Badge variant="secondary" className="ml-2">{advancedCourses.length}</Badge>
+                {!canAccessAdvanced && !isPremium && <Lock className="w-3 h-3 ml-1" />}
+              </button>
+            </div>
+          </div>
+
+          {/* Pathway Description */}
+          <div className="text-center mb-8">
+            {activeTab === 'foundation' ? (
+              <div className="max-w-2xl mx-auto">
+                <h3 className="text-xl font-semibold mb-2">Foundation Recovery Learning</h3>
+                <p className="text-muted-foreground">
+                  Essential financial skills for early recovery. Perfect for those who have completed detox and residential treatment, 
+                  now building a foundation for long-term financial sobriety.
+                </p>
+              </div>
+            ) : (
+              <div className="max-w-2xl mx-auto">
+                <h3 className="text-xl font-semibold mb-2">Advanced Recovery Learning</h3>
+                <p className="text-muted-foreground">
+                  Advanced strategies for those in outpatient programs (PHP/IOP) and sober living. 
+                  Self-directed learning for people with a clear head and solid recovery foundation.
+                </p>
+                {!canAccessAdvanced && (
+                  <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800">
+                    <p className="text-sm text-amber-800 dark:text-amber-200">
+                      Complete 80% of foundation courses to unlock advanced learning modules.
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+
           {/* Course Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {courses.map((course) => {
+            {(activeTab === 'foundation' ? foundationCourses : advancedCourses).map((course) => {
               const progress = getProgressForCourse(course.id);
               const isLocked = course.content_type === 'premium' && !isPremium;
               const isCompleted = progress?.completed || false;
