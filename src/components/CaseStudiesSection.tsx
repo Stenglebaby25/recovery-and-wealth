@@ -38,15 +38,10 @@ const CaseStudiesSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-subtle relative overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-3"
-        style={{ backgroundImage: `url(${transformationImage})` }}
-      />
-      
+    <section className="py-16 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-12">
+        {/* Header with solid background for better readability */}
+        <div className="text-center mb-12 bg-card/95 backdrop-blur rounded-xl p-8 shadow-soft">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
             Recovery Success Stories
           </h2>
@@ -55,54 +50,65 @@ const CaseStudiesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {caseStudies.map((study, index) => (
-            <Card key={index} className="shadow-medium bg-card/95 backdrop-blur hover:shadow-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full`}>
-                    <study.icon className={`w-6 h-6 ${study.color}`} />
-                  </div>
-                  <Badge variant="outline" className="text-xs">
-                    {study.title}
-                  </Badge>
-                </div>
-                <CardTitle className="text-xl">{study.name}</CardTitle>
-                <CardDescription className="text-sm">
-                  <span className="font-medium text-destructive">Challenge:</span> {study.challenge}
-                </CardDescription>
-              </CardHeader>
-              
-              <CardContent className="space-y-4">
-                <div>
-                  <p className="text-sm font-medium text-primary mb-2">Outcome:</p>
-                  <p className="text-sm text-muted-foreground">{study.outcome}</p>
-                </div>
-
-                <div className="bg-primary/5 p-4 rounded-lg relative">
-                  <Quote className="w-4 h-4 text-primary/60 absolute top-2 left-2" />
-                  <p className="text-sm italic text-foreground pl-6">
-                    "{study.quote}"
-                  </p>
-                </div>
-
-                <div className="space-y-2">
-                  <p className="text-xs font-medium text-foreground">Key Achievements:</p>
-                  <div className="flex flex-wrap gap-1">
-                    {study.metrics.map((metric, metricIndex) => (
-                      <Badge key={metricIndex} variant="secondary" className="text-xs">
-                        {metric}
+        {/* Cards section with background image */}
+        <div className="relative">
+          {/* Background Image for cards area only */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-5 rounded-xl"
+            style={{ backgroundImage: `url(${transformationImage})` }}
+          />
+          
+          <div className="relative z-10 py-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {caseStudies.map((study, index) => (
+                <Card key={index} className="shadow-medium bg-card/95 backdrop-blur hover:shadow-glow transition-all duration-300">
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className={`inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full`}>
+                        <study.icon className={`w-6 h-6 ${study.color}`} />
+                      </div>
+                      <Badge variant="outline" className="text-xs">
+                        {study.title}
                       </Badge>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                    </div>
+                    <CardTitle className="text-xl">{study.name}</CardTitle>
+                    <CardDescription className="text-sm">
+                      <span className="font-medium text-destructive">Challenge:</span> {study.challenge}
+                    </CardDescription>
+                  </CardHeader>
+                  
+                  <CardContent className="space-y-4">
+                    <div>
+                      <p className="text-sm font-medium text-primary mb-2">Outcome:</p>
+                      <p className="text-sm text-muted-foreground">{study.outcome}</p>
+                    </div>
+
+                    <div className="bg-primary/5 p-4 rounded-lg relative">
+                      <Quote className="w-4 h-4 text-primary/60 absolute top-2 left-2" />
+                      <p className="text-sm italic text-foreground pl-6">
+                        "{study.quote}"
+                      </p>
+                    </div>
+
+                    <div className="space-y-2">
+                      <p className="text-xs font-medium text-foreground">Key Achievements:</p>
+                      <div className="flex flex-wrap gap-1">
+                        {study.metrics.map((metric, metricIndex) => (
+                          <Badge key={metricIndex} variant="secondary" className="text-xs">
+                            {metric}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="text-center mt-12">
-          <div className="bg-card/95 backdrop-blur rounded-xl p-8 shadow-medium max-w-2xl mx-auto">
+          <div className="bg-card/95 backdrop-blur rounded-xl p-8 shadow-medium max-w-2xl mx-auto relative z-10">
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Your Story Could Be Next
             </h3>
