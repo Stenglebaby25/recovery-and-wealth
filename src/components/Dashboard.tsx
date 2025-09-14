@@ -23,6 +23,7 @@ import ResourceLibrary from './premium/ResourceLibrary';
 import SponsorManagement from './premium/SponsorManagement';
 import MoodJournal from './behavioral/MoodJournal';
 import StressPrevention from './behavioral/StressPrevention';
+import TestingPanel from './TestingPanel';
 
 const Dashboard = () => {
   const { user, isPremium } = useAuth();
@@ -57,6 +58,9 @@ const Dashboard = () => {
               Continue your financial recovery journey with personalized tools and insights.
             </p>
           </div>
+
+          {/* Testing Panel - Only show in development */}
+          <TestingPanel />
 
           {/* Dashboard Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
