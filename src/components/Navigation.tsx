@@ -29,8 +29,8 @@ const Navigation = () => {
             <a href="#calculators" className="text-foreground hover:text-primary transition-colors">
               Free Tools
             </a>
-            <a href="#learning-hub" className="text-foreground hover:text-primary transition-colors">
-              Learning Hub
+            <a href={user ? "#dashboard" : "#learning-hub"} className="text-foreground hover:text-primary transition-colors">
+              {user ? "Dashboard" : "Learning Hub"}
             </a>
             <a href="#coaching" className="text-foreground hover:text-primary transition-colors">
               Coaching
@@ -78,11 +78,11 @@ const Navigation = () => {
                 Free Tools
               </a>
               <a 
-                href="#learning-hub" 
+                href={user ? "#dashboard" : "#learning-hub"} 
                 className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Learning Hub
+                {user ? "Dashboard" : "Learning Hub"}
               </a>
               <a 
                 href="#coaching" 

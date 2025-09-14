@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      achievements: {
+        Row: {
+          badge_icon: string
+          category: string
+          created_at: string
+          description: string
+          id: string
+          name: string
+          points: number
+          requirement_type: string
+          requirement_value: number
+        }
+        Insert: {
+          badge_icon: string
+          category: string
+          created_at?: string
+          description: string
+          id?: string
+          name: string
+          points?: number
+          requirement_type: string
+          requirement_value: number
+        }
+        Update: {
+          badge_icon?: string
+          category?: string
+          created_at?: string
+          description?: string
+          id?: string
+          name?: string
+          points?: number
+          requirement_type?: string
+          requirement_value?: number
+        }
+        Relationships: []
+      }
       courses: {
         Row: {
           content: string | null
@@ -56,6 +92,74 @@ export type Database = {
         }
         Relationships: []
       }
+      habit_completions: {
+        Row: {
+          completed_at: string
+          created_at: string
+          habit_id: string
+          id: string
+          notes: string | null
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string
+          created_at?: string
+          habit_id: string
+          id?: string
+          notes?: string | null
+          user_id: string
+        }
+        Update: {
+          completed_at?: string
+          created_at?: string
+          habit_id?: string
+          id?: string
+          notes?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "habit_completions_habit_id_fkey"
+            columns: ["habit_id"]
+            isOneToOne: false
+            referencedRelation: "habits"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      habits: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          target_frequency: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          target_frequency?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          target_frequency?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -85,6 +189,122 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      resources: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          external_url: string | null
+          file_url: string | null
+          id: string
+          order_index: number | null
+          resource_type: string
+          tags: string[] | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description?: string | null
+          external_url?: string | null
+          file_url?: string | null
+          id?: string
+          order_index?: number | null
+          resource_type?: string
+          tags?: string[] | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          external_url?: string | null
+          file_url?: string | null
+          id?: string
+          order_index?: number | null
+          resource_type?: string
+          tags?: string[] | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      sponsors: {
+        Row: {
+          connected_at: string
+          created_at: string
+          id: string
+          notes: string | null
+          program_type: string
+          relationship_type: string
+          sponsor_email: string | null
+          sponsor_name: string
+          sponsor_phone: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          connected_at?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          program_type?: string
+          relationship_type?: string
+          sponsor_email?: string | null
+          sponsor_name: string
+          sponsor_phone?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          connected_at?: string
+          created_at?: string
+          id?: string
+          notes?: string | null
+          program_type?: string
+          relationship_type?: string
+          sponsor_email?: string | null
+          sponsor_name?: string
+          sponsor_phone?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_achievements: {
+        Row: {
+          achievement_id: string
+          created_at: string
+          earned_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          achievement_id: string
+          created_at?: string
+          earned_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          achievement_id?: string
+          created_at?: string
+          earned_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_achievements_achievement_id_fkey"
+            columns: ["achievement_id"]
+            isOneToOne: false
+            referencedRelation: "achievements"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       user_progress: {
         Row: {
