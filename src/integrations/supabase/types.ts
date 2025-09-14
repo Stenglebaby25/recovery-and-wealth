@@ -235,6 +235,51 @@ export type Database = {
         }
         Relationships: []
       }
+      rewards: {
+        Row: {
+          category: string
+          created_at: string
+          current_redemptions: number
+          description: string | null
+          id: string
+          is_active: boolean
+          max_redemptions: number | null
+          points_required: number
+          reward_type: string
+          title: string
+          updated_at: string
+          value: string | null
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          current_redemptions?: number
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          max_redemptions?: number | null
+          points_required?: number
+          reward_type?: string
+          title: string
+          updated_at?: string
+          value?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          current_redemptions?: number
+          description?: string | null
+          id?: string
+          is_active?: boolean
+          max_redemptions?: number | null
+          points_required?: number
+          reward_type?: string
+          title?: string
+          updated_at?: string
+          value?: string | null
+        }
+        Relationships: []
+      }
       sponsors: {
         Row: {
           connected_at: string
@@ -346,6 +391,47 @@ export type Database = {
             columns: ["course_id"]
             isOneToOne: false
             referencedRelation: "courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_reward_redemptions: {
+        Row: {
+          created_at: string
+          id: string
+          points_spent: number
+          redeemed_at: string
+          redemption_code: string | null
+          reward_id: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          points_spent: number
+          redeemed_at?: string
+          redemption_code?: string | null
+          reward_id: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          points_spent?: number
+          redeemed_at?: string
+          redemption_code?: string | null
+          reward_id?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_reward_redemptions_reward_id_fkey"
+            columns: ["reward_id"]
+            isOneToOne: false
+            referencedRelation: "rewards"
             referencedColumns: ["id"]
           },
         ]

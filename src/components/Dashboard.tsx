@@ -10,11 +10,13 @@ import {
   Users, 
   FileText,
   TrendingUp,
-  Star
+  Star,
+  Gift
 } from 'lucide-react';
 import LearningHub from './LearningHub';
 import ProgressDashboard from './gamification/ProgressDashboard';
 import HabitTracker from './gamification/HabitTracker';
+import RewardsCenter from './gamification/RewardsCenter';
 import ResourceLibrary from './premium/ResourceLibrary';
 import SponsorManagement from './premium/SponsorManagement';
 
@@ -54,7 +56,7 @@ const Dashboard = () => {
 
           {/* Dashboard Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-6 h-auto">
+            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-7 h-auto">
               <TabsTrigger value="overview" className="flex flex-col gap-1 py-3">
                 <TrendingUp className="w-5 h-5" />
                 <span className="text-xs">Overview</span>
@@ -70,6 +72,10 @@ const Dashboard = () => {
               <TabsTrigger value="achievements" className="flex flex-col gap-1 py-3">
                 <Trophy className="w-5 h-5" />
                 <span className="text-xs">Progress</span>
+              </TabsTrigger>
+              <TabsTrigger value="rewards" className="flex flex-col gap-1 py-3">
+                <Gift className="w-5 h-5" />
+                <span className="text-xs">Rewards</span>
               </TabsTrigger>
               <TabsTrigger value="resources" className="flex flex-col gap-1 py-3">
                 <FileText className="w-5 h-5" />
@@ -148,6 +154,11 @@ const Dashboard = () => {
             {/* Achievements Tab */}
             <TabsContent value="achievements">
               <ProgressDashboard />
+            </TabsContent>
+
+            {/* Rewards Tab */}
+            <TabsContent value="rewards">
+              <RewardsCenter />
             </TabsContent>
 
             {/* Resources Tab */}
