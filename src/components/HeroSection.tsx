@@ -35,6 +35,25 @@ const HeroSection = () => {
             </span>
           </h1>
           
+          {/* Intro Video */}
+          <div className="mb-8 max-w-2xl mx-auto">
+            <div className="relative rounded-xl overflow-hidden shadow-glow bg-card/20 backdrop-blur-sm border border-white/20">
+              <iframe 
+                width="100%" 
+                height="315" 
+                src="https://www.youtube.com/embed/kB1NTdSIB48?si=Y_Vy7xdD7QvoPd15&autoplay=0&controls=1&rel=0" 
+                title="Financial Struggles in Early Recovery"
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+                className="w-full"
+              ></iframe>
+            </div>
+            <p className="text-sm text-muted-foreground mt-3 text-center">
+              Why financial struggles hit hardest in early recovery
+            </p>
+          </div>
+
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
             Financial literacy education designed specifically for people in recovery. 

@@ -132,10 +132,34 @@ const LearningHub = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Recovery Learning Hub
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Build financial skills that support lasting recovery. From foundation concepts for early sobriety 
               to advanced strategies for those in outpatient programs and sober living.
             </p>
+
+            {/* Featured Budgeting Video */}
+            <div className="max-w-3xl mx-auto mb-8">
+              <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 shadow-medium border border-primary/20">
+                <h3 className="text-xl font-semibold text-foreground mb-4">
+                  Featured Lesson: Budgeting Basics for Recovery
+                </h3>
+                <div className="relative rounded-lg overflow-hidden shadow-medium">
+                  <iframe 
+                    width="100%" 
+                    height="400" 
+                    src="https://www.youtube.com/embed/SbcUpkSrht0?si=SWmiWE7O7Pfd5_Gs&autoplay=0&controls=1&rel=0" 
+                    title="Budgeting Basics for Recovery"
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowFullScreen
+                    className="w-full"
+                  ></iframe>
+                </div>
+                <p className="text-sm text-muted-foreground mt-3 text-center">
+                  A quick overview of essential budgeting skills designed specifically for people in recovery
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Premium Upgrade Banner */}
