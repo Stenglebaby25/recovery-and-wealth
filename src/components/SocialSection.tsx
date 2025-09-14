@@ -1,13 +1,12 @@
-import { Facebook, Instagram, Twitter, Youtube, Linkedin } from "lucide-react";
+import { Instagram, Twitter, Youtube, Music } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const SocialSection = () => {
   const socialLinks = [
-    { name: "Facebook", icon: Facebook, href: "#", handle: "@SoberMoneyMindset" },
-    { name: "Instagram", icon: Instagram, href: "#", handle: "@SoberMoneyMindset" },
-    { name: "Twitter", icon: Twitter, href: "#", handle: "@SoberMoneyMindset" },
-    { name: "YouTube", icon: Youtube, href: "#", handle: "@SoberMoneyMindset" },
-    { name: "LinkedIn", icon: Linkedin, href: "#", handle: "Sober Money Mindset" },
+    { name: "YouTube", icon: Youtube, href: "https://youtube.com/@sobermoneymindset?si=ZA1FzPFe0g4CIDbB", handle: "@sobermoneymindset" },
+    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/sobermoneymindset?igsh=ZHFldWhqb3ljaDI3", handle: "@sobermoneymindset" },
+    { name: "Twitter", icon: Twitter, href: "https://x.com/SoberMoneyMind?s=09", handle: "@SoberMoneyMind" },
+    { name: "TikTok", icon: Music, href: "https://www.tiktok.com/@sobermoneymindset?_t=ZP-8zi2CxGFwCc&_r=1", handle: "@sobermoneymindset" },
   ];
 
   return (
