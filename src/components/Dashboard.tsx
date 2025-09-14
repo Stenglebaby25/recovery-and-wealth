@@ -46,12 +46,12 @@ const Dashboard = () => {
   }
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <div className="max-w-7xl mx-auto">
           {/* Welcome Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <div className="text-center mb-12 animate-fade-in">
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-progress bg-clip-text text-transparent mb-4">
               Welcome Back!
             </h1>
             <p className="text-xl text-muted-foreground">
@@ -63,41 +63,41 @@ const Dashboard = () => {
           <TestingPanel />
 
           {/* Dashboard Tabs */}
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-9 h-auto">
-              <TabsTrigger value="overview" className="flex flex-col gap-1 py-3">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8 animate-scale-in">
+            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-9 h-auto bg-gradient-card border-0 shadow-soft">
+              <TabsTrigger value="overview" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <TrendingUp className="w-5 h-5" />
                 <span className="text-xs">Overview</span>
               </TabsTrigger>
-              <TabsTrigger value="learning" className="flex flex-col gap-1 py-3">
+              <TabsTrigger value="learning" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <BookOpen className="w-5 h-5" />
                 <span className="text-xs">Learning</span>
               </TabsTrigger>
-              <TabsTrigger value="habits" className="flex flex-col gap-1 py-3">
+              <TabsTrigger value="habits" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Target className="w-5 h-5" />
                 <span className="text-xs">Habits</span>
               </TabsTrigger>
-              <TabsTrigger value="achievements" className="flex flex-col gap-1 py-3">
+              <TabsTrigger value="achievements" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Trophy className="w-5 h-5" />
                 <span className="text-xs">Progress</span>
               </TabsTrigger>
-              <TabsTrigger value="rewards" className="flex flex-col gap-1 py-3">
+              <TabsTrigger value="rewards" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Gift className="w-5 h-5" />
                 <span className="text-xs">Rewards</span>
               </TabsTrigger>
-              <TabsTrigger value="journal" className="flex flex-col gap-1 py-3">
+              <TabsTrigger value="journal" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Brain className="w-5 h-5" />
                 <span className="text-xs">Journal</span>
               </TabsTrigger>
-              <TabsTrigger value="prevention" className="flex flex-col gap-1 py-3">
+              <TabsTrigger value="prevention" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Shield className="w-5 h-5" />
                 <span className="text-xs">Prevention</span>
               </TabsTrigger>
-              <TabsTrigger value="resources" className="flex flex-col gap-1 py-3">
+              <TabsTrigger value="resources" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <FileText className="w-5 h-5" />
                 <span className="text-xs">Resources</span>
               </TabsTrigger>
-              <TabsTrigger value="support" className="flex flex-col gap-1 py-3">
+              <TabsTrigger value="support" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Users className="w-5 h-5" />
                 <span className="text-xs">Support</span>
               </TabsTrigger>
@@ -107,20 +107,20 @@ const Dashboard = () => {
             <TabsContent value="overview" className="space-y-8">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Quick Stats */}
-                <Card className="lg:col-span-2">
+                <Card className="lg:col-span-2 border-0 shadow-soft bg-gradient-card">
                   <CardContent className="p-6">
                     <ProgressDashboard />
                   </CardContent>
                 </Card>
 
                 {/* Quick Actions */}
-                <Card>
+                <Card className="border-0 shadow-soft bg-gradient-subtle">
                   <CardContent className="p-6">
-                    <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
+                    <h3 className="text-lg font-semibold mb-4 text-foreground">Quick Actions</h3>
                     <div className="space-y-3">
                       <Button 
                         variant="outline" 
-                        className="w-full justify-start"
+                        className="w-full justify-start border-primary/20 hover:bg-primary/5 transition-all shadow-soft hover:shadow-medium"
                         onClick={() => setActiveTab('learning')}
                       >
                         <BookOpen className="w-4 h-4 mr-2" />
@@ -128,7 +128,7 @@ const Dashboard = () => {
                       </Button>
                       <Button 
                         variant="outline" 
-                        className="w-full justify-start"
+                        className="w-full justify-start border-secondary/20 hover:bg-secondary/5 transition-all shadow-soft hover:shadow-medium"
                         onClick={() => setActiveTab('habits')}
                       >
                         <Target className="w-4 h-4 mr-2" />
@@ -136,7 +136,7 @@ const Dashboard = () => {
                       </Button>
                       <Button 
                         variant="outline" 
-                        className="w-full justify-start"
+                        className="w-full justify-start border-accent/20 hover:bg-accent/5 transition-all shadow-soft hover:shadow-medium"
                         onClick={() => setActiveTab('resources')}
                       >
                         <FileText className="w-4 h-4 mr-2" />
@@ -145,7 +145,7 @@ const Dashboard = () => {
                       {!isPremium && (
                         <Button 
                           variant="default" 
-                          className="w-full justify-start bg-gradient-primary"
+                          className="w-full justify-start bg-gradient-progress border-0 shadow-soft hover:shadow-medium transition-all"
                         >
                           <Star className="w-4 h-4 mr-2" />
                           Upgrade to Premium

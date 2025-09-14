@@ -76,11 +76,15 @@ export default {
         "gradient-hero": "var(--gradient-hero)",
         "gradient-progress": "var(--gradient-progress)",
         "gradient-card": "var(--gradient-card)",
+        "gradient-subtle": "var(--gradient-subtle)",
+        "gradient-success": "var(--gradient-success)",
+        "gradient-accent": "var(--gradient-accent)",
       },
       boxShadow: {
         "soft": "var(--shadow-soft)",
         "medium": "var(--shadow-medium)",
         "glow": "var(--shadow-glow)",
+        "success": "var(--shadow-success)",
       },
       keyframes: {
         "accordion-down": {
@@ -117,12 +121,32 @@ export default {
             transform: "translateX(0)",
           },
         },
+        "pulse-success": {
+          "0%, 100%": {
+            opacity: "1",
+          },
+          "50%": {
+            opacity: ".7",
+          },
+        },
+        "scale-in": {
+          from: {
+            opacity: "0",
+            transform: "scale(0.95)",
+          },
+          to: {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.5s ease-out",
         "slide-in": "slide-in 0.5s ease-out",
+        "pulse-success": "pulse-success 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "scale-in": "scale-in 0.3s ease-out",
       },
     },
   },

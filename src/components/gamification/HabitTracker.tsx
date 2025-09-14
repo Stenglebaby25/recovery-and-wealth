@@ -229,43 +229,56 @@ const HabitTracker = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8 animate-fade-in">
+      {/* Supportive Header */}
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold">Daily Habits</h2>
+        <div>
+          <h2 className="text-3xl font-bold bg-gradient-progress bg-clip-text text-transparent">
+            Daily Habits
+          </h2>
+          <p className="text-muted-foreground mt-1">
+            Building healthy routines, one day at a time
+          </p>
+        </div>
         <Dialog open={isAddingHabit} onOpenChange={setIsAddingHabit}>
           <DialogTrigger asChild>
-            <Button>
+            <Button className="bg-gradient-progress border-0 shadow-soft hover:shadow-medium transition-all">
               <Plus className="w-4 h-4 mr-2" />
               Add Habit
             </Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="bg-gradient-card border-0 shadow-glow">
             <DialogHeader>
-              <DialogTitle>Add New Habit</DialogTitle>
+              <DialogTitle className="text-xl">Add New Habit</DialogTitle>
+              <p className="text-muted-foreground">
+                Create a positive routine that supports your recovery journey
+              </p>
             </DialogHeader>
             <div className="space-y-4">
               <div>
-                <label className="text-sm font-medium">Habit Name</label>
+                <label className="text-sm font-medium text-foreground">Habit Name</label>
                 <Input
                   value={newHabit.name}
                   onChange={(e) => setNewHabit(prev => ({ ...prev, name: e.target.value }))}
                   placeholder="e.g., Review daily expenses"
+                  className="mt-1 border-muted focus:border-primary"
                 />
               </div>
               <div>
-                <label className="text-sm font-medium">Description</label>
+                <label className="text-sm font-medium text-foreground">Description</label>
                 <Textarea
                   value={newHabit.description}
                   onChange={(e) => setNewHabit(prev => ({ ...prev, description: e.target.value }))}
-                  placeholder="Why is this habit important for your recovery?"
+                  placeholder="How will this habit support your financial wellness?"
+                  className="mt-1 border-muted focus:border-primary"
                 />
               </div>
               <div>
-                <label className="text-sm font-medium">Category</label>
+                <label className="text-sm font-medium text-foreground">Category</label>
                 <select
                   value={newHabit.category}
                   onChange={(e) => setNewHabit(prev => ({ ...prev, category: e.target.value }))}
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border border-muted rounded-md mt-1 bg-background focus:border-primary"
                 >
                   <option value="financial">Financial</option>
                   <option value="recovery">Recovery</option>
@@ -273,8 +286,11 @@ const HabitTracker = () => {
                   <option value="learning">Learning</option>
                 </select>
               </div>
-              <Button onClick={handleAddHabit} className="w-full">
-                Add Habit
+              <Button 
+                onClick={handleAddHabit} 
+                className="w-full bg-gradient-progress border-0 shadow-soft"
+              >
+                Create Habit
               </Button>
             </div>
           </DialogContent>
@@ -282,57 +298,74 @@ const HabitTracker = () => {
       </div>
 
       {habits.length === 0 ? (
-        <Card>
-          <CardContent className="text-center py-12">
-            <Target className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-            <h3 className="text-lg font-semibold mb-2">No habits yet</h3>
-            <p className="text-muted-foreground mb-4">
-              Start building healthy financial habits to support your recovery journey.
+        <Card className="border-0 shadow-soft bg-gradient-subtle">
+          <CardContent className="text-center py-16">
+            <div className="w-16 h-16 bg-gradient-progress rounded-full flex items-center justify-center mx-auto mb-6 shadow-soft">
+              <Target className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-xl font-semibold mb-3">Start Your Journey</h3>
+            <p className="text-muted-foreground mb-6 max-w-md mx-auto">
+              Building healthy financial habits is a powerful step in your recovery. Start with one small habit today.
             </p>
-            <Button onClick={() => setIsAddingHabit(true)}>
+            <Button 
+              onClick={() => setIsAddingHabit(true)}
+              className="bg-gradient-progress border-0 shadow-soft hover:shadow-medium transition-all"
+            >
               <Plus className="w-4 h-4 mr-2" />
-              Add Your First Habit
+              Create Your First Habit
             </Button>
           </CardContent>
         </Card>
       ) : (
-        <div className="grid gap-4">
-          {habits.map((habit) => (
-            <Card key={habit.id} className="transition-all hover:shadow-medium">
+        <div className="grid gap-6">
+          {habits.map((habit, index) => (
+            <Card 
+              key={habit.id} 
+              className="border-0 shadow-soft bg-gradient-card transition-all duration-300 hover:shadow-medium animate-scale-in"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="font-semibold text-lg">{habit.name}</h3>
-                      <Badge variant="outline" className={getCategoryColor(habit.category)}>
+                    <div className="flex items-center gap-3 mb-3">
+                      <h3 className="font-semibold text-xl text-foreground">{habit.name}</h3>
+                      <Badge 
+                        variant="outline" 
+                        className={`${getCategoryColor(habit.category)} border-0 shadow-soft`}
+                      >
                         {habit.category}
                       </Badge>
                     </div>
                     {habit.description && (
-                      <p className="text-muted-foreground mb-3">{habit.description}</p>
+                      <p className="text-muted-foreground mb-4 leading-relaxed">{habit.description}</p>
                     )}
-                    <div className="flex items-center gap-6 text-sm">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4 text-muted-foreground" />
-                        <span>{habit.streak} day streak</span>
+                    <div className="flex items-center gap-8 text-sm">
+                      <div className="flex items-center gap-2 px-3 py-1 bg-accent/10 rounded-full">
+                        <Calendar className="w-4 h-4 text-accent" />
+                        <span className="font-medium">{habit.streak} day streak</span>
                       </div>
-                      <div className="flex items-center gap-1">
-                        <TrendingUp className="w-4 h-4 text-muted-foreground" />
-                        <span>{habit.completionRate}% completion rate</span>
+                      <div className="flex items-center gap-2 px-3 py-1 bg-secondary/10 rounded-full">
+                        <TrendingUp className="w-4 h-4 text-secondary" />
+                        <span className="font-medium">{habit.completionRate}% completion</span>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 ml-6">
                     <Button
                       variant={habit.todayCompleted ? "success" : "outline"}
                       size="lg"
                       onClick={() => !habit.todayCompleted && handleCompleteHabit(habit.id)}
                       disabled={habit.todayCompleted}
+                      className={`${
+                        habit.todayCompleted 
+                          ? 'bg-gradient-success border-0 shadow-success text-white hover:bg-gradient-success' 
+                          : 'border-primary/20 hover:bg-primary/5 shadow-soft hover:shadow-medium'
+                      } transition-all duration-200`}
                     >
                       {habit.todayCompleted ? (
                         <>
                           <CheckCircle className="w-5 h-5 mr-2" />
-                          Completed
+                          Completed Today
                         </>
                       ) : (
                         <>
