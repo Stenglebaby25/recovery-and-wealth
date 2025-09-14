@@ -16,7 +16,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img 
-              src="/src/assets/recovery-wealth-logo.png" 
+              src="/recovery-wealth-logo.png" 
               alt="Recovery & Wealth" 
               className="h-8 w-auto"
             />
