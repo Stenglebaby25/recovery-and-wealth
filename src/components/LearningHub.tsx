@@ -132,46 +132,49 @@ const LearningHub = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               Recovery Learning Hub
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Build financial skills that support lasting recovery. From foundation concepts for early sobriety 
               to advanced strategies for those in outpatient programs and sober living.
             </p>
-
-            {/* Featured Budgeting Video */}
-            <div className="max-w-3xl mx-auto mb-8">
-              <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 shadow-medium border border-primary/20">
-                <h3 className="text-xl font-semibold text-foreground mb-4">
-                  Featured Lesson: Budgeting Basics for Recovery
-                </h3>
-                <div className="relative rounded-lg overflow-hidden shadow-medium">
-                  <iframe 
-                    width="100%" 
-                    height="400" 
-                    src="https://www.youtube.com/embed/SbcUpkSrht0?si=SWmiWE7O7Pfd5_Gs&autoplay=0&controls=1&rel=0" 
-                    title="Budgeting Basics for Recovery"
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowFullScreen
-                    className="w-full"
-                  ></iframe>
-                </div>
-                <p className="text-sm text-muted-foreground mt-3 text-center">
-                  A quick overview of essential budgeting skills designed specifically for people in recovery
-                </p>
-              </div>
-            </div>
           </div>
 
-          {/* Premium Upgrade Banner */}
+          {/* Premium Content Preview */}
           {user && !isPremium && (
-            <div className="bg-gradient-hero rounded-xl p-6 mb-12 text-white text-center">
-              <h3 className="text-2xl font-bold mb-2">Unlock Your Complete Recovery Learning Path</h3>
-              <p className="mb-4 opacity-90">
-                Access advanced modules designed for outpatient programs, plus foundation courses, progress tracking, and recovery-focused financial tools.
-              </p>
-              <Button variant="outline" size="lg" className="bg-white text-primary hover:bg-white/90">
-                Upgrade to Premium
-              </Button>
+            <div className="bg-gradient-hero rounded-xl p-6 mb-12 text-white">
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold mb-2">Unlock Your Complete Recovery Learning Path</h3>
+                <p className="mb-4 opacity-90">
+                  Access advanced modules designed for outpatient programs, plus foundation courses, progress tracking, and recovery-focused financial tools.
+                </p>
+              </div>
+              
+              {/* Premium Video Preview */}
+              <div className="max-w-2xl mx-auto mb-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                  <h4 className="text-lg font-semibold mb-3">Premium Lesson Preview: Budgeting Basics</h4>
+                  <div className="relative rounded-lg overflow-hidden">
+                    <iframe 
+                      width="100%" 
+                      height="250" 
+                      src="https://www.youtube.com/embed/SbcUpkSrht0?si=SWmiWE7O7Pfd5_Gs&autoplay=0&controls=1&rel=0" 
+                      title="Budgeting Basics for Recovery"
+                      frameBorder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      allowFullScreen
+                      className="w-full h-40 sm:h-48 md:h-[250px]"
+                    ></iframe>
+                  </div>
+                  <p className="text-sm opacity-90 mt-3 text-center">
+                    Complete budgeting course with worksheets, templates, and personalized guidance
+                  </p>
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <Button variant="outline" size="lg" className="bg-white text-primary hover:bg-white/90">
+                  Upgrade to Premium
+                </Button>
+              </div>
             </div>
           )}
 

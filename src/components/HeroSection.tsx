@@ -35,25 +35,6 @@ const HeroSection = () => {
             </span>
           </h1>
           
-          {/* Intro Video */}
-          <div className="mb-8 max-w-2xl mx-auto">
-            <div className="relative rounded-xl overflow-hidden shadow-glow bg-card/20 backdrop-blur-sm border border-white/20">
-              <iframe 
-                width="100%" 
-                height="315" 
-                src="https://www.youtube.com/embed/kB1NTdSIB48?si=Y_Vy7xdD7QvoPd15&autoplay=0&controls=1&rel=0" 
-                title="Financial Struggles in Early Recovery"
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen
-                className="w-full"
-              ></iframe>
-            </div>
-            <p className="text-sm text-muted-foreground mt-3 text-center">
-              Why financial struggles hit hardest in early recovery
-            </p>
-          </div>
-
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
             Financial literacy education designed specifically for people in recovery. 
@@ -73,6 +54,25 @@ const HeroSection = () => {
             <div className="bg-card/50 backdrop-blur-sm rounded-lg p-4 shadow-soft hover-scale">
               <div className="text-3xl font-bold text-accent">40-60%</div>
               <div className="text-sm text-muted-foreground font-medium">relapse rate in first year of recovery</div>
+            </div>
+          </div>
+          
+          {/* Introduction Video */}
+          <div className="mb-8 max-w-xl mx-auto">
+            <div className="bg-card/30 backdrop-blur-sm rounded-lg p-4 border border-primary/10">
+              <h4 className="text-sm font-medium text-foreground mb-3 text-center">See Why This Matters</h4>
+              <div className="relative rounded-lg overflow-hidden">
+                <iframe 
+                  width="100%" 
+                  height="200" 
+                  src="https://www.youtube.com/embed/kB1NTdSIB48?si=Y_Vy7xdD7QvoPd15&autoplay=0&controls=1&rel=0" 
+                  title="Financial Struggles in Early Recovery"
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen
+                  className="w-full h-32 sm:h-48 md:h-[200px]"
+                ></iframe>
+              </div>
             </div>
           </div>
           
