@@ -6,7 +6,7 @@ import { useLeadCapture } from "@/hooks/useLeadCapture";
 import { useAuth } from "@/hooks/useAuth";
 
 const PricingSection = () => {
-  const { captureLead, handleSubscriptionSuccess, isSubmitting } = useLeadCapture();
+  const { captureLead, isSubmitting } = useLeadCapture();
   const { user } = useAuth();
 
   const handlePlanSelection = async (planName: string, price: string) => {
@@ -16,23 +16,34 @@ const PricingSection = () => {
       return;
     }
     
-    // For paid plans, capture lead and show subscription success
-    const result = await captureLead('subscription@interest.com', 'coaching_interest', '/pricing', { 
-      plan: planName,
-      price: price,
-      action: 'subscription_intent'
+    // For paid plans, capture lead and navigate to dashboard
+    const result = await captureLead({
+      email: 'subscription@interest.com',
+      leadType: 'coaching_interest',
+      sourcePage: '/pricing',
+      metadata: { 
+        plan: planName,
+        price: price,
+        action: 'subscription_intent'
+      }
     });
     
-    if (result.success) {
-      handleSubscriptionSuccess();
+    if (result.success && user) {
+      // Navigate to dashboard for logged in users
+      window.location.href = '/#dashboard';
     }
   };
 
   const handleBusinessContact = async (planName: string) => {
-    const result = await captureLead('business@contact.com', 'coaching_interest', '/pricing', { 
-      plan: planName,
-      plan_type: 'business',
-      action: 'contact_sales'
+    const result = await captureLead({
+      email: 'business@contact.com',
+      leadType: 'coaching_interest',
+      sourcePage: '/pricing',
+      metadata: { 
+        plan: planName,
+        plan_type: 'business',
+        action: 'contact_sales'
+      }
     });
   };
 

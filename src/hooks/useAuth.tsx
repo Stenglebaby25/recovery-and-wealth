@@ -79,6 +79,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signOut = async () => {
     await supabase.auth.signOut();
+    // Navigate to home page after sign out
+    window.location.href = '/';
   };
 
   const isPremium = profile?.subscription_status === 'premium' || profile?.subscription_status === 'enterprise';

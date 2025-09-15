@@ -21,7 +21,7 @@ const Navigation = () => {
             <img 
               src="/recovery-wealth-logo.png" 
               alt="Recovery & Wealth" 
-              className="h-10 md:h-8 w-auto hover:opacity-80 transition-opacity"
+              className="h-10 md:h-8 w-auto cursor-pointer hover:opacity-80 transition-opacity"
             />
           </Link>
 

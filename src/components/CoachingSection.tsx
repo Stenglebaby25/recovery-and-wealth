@@ -12,13 +12,20 @@ const CoachingSection = () => {
   const [email, setEmail] = useState('');
 
   const handleCoachingInterest = async (coachingType: string) => {
-    const result = await captureLead('coaching@interest.com', 'coaching_interest', '/coaching', { 
-      coaching_type: coachingType 
+    const result = await captureLead({
+      email: 'coaching@interest.com',
+      leadType: 'coaching_interest',
+      sourcePage: '/coaching',
+      metadata: { coaching_type: coachingType }
     });
   };
 
   const handleCommunityJoin = async () => {
-    const result = await captureLead('community@interest.com', 'community_join', '/coaching');
+    const result = await captureLead({
+      email: 'community@interest.com',
+      leadType: 'community_join',
+      sourcePage: '/coaching'
+    });
   };
 
   const coachingTypes = [
