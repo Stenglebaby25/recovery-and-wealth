@@ -73,6 +73,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
+        "gradient-primary": "var(--gradient-primary)",
         "gradient-hero": "var(--gradient-hero)",
         "gradient-progress": "var(--gradient-progress)",
         "gradient-card": "var(--gradient-card)",
