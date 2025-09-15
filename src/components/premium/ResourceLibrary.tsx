@@ -14,7 +14,11 @@ import {
   Headphones, 
   BookOpen,
   Lock,
-  Star
+  Star,
+  CheckSquare,
+  PenTool,
+  FileCheck,
+  GraduationCap
 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -89,7 +93,11 @@ const ResourceLibrary = () => {
       template: FileText,
       guide: BookOpen,
       video: Video,
-      audio: Headphones
+      audio: Headphones,
+      workbook: PenTool,
+      checklist: CheckSquare,
+      ebook: GraduationCap,
+      whitepaper: FileCheck
     };
     return icons[category as keyof typeof icons] || FileText;
   };
@@ -104,10 +112,14 @@ const ResourceLibrary = () => {
     return resource.resource_type === 'free' || isPremium;
   };
 
-  const categories = ['all', 'worksheet', 'template', 'guide', 'video', 'audio'];
+  const categories = ['all', 'worksheet', 'workbook', 'checklist', 'ebook', 'whitepaper', 'template', 'guide', 'video', 'audio'];
   const categoryLabels = {
     all: 'All Resources',
     worksheet: 'Worksheets',
+    workbook: 'Workbooks',
+    checklist: 'Checklists',
+    ebook: 'E-Books',
+    whitepaper: 'White Papers',
     template: 'Templates', 
     guide: 'Guides',
     video: 'Videos',
@@ -133,7 +145,7 @@ const ResourceLibrary = () => {
       <div className="text-center">
         <h2 className="text-3xl font-bold text-foreground mb-4">Resource Library</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Access worksheets, templates, guides, and media to support your financial recovery journey.
+          Access comprehensive learning materials including workbooks, worksheets, e-books, checklists, and guides to support your financial recovery journey.
         </p>
       </div>
 
@@ -144,7 +156,7 @@ const ResourceLibrary = () => {
             <Star className="w-8 h-8 mx-auto mb-3 opacity-90" />
             <h3 className="text-xl font-semibold mb-2">Unlock Premium Resources</h3>
             <p className="opacity-90 mb-4">
-              Get access to advanced guides, video content, and exclusive templates with a premium subscription.
+              Get access to comprehensive workbooks, advanced guides, e-books, and exclusive learning materials with a premium subscription.
             </p>
             <Button variant="outline" className="bg-white text-primary hover:bg-white/90">
               Upgrade to Premium
