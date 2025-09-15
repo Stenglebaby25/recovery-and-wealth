@@ -163,6 +163,33 @@ export type Database = {
         }
         Relationships: []
       }
+      leads: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          lead_type: string
+          metadata: Json | null
+          source_page: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          lead_type: string
+          metadata?: Json | null
+          source_page?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          lead_type?: string
+          metadata?: Json | null
+          source_page?: string | null
+        }
+        Relationships: []
+      }
       mood_journal: {
         Row: {
           created_at: string

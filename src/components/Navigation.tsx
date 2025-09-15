@@ -17,13 +17,13 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 md:h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img 
               src="/recovery-wealth-logo.png" 
               alt="Recovery & Wealth" 
-              className="h-10 md:h-8 w-auto"
+              className="h-10 md:h-8 w-auto hover:opacity-80 transition-opacity"
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">

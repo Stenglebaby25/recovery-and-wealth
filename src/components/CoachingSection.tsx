@@ -1,10 +1,26 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Input } from "@/components/ui/input";
 import { MessageSquare, Video, Users, Calendar } from "lucide-react";
 import communityTreeImage from "@/assets/family-tree-community.png";
+import { useLeadCapture } from "@/hooks/useLeadCapture";
+import { useState } from "react";
 
 const CoachingSection = () => {
+  const { captureLead, isSubmitting } = useLeadCapture();
+  const [email, setEmail] = useState('');
+
+  const handleCoachingInterest = async (coachingType: string) => {
+    const result = await captureLead('coaching@interest.com', 'coaching_interest', '/coaching', { 
+      coaching_type: coachingType 
+    });
+  };
+
+  const handleCommunityJoin = async () => {
+    const result = await captureLead('community@interest.com', 'community_join', '/coaching');
+  };
+
   const coachingTypes = [
     {
       icon: Users,
@@ -97,7 +113,12 @@ const CoachingSection = () => {
                   <div className="text-center mb-4">
                     <span className="text-2xl font-bold text-foreground">{type.price}</span>
                   </div>
-                  <Button variant={type.variant} className="w-full">
+                  <Button 
+                    variant={type.variant} 
+                    className="w-full"
+                    onClick={() => handleCoachingInterest(type.title)}
+                    disabled={isSubmitting}
+                  >
                     {type.cta}
                   </Button>
                 </CardContent>
@@ -127,7 +148,13 @@ const CoachingSection = () => {
                     <p className="text-sm text-muted-foreground text-center mb-4">
                       {coach.bio}
                     </p>
-                    <Button variant="outline" size="sm" className="w-full">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full"
+                      onClick={() => handleCoachingInterest(`1-on-1 with ${coach.name}`)}
+                      disabled={isSubmitting}
+                    >
                       Book with {coach.name.split(' ')[0]}
                     </Button>
                   </CardContent>
@@ -174,7 +201,12 @@ const CoachingSection = () => {
             </div>
 
               <div className="text-center mt-8">
-                <Button variant="hero" size="lg">
+                <Button 
+                  variant="hero" 
+                  size="lg"
+                  onClick={handleCommunityJoin}
+                  disabled={isSubmitting}
+                >
                   <MessageSquare className="w-5 h-5 mr-2" />
                   Join the Community
                 </Button>

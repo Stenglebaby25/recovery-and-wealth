@@ -2,10 +2,45 @@ import HeroSection from "@/components/HeroSection";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import { ArrowRight, Calculator, BookOpen, Users, Trophy, Download, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLeadCapture } from "@/hooks/useLeadCapture";
+import { useState } from "react";
 
 const MarketingHomepage = () => {
+  const { captureLead, isSubmitting } = useLeadCapture();
+  const [email, setEmail] = useState('');
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  
+  const handleGuideDownload = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    
+    const result = await captureLead(email, 'guide_download', '/', { guide_name: 'Recovery & Wealth Building Guide' });
+    if (result.success) {
+      setEmail('');
+    }
+  };
+
+  const handleNewsletterSignup = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail.trim()) return;
+    
+    const result = await captureLead(newsletterEmail, 'newsletter_signup', '/');
+    if (result.success) {
+      setNewsletterEmail('');
+    }
+  };
+
+  const handleCoachingInterest = async () => {
+    const result = await captureLead('interested@coaching.com', 'coaching_interest', '/', { action: 'button_click' });
+  };
+
+  const handleCommunityJoin = async () => {
+    const result = await captureLead('interested@community.com', 'community_join', '/', { action: 'button_click' });
+  };
+
   const stats = [
     { number: "2,500+", label: "Lives Transformed" },
     { number: "89%", label: "Success Rate" },
@@ -147,11 +182,22 @@ const MarketingHomepage = () => {
                   </div>
                 </div>
 
-                <Button size="lg" className="w-full md:w-auto group">
-                  <Download className="w-5 h-5 mr-2" />
-                  Download Free Guide
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <form onSubmit={handleGuideDownload} className="space-y-4">
+                  <div className="flex gap-2">
+                    <Input
+                      type="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="flex-1"
+                    />
+                    <Button type="submit" disabled={isSubmitting} className="group">
+                      <Download className="w-4 h-4 mr-2" />
+                      {isSubmitting ? 'Sending...' : 'Get Guide'}
+                    </Button>
+                  </div>
+                </form>
               </div>
               
               <div className="text-center">
@@ -240,14 +286,30 @@ const MarketingHomepage = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="group">
+            <Button size="lg" variant="secondary" className="group" onClick={handleCommunityJoin} disabled={isSubmitting}>
               Join Our Community
               <Users className="w-5 h-5 ml-2" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary group">
-              Newsletter Signup
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <form onSubmit={handleNewsletterSignup} className="flex gap-2">
+              <Input
+                type="email"
+                placeholder="Your email"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                required
+                className="min-w-[200px] border-white text-white placeholder:text-white/70 bg-white/10"
+              />
+              <Button 
+                type="submit" 
+                size="lg" 
+                variant="outline" 
+                className="border-white text-white hover:bg-white hover:text-primary group"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </form>
           </div>
         </div>
       </section>

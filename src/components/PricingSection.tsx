@@ -2,8 +2,40 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, Building, Users } from "lucide-react";
+import { useLeadCapture } from "@/hooks/useLeadCapture";
+import { useAuth } from "@/hooks/useAuth";
 
 const PricingSection = () => {
+  const { captureLead, handleSubscriptionSuccess, isSubmitting } = useLeadCapture();
+  const { user } = useAuth();
+
+  const handlePlanSelection = async (planName: string, price: string) => {
+    if (planName === "Freemium") {
+      // Redirect to signup for free plan
+      window.location.href = '/auth';
+      return;
+    }
+    
+    // For paid plans, capture lead and show subscription success
+    const result = await captureLead('subscription@interest.com', 'coaching_interest', '/pricing', { 
+      plan: planName,
+      price: price,
+      action: 'subscription_intent'
+    });
+    
+    if (result.success) {
+      handleSubscriptionSuccess();
+    }
+  };
+
+  const handleBusinessContact = async (planName: string) => {
+    const result = await captureLead('business@contact.com', 'coaching_interest', '/pricing', { 
+      plan: planName,
+      plan_type: 'business',
+      action: 'contact_sales'
+    });
+  };
+
   const individualPlans = [
     {
       name: "Freemium",
@@ -166,7 +198,12 @@ const PricingSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button variant={plan.variant} className="w-full">
+                  <Button 
+                    variant={plan.variant} 
+                    className="w-full"
+                    onClick={() => handlePlanSelection(plan.name, plan.price)}
+                    disabled={isSubmitting}
+                  >
                     {plan.cta}
                   </Button>
                 </CardContent>
@@ -217,7 +254,12 @@ const PricingSection = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button variant="default" className="w-full">
+                  <Button 
+                    variant="default" 
+                    className="w-full"
+                    onClick={() => handleBusinessContact(plan.name)}
+                    disabled={isSubmitting}
+                  >
                     {plan.cta}
                   </Button>
                 </CardContent>
@@ -234,7 +276,12 @@ const PricingSection = () => {
               For large treatment networks like Recovery Centers of America with thousands of patients. 
               Get fully customized solutions with dedicated account management.
             </p>
-            <Button variant="hero" size="lg">
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => handleBusinessContact('Trendsetter')}
+              disabled={isSubmitting}
+            >
               Discuss Trendsetter Needs
             </Button>
           </div>
