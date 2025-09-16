@@ -50,6 +50,45 @@ export type Database = {
         }
         Relationships: []
       }
+      course_modules: {
+        Row: {
+          course_id: string
+          created_at: string
+          description: string | null
+          estimated_duration: number | null
+          id: string
+          learning_objectives: string[] | null
+          module_number: number
+          order_index: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          course_id: string
+          created_at?: string
+          description?: string | null
+          estimated_duration?: number | null
+          id?: string
+          learning_objectives?: string[] | null
+          module_number: number
+          order_index?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          course_id?: string
+          created_at?: string
+          description?: string | null
+          estimated_duration?: number | null
+          id?: string
+          learning_objectives?: string[] | null
+          module_number?: number
+          order_index?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       courses: {
         Row: {
           content: string | null
@@ -187,6 +226,78 @@ export type Database = {
           lead_type?: string
           metadata?: Json | null
           source_page?: string | null
+        }
+        Relationships: []
+      }
+      lessons: {
+        Row: {
+          content_type: string
+          course_id: string
+          created_at: string
+          description: string | null
+          estimated_duration: number
+          id: string
+          interactive_elements: Json | null
+          is_published: boolean
+          learning_objectives: string[] | null
+          lesson_number: number
+          module_id: string | null
+          order_index: number
+          prerequisites: string[] | null
+          presentation_slides: Json | null
+          quiz_questions: Json | null
+          resources: Json | null
+          text_content: string | null
+          title: string
+          updated_at: string
+          video_duration: number | null
+          video_url: string | null
+        }
+        Insert: {
+          content_type?: string
+          course_id: string
+          created_at?: string
+          description?: string | null
+          estimated_duration?: number
+          id?: string
+          interactive_elements?: Json | null
+          is_published?: boolean
+          learning_objectives?: string[] | null
+          lesson_number: number
+          module_id?: string | null
+          order_index?: number
+          prerequisites?: string[] | null
+          presentation_slides?: Json | null
+          quiz_questions?: Json | null
+          resources?: Json | null
+          text_content?: string | null
+          title: string
+          updated_at?: string
+          video_duration?: number | null
+          video_url?: string | null
+        }
+        Update: {
+          content_type?: string
+          course_id?: string
+          created_at?: string
+          description?: string | null
+          estimated_duration?: number
+          id?: string
+          interactive_elements?: Json | null
+          is_published?: boolean
+          learning_objectives?: string[] | null
+          lesson_number?: number
+          module_id?: string | null
+          order_index?: number
+          prerequisites?: string[] | null
+          presentation_slides?: Json | null
+          quiz_questions?: Json | null
+          resources?: Json | null
+          text_content?: string | null
+          title?: string
+          updated_at?: string
+          video_duration?: number | null
+          video_url?: string | null
         }
         Relationships: []
       }
@@ -452,6 +563,63 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      user_lesson_progress: {
+        Row: {
+          bookmarks: Json | null
+          completed_at: string | null
+          course_id: string
+          created_at: string
+          id: string
+          last_accessed: string | null
+          lesson_id: string
+          notes: string | null
+          progress_percentage: number
+          quiz_score: number | null
+          started_at: string | null
+          status: string
+          time_spent: number
+          updated_at: string
+          user_id: string
+          video_progress: number | null
+        }
+        Insert: {
+          bookmarks?: Json | null
+          completed_at?: string | null
+          course_id: string
+          created_at?: string
+          id?: string
+          last_accessed?: string | null
+          lesson_id: string
+          notes?: string | null
+          progress_percentage?: number
+          quiz_score?: number | null
+          started_at?: string | null
+          status?: string
+          time_spent?: number
+          updated_at?: string
+          user_id: string
+          video_progress?: number | null
+        }
+        Update: {
+          bookmarks?: Json | null
+          completed_at?: string | null
+          course_id?: string
+          created_at?: string
+          id?: string
+          last_accessed?: string | null
+          lesson_id?: string
+          notes?: string | null
+          progress_percentage?: number
+          quiz_score?: number | null
+          started_at?: string | null
+          status?: string
+          time_spent?: number
+          updated_at?: string
+          user_id?: string
+          video_progress?: number | null
+        }
+        Relationships: []
       }
       user_progress: {
         Row: {
