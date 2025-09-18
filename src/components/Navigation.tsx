@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Shield } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
+import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, signOut } = useAuth();
+  const { isAdmin } = useAdminAuth();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -54,6 +56,14 @@ const Navigation = () => {
           <div className="hidden md:flex items-center space-x-4">
             {user ? (
               <div className="flex items-center space-x-4">
+                {isAdmin && (
+                  <Link to="/admin">
+                    <Button variant="destructive" size="sm">
+                      <Shield className="w-4 h-4 mr-2" />
+                      Admin
+                    </Button>
+                  </Link>
+                )}
                 <span className="text-sm text-muted-foreground">
                   Welcome back!
                 </span>
@@ -127,9 +137,19 @@ const Navigation = () => {
               </Link>
               <div className="px-3 py-2 space-y-2">
                 {user ? (
-                  <Button variant="outline" className="w-full" onClick={signOut}>
-                    Sign Out
-                  </Button>
+                  <>
+                    {isAdmin && (
+                      <Link to="/admin" onClick={() => setIsMenuOpen(false)}>
+                        <Button variant="destructive" className="w-full" size="sm">
+                          <Shield className="w-4 h-4 mr-2" />
+                          Admin Dashboard
+                        </Button>
+                      </Link>
+                    )}
+                    <Button variant="outline" className="w-full" onClick={signOut}>
+                      Sign Out
+                    </Button>
+                  </>
                 ) : (
                   <Button variant="hero" className="w-full" onClick={() => window.location.href = '/auth'}>
                     Sign In
