@@ -66,6 +66,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         data: fullName ? { full_name: fullName } : undefined
       }
     });
+
+    // Send welcome email after successful signup
+    if (!error) {
+      try {
+        await supabase.functions.invoke('send-welcome-email', {
+          body: { 
+            email, 
+            fullName 
+          }
+        });
+        console.log('Welcome email sent successfully');
+      } catch (emailError) {
+        console.error('Failed to send welcome email:', emailError);
+        // Don't fail the signup if email fails
+      }
+    }
+
     return { error };
   };
 
