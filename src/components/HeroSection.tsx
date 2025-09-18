@@ -87,10 +87,27 @@ const HeroSection = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-            <Button variant="hero" size="lg" className="text-lg px-8 py-4 hover-scale">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="text-lg px-8 py-4 hover-scale"
+              onClick={() => window.location.href = '/pricing'}
+            >
               Start Your Financial Recovery
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4 hover-scale">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="text-lg px-8 py-4 hover-scale"
+              onClick={() => {
+                const businessSection = document.querySelector('[data-section="business-plans"]');
+                if (businessSection) {
+                  businessSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/pricing#business';
+                }
+              }}
+            >
               For Treatment Centers
             </Button>
           </div>

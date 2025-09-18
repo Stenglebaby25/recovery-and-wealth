@@ -102,7 +102,16 @@ const MarketingHomepage = () => {
                 </CardHeader>
                 <CardContent className="pt-0 text-center">
                   {link.href.startsWith('#') ? (
-                    <Button variant="outline" className="w-full group">
+                    <Button 
+                      variant="outline" 
+                      className="w-full group"
+                      onClick={() => {
+                        const targetSection = document.querySelector(link.href);
+                        if (targetSection) {
+                          targetSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                    >
                       Explore Now
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>

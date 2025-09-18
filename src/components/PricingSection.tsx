@@ -223,7 +223,7 @@ const PricingSection = () => {
           </div>
 
           {/* Business Plans */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-16" data-section="business-plans">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
               For Treatment Centers
             </h2>
