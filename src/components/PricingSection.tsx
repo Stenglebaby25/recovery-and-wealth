@@ -27,10 +27,12 @@ const PricingSection = () => {
     
     // Map plan to Stripe price ID
     let priceId = '';
-    if (planName === "Monthly" || planName === "Annual") {
-      priceId = 'price_1S9aNm1UOU7yJoPumbBaQQlz'; // Monthly subscription
+    if (planName === "Monthly") {
+      priceId = 'price_1S9aNm1UOU7yJoPumbBaQQlz'; // Monthly subscription $4.99/month
+    } else if (planName === "Annual") {
+      priceId = 'price_1S9aRF1UOU7yJoPuaDl0N9nR'; // Annual subscription $49.99/year
     } else if (planName === "Lifetime") {
-      priceId = 'price_1S9aNl1UOU7yJoPudztMW7j0'; // Lifetime access
+      priceId = 'price_1S9aNl1UOU7yJoPudztMW7j0'; // Lifetime access $65 one-time
     }
     
     if (!priceId) {
@@ -116,18 +118,18 @@ const PricingSection = () => {
     },
     {
       name: "Annual",
-      price: "$99",
+      price: "$49.99",
       period: "per year",
-      description: "Save over 60% with 2 coaching sessions included",
+      description: "Save over 15% with annual billing plus 2 coaching sessions",
       features: [
         "Everything in Monthly",
-        "Save $60+ annually", 
+        "Save $10+ annually (equivalent to $4.17/month)", 
         "2 coaching sessions included",
         "Priority community access",
         "Advanced goal tracking",
         "Certificate of completion"
       ],
-      cta: "Save Big",
+      cta: "Save with Annual",
       variant: "secondary" as const,
       popular: false,
     },
