@@ -4,33 +4,67 @@ import { Badge } from "@/components/ui/badge";
 import { Check, Star, Building, Users } from "lucide-react";
 import { useLeadCapture } from "@/hooks/useLeadCapture";
 import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 
 const PricingSection = () => {
   const { captureLead, isSubmitting } = useLeadCapture();
   const { user } = useAuth();
+  const { toast } = useToast();
 
   const handlePlanSelection = async (planName: string, price: string) => {
     if (planName === "Freemium") {
-      // Redirect to signup for free plan
-      window.location.href = '/auth';
+      // Redirect to sign up for free plan
+      window.location.href = "/auth";
       return;
     }
     
-    // For paid plans, capture lead and navigate to dashboard
-    const result = await captureLead({
-      email: 'subscription@interest.com',
-      leadType: 'coaching_interest',
-      sourcePage: '/pricing',
-      metadata: { 
-        plan: planName,
-        price: price,
-        action: 'subscription_intent'
-      }
-    });
+    if (!user) {
+      // Redirect to sign up if not authenticated
+      window.location.href = "/auth";
+      return;
+    }
     
-    if (result.success && user) {
-      // Navigate to dashboard for logged in users
-      window.location.href = '/#dashboard';
+    // Map plan to Stripe price ID
+    let priceId = '';
+    if (planName === "Monthly" || planName === "Annual") {
+      priceId = 'price_1S9aNm1UOU7yJoPumbBaQQlz'; // Monthly subscription
+    } else if (planName === "Lifetime") {
+      priceId = 'price_1S9aNl1UOU7yJoPudztMW7j0'; // Lifetime access
+    }
+    
+    if (!priceId) {
+      toast({
+        title: "Error",
+        description: "Invalid plan selection. Please try again.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    try {
+      // Create checkout session
+      const { data, error } = await supabase.functions.invoke('create-checkout', {
+        body: { priceId, planName }
+      });
+      
+      if (error) {
+        throw new Error(error.message);
+      }
+      
+      if (data?.url) {
+        // Redirect to Stripe Checkout
+        window.open(data.url, '_blank');
+      } else {
+        throw new Error('No checkout URL returned');
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      toast({
+        title: "Payment Error",
+        description: "Unable to process payment. Please try again.",
+        variant: "destructive",
+      });
     }
   };
 
