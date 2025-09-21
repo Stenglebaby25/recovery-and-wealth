@@ -36,8 +36,8 @@ const CoursePreview = () => {
     {
       week: 5,
       title: "Planning for the Future",
-      subject: "Long-Term Financial Planning",
-      description: "Setting SMART financial goals. Basics of retirement accounts, investing principles, and protecting assets with insurance.",
+      subject: "Long-Term Financial Planning & Celebrating Success",
+      description: "Setting SMART financial goals and breaking them into manageable steps. Learn retirement savings basics including 401(k)s and IRAs. Master the art of celebrating financial milestones to maintain motivation and build positive money habits throughout your recovery journey.",
       completed: false,
     },
     {
