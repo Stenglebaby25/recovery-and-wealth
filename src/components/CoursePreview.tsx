@@ -7,9 +7,9 @@ const CoursePreview = () => {
   const weeks = [
     {
       week: 1,
-      title: "Foundations of Financial Well-being",
-      subject: "Introduction to Personal Finance & Mindset",
-      description: "Why financial literacy is a key component of recovery. Defining 'wealth' beyond money - peace of mind, stability, assets. Overcoming money shame and understanding your financial position.",
+      title: "Understanding the Link Between Addiction and Financial Instability",
+      subject: "Financial Recovery Foundations",
+      description: "Explore how addiction and financial struggles are deeply intertwined. Learn to identify financial triggers that may lead to relapse and understand the psychological aspects of addiction that contribute to financial difficulties. Build awareness of the importance of financial recovery as a crucial component of lasting sobriety.",
       completed: true,
     },
     {
