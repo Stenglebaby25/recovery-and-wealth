@@ -33,9 +33,9 @@ const Navigation = () => {
               Free Tools
             </Link>
             {user ? (
-              <a href="#dashboard" className="text-foreground hover:text-primary transition-colors">
+              <Link to="/" className="text-foreground hover:text-primary transition-colors">
                 Dashboard
-              </a>
+              </Link>
             ) : (
               <a href="#learning-hub" className="text-foreground hover:text-primary transition-colors">
                 Learning Hub
@@ -98,13 +98,13 @@ const Navigation = () => {
                 Free Tools
               </Link>
               {user ? (
-                <a 
-                  href="#dashboard" 
+                <Link 
+                  to="/" 
                   className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Dashboard
-                </a>
+                </Link>
               ) : (
                 <a 
                   href="#learning-hub" 
