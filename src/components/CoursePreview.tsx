@@ -56,9 +56,9 @@ const CoursePreview = () => {
     },
     {
       week: 8,
-      title: "Building a Support System",
-      subject: "Coaching and Community",
-      description: "The role of financial coaching and supportive community in maintaining financial wellness. Creating your personalized financial recovery plan.",
+      title: "Building a Support System & Sustaining Your Journey",
+      subject: "Support Networks & Financial Self-Assessment",
+      description: "Master building strong support networks with family, friends, support groups, and professional guidance. Conduct thorough financial self-assessments to understand your complete financial picture. Learn practical strategies for maintaining financial sobriety long-term, overcoming common financial challenges in recovery, and creating your personalized financial recovery plan for lasting success.",
       completed: false,
     },
   ];
