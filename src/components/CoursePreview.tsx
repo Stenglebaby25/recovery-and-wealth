@@ -43,8 +43,8 @@ const CoursePreview = () => {
     {
       week: 6,
       title: "Career & Income Growth",
-      subject: "Earning and Sustaining a Living",
-      description: "Essential job search skills, continuing education value, and basic tax understanding for personal and professional growth.",
+      subject: "Employment Strategies & Unemployment Management",
+      description: "Master essential job search skills including resume writing, networking, and online job boards. Learn to navigate employment opportunities and build unemployment prevention strategies. Understand the importance of continuing education, career planning, and developing financial plans to manage unemployment periods without risking recovery.",
       completed: false,
     },
     {
