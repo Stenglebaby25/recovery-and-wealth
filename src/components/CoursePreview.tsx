@@ -51,7 +51,7 @@ const CoursePreview = () => {
       week: 7,
       title: "Mind Over Money",
       subject: "Psychology of Spending",
-      description: "Recognizing impulsive spending behaviors, building positive financial habits, and using positive reinforcement for small wins.",
+      description: "Recognizing impulsive spending behaviors, building positive financial habits, and using positive reinforcement for small wins. Learn to challenge limiting beliefs about money, develop a growth mindset towards financial wellness, and cultivate gratitude for what you have. Master techniques to prevent overspending, curb impulse purchases, and celebrate financial milestones to maintain motivation throughout your recovery journey.",
       completed: false,
     },
     {
