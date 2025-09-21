@@ -14,9 +14,9 @@ const CoursePreview = () => {
     },
     {
       week: 2,
-      title: "Taking Control with a Budget",
-      subject: "Budgeting and Spending Habits",
-      description: "Using a spending plan as a tool for freedom, not restriction. Identifying spending triggers, needs vs. wants, and learning budgeting tech tools.",
+      title: "Creating a Recovery-Centered Budget",
+      subject: "Essential Skills for Financial Stability in Recovery",
+      description: "Master the fundamentals of creating a personalized budgeting plan that supports your recovery journey. Learn to establish clear financial goals aligned with your recovery goals, address financial needs while supporting overall well-being, and develop essential tracking systems using recovery-specific tools and terminology.",
       completed: true,
     },
     {
