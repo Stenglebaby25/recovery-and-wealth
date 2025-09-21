@@ -23,6 +23,7 @@ import ResourceLibrary from './premium/ResourceLibrary';
 import SponsorManagement from './premium/SponsorManagement';
 import MoodJournal from './behavioral/MoodJournal';
 import StressPrevention from './behavioral/StressPrevention';
+import DailyCheckIn from './behavioral/DailyCheckIn';
 import TestingPanel from './TestingPanel';
 
 const Dashboard = () => {
@@ -105,6 +106,9 @@ const Dashboard = () => {
 
             {/* Overview Tab */}
             <TabsContent value="overview" className="space-y-8">
+              {/* Daily Check-In - Prominent placement at top */}
+              <DailyCheckIn />
+              
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Quick Stats */}
                 <Card className="lg:col-span-2 border-0 shadow-soft bg-gradient-card">

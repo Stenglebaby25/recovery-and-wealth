@@ -134,6 +134,45 @@ export type Database = {
         }
         Relationships: []
       }
+      daily_checkins: {
+        Row: {
+          check_in_date: string
+          created_at: string
+          energy_level: number
+          id: string
+          mood_rating: number
+          notes: string | null
+          sobriety_status: string
+          spending_impulse_level: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          check_in_date: string
+          created_at?: string
+          energy_level: number
+          id?: string
+          mood_rating: number
+          notes?: string | null
+          sobriety_status?: string
+          spending_impulse_level: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          check_in_date?: string
+          created_at?: string
+          energy_level?: number
+          id?: string
+          mood_rating?: number
+          notes?: string | null
+          sobriety_status?: string
+          spending_impulse_level?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       habit_completions: {
         Row: {
           completed_at: string
