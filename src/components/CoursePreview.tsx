@@ -29,8 +29,8 @@ const CoursePreview = () => {
     {
       week: 4,
       title: "Understanding Debt and Credit",
-      subject: "Credit and Debt Management",
-      description: "Differentiating 'good' vs 'bad' debt. Understanding credit scores and building repair strategies. Debt snowball vs. debt avalanche methods.",
+      subject: "Empowering Financial Recovery Through Credit Management",
+      description: "Master debt reduction strategies including budgeting for debt repayment, negotiation techniques, and debt consolidation. Learn to build and maintain healthy credit scores, understand credit reports, and use credit products responsibly. Develop personalized debt reduction plans that support your recovery journey.",
       completed: false,
     },
     {
