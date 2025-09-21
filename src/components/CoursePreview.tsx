@@ -21,9 +21,9 @@ const CoursePreview = () => {
     },
     {
       week: 3,
-      title: "Building a Safety Net",
-      subject: "Saving and Emergency Funds",
-      description: "The power of compound interest and why emergency funds are critical in recovery. Techniques for managing financial stress and anxiety.",
+      title: "Building Your Financial Safety Net",
+      subject: "Emergency Funds & Automated Savings",
+      description: "Learn why emergency funds are critical in recovery and how to build them step-by-step. Celebrate milestones from your first $100 to 6 months of expenses. Discover automated savings tools like Acorns and Stash that round up purchases and teach basic investing while building your safety net.",
       completed: false,
     },
     {
