@@ -26,6 +26,7 @@ import MoodJournal from './behavioral/MoodJournal';
 import StressPrevention from './behavioral/StressPrevention';
 import DailyCheckIn from './behavioral/DailyCheckIn';
 import ExpenseTracker from './ExpenseTracker';
+import { BudgetAnalysis } from './BudgetAnalysis';
 import TestingPanel from './TestingPanel';
 
 const Dashboard = () => {
@@ -67,7 +68,7 @@ const Dashboard = () => {
 
           {/* Dashboard Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8 animate-scale-in">
-            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-10 h-auto bg-gradient-card border-0 shadow-soft">
+            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-11 h-auto bg-gradient-card border-0 shadow-soft">
               <TabsTrigger value="overview" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <TrendingUp className="w-5 h-5" />
                 <span className="text-xs">Overview</span>
@@ -96,6 +97,10 @@ const Dashboard = () => {
                 <DollarSign className="w-5 h-5" />
                 <span className="text-xs">Expenses</span>
               </TabsTrigger>
+              <TabsTrigger value="budget" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
+                <TrendingUp className="w-5 h-5" />
+                <span className="text-xs">Budget</span>
+              </TabsTrigger>
               <TabsTrigger value="prevention" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Shield className="w-5 h-5" />
                 <span className="text-xs">Prevention</span>
@@ -103,6 +108,10 @@ const Dashboard = () => {
               <TabsTrigger value="resources" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <FileText className="w-5 h-5" />
                 <span className="text-xs">Resources</span>
+              </TabsTrigger>
+              <TabsTrigger value="budget" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
+                <TrendingUp className="w-5 h-5" />
+                <span className="text-xs">Budget</span>
               </TabsTrigger>
               <TabsTrigger value="support" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Users className="w-5 h-5" />
@@ -195,6 +204,10 @@ const Dashboard = () => {
             {/* Expenses Tab */}
             <TabsContent value="expenses">
               <ExpenseTracker />
+            </TabsContent>
+            
+            <TabsContent value="budget">
+              <BudgetAnalysis />
             </TabsContent>
 
             {/* Prevention Tab */}
