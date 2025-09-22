@@ -173,6 +173,39 @@ export type Database = {
         }
         Relationships: []
       }
+      expenses: {
+        Row: {
+          amount: number
+          category: string
+          created_at: string
+          description: string | null
+          expense_date: string
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          category?: string
+          created_at?: string
+          description?: string | null
+          expense_date?: string
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          category?: string
+          created_at?: string
+          description?: string | null
+          expense_date?: string
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       habit_completions: {
         Row: {
           completed_at: string
@@ -493,6 +526,39 @@ export type Database = {
           title?: string
           updated_at?: string
           value?: string | null
+        }
+        Relationships: []
+      }
+      spending_limits: {
+        Row: {
+          alert_threshold: number
+          category: string
+          created_at: string
+          id: string
+          is_active: boolean
+          monthly_limit: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          alert_threshold?: number
+          category: string
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          monthly_limit: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          alert_threshold?: number
+          category?: string
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          monthly_limit?: number
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }
