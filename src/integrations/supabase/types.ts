@@ -50,6 +50,54 @@ export type Database = {
         }
         Relationships: []
       }
+      bills: {
+        Row: {
+          amount: number
+          autopay_enabled: boolean
+          bill_name: string
+          category: string
+          created_at: string
+          due_date: string
+          frequency: string
+          id: string
+          is_paid: boolean
+          notes: string | null
+          reminder_days: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          autopay_enabled?: boolean
+          bill_name: string
+          category?: string
+          created_at?: string
+          due_date: string
+          frequency?: string
+          id?: string
+          is_paid?: boolean
+          notes?: string | null
+          reminder_days?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          autopay_enabled?: boolean
+          bill_name?: string
+          category?: string
+          created_at?: string
+          due_date?: string
+          frequency?: string
+          id?: string
+          is_paid?: boolean
+          notes?: string | null
+          reminder_days?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       course_modules: {
         Row: {
           course_id: string

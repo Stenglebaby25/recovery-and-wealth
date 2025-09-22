@@ -14,7 +14,8 @@ import {
   Gift,
   Brain,
   Shield,
-  DollarSign
+  DollarSign,
+  Calendar
 } from 'lucide-react';
 import LearningHub from './LearningHub';
 import ProgressDashboard from './gamification/ProgressDashboard';
@@ -27,6 +28,7 @@ import StressPrevention from './behavioral/StressPrevention';
 import DailyCheckIn from './behavioral/DailyCheckIn';
 import ExpenseTracker from './ExpenseTracker';
 import { BudgetAnalysis } from './BudgetAnalysis';
+import BillManagement from './BillManagement';
 import TestingPanel from './TestingPanel';
 
 const Dashboard = () => {
@@ -112,6 +114,10 @@ const Dashboard = () => {
               <TabsTrigger value="budget" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <TrendingUp className="w-5 h-5" />
                 <span className="text-xs">Budget</span>
+              </TabsTrigger>
+              <TabsTrigger value="bills" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
+                <Calendar className="w-5 h-5" />
+                <span className="text-xs">Bills</span>
               </TabsTrigger>
               <TabsTrigger value="support" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Users className="w-5 h-5" />
@@ -208,6 +214,11 @@ const Dashboard = () => {
             
             <TabsContent value="budget">
               <BudgetAnalysis />
+            </TabsContent>
+
+            {/* Bills Tab */}
+            <TabsContent value="bills">
+              <BillManagement />
             </TabsContent>
 
             {/* Prevention Tab */}
