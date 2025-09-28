@@ -27,36 +27,42 @@ const haltLessons: HALTLesson[] = [
     id: "hungry",
     letter: "H",
     title: "Hungry",
-    subtitle: "Financial Decisions & Basic Needs",
+    subtitle: "Blood Sugar & Financial Decision-Making",
     icon: <Heart className="h-6 w-6 text-red-500" />,
-    description: "When our basic physical needs aren't met, our decision-making becomes compromised. Hunger affects blood sugar and cognitive function, leading to impulsive financial choices.",
+    description: "When you're hungry, your blood sugar levels drop, leading to irritability, poor decision-making, and impaired cognitive function. This physiological state makes you more vulnerable to impulsive financial choices and emotional spending patterns.",
     keyPoints: [
-      "Low blood sugar impairs judgment and increases impulsivity",
-      "Physical discomfort often leads to immediate gratification seeking",
-      "Hunger can trigger emotional spending to feel better",
-      "Basic needs must be met before making important financial decisions"
+      "Low blood sugar levels can impair your decision-making abilities, including financial decisions",
+      "Stable blood sugar levels are essential for clear thinking and making sound choices",
+      "Hunger affects mood and makes it difficult to concentrate on important matters",
+      "Eating nutritious meals provides the energy needed for sound financial decisions",
+      "Proper nutrition supports mental clarity and focus during financial planning"
     ],
     financialTriggers: [
-      "Impulse buying food when hungry at expensive locations",
+      "Impulse buying expensive food when hungry instead of planned meals",
       "Making major financial decisions on an empty stomach",
-      "Using food delivery apps excessively when unprepared",
-      "Shopping for groceries while hungry, leading to overspending"
+      "Excessive use of food delivery apps when unprepared with groceries",
+      "Shopping for groceries while hungry, leading to overspending on unnecessary items",
+      "Stress eating during financial difficulties, creating additional expenses",
+      "Poor meal planning leading to consistent overspending on food"
     ],
     preventionStrategies: [
-      "Never make financial decisions when hungry",
-      "Keep healthy snacks readily available",
-      "Plan meals and grocery shopping in advance",
-      "Wait 30 minutes after eating before major financial choices",
-      "Create a basic needs checklist before important decisions"
+      "Never make important financial decisions when hungry - establish this as a firm rule",
+      "Keep healthy, affordable snacks readily available at home and work",
+      "Plan meals and grocery shopping in advance with detailed lists",
+      "Wait 30 minutes after eating before making any major financial choices",
+      "Create a basic needs checklist before important financial decisions",
+      "Maintain stable blood sugar through regular, nutritious meals and snacks",
+      "Establish consistent meal times to prevent hunger-driven financial decisions"
     ],
     practicalExercise: {
-      title: "The 24-Hour Hunger Awareness Challenge",
+      title: "Blood Sugar & Financial Decision Tracking",
       steps: [
-        "Track your hunger levels throughout the day (1-10 scale)",
-        "Note any financial decisions made at each hunger level",
-        "Identify patterns between hunger and spending impulses",
+        "Track your hunger levels throughout the day using a 1-10 scale for one week",
+        "Note any financial decisions made at each hunger level and their outcomes",
+        "Identify specific patterns between hunger and spending impulses",
         "Practice the 'HALT pause' - check if you're hungry before any purchase over $20",
-        "Create a personal hunger management plan"
+        "Create a personal meal planning system that supports stable blood sugar",
+        "Develop emergency snack strategies for unexpected hunger during important financial tasks"
       ]
     },
     completed: false
@@ -65,37 +71,46 @@ const haltLessons: HALTLesson[] = [
     id: "angry",
     letter: "A",
     title: "Angry",
-    subtitle: "Managing Money During Emotional Stress",
+    subtitle: "Managing Financial Decisions During Emotional Stress",
     icon: <AlertTriangle className="h-6 w-6 text-orange-500" />,
-    description: "Anger triggers fight-or-flight responses that bypass rational thinking. This emotional state often leads to revenge spending, impulsive purchases, or financial decisions we later regret.",
+    description: "Anger can lead to impulsive behavior, such as overspending or gambling. Making financial decisions while angry can result in regret and financial difficulties. It's important to recognize the connection between anger and finances to avoid negative consequences.",
     keyPoints: [
-      "Anger activates the amygdala and shuts down prefrontal cortex (rational thinking)",
-      "Emotional spending often serves as a coping mechanism",
-      "Anger can lead to revenge spending or 'retail therapy'",
-      "Financial decisions made in anger often have long-term negative consequences"
+      "Anger activates emotional centers and impairs rational decision-making processes",
+      "Emotional spending often serves as an unhealthy coping mechanism during stress",
+      "Anger can lead to revenge spending, gambling, or other impulsive financial behaviors",
+      "Financial decisions made in anger often result in regret and long-term financial difficulties",
+      "Recognizing the signs of anger helps prevent poor financial choices",
+      "Calming down before financial decisions leads to clearer thinking and rational choices"
     ],
     financialTriggers: [
-      "Revenge spending after arguments with partners/family",
-      "Impulse purchases to feel better or regain control",
-      "Making major financial decisions out of spite",
-      "Online shopping binges during emotional distress",
-      "Quitting jobs or making career changes in anger"
+      "Revenge spending after arguments with partners, family, or colleagues",
+      "Impulse purchases to feel better, regain control, or prove independence",
+      "Making major financial decisions out of spite or to hurt others",
+      "Online shopping binges during emotional distress or anger episodes",
+      "Quitting jobs or making career changes in anger without proper planning",
+      "Gambling or risky investments to cope with anger or frustration",
+      "Overspending on luxury items when feeling undervalued or disrespected"
     ],
     preventionStrategies: [
-      "Implement a 24-hour cooling-off period for purchases over $50",
-      "Use the 'STOP' technique: Stop, Take a breath, Observe, Proceed mindfully",
-      "Channel anger into physical activity before financial decisions",
+      "Take time to calm down before making any financial decisions",
+      "Implement a mandatory 24-hour cooling-off period for purchases over $50",
+      "Use the 'STOP' technique: Stop, Take a breath, Observe your emotions, Proceed mindfully",
+      "Engage in calming activities like deep breathing, meditation, or going for a walk",
+      "Channel anger into physical activity before making financial choices",
       "Keep a list of free or low-cost anger management activities",
-      "Remove payment methods from devices during emotional episodes"
+      "Remove access to payment methods from devices during emotional episodes",
+      "Seek professional help for anger management strategies when needed"
     ],
     practicalExercise: {
-      title: "Anger Spending Pattern Analysis",
+      title: "Anger & Financial Decision Analysis",
       steps: [
-        "Review your last 3 months of purchases",
-        "Identify purchases made during emotional stress",
-        "Calculate the total cost of anger-driven spending",
-        "Create an 'Anger Emergency Kit' with healthier alternatives",
-        "Practice the 24-hour rule for all non-essential purchases"
+        "Review your last 6 months of purchases and identify those made during anger or stress",
+        "Calculate the total financial cost of anger-driven spending decisions",
+        "Identify your personal anger triggers and their connection to spending patterns",
+        "Create an 'Anger Emergency Kit' with healthy alternatives to spending",
+        "Practice the 24-hour rule for all non-essential purchases when feeling angry",
+        "Develop a personal anger management protocol before making financial decisions",
+        "Track your emotional state before major financial choices for 30 days"
       ]
     },
     completed: false
@@ -104,38 +119,47 @@ const haltLessons: HALTLesson[] = [
     id: "lonely",
     letter: "L",
     title: "Lonely",
-    subtitle: "Financial Isolation & Connection-Seeking Behaviors",
+    subtitle: "Building Financial Recovery Through Connection",
     icon: <Users className="h-6 w-6 text-blue-500" />,
-    description: "Loneliness drives us to seek connection and belonging, often through spending. This can manifest as social spending, retail therapy, or expensive attempts to buy friendship or status.",
+    description: "Loneliness can lead to feelings of isolation and depression, making it difficult to stay sober and manage finances effectively. Connecting with others in recovery is essential to combat loneliness and build a strong support network for financial recovery.",
     keyPoints: [
-      "Loneliness triggers the same pain centers as physical injury",
-      "Spending often serves as a substitute for social connection",
-      "Retail therapy provides temporary emotional relief",
-      "Social spending can lead to financial overextension",
-      "Isolation can worsen financial anxiety and poor decision-making"
+      "Loneliness triggers the same neurological pain centers as physical injury",
+      "Isolation can lead to relapse and financial setbacks in recovery",
+      "Spending often serves as an unhealthy substitute for genuine social connection",
+      "A strong support network provides emotional support during difficult financial times",
+      "Social spending can lead to dangerous financial overextension beyond your means",
+      "Building authentic relationships helps you stay accountable to financial recovery goals",
+      "Community connections provide practical resources and financial guidance"
     ],
     financialTriggers: [
-      "Overspending on social activities to maintain friendships",
-      "Retail therapy to fill emotional voids",
-      "Expensive hobbies or activities seeking social connection",
-      "Generosity beyond financial means to gain approval",
-      "Status purchases to feel included or worthy"
+      "Overspending on social activities to maintain friendships or gain acceptance",
+      "Retail therapy and impulse purchases to fill emotional voids",
+      "Expensive hobbies, activities, or memberships seeking social connection",
+      "Generosity far beyond financial means to gain approval or friendship",
+      "Status purchases (clothes, gadgets, cars) to feel included or worthy",
+      "Excessive dining out or entertainment spending to avoid being alone",
+      "Paying for others' expenses to maintain relationships or avoid rejection"
     ],
     preventionStrategies: [
-      "Build a support network that doesn't revolve around spending",
-      "Find free or low-cost social activities and communities",
-      "Practice self-compassion and mindfulness techniques",
-      "Set clear boundaries around social spending",
-      "Develop hobbies and interests that provide intrinsic satisfaction"
+      "Attend recovery meetings to meet others who understand your journey",
+      "Join support groups (online or in-person) to connect with people facing similar challenges",
+      "Talk to a sponsor who can provide guidance and financial accountability",
+      "Build a support network that doesn't revolve around spending money",
+      "Find free or low-cost social activities and community events",
+      "Practice self-compassion and mindfulness techniques to manage loneliness",
+      "Set clear, non-negotiable boundaries around social spending",
+      "Develop hobbies and interests that provide intrinsic satisfaction and community"
     ],
     practicalExercise: {
-      title: "Connection vs. Cost Analysis",
+      title: "Recovery Connection & Financial Impact Assessment",
       steps: [
-        "List your current social activities and their costs",
-        "Identify free or low-cost alternatives for connection",
-        "Track loneliness levels and spending for one week",
-        "Reach out to one person daily without spending money",
-        "Create a 'loneliness action plan' with non-financial connection strategies"
+        "List your current social activities and calculate their monthly costs",
+        "Identify free or low-cost alternatives for meaningful connection",
+        "Track loneliness levels (1-10 scale) and spending patterns for two weeks",
+        "Reach out to one person in your recovery network daily without spending money",
+        "Create a 'loneliness emergency plan' with non-financial connection strategies",
+        "Attend one new recovery meeting or support group this week",
+        "Build a list of supportive relationships that prioritize sobriety over spending"
       ]
     },
     completed: false
@@ -144,38 +168,49 @@ const haltLessons: HALTLesson[] = [
     id: "tired",
     letter: "T",
     title: "Tired",
-    subtitle: "Decision Fatigue & Financial Choices",
+    subtitle: "Sleep & Financial Decision-Making",
     icon: <Bed className="h-6 w-6 text-purple-500" />,
-    description: "Mental and physical exhaustion depletes our willpower and decision-making capacity. Tiredness leads to taking shortcuts, poor financial planning, and increased susceptibility to marketing.",
+    description: "When you're tired, your decision-making abilities are impaired, and you're more likely to make mistakes and poor financial decisions. Lack of sleep leads to decreased cognitive function, reduced attention span, slower reaction times, and increased susceptibility to poor financial choices.",
     keyPoints: [
-      "Decision fatigue reduces willpower throughout the day",
-      "Tired minds seek convenience regardless of cost",
-      "Exhaustion impairs long-term thinking and planning",
-      "Sleep deprivation affects impulse control",
-      "Fatigue makes us more susceptible to marketing and sales tactics"
+      "Tiredness impairs decision-making abilities and leads to financial mistakes",
+      "Lack of sleep decreases cognitive function, attention span, and reaction times",
+      "Decision fatigue reduces willpower and self-control throughout the day",
+      "Tired minds seek convenience regardless of cost, leading to overspending",
+      "Sleep deprivation affects impulse control and increases risky financial behavior",
+      "Exhaustion impairs long-term thinking and strategic financial planning",
+      "Fatigue makes you more susceptible to marketing tactics and sales pressure",
+      "Getting enough sleep is crucial for making sound financial decisions"
     ],
     financialTriggers: [
-      "Convenience purchases when too tired to plan ahead",
-      "Expensive delivery services instead of meal planning",
-      "Impulse online shopping late at night",
-      "Poor investment decisions due to mental fatigue",
-      "Agreeing to financial commitments without proper consideration"
+      "Convenience purchases when too tired to plan ahead or cook meals",
+      "Expensive food delivery services instead of meal planning and preparation",
+      "Impulse online shopping late at night when defenses are down",
+      "Poor investment decisions made during periods of mental fatigue",
+      "Agreeing to financial commitments or contracts without proper consideration",
+      "Making major purchases while exhausted from work or stress",
+      "Using credit cards for convenience when too tired to manage cash flow",
+      "Avoiding financial planning tasks due to mental exhaustion"
     ],
     preventionStrategies: [
-      "Make important financial decisions when well-rested",
-      "Automate routine financial tasks to reduce decision fatigue",
-      "Plan purchases and financial activities for high-energy times",
-      "Create evening routines that don't involve financial decisions",
-      "Use the 'morning test' - revisit evening decisions the next day"
+      "Establish a consistent sleep schedule by going to bed and waking up at the same time",
+      "Never make important financial decisions when tired or sleep-deprived",
+      "Create a relaxing bedtime routine to signal your body it's time to sleep",
+      "Automate routine financial tasks to reduce daily decision fatigue",
+      "Plan major purchases and financial activities for high-energy periods",
+      "Create evening routines that don't involve access to financial accounts",
+      "Use the 'morning test' - revisit all evening financial decisions the next day",
+      "Limit screen time before bed to improve sleep quality and decision-making"
     ],
     practicalExercise: {
-      title: "Energy-Based Financial Planning",
+      title: "Sleep Quality & Financial Decision Tracking",
       steps: [
-        "Track your energy levels throughout the day for one week",
-        "Identify your peak decision-making hours",
-        "Schedule important financial tasks during high-energy periods",
-        "Create automated systems for routine financial decisions",
-        "Develop a pre-bedtime routine that removes access to spending apps"
+        "Track your sleep hours and quality alongside energy levels for two weeks",
+        "Note any financial decisions made during low-energy or tired periods",
+        "Identify your personal peak decision-making hours throughout the day",
+        "Schedule important financial tasks and planning during high-energy periods",
+        "Create automated systems for routine financial decisions to reduce fatigue",
+        "Develop a pre-bedtime routine that removes access to spending apps and websites",
+        "Practice the 'morning review' - evaluate all evening financial choices the next day"
       ]
     },
     completed: false
