@@ -6,8 +6,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { PlusCircle, DollarSign, AlertTriangle, TrendingUp } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Progress } from "@/components/ui/progress";
+import { PlusCircle, DollarSign, AlertTriangle, TrendingUp, Bell, Target } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
@@ -47,7 +48,7 @@ export default function ExpenseTracker() {
     description: ""
   });
   const [monthlySpending, setMonthlySpending] = useState<Record<string, number>>({});
-  const [alerts, setAlerts] = useState<string[]>([]);
+  const [alerts, setAlerts] = useState<{category: string, message: string, type: 'warning' | 'danger', percentage: number}[]>([]);
 
   useEffect(() => {
     if (user) {
@@ -107,7 +108,7 @@ export default function ExpenseTracker() {
       if (error) throw error;
 
       const spending: Record<string, number> = {};
-      const newAlerts: string[] = [];
+      const newAlerts: {category: string, message: string, type: 'warning' | 'danger', percentage: number}[] = [];
 
       data?.forEach((expense) => {
         spending[expense.category] = (spending[expense.category] || 0) + Number(expense.amount);
@@ -115,10 +116,35 @@ export default function ExpenseTracker() {
 
       spendingLimits.forEach((limit) => {
         const spent = spending[limit.category] || 0;
+        const percentage = (spent / limit.monthly_limit) * 100;
         const threshold = limit.monthly_limit * limit.alert_threshold;
         
-        if (spent >= threshold) {
-          newAlerts.push(`You've spent $${spent.toFixed(2)} on ${limit.category} (${Math.round((spent / limit.monthly_limit) * 100)}% of your $${limit.monthly_limit} limit)`);
+        if (spent >= limit.monthly_limit) {
+          newAlerts.push({
+            category: limit.category,
+            message: `Budget exceeded by $${(spent - limit.monthly_limit).toFixed(2)}`,
+            type: 'danger',
+            percentage: percentage
+          });
+          
+          // Toast for budget exceeded
+          toast.error(`${limit.category} budget exceeded!`, {
+            description: `You've spent $${spent.toFixed(2)} of your $${limit.monthly_limit} limit`
+          });
+        } else if (spent >= threshold) {
+          newAlerts.push({
+            category: limit.category,
+            message: `${percentage.toFixed(0)}% of budget used`,
+            type: 'warning',
+            percentage: percentage
+          });
+          
+          // Toast for approaching limit (only at 90% to avoid spam)
+          if (percentage >= 90 && percentage < 100) {
+            toast.warning(`Approaching ${limit.category} budget limit`, {
+              description: `You've used ${percentage.toFixed(0)}% of your monthly budget`
+            });
+          }
         }
       });
 
@@ -186,14 +212,36 @@ export default function ExpenseTracker() {
   return (
     <div className="space-y-6">
       {alerts.length > 0 && (
-        <div className="space-y-2">
-          {alerts.map((alert, index) => (
-            <Alert key={index} variant="destructive">
-              <AlertTriangle className="h-4 w-4" />
-              <AlertDescription>{alert}</AlertDescription>
-            </Alert>
-          ))}
-        </div>
+        <Card className="border-l-4 border-l-warning">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2 text-lg">
+              <Bell className="h-5 w-5 text-warning" />
+              Spending Alerts
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            {alerts.map((alert, index) => (
+              <Alert key={index} variant={alert.type === 'danger' ? 'destructive' : 'default'}>
+                <div className="flex items-start justify-between">
+                  <div className="flex items-start gap-3">
+                    {alert.type === 'danger' ? (
+                      <AlertTriangle className="h-5 w-5 text-destructive mt-0.5" />
+                    ) : (
+                      <Target className="h-5 w-5 text-warning mt-0.5" />
+                    )}
+                    <div>
+                      <AlertTitle className="capitalize">{alert.category}</AlertTitle>
+                      <AlertDescription>{alert.message}</AlertDescription>
+                    </div>
+                  </div>
+                  <Badge variant={alert.type === 'danger' ? 'destructive' : 'secondary'}>
+                    {alert.percentage.toFixed(0)}%
+                  </Badge>
+                </div>
+              </Alert>
+            ))}
+          </CardContent>
+        </Card>
       )}
 
       <div className="grid gap-6 md:grid-cols-2">
@@ -267,29 +315,53 @@ export default function ExpenseTracker() {
                 No expenses recorded this month
               </p>
             ) : (
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {Object.entries(monthlySpending).map(([category, amount]) => {
                   const limit = spendingLimits.find(l => l.category === category);
                   const percentage = limit ? (amount / limit.monthly_limit) * 100 : 0;
                   
                   return (
-                    <div key={category} className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Badge variant="secondary">
-                          {category.charAt(0).toUpperCase() + category.slice(1)}
-                        </Badge>
-                        {percentage > 80 && (
-                          <AlertTriangle className="h-4 w-4 text-destructive" />
-                        )}
-                      </div>
-                      <div className="text-right">
-                        <div className="font-medium">${amount.toFixed(2)}</div>
-                        {limit && (
-                          <div className="text-sm text-muted-foreground">
-                            {percentage.toFixed(0)}% of ${limit.monthly_limit}
+                    <div key={category} className="space-y-3 p-4 border rounded-lg bg-card/50">
+                      <div className="flex justify-between items-start">
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <Badge variant="secondary" className="capitalize">
+                              {category}
+                            </Badge>
+                            {percentage >= 100 ? (
+                              <AlertTriangle className="h-4 w-4 text-destructive" />
+                            ) : percentage >= 80 ? (
+                              <Target className="h-4 w-4 text-warning" />
+                            ) : null}
                           </div>
+                          <div className="text-2xl font-bold">${amount.toFixed(2)}</div>
+                          {limit && (
+                            <div className="text-sm text-muted-foreground">
+                              of ${limit.monthly_limit} budget
+                            </div>
+                          )}
+                        </div>
+                        {limit && (
+                          <Badge 
+                            variant={percentage >= 100 ? "destructive" : percentage >= 80 ? "secondary" : "outline"}
+                            className="ml-2"
+                          >
+                            {percentage.toFixed(0)}%
+                          </Badge>
                         )}
                       </div>
+                      {limit && (
+                        <div className="space-y-2">
+                          <Progress 
+                            value={Math.min(percentage, 100)} 
+                            className={`h-2 ${percentage >= 100 ? '[&>div]:bg-destructive' : percentage >= 80 ? '[&>div]:bg-warning' : ''}`}
+                          />
+                          <div className="flex justify-between text-xs text-muted-foreground">
+                            <span>${(limit.monthly_limit - amount).toFixed(2)} remaining</span>
+                            <span>{percentage >= 100 ? 'Over budget' : `${(100 - percentage).toFixed(0)}% left`}</span>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
