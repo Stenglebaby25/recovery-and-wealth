@@ -111,10 +111,6 @@ const Dashboard = () => {
                 <FileText className="w-5 h-5" />
                 <span className="text-xs">Resources</span>
               </TabsTrigger>
-              <TabsTrigger value="budget" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
-                <TrendingUp className="w-5 h-5" />
-                <span className="text-xs">Budget</span>
-              </TabsTrigger>
               <TabsTrigger value="bills" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Calendar className="w-5 h-5" />
                 <span className="text-xs">Bills</span>

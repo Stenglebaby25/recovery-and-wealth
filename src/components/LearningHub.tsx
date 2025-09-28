@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle, Lock, Clock, Users, Target, Play, BookOpen, GraduationCap } from 'lucide-react';
+import { CheckCircle, Lock, Clock, Users, Target, Play, BookOpen, GraduationCap, Brain } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 
 interface Course {
@@ -278,6 +278,64 @@ const LearningHub = () => {
                 )}
               </div>
             )}
+          </div>
+
+          {/* H.A.L.T. Recovery Lessons - Featured Section */}
+          <div className="mb-12">
+            <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
+              <CardContent className="p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="p-3 bg-primary/20 rounded-full">
+                    <Brain className="w-8 h-8 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">H.A.L.T. Recovery Lessons</h3>
+                    <p className="text-muted-foreground">
+                      Master the four emotional triggers that lead to poor financial decisions in recovery.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                  <div className="text-center p-4 bg-background/50 rounded-lg">
+                    <div className="w-12 h-12 bg-red-100 dark:bg-red-950 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span className="text-red-600 font-bold text-lg">H</span>
+                    </div>
+                    <p className="text-sm font-medium">Hungry</p>
+                  </div>
+                  <div className="text-center p-4 bg-background/50 rounded-lg">
+                    <div className="w-12 h-12 bg-orange-100 dark:bg-orange-950 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span className="text-orange-600 font-bold text-lg">A</span>
+                    </div>
+                    <p className="text-sm font-medium">Angry</p>
+                  </div>
+                  <div className="text-center p-4 bg-background/50 rounded-lg">
+                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-950 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span className="text-blue-600 font-bold text-lg">L</span>
+                    </div>
+                    <p className="text-sm font-medium">Lonely</p>
+                  </div>
+                  <div className="text-center p-4 bg-background/50 rounded-lg">
+                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-950 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <span className="text-purple-600 font-bold text-lg">T</span>
+                    </div>
+                    <p className="text-sm font-medium">Tired</p>
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <Button 
+                    variant="default" 
+                    size="lg"
+                    onClick={() => window.location.href = '/halt-lessons'}
+                    className="px-8"
+                  >
+                    <Brain className="w-5 h-5 mr-2" />
+                    Start H.A.L.T. Lessons
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Course Grid */}

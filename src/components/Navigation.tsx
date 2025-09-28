@@ -32,6 +32,9 @@ const Navigation = () => {
             <Link to="/tools" className="text-foreground hover:text-primary transition-colors">
               Free Tools
             </Link>
+            <Link to="/halt-lessons" className="text-foreground hover:text-primary transition-colors">
+              H.A.L.T. Lessons
+            </Link>
             {user ? (
               <Link to="/" className="text-foreground hover:text-primary transition-colors">
                 Dashboard
@@ -96,6 +99,13 @@ const Navigation = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Free Tools
+              </Link>
+              <Link 
+                to="/halt-lessons" 
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                H.A.L.T. Lessons
               </Link>
               {user ? (
                 <Link 
