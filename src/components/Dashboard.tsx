@@ -15,7 +15,8 @@ import {
   Brain,
   Shield,
   DollarSign,
-  Calendar
+  Calendar,
+  Bot
 } from 'lucide-react';
 import LearningHub from './LearningHub';
 import ProgressDashboard from './gamification/ProgressDashboard';
@@ -30,6 +31,7 @@ import ExpenseTracker from './ExpenseTracker';
 import { BudgetAnalysis } from './BudgetAnalysis';
 import BillManagement from './BillManagement';
 import TestingPanel from './TestingPanel';
+import AIEducationChat from './AIEducationChat';
 
 const Dashboard = () => {
   const { user, isPremium } = useAuth();
@@ -70,7 +72,7 @@ const Dashboard = () => {
 
           {/* Dashboard Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8 animate-scale-in">
-            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-11 h-auto bg-gradient-card border-0 shadow-soft">
+            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-12 h-auto bg-gradient-card border-0 shadow-soft">
               <TabsTrigger value="overview" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <TrendingUp className="w-5 h-5" />
                 <span className="text-xs">Overview</span>
@@ -118,6 +120,10 @@ const Dashboard = () => {
               <TabsTrigger value="support" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Users className="w-5 h-5" />
                 <span className="text-xs">Support</span>
+              </TabsTrigger>
+              <TabsTrigger value="ai-chat" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
+                <Bot className="w-5 h-5" />
+                <span className="text-xs">AI Assistant</span>
               </TabsTrigger>
             </TabsList>
 
@@ -230,6 +236,11 @@ const Dashboard = () => {
             {/* Support Tab */}
             <TabsContent value="support">
               <SponsorManagement />
+            </TabsContent>
+
+            {/* AI Assistant Tab */}
+            <TabsContent value="ai-chat">
+              <AIEducationChat />
             </TabsContent>
           </Tabs>
         </div>

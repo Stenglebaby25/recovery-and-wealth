@@ -73,6 +73,9 @@ ip_version = "ipv4"
 [functions.send-welcome-email]
 verify_jwt = false
 
+[functions.ai-chat]
+verify_jwt = false
+
 [analytics]
 enabled = false
 port = 54327
