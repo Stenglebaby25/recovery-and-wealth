@@ -8,10 +8,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Progress } from "@/components/ui/progress";
-import { PlusCircle, DollarSign, AlertTriangle, TrendingUp, Bell, Target } from "lucide-react";
+import { PlusCircle, DollarSign, AlertTriangle, TrendingUp, Bell, Target, PieChart as PieChartIcon } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
+import { AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
 interface Expense {
   id: string;
@@ -49,11 +50,13 @@ export default function ExpenseTracker() {
   });
   const [monthlySpending, setMonthlySpending] = useState<Record<string, number>>({});
   const [alerts, setAlerts] = useState<{category: string, message: string, type: 'warning' | 'danger', percentage: number}[]>([]);
+  const [spendingTrend, setSpendingTrend] = useState<{date: string, amount: number}[]>([]);
 
   useEffect(() => {
     if (user) {
       loadExpenses();
       loadSpendingLimits();
+      loadSpendingTrend();
     }
   }, [user]);
 
@@ -89,6 +92,41 @@ export default function ExpenseTracker() {
       setSpendingLimits(data || []);
     } catch (error) {
       console.error("Error loading spending limits:", error);
+    }
+  };
+
+  const loadSpendingTrend = async () => {
+    if (!user) return;
+
+    try {
+      // Get last 30 days of spending
+      const thirtyDaysAgo = new Date();
+      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+      
+      const { data, error } = await supabase
+        .from("expenses")
+        .select("expense_date, amount")
+        .eq("user_id", user.id)
+        .gte("expense_date", thirtyDaysAgo.toISOString().split('T')[0])
+        .order("expense_date");
+
+      if (error) throw error;
+
+      // Group by date and sum amounts
+      const trendMap = new Map<string, number>();
+      data?.forEach((expense) => {
+        const date = expense.expense_date;
+        trendMap.set(date, (trendMap.get(date) || 0) + Number(expense.amount));
+      });
+
+      const trend = Array.from(trendMap.entries()).map(([date, amount]) => ({
+        date: new Date(date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+        amount: Number(amount.toFixed(2))
+      }));
+
+      setSpendingTrend(trend);
+    } catch (error) {
+      console.error("Error loading spending trend:", error);
     }
   };
 
@@ -178,6 +216,7 @@ export default function ExpenseTracker() {
       toast.success("Expense added successfully");
       setNewExpense({ amount: "", category: "", description: "" });
       loadExpenses();
+      loadSpendingTrend();
     } catch (error) {
       console.error("Error adding expense:", error);
       toast.error("Failed to add expense");
@@ -208,6 +247,22 @@ export default function ExpenseTracker() {
       toast.error("Failed to set spending limit");
     }
   };
+
+  const CHART_COLORS = {
+    food: "hsl(var(--chart-1))",
+    transportation: "hsl(var(--chart-2))", 
+    entertainment: "hsl(var(--chart-3))",
+    shopping: "hsl(var(--chart-4))",
+    bills: "hsl(var(--chart-5))",
+    healthcare: "hsl(var(--primary))",
+    other: "hsl(var(--muted-foreground))"
+  };
+
+  const categoryChartData = Object.entries(monthlySpending).map(([category, amount]) => ({
+    name: category.charAt(0).toUpperCase() + category.slice(1),
+    value: Number(amount.toFixed(2)),
+    fill: CHART_COLORS[category as keyof typeof CHART_COLORS]
+  }));
 
   return (
     <div className="space-y-6">
@@ -365,6 +420,128 @@ export default function ExpenseTracker() {
                     </div>
                   );
                 })}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Visual Charts Section */}
+      <div className="grid gap-6 md:grid-cols-2">
+        {/* Spending Trend Chart */}
+        <Card className="border-0 shadow-soft">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <TrendingUp className="h-5 w-5 text-primary" />
+              Spending Trend (Last 30 Days)
+            </CardTitle>
+            <CardDescription>
+              Daily spending pattern visualization
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {spendingTrend.length === 0 ? (
+              <p className="text-muted-foreground text-center py-8">
+                No spending data available for the last 30 days
+              </p>
+            ) : (
+              <ResponsiveContainer width="100%" height={250}>
+                <AreaChart data={spendingTrend}>
+                  <defs>
+                    <linearGradient id="colorAmount" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3}/>
+                      <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                  <XAxis 
+                    dataKey="date" 
+                    stroke="hsl(var(--muted-foreground))"
+                    fontSize={12}
+                  />
+                  <YAxis 
+                    stroke="hsl(var(--muted-foreground))"
+                    fontSize={12}
+                    tickFormatter={(value) => `$${value}`}
+                  />
+                  <Tooltip 
+                    contentStyle={{
+                      backgroundColor: "hsl(var(--card))",
+                      border: "1px solid hsl(var(--border))",
+                      borderRadius: "8px"
+                    }}
+                    formatter={(value: number) => [`$${value.toFixed(2)}`, "Amount"]}
+                  />
+                  <Area 
+                    type="monotone" 
+                    dataKey="amount" 
+                    stroke="hsl(var(--primary))" 
+                    strokeWidth={2}
+                    fillOpacity={1} 
+                    fill="url(#colorAmount)" 
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Category Distribution Chart */}
+        <Card className="border-0 shadow-soft">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <PieChartIcon className="h-5 w-5 text-secondary" />
+              Spending by Category
+            </CardTitle>
+            <CardDescription>
+              This month's category breakdown
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {categoryChartData.length === 0 ? (
+              <p className="text-muted-foreground text-center py-8">
+                No spending data available for this month
+              </p>
+            ) : (
+              <div className="space-y-4">
+                <ResponsiveContainer width="100%" height={200}>
+                  <PieChart>
+                    <Pie
+                      data={categoryChartData}
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={50}
+                      outerRadius={80}
+                      paddingAngle={2}
+                      dataKey="value"
+                    >
+                      {categoryChartData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.fill} />
+                      ))}
+                    </Pie>
+                    <Tooltip 
+                      contentStyle={{
+                        backgroundColor: "hsl(var(--card))",
+                        border: "1px solid hsl(var(--border))",
+                        borderRadius: "8px"
+                      }}
+                      formatter={(value: number) => `$${value.toFixed(2)}`}
+                    />
+                  </PieChart>
+                </ResponsiveContainer>
+                <div className="grid grid-cols-2 gap-2">
+                  {categoryChartData.map((item, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <div 
+                        className="w-3 h-3 rounded-full" 
+                        style={{ backgroundColor: item.fill }}
+                      />
+                      <span className="text-xs text-muted-foreground">
+                        {item.name}: ${item.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </CardContent>
