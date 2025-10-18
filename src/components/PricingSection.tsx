@@ -25,14 +25,14 @@ const PricingSection = () => {
       return;
     }
     
-    // Map plan to Stripe price ID
+    // Map plan to Stripe price ID (with 14-day trial for Monthly and Annual)
     let priceId = '';
     if (planName === "Monthly") {
-      priceId = 'price_1S9aNm1UOU7yJoPumbBaQQlz'; // Monthly subscription $4.99/month
+      priceId = 'price_1SJTvc1UOU7yJoPun4AGLUpO'; // Monthly subscription $4.99/month with 14-day trial
     } else if (planName === "Annual") {
-      priceId = 'price_1S9aRF1UOU7yJoPuaDl0N9nR'; // Annual subscription $49.99/year
+      priceId = 'price_1SJTvr1UOU7yJoPu44QsSTq5'; // Annual subscription $49.99/year with 14-day trial
     } else if (planName === "Lifetime") {
-      priceId = 'price_1S9aNl1UOU7yJoPudztMW7j0'; // Lifetime access $65 one-time
+      priceId = 'price_1S9aNl1UOU7yJoPudztMW7j0'; // Lifetime access $65 one-time (no trial)
     }
     
     if (!priceId) {
@@ -103,7 +103,7 @@ const PricingSection = () => {
       name: "Monthly",
       price: "$4.99",
       period: "per month",
-      description: "Full access plus 2 coaching sessions included",
+      description: "14-day free trial • Full access plus 2 coaching sessions",
       features: [
         "Complete 8-week course",
         "All worksheets & tools",
@@ -120,7 +120,7 @@ const PricingSection = () => {
       name: "Annual",
       price: "$49.99",
       period: "per year",
-      description: "Save over 15% with annual billing plus 2 coaching sessions",
+      description: "14-day free trial • Save over 15% plus 2 coaching sessions",
       features: [
         "Everything in Monthly",
         "Save $10+ annually (equivalent to $4.17/month)", 

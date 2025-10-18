@@ -60,8 +60,8 @@ serve(async (req) => {
     const mode = price.type === "recurring" ? "subscription" : "payment";
     logStep("Payment mode determined", { mode, priceType: price.type });
 
-    // Create checkout session
-    const session = await stripe.checkout.sessions.create({
+    // Create checkout session with trial period for subscriptions
+    const sessionConfig: any = {
       customer: customerId,
       customer_email: customerId ? undefined : user.email,
       line_items: [
@@ -77,7 +77,17 @@ serve(async (req) => {
         user_id: user.id,
         plan_name: planName,
       },
-    });
+    };
+
+    // Add 14-day trial for subscription plans (Monthly and Annual)
+    if (mode === "subscription") {
+      sessionConfig.subscription_data = {
+        trial_period_days: 14,
+      };
+      logStep("Adding 14-day trial period for subscription");
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionConfig);
 
     logStep("Checkout session created", { sessionId: session.id, url: session.url });
 
