@@ -44,6 +44,88 @@ serve(async (req) => {
     if (!user?.email) throw new Error("User not authenticated or email not available");
     logStep("User authenticated", { userId: user.id, email: user.email });
 
+    // FIRST: Check for facility sponsorship or trial status
+    const { data: profile } = await supabaseClient
+      .from('profiles')
+      .select('organization_id, sponsored_until, trial_expires_at, subscription_status')
+      .eq('user_id', user.id)
+      .single();
+
+    if (profile) {
+      // Check if user is facility-sponsored
+      if (profile.organization_id && profile.sponsored_until) {
+        const sponsoredUntil = new Date(profile.sponsored_until);
+        const now = new Date();
+        
+        if (sponsoredUntil > now) {
+          logStep("User has active facility sponsorship", { sponsoredUntil: profile.sponsored_until });
+          return new Response(JSON.stringify({
+            subscribed: true,
+            subscription_type: 'facility_sponsored',
+            subscription_end: profile.sponsored_until
+          }), {
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+            status: 200,
+          });
+        } else {
+          // Sponsorship expired, move to trial if not already done
+          const trialExpires = new Date();
+          trialExpires.setDate(trialExpires.getDate() + 14);
+          
+          await supabaseClient
+            .from('profiles')
+            .update({
+              organization_id: null,
+              sponsored_until: null,
+              trial_started_at: now.toISOString(),
+              trial_expires_at: trialExpires.toISOString(),
+              subscription_status: 'trial',
+            })
+            .eq('user_id', user.id);
+            
+          logStep("Moved expired sponsorship to trial");
+          return new Response(JSON.stringify({
+            subscribed: true,
+            subscription_type: 'trial',
+            subscription_end: trialExpires.toISOString()
+          }), {
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+            status: 200,
+          });
+        }
+      }
+      
+      // Check if user is on trial
+      if (profile.trial_expires_at) {
+        const trialExpires = new Date(profile.trial_expires_at);
+        const now = new Date();
+        
+        if (trialExpires > now) {
+          logStep("User has active trial", { trialExpires: profile.trial_expires_at });
+          return new Response(JSON.stringify({
+            subscribed: true,
+            subscription_type: 'trial',
+            subscription_end: profile.trial_expires_at
+          }), {
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+            status: 200,
+          });
+        } else {
+          // Trial expired, move to free
+          await supabaseClient
+            .from('profiles')
+            .update({
+              trial_started_at: null,
+              trial_expires_at: null,
+              subscription_status: 'free',
+            })
+            .eq('user_id', user.id);
+          logStep("Trial expired, moved to free");
+        }
+      }
+    }
+
+    // THEN: Check Stripe for paid subscriptions
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
     const customers = await stripe.customers.list({ email: user.email, limit: 1 });
     

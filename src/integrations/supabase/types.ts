@@ -460,13 +460,82 @@ export type Database = {
         }
         Relationships: []
       }
+      organization_members: {
+        Row: {
+          created_at: string
+          id: string
+          organization_id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          organization_id: string
+          role?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          organization_id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "organization_members_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      organizations: {
+        Row: {
+          contact_email: string | null
+          contact_phone: string | null
+          created_at: string
+          id: string
+          is_active: boolean
+          name: string
+          organization_type: string
+          updated_at: string
+        }
+        Insert: {
+          contact_email?: string | null
+          contact_phone?: string | null
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name: string
+          organization_type?: string
+          updated_at?: string
+        }
+        Update: {
+          contact_email?: string | null
+          contact_phone?: string | null
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          name?: string
+          organization_type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
           full_name: string | null
           id: string
+          organization_id: string | null
+          sponsored_until: string | null
           subscription_expires_at: string | null
           subscription_status: string | null
+          trial_expires_at: string | null
+          trial_started_at: string | null
           updated_at: string
           user_id: string
         }
@@ -474,8 +543,12 @@ export type Database = {
           created_at?: string
           full_name?: string | null
           id?: string
+          organization_id?: string | null
+          sponsored_until?: string | null
           subscription_expires_at?: string | null
           subscription_status?: string | null
+          trial_expires_at?: string | null
+          trial_started_at?: string | null
           updated_at?: string
           user_id: string
         }
@@ -483,12 +556,24 @@ export type Database = {
           created_at?: string
           full_name?: string | null
           id?: string
+          organization_id?: string | null
+          sponsored_until?: string | null
           subscription_expires_at?: string | null
           subscription_status?: string | null
+          trial_expires_at?: string | null
+          trial_started_at?: string | null
           updated_at?: string
           user_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "profiles_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       resources: {
         Row: {
