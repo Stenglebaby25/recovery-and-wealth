@@ -32,7 +32,7 @@ const PricingSection = () => {
     } else if (planName === "Annual") {
       priceId = 'price_1SJTvr1UOU7yJoPu44QsSTq5'; // Annual subscription $49.99/year with 14-day trial
     } else if (planName === "Lifetime") {
-      priceId = 'price_1S9aNl1UOU7yJoPudztMW7j0'; // Lifetime access $65 one-time (no trial)
+      priceId = 'price_1SJU9G1UOU7yJoPuaKMEOjf0'; // Lifetime access $124.99 one-time (no trial)
     }
     
     if (!priceId) {
@@ -135,7 +135,7 @@ const PricingSection = () => {
     },
     {
       name: "Lifetime",
-      price: "$65",
+      price: "$124.99",
       period: "one-time",
       description: "Most popular! Lifetime access with 1 coaching session",
       features: [
