@@ -7,7 +7,7 @@ interface AuthContextType {
   session: Session | null;
   profile: any | null;
   loading: boolean;
-  signUp: (email: string, password: string, fullName?: string) => Promise<{ error: any }>;
+  signUp: (email: string, password: string, fullName?: string, accessCode?: string) => Promise<{ error: any }>;
   signIn: (email: string, password: string) => Promise<{ error: any }>;
   signOut: () => Promise<void>;
   isPremium: boolean;
@@ -56,10 +56,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => subscription.unsubscribe();
   }, []);
 
-  const signUp = async (email: string, password: string, fullName?: string) => {
+  const signUp = async (email: string, password: string, fullName?: string, accessCode?: string) => {
     const redirectUrl = `${window.location.origin}/`;
     
-    const { error } = await supabase.auth.signUp({
+    const { data: authData, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -67,6 +67,54 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         data: fullName ? { full_name: fullName } : undefined
       }
     });
+
+    // If signup successful and access code provided, link to organization
+    if (!error && authData.user && accessCode) {
+      try {
+        // Find organization by access code
+        const { data: org, error: orgError } = await supabase
+          .from('organizations')
+          .select('id, seat_count, seats_used')
+          .eq('access_code', accessCode)
+          .eq('is_active', true)
+          .eq('subscription_active', true)
+          .single();
+
+        if (orgError) throw new Error('Invalid access code');
+        if (org.seats_used >= org.seat_count) {
+          throw new Error('No available seats for this organization');
+        }
+
+        // Get or create profile
+        const { data: profileData } = await supabase
+          .from('profiles')
+          .select('id')
+          .eq('user_id', authData.user.id)
+          .single();
+
+        if (profileData) {
+          // Update profile with organization
+          await supabase
+            .from('profiles')
+            .update({
+              organization_id: org.id,
+              sponsored_until: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(), // 1 year
+              subscription_status: 'premium'
+            })
+            .eq('user_id', authData.user.id);
+
+          // Add to organization_members
+          await supabase.from('organization_members').insert({
+            user_id: authData.user.id,
+            organization_id: org.id,
+            role: 'member'
+          });
+        }
+      } catch (accessCodeError: any) {
+        console.error('Failed to link access code:', accessCodeError);
+        // Continue with signup even if access code linking fails
+      }
+    }
 
     // Send welcome email after successful signup
     if (!error) {

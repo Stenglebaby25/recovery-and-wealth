@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Plus, UserPlus } from "lucide-react";
+import { Loader2, Plus, UserPlus, UserMinus } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
@@ -28,6 +29,9 @@ const AdminClientManagement = () => {
   const [clients, setClients] = useState<SponsoredClient[]>([]);
   const [loading, setLoading] = useState(true);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [dischargeDialogOpen, setDischargeDialogOpen] = useState(false);
+  const [selectedClient, setSelectedClient] = useState<string | null>(null);
+  const [dischargeReason, setDischargeReason] = useState("");
   const [newClient, setNewClient] = useState({
     email: "",
     full_name: "",
@@ -154,25 +158,82 @@ const AdminClientManagement = () => {
       // Set trial period (14 days from now)
       const trialExpires = new Date();
       trialExpires.setDate(trialExpires.getDate() + 14);
+      const now = new Date().toISOString();
 
-      const { error } = await supabase
+      // Update profile
+      const { error: profileError } = await supabase
         .from("profiles")
         .update({
-          organization_id: null,
-          sponsored_until: null,
-          trial_started_at: new Date().toISOString(),
+          sponsored_until: now,
+          trial_started_at: now,
           trial_expires_at: trialExpires.toISOString(),
           subscription_status: "trial",
+          discharge_date: now,
         })
         .eq("user_id", userId);
 
-      if (error) throw error;
+      if (profileError) throw profileError;
+
+      // Remove from organization_members (triggers seat decrement)
+      const { error: memberError } = await supabase
+        .from("organization_members")
+        .delete()
+        .eq("user_id", userId);
+
+      if (memberError) throw memberError;
 
       toast({
         title: "Success",
         description: "Client moved to 14-day trial period",
       });
 
+      fetchData();
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    }
+  };
+
+  const dischargeClient = async () => {
+    if (!selectedClient) return;
+
+    try {
+      const now = new Date().toISOString();
+      const trialEnd = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString();
+
+      // Update profile: end sponsorship, start trial, add discharge info
+      const { error: profileError } = await supabase
+        .from("profiles")
+        .update({
+          sponsored_until: now,
+          trial_started_at: now,
+          trial_expires_at: trialEnd,
+          discharge_date: now,
+          discharge_reason: dischargeReason || "Completed treatment program",
+        })
+        .eq("user_id", selectedClient);
+
+      if (profileError) throw profileError;
+
+      // Remove from organization_members (triggers seat decrement)
+      const { error: memberError } = await supabase
+        .from("organization_members")
+        .delete()
+        .eq("user_id", selectedClient);
+
+      if (memberError) throw memberError;
+
+      toast({
+        title: "Success",
+        description: "Client discharged and moved to 14-day trial",
+      });
+
+      setDischargeDialogOpen(false);
+      setSelectedClient(null);
+      setDischargeReason("");
       fetchData();
     } catch (error: any) {
       toast({
@@ -306,10 +367,14 @@ const AdminClientManagement = () => {
                 </TableCell>
                 <TableCell>
                   <Button
-                    variant="outline"
+                    variant="destructive"
                     size="sm"
-                    onClick={() => removeSponsorship(client.user_id)}
+                    onClick={() => {
+                      setSelectedClient(client.user_id);
+                      setDischargeDialogOpen(true);
+                    }}
                   >
+                    <UserMinus className="h-4 w-4 mr-1" />
                     End Program
                   </Button>
                 </TableCell>
@@ -325,6 +390,38 @@ const AdminClientManagement = () => {
           </TableBody>
         </Table>
       </CardContent>
+
+      {/* Discharge Dialog */}
+      <Dialog open={dischargeDialogOpen} onOpenChange={setDischargeDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Discharge Client</DialogTitle>
+            <DialogDescription>
+              This will end the client's facility sponsorship and start a 14-day trial period. Their data will be retained.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4">
+            <div>
+              <Label htmlFor="reason">Discharge Reason (Optional)</Label>
+              <Textarea
+                id="reason"
+                value={dischargeReason}
+                onChange={(e) => setDischargeReason(e.target.value)}
+                placeholder="e.g., Completed PHP program, Graduated to outpatient care"
+                rows={3}
+              />
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setDischargeDialogOpen(false)}>
+              Cancel
+            </Button>
+            <Button variant="destructive" onClick={dischargeClient}>
+              Discharge Client
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </Card>
   );
 };

@@ -14,6 +14,7 @@ export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
+  const [accessCode, setAccessCode] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -29,7 +30,7 @@ export default function Auth() {
     try {
       let result;
       if (isSignUp) {
-        result = await signUp(email, password, fullName);
+        result = await signUp(email, password, fullName, accessCode);
       } else {
         result = await signIn(email, password);
       }
@@ -64,17 +65,33 @@ export default function Auth() {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             {isSignUp && (
-              <div className="space-y-2">
-                <Label htmlFor="fullName">Full Name</Label>
-                <Input
-                  id="fullName"
-                  type="text"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  required
-                  placeholder="Enter your full name"
-                />
-              </div>
+              <>
+                <div className="space-y-2">
+                  <Label htmlFor="fullName">Full Name</Label>
+                  <Input
+                    id="fullName"
+                    type="text"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    required
+                    placeholder="Enter your full name"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="accessCode">Access Code (Optional)</Label>
+                  <Input
+                    id="accessCode"
+                    type="text"
+                    value={accessCode}
+                    onChange={(e) => setAccessCode(e.target.value.toUpperCase())}
+                    placeholder="Enter facility access code"
+                    className="font-mono"
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Have a code from your treatment center? Enter it here for sponsored access.
+                  </p>
+                </div>
+              </>
             )}
             
             <div className="space-y-2">

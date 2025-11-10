@@ -17,6 +17,11 @@ interface Organization {
   contact_phone: string | null;
   is_active: boolean;
   created_at: string;
+  seat_count: number;
+  seats_used: number;
+  access_code: string | null;
+  subscription_tier: string;
+  subscription_active: boolean;
 }
 
 const AdminFacilityManagement = () => {
@@ -27,6 +32,8 @@ const AdminFacilityManagement = () => {
     name: "",
     contact_email: "",
     contact_phone: "",
+    seat_count: 30,
+    subscription_tier: "basic",
   });
   const { toast } = useToast();
 
@@ -65,11 +72,17 @@ const AdminFacilityManagement = () => {
     }
 
     try {
+      // Generate unique access code
+      const accessCode = Math.random().toString(36).substring(2, 10).toUpperCase();
+      
       const { error } = await supabase.from("organizations").insert([
         {
           name: newOrg.name,
           contact_email: newOrg.contact_email || null,
           contact_phone: newOrg.contact_phone || null,
+          seat_count: newOrg.seat_count,
+          subscription_tier: newOrg.subscription_tier,
+          access_code: accessCode,
         },
       ]);
 
@@ -77,10 +90,10 @@ const AdminFacilityManagement = () => {
 
       toast({
         title: "Success",
-        description: "Treatment center created successfully",
+        description: `Treatment center created with access code: ${accessCode}`,
       });
 
-      setNewOrg({ name: "", contact_email: "", contact_phone: "" });
+      setNewOrg({ name: "", contact_email: "", contact_phone: "", seat_count: 30, subscription_tier: "basic" });
       setIsDialogOpen(false);
       fetchOrganizations();
     } catch (error: any) {
@@ -178,6 +191,30 @@ const AdminFacilityManagement = () => {
                     placeholder="(555) 123-4567"
                   />
                 </div>
+                <div>
+                  <Label htmlFor="seats">Number of Seats *</Label>
+                  <Input
+                    id="seats"
+                    type="number"
+                    min="1"
+                    value={newOrg.seat_count}
+                    onChange={(e) => setNewOrg({ ...newOrg, seat_count: parseInt(e.target.value) || 0 })}
+                    placeholder="30"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="tier">Subscription Tier</Label>
+                  <select
+                    id="tier"
+                    value={newOrg.subscription_tier}
+                    onChange={(e) => setNewOrg({ ...newOrg, subscription_tier: e.target.value })}
+                    className="w-full h-10 px-3 rounded-md border border-input bg-background"
+                  >
+                    <option value="basic">Basic ($297/month)</option>
+                    <option value="premium">Premium ($497/month)</option>
+                    <option value="enterprise">Enterprise ($997/month)</option>
+                  </select>
+                </div>
               </div>
               <DialogFooter>
                 <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
@@ -194,8 +231,10 @@ const AdminFacilityManagement = () => {
           <TableHeader>
             <TableRow>
               <TableHead>Name</TableHead>
-              <TableHead>Contact Email</TableHead>
-              <TableHead>Contact Phone</TableHead>
+              <TableHead>Access Code</TableHead>
+              <TableHead>Seats</TableHead>
+              <TableHead>Tier</TableHead>
+              <TableHead>Contact</TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Actions</TableHead>
             </TableRow>
@@ -204,17 +243,30 @@ const AdminFacilityManagement = () => {
             {organizations.map((org) => (
               <TableRow key={org.id}>
                 <TableCell className="font-medium">{org.name}</TableCell>
-                <TableCell>{org.contact_email || "—"}</TableCell>
-                <TableCell>{org.contact_phone || "—"}</TableCell>
+                <TableCell>
+                  <code className="px-2 py-1 bg-muted rounded text-sm font-mono">
+                    {org.access_code || "—"}
+                  </code>
+                </TableCell>
+                <TableCell>
+                  <span className={org.seats_used >= org.seat_count ? "text-destructive font-semibold" : ""}>
+                    {org.seats_used} / {org.seat_count}
+                  </span>
+                </TableCell>
+                <TableCell className="capitalize">{org.subscription_tier}</TableCell>
+                <TableCell className="text-sm">
+                  <div>{org.contact_email || "—"}</div>
+                  <div className="text-muted-foreground">{org.contact_phone || ""}</div>
+                </TableCell>
                 <TableCell>
                   <span
                     className={`px-2 py-1 rounded-full text-xs ${
-                      org.is_active
+                      org.is_active && org.subscription_active
                         ? "bg-green-100 text-green-800"
                         : "bg-gray-100 text-gray-800"
                     }`}
                   >
-                    {org.is_active ? "Active" : "Inactive"}
+                    {org.is_active && org.subscription_active ? "Active" : "Inactive"}
                   </span>
                 </TableCell>
                 <TableCell>
@@ -230,7 +282,7 @@ const AdminFacilityManagement = () => {
             ))}
             {organizations.length === 0 && (
               <TableRow>
-                <TableCell colSpan={5} className="text-center text-muted-foreground">
+                <TableCell colSpan={7} className="text-center text-muted-foreground">
                   No treatment centers found
                 </TableCell>
               </TableRow>
