@@ -494,6 +494,7 @@ export type Database = {
       }
       organizations: {
         Row: {
+          access_code: string | null
           contact_email: string | null
           contact_phone: string | null
           created_at: string
@@ -501,9 +502,14 @@ export type Database = {
           is_active: boolean
           name: string
           organization_type: string
+          seat_count: number
+          seats_used: number
+          subscription_active: boolean
+          subscription_tier: string | null
           updated_at: string
         }
         Insert: {
+          access_code?: string | null
           contact_email?: string | null
           contact_phone?: string | null
           created_at?: string
@@ -511,9 +517,14 @@ export type Database = {
           is_active?: boolean
           name: string
           organization_type?: string
+          seat_count?: number
+          seats_used?: number
+          subscription_active?: boolean
+          subscription_tier?: string | null
           updated_at?: string
         }
         Update: {
+          access_code?: string | null
           contact_email?: string | null
           contact_phone?: string | null
           created_at?: string
@@ -521,6 +532,10 @@ export type Database = {
           is_active?: boolean
           name?: string
           organization_type?: string
+          seat_count?: number
+          seats_used?: number
+          subscription_active?: boolean
+          subscription_tier?: string | null
           updated_at?: string
         }
         Relationships: []
@@ -528,6 +543,8 @@ export type Database = {
       profiles: {
         Row: {
           created_at: string
+          discharge_date: string | null
+          discharge_reason: string | null
           full_name: string | null
           id: string
           organization_id: string | null
@@ -541,6 +558,8 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          discharge_date?: string | null
+          discharge_reason?: string | null
           full_name?: string | null
           id?: string
           organization_id?: string | null
@@ -554,6 +573,8 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          discharge_date?: string | null
+          discharge_reason?: string | null
           full_name?: string | null
           id?: string
           organization_id?: string | null
