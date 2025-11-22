@@ -74,20 +74,43 @@ All colors MUST be HSL.
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Recovery-Focused Theme - Emphasis on calm, healing, and peace */
+  [data-theme="recovery"] {
+    --primary: 210 75% 58%;
+    --primary-glow: 210 65% 70%;
+    --secondary: 160 60% 50%;
+    --accent: 180 55% 55%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(210, 75%, 58%), hsl(210, 65%, 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(210, 75%, 58%), hsl(160, 60%, 50%));
+    --gradient-progress: linear-gradient(90deg, hsl(210, 70%, 62%), hsl(180, 55%, 60%));
+    --gradient-accent: linear-gradient(90deg, hsl(180, 55%, 55%), hsl(190, 50%, 60%));
+    
+    --shadow-glow: 0 0 32px hsl(var(--primary-glow) / 0.3);
+  }
+
+  /* Wealth-Focused Theme - Emphasis on growth, professionalism, and success */
+  [data-theme="wealth"] {
+    --primary: 220 90% 52%;
+    --primary-glow: 220 80% 65%;
+    --secondary: 145 75% 42%;
+    --accent: 175 65% 48%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(220, 90%, 52%), hsl(220, 80%, 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(220, 90%, 52%), hsl(145, 75%, 42%));
+    --gradient-progress: linear-gradient(90deg, hsl(220, 85%, 56%), hsl(175, 65%, 50%));
+    --gradient-success: linear-gradient(90deg, hsl(145, 75%, 42%), hsl(140, 65%, 48%));
+    
+    --shadow-glow: 0 0 32px hsl(var(--primary-glow) / 0.2);
   }
 
   .dark {
