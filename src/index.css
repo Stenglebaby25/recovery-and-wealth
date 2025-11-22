@@ -34,6 +34,10 @@ All colors MUST be HSL.
     /* Warm accent for encouragement - complementary teal */
     --accent: 180 60% 50%;
     --accent-foreground: 0 0% 98%;
+    
+    /* Bright yellow for energy and optimism (YNAB-inspired) */
+    --highlight: 48 95% 65%;
+    --highlight-foreground: 220 13% 18%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
@@ -57,6 +61,7 @@ All colors MUST be HSL.
     --gradient-subtle: linear-gradient(180deg, hsl(220, 30%, 98%), hsl(220, 25%, 96%));
     --gradient-success: linear-gradient(90deg, hsl(160, 70%, 45%), hsl(150, 60%, 50%));
     --gradient-accent: linear-gradient(90deg, hsl(180, 60%, 50%), hsl(190, 55%, 55%));
+    --gradient-highlight: linear-gradient(90deg, hsl(48, 95%, 65%), hsl(45, 90%, 70%));
 
     /* Elegant shadows with subtle depth */
     --shadow-soft: 0 2px 8px -2px hsl(220, 25%, 25% / 0.08);
@@ -90,6 +95,10 @@ All colors MUST be HSL.
     --secondary: 120 30% 65%;
     --accent: 40 25% 75%;
     
+    /* Softer, warmer yellow for gentle encouragement */
+    --highlight: 45 75% 70%;
+    --highlight-foreground: 220 13% 18%;
+    
     --muted: 0 0% 90%;
     --border: 0 0% 90%;
     
@@ -97,6 +106,7 @@ All colors MUST be HSL.
     --gradient-hero: linear-gradient(135deg, hsl(210, 50%, 70%), hsl(120, 30%, 65%));
     --gradient-progress: linear-gradient(90deg, hsl(210, 50%, 72%), hsl(120, 30%, 67%));
     --gradient-accent: linear-gradient(90deg, hsl(40, 25%, 75%), hsl(40, 30%, 80%));
+    --gradient-highlight: linear-gradient(90deg, hsl(45, 75%, 70%), hsl(45, 70%, 75%));
     
     --shadow-glow: 0 0 32px hsl(210, 50%, 70% / 0.3);
   }
@@ -108,6 +118,10 @@ All colors MUST be HSL.
     --secondary: 160 50% 55%;
     --accent: 40 35% 65%;
     
+    /* Rich gold/yellow for prosperity and achievement */
+    --highlight: 42 80% 60%;
+    --highlight-foreground: 0 0% 98%;
+    
     --muted: 0 0% 70%;
     --border: 0 0% 70%;
     
@@ -115,6 +129,7 @@ All colors MUST be HSL.
     --gradient-hero: linear-gradient(135deg, hsl(210, 60%, 50%), hsl(160, 50%, 55%));
     --gradient-progress: linear-gradient(90deg, hsl(210, 60%, 52%), hsl(160, 50%, 57%));
     --gradient-success: linear-gradient(90deg, hsl(160, 50%, 55%), hsl(160, 45%, 50%));
+    --gradient-highlight: linear-gradient(90deg, hsl(42, 80%, 60%), hsl(40, 75%, 65%));
     
     --shadow-glow: 0 0 32px hsl(210, 60%, 50% / 0.2);
   }
