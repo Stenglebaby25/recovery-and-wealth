@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Link } from "react-router-dom";
+import { ThemeSelector } from "./ThemeSelector";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,6 +58,7 @@ const Navigation = () => {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
+            <ThemeSelector />
             {user ? (
               <div className="flex items-center space-x-4">
                 {isAdmin && (
@@ -146,6 +148,7 @@ const Navigation = () => {
                 Pricing
               </Link>
               <div className="px-3 py-2 space-y-2">
+                <ThemeSelector fullWidth />
                 {user ? (
                   <>
                     {isAdmin && (
