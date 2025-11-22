@@ -85,17 +85,20 @@ All colors MUST be HSL.
 
   /* Recovery-Focused Theme - Emphasis on calm, healing, and peace */
   [data-theme="recovery"] {
-    --primary: 210 75% 58%;
-    --primary-glow: 210 65% 70%;
-    --secondary: 160 60% 50%;
-    --accent: 180 55% 55%;
+    --primary: 210 50% 70%;
+    --primary-glow: 210 50% 80%;
+    --secondary: 120 30% 65%;
+    --accent: 40 25% 75%;
     
-    --gradient-primary: linear-gradient(135deg, hsl(210, 75%, 58%), hsl(210, 65%, 70%));
-    --gradient-hero: linear-gradient(135deg, hsl(210, 75%, 58%), hsl(160, 60%, 50%));
-    --gradient-progress: linear-gradient(90deg, hsl(210, 70%, 62%), hsl(180, 55%, 60%));
-    --gradient-accent: linear-gradient(90deg, hsl(180, 55%, 55%), hsl(190, 50%, 60%));
+    --muted: 0 0% 90%;
+    --border: 0 0% 90%;
     
-    --shadow-glow: 0 0 32px hsl(var(--primary-glow) / 0.3);
+    --gradient-primary: linear-gradient(135deg, hsl(210, 50%, 70%), hsl(210, 50%, 80%));
+    --gradient-hero: linear-gradient(135deg, hsl(210, 50%, 70%), hsl(120, 30%, 65%));
+    --gradient-progress: linear-gradient(90deg, hsl(210, 50%, 72%), hsl(120, 30%, 67%));
+    --gradient-accent: linear-gradient(90deg, hsl(40, 25%, 75%), hsl(40, 30%, 80%));
+    
+    --shadow-glow: 0 0 32px hsl(210, 50%, 70% / 0.3);
   }
 
   /* Wealth-Focused Theme - Emphasis on growth, professionalism, and success */
