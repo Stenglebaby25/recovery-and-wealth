@@ -68,50 +68,86 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
     });
 
-    // If signup successful and access code provided, link to organization
+    // If signup successful and access code provided
     if (!error && authData.user && accessCode) {
       try {
-        // Find organization by access code
-        const { data: org, error: orgError } = await supabase
-          .from('organizations')
-          .select('id, seat_count, seats_used')
-          .eq('access_code', accessCode)
+        // First check if it's a reviewer code
+        const { data: reviewerCode } = await supabase
+          .from('reviewer_codes')
+          .select('*')
+          .eq('code', accessCode)
           .eq('is_active', true)
-          .eq('subscription_active', true)
           .single();
 
-        if (orgError) throw new Error('Invalid access code');
-        if (org.seats_used >= org.seat_count) {
-          throw new Error('No available seats for this organization');
-        }
+        if (reviewerCode) {
+          // Check if code is expired
+          if (reviewerCode.expires_at && new Date(reviewerCode.expires_at) < new Date()) {
+            throw new Error('This reviewer code has expired');
+          }
+          
+          // Check if code has reached max uses
+          if (reviewerCode.max_uses && reviewerCode.current_uses >= reviewerCode.max_uses) {
+            throw new Error('This reviewer code has reached its maximum uses');
+          }
 
-        // Get or create profile
-        const { data: profileData } = await supabase
-          .from('profiles')
-          .select('id')
-          .eq('user_id', authData.user.id)
-          .single();
-
-        if (profileData) {
-          // Update profile with organization
+          // Grant premium access
+          const expiresAt = new Date(Date.now() + reviewerCode.duration_days * 24 * 60 * 60 * 1000);
           await supabase
             .from('profiles')
             .update({
-              organization_id: org.id,
-              sponsored_until: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(), // 1 year
-              subscription_status: 'premium'
+              subscription_status: 'premium',
+              subscription_expires_at: expiresAt.toISOString(),
             })
             .eq('user_id', authData.user.id);
 
-          // Add to organization_members
-          await supabase.from('organization_members').insert({
-            user_id: authData.user.id,
-            organization_id: org.id,
-            role: 'member'
-          });
+          // Increment code usage
+          await supabase
+            .from('reviewer_codes')
+            .update({ current_uses: reviewerCode.current_uses + 1 })
+            .eq('id', reviewerCode.id);
+        } else {
+          // If not a reviewer code, try organization code
+          const { data: org, error: orgError } = await supabase
+            .from('organizations')
+            .select('id, seat_count, seats_used')
+            .eq('access_code', accessCode)
+            .eq('is_active', true)
+            .eq('subscription_active', true)
+            .single();
+
+          if (orgError) throw new Error('Invalid access code');
+          if (org.seats_used >= org.seat_count) {
+            throw new Error('No available seats for this organization');
+          }
+
+          // Get or create profile
+          const { data: profileData } = await supabase
+            .from('profiles')
+            .select('id')
+            .eq('user_id', authData.user.id)
+            .single();
+
+          if (profileData) {
+            // Update profile with organization
+            await supabase
+              .from('profiles')
+              .update({
+                organization_id: org.id,
+                sponsored_until: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(),
+                subscription_status: 'premium'
+              })
+              .eq('user_id', authData.user.id);
+
+            // Add to organization_members
+            await supabase.from('organization_members').insert({
+              user_id: authData.user.id,
+              organization_id: org.id,
+              role: 'member'
+            });
+          }
         }
       } catch (accessCodeError: any) {
-        console.error('Failed to link access code:', accessCodeError);
+        console.error('Failed to process access code:', accessCodeError);
         // Continue with signup even if access code linking fails
       }
     }

@@ -21,6 +21,7 @@ import AdminLeadManagement from './AdminLeadManagement';
 import AdminAnalytics from './AdminAnalytics';
 import AdminFacilityManagement from './AdminFacilityManagement';
 import AdminClientManagement from './AdminClientManagement';
+import AdminReviewerCodes from './AdminReviewerCodes';
 
 const AdminDashboard = () => {
   const { isAdmin, adminLoading, user } = useAdminAuth();
@@ -95,7 +96,7 @@ const AdminDashboard = () => {
 
           {/* Admin Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-7 h-auto bg-gradient-card border-0 shadow-soft">
+            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-8 h-auto bg-gradient-card border-0 shadow-soft">
               <TabsTrigger value="overview" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <BarChart3 className="w-5 h-5" />
                 <span className="text-xs">Overview</span>
@@ -103,6 +104,10 @@ const AdminDashboard = () => {
               <TabsTrigger value="users" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Users className="w-5 h-5" />
                 <span className="text-xs">Users</span>
+              </TabsTrigger>
+              <TabsTrigger value="reviewer-codes" className="flex flex-col gap-1 py-3 data-[state=active]:bg-highlight/10 data-[state=active]:text-highlight transition-all">
+                <Mail className="w-5 h-5" />
+                <span className="text-xs">Reviewers</span>
               </TabsTrigger>
               <TabsTrigger value="facilities" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Database className="w-5 h-5" />
@@ -223,6 +228,11 @@ const AdminDashboard = () => {
             {/* Users Tab */}
             <TabsContent value="users">
               <AdminUserManagement />
+            </TabsContent>
+
+            {/* Reviewer Codes Tab */}
+            <TabsContent value="reviewer-codes">
+              <AdminReviewerCodes />
             </TabsContent>
 
             {/* Facilities Tab */}
