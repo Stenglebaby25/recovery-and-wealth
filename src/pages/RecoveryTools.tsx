@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { FileText, AlertTriangle, CreditCard, GitBranch, Clock } from "lucide-react";
+import { FileText, CreditCard, GitBranch, Clock, AlertTriangle } from "lucide-react";
+import CrisisModeButton from "@/components/recovery/CrisisModeButton";
 
 const RecoveryTools = () => {
   return (
@@ -99,17 +100,9 @@ const RecoveryTools = () => {
                   </p>
                 </div>
                 
-                {/* Placeholder Areas */}
+                {/* Interactive Tools */}
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="rounded-xl border-2 border-dashed border-blue-300 dark:border-blue-700 bg-blue-50/50 dark:bg-blue-950/20 p-8 md:p-12 text-center space-y-4">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-blue-200 dark:bg-blue-800 flex items-center justify-center">
-                      <AlertTriangle className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <div className="space-y-2">
-                      <p className="font-semibold text-blue-900 dark:text-blue-100">Crisis Mode Button</p>
-                      <p className="text-sm text-muted-foreground">Guided mindfulness & accountability</p>
-                    </div>
-                  </div>
+                  <CrisisModeButton />
                   
                   <div className="rounded-xl border-2 border-dashed border-blue-300 dark:border-blue-700 bg-blue-50/50 dark:bg-blue-950/20 p-8 md:p-12 text-center space-y-4">
                     <div className="w-16 h-16 mx-auto rounded-full bg-blue-200 dark:bg-blue-800 flex items-center justify-center">
