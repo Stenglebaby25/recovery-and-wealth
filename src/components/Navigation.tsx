@@ -33,6 +33,9 @@ const Navigation = () => {
             <Link to="/tools" className="text-foreground hover:text-primary transition-colors">
               Free Tools
             </Link>
+            <Link to="/recovery-tools" className="text-foreground hover:text-primary transition-colors">
+              Recovery Tools
+            </Link>
             <Link to="/halt-lessons" className="text-foreground hover:text-primary transition-colors">
               H.A.L.T. Lessons
             </Link>
@@ -101,6 +104,13 @@ const Navigation = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Free Tools
+              </Link>
+              <Link 
+                to="/recovery-tools" 
+                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Recovery Tools
               </Link>
               <Link 
                 to="/halt-lessons" 

@@ -16,6 +16,7 @@ import CourseDemo from "./pages/CourseDemo";
 import NotFound from "./pages/NotFound";
 import CourseContentPreview from "./pages/CourseContentPreview";
 import HALTLessons from "./components/course/HALTLessons";
+import RecoveryTools from "./pages/RecoveryTools";
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/course-demo" element={<CourseDemo />} />
             <Route path="/course-content" element={<CourseContentPreview />} />
             <Route path="/halt-lessons" element={<HALTLessons />} />
+            <Route path="/recovery-tools" element={<RecoveryTools />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
