@@ -3,6 +3,7 @@ import { Heart, Calculator, Clock, ArrowRight, Quote } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroBackground from "@/assets/serenity-meditation.jpg";
 import recoveryWealthLogo from "@/assets/recovery-wealth-logo-bold.png";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 const HeroSection = () => {
   return (
@@ -151,7 +152,12 @@ const HeroSection = () => {
             </div>
           </div>
           
-          {/* 8. Trust Indicators */}
+          {/* 8. Newsletter Signup */}
+          <div className="max-w-md mx-auto mb-8">
+            <NewsletterSignup />
+          </div>
+          
+          {/* 9. Trust Indicators */}
           <div className="bg-primary/10 backdrop-blur-sm rounded-lg py-4 px-6 inline-block border border-primary/20">
             <p className="text-sm font-medium text-foreground">Created by people in recovery, for people in recovery</p>
             <p className="mt-1 text-sm text-foreground/80">Compatible with 12-Step and SMART Recovery programs</p>
