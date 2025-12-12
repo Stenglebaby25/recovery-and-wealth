@@ -79,6 +79,9 @@ verify_jwt = false
 [functions.mighty-networks-webhook]
 verify_jwt = false
 
+[functions.subscribe-newsletter]
+verify_jwt = false
+
 [analytics]
 enabled = false
 port = 54327
