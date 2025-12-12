@@ -1,4 +1,6 @@
 import HeroSection from "@/components/HeroSection";
+import Footer from "@/components/Footer";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,6 +23,19 @@ const MarketingHomepage = () => {
   return (
     <>
       <HeroSection />
+      
+      {/* Newsletter Section - Subtle dedicated section */}
+      <section className="py-10 bg-muted/30 border-y border-border/50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-xl mx-auto text-center">
+            <h3 className="text-lg font-semibold text-foreground mb-2">Stay Connected</h3>
+            <p className="text-sm text-muted-foreground mb-4">
+              Weekly insights on recovery, financial wellness, and building a life you're proud of.
+            </p>
+            <NewsletterSignup />
+          </div>
+        </div>
+      </section>
       
       {/* Stats Section */}
       <section className="py-16 bg-gradient-subtle">
@@ -265,6 +280,8 @@ const MarketingHomepage = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </>
   );
 };
