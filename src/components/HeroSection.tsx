@@ -13,11 +13,11 @@ const HeroSection = () => {
         style={{ backgroundImage: `url(${goldenSunriseBackground})` }}
       />
       
-      {/* Muted Slate Blue Gradient Overlay */}
+      {/* Sage Green Gradient Overlay */}
       <div 
         className="absolute inset-0 opacity-75"
         style={{ 
-          background: 'linear-gradient(135deg, hsla(210, 25%, 35%, 0.85) 0%, hsla(200, 20%, 45%, 0.7) 40%, hsla(35, 40%, 60%, 0.4) 100%)' 
+          background: 'linear-gradient(135deg, hsla(140, 20%, 35%, 0.85) 0%, hsla(120, 15%, 45%, 0.7) 40%, hsla(45, 35%, 60%, 0.4) 100%)' 
         }}
       />
       
