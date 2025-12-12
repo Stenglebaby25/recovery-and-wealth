@@ -110,14 +110,26 @@ const RecoveryTools = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <CrisisModeButton />
                   
-                  <div className="rounded-xl border-2 border-dashed border-blue-300 dark:border-blue-700 bg-blue-50/50 dark:bg-blue-950/20 p-8 md:p-12 text-center space-y-4">
+                  <div className="rounded-xl border-2 border-blue-300 dark:border-blue-700 bg-blue-50/50 dark:bg-blue-950/20 p-8 text-center space-y-4">
                     <div className="w-16 h-16 mx-auto rounded-full bg-blue-200 dark:bg-blue-800 flex items-center justify-center">
                       <CreditCard className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div className="space-y-2">
-                      <p className="font-semibold text-blue-900 dark:text-blue-100">Printable Wallet Card</p>
-                      <p className="text-sm text-muted-foreground">Crisis response methodology</p>
+                      <p className="font-semibold text-blue-900 dark:text-blue-100">HALT Wallet Card</p>
+                      <p className="text-sm text-muted-foreground">Print & carry this reminder card</p>
                     </div>
+                    <Button 
+                      asChild 
+                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                    >
+                      <a 
+                        href="/learning-resources/HALT_Wallet_Card.png" 
+                        download="HALT_Wallet_Card.png"
+                      >
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Wallet Card
+                      </a>
+                    </Button>
                   </div>
                 </div>
               </CardContent>
