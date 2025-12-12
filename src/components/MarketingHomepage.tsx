@@ -1,7 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, Calculator, BookOpen, Users, Trophy, Download, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -19,31 +18,6 @@ const MarketingHomepage = () => {
     { number: "$2.3M", label: "Saved by Members" },
     { number: "24/7", label: "Community Support" }
   ];
-
-  const quickLinks = [
-    {
-      title: "Free Calculators",
-      description: "Try our debt payoff and savings calculators",
-      icon: Calculator,
-      href: "/tools",
-      badge: "Free"
-    },
-    {
-      title: "Learning Hub", 
-      description: "Access sample lessons and resources",
-      icon: BookOpen,
-      href: "#learning-hub",
-      badge: "Preview"
-    },
-    {
-      title: "Success Stories",
-      description: "Read inspiring transformation stories",
-      icon: Trophy,
-      href: "/success-stories",
-      badge: "Motivation"
-    }
-  ];
-
   return (
     <>
       <HeroSection />
@@ -73,62 +47,6 @@ const MarketingHomepage = () => {
         </div>
       </section>
 
-      {/* Quick Access Cards */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Start Your Journey Today
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Explore our tools and resources designed specifically for your recovery journey
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {quickLinks.map((link, index) => (
-              <Card key={index} className="hover-scale border-border/50 hover:border-primary/20 transition-all duration-300">
-                <CardHeader className="text-center pb-4">
-                  <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                    <link.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="flex items-center justify-center gap-2 mb-2">
-                    <CardTitle className="text-xl">{link.title}</CardTitle>
-                    <Badge variant="secondary" className="text-xs">{link.badge}</Badge>
-                  </div>
-                  <CardDescription className="text-base">
-                    {link.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="pt-0 text-center">
-                  {link.href.startsWith('#') ? (
-                    <Button 
-                      variant="outline" 
-                      className="w-full group"
-                      onClick={() => {
-                        const targetSection = document.querySelector(link.href);
-                        if (targetSection) {
-                          targetSection.scrollIntoView({ behavior: 'smooth' });
-                        }
-                      }}
-                    >
-                      Explore Now
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  ) : (
-                    <Link to={link.href}>
-                      <Button variant="outline" className="w-full group">
-                        Explore Now
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Lead Magnet Section */}
       <section className="py-20 bg-secondary/50">
