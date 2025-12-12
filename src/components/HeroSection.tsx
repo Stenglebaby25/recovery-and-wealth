@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
 import serenityImage from "@/assets/serenity-meditation.jpg";
 import soberMoneyLogo from "@/assets/sober-money-mindset-logo.png";
+import recoveryWealthLogo from "@/assets/recovery-wealth-logo-bold.png";
 
 const HeroSection = () => {
   return (
@@ -17,12 +18,12 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          {/* Sober Money Mindset Logo */}
-          <div className="mb-8 flex justify-center">
+          {/* Recovery & Wealth Logo */}
+          <div className="mb-6 flex justify-center">
             <img 
-              src={soberMoneyLogo} 
-              alt="Sober Money Mindset" 
-              className="h-16 md:h-20 object-contain"
+              src={recoveryWealthLogo} 
+              alt="Recovery & Wealth" 
+              className="h-20 md:h-28 object-contain"
             />
           </div>
           
