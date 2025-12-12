@@ -1,8 +1,9 @@
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { FileText, CreditCard, GitBranch, Clock, AlertTriangle, Download } from "lucide-react";
+import { FileText, GitBranch, Clock, AlertTriangle, Download, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CrisisModeButton from "@/components/recovery/CrisisModeButton";
+import AmendsPriorityTracker from "@/components/recovery/AmendsPriorityTracker";
 
 const RecoveryTools = () => {
   return (
@@ -71,15 +72,7 @@ const RecoveryTools = () => {
                     </Button>
                   </div>
                   
-                  <div className="rounded-xl border-2 border-dashed border-purple-300 dark:border-purple-700 bg-purple-50/50 dark:bg-purple-950/20 p-8 md:p-12 text-center space-y-4">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-purple-200 dark:bg-purple-800 flex items-center justify-center">
-                      <CreditCard className="w-8 h-8 text-purple-600 dark:text-purple-400" />
-                    </div>
-                    <div className="space-y-2">
-                      <p className="font-semibold text-purple-900 dark:text-purple-100">Interactive Tool</p>
-                      <p className="text-sm text-muted-foreground">Visual debt vs assets tracker</p>
-                    </div>
-                  </div>
+                  <AmendsPriorityTracker />
                 </div>
               </CardContent>
             </Card>
