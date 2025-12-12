@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { FileText, CreditCard, GitBranch, Clock, AlertTriangle } from "lucide-react";
+import { FileText, CreditCard, GitBranch, Clock, AlertTriangle, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import CrisisModeButton from "@/components/recovery/CrisisModeButton";
 
 const RecoveryTools = () => {
@@ -46,16 +47,28 @@ const RecoveryTools = () => {
                   </p>
                 </div>
                 
-                {/* Placeholder Areas */}
+                {/* Tool Areas */}
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="rounded-xl border-2 border-dashed border-purple-300 dark:border-purple-700 bg-purple-50/50 dark:bg-purple-950/20 p-8 md:p-12 text-center space-y-4">
+                  <div className="rounded-xl border-2 border-purple-300 dark:border-purple-700 bg-purple-50/50 dark:bg-purple-950/20 p-8 text-center space-y-4">
                     <div className="w-16 h-16 mx-auto rounded-full bg-purple-200 dark:bg-purple-800 flex items-center justify-center">
                       <FileText className="w-8 h-8 text-purple-600 dark:text-purple-400" />
                     </div>
                     <div className="space-y-2">
-                      <p className="font-semibold text-purple-900 dark:text-purple-100">PDF Worksheet</p>
-                      <p className="text-sm text-muted-foreground">Downloadable inventory template</p>
+                      <p className="font-semibold text-purple-900 dark:text-purple-100">Clean Slate Financial Inventory</p>
+                      <p className="text-sm text-muted-foreground">Track expenses, manage debt, and reflect on your financial choices</p>
                     </div>
+                    <Button 
+                      asChild 
+                      className="bg-purple-600 hover:bg-purple-700 text-white"
+                    >
+                      <a 
+                        href="/learning-resources/The_Clean_Slate_Financial_Inventory.pdf" 
+                        download="The_Clean_Slate_Financial_Inventory.pdf"
+                      >
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Worksheet
+                      </a>
+                    </Button>
                   </div>
                   
                   <div className="rounded-xl border-2 border-dashed border-purple-300 dark:border-purple-700 bg-purple-50/50 dark:bg-purple-950/20 p-8 md:p-12 text-center space-y-4">
