@@ -47,11 +47,7 @@ const HeroSection = () => {
           
           {/* New Intro Text */}
           <p 
-            className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed font-semibold"
-            style={{ 
-              color: 'hsl(220, 30%, 25%)',
-              textShadow: '0 1px 2px hsla(0, 0%, 100%, 0.9), 0 0 12px hsla(0, 0%, 100%, 0.7)' 
-            }}
+            className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed font-semibold text-foreground bg-background/80 backdrop-blur-sm rounded-lg px-4 py-3 shadow-soft"
           >
             Build wealth, recover financially, and create lasting change with our comprehensive learning platform. 
             Start your transformation today.
