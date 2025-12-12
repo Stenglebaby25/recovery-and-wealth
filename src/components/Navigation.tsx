@@ -22,15 +22,15 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-md border-b border-border shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border/50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 md:h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src="/recovery-wealth-logo.png" 
+              src="/recovery-wealth-logo-bold.png" 
               alt="Recovery & Wealth" 
-              className="h-10 md:h-8 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+              className="h-12 md:h-10 w-auto cursor-pointer hover:opacity-80 transition-opacity"
             />
           </Link>
 
