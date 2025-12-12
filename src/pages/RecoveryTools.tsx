@@ -167,14 +167,26 @@ const RecoveryTools = () => {
                 
                 {/* Placeholder Areas */}
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-950/20 p-8 md:p-12 text-center space-y-4">
+                  <div className="rounded-xl border-2 border-slate-300 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-950/20 p-8 text-center space-y-4">
                     <div className="w-16 h-16 mx-auto rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
                       <GitBranch className="w-8 h-8 text-slate-600 dark:text-slate-400" />
                     </div>
                     <div className="space-y-2">
-                      <p className="font-semibold text-slate-900 dark:text-slate-100">Printable Flowchart</p>
-                      <p className="text-sm text-muted-foreground">Decision-making guidance PDF</p>
+                      <p className="font-semibold text-slate-900 dark:text-slate-100">Decision Flowchart</p>
+                      <p className="text-sm text-muted-foreground">Step-by-step spending guidance</p>
                     </div>
+                    <Button 
+                      asChild 
+                      className="bg-slate-600 hover:bg-slate-700 text-white"
+                    >
+                      <a 
+                        href="/learning-resources/Decision_Flowchart.png" 
+                        download="Decision_Flowchart.png"
+                      >
+                        <Download className="w-4 h-4 mr-2" />
+                        Download Flowchart
+                      </a>
+                    </Button>
                   </div>
                   
                   <PauseTimer />
