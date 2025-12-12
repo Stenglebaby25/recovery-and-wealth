@@ -79,6 +79,16 @@ const Navigation = () => {
                     </a>
                   )}
                 </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* About Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-foreground hover:text-primary transition-colors focus:outline-none">
+                About
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-popover z-50">
                 <DropdownMenuItem asChild>
                   <Link to="/coaching" className="w-full cursor-pointer">
                     Coaching
@@ -89,12 +99,13 @@ const Navigation = () => {
                     Success Stories
                   </Link>
                 </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/pricing" className="w-full cursor-pointer">
+                    Pricing
+                  </Link>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
-            <Link to="/pricing" className="text-foreground hover:text-primary transition-colors">
-              Pricing
-            </Link>
           </div>
 
           {/* Desktop Auth Buttons */}
@@ -182,6 +193,11 @@ const Navigation = () => {
                     Learning Hub
                   </a>
                 )}
+              </div>
+
+              {/* About Section */}
+              <div className="px-3 py-2 border-t border-border">
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">About</p>
                 <Link 
                   to="/coaching" 
                   className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
@@ -196,10 +212,6 @@ const Navigation = () => {
                 >
                   Success Stories
                 </Link>
-              </div>
-
-              {/* Other Links */}
-              <div className="border-t border-border">
                 <Link 
                   to="/pricing" 
                   className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
