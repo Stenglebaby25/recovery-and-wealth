@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Heart, Calculator, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import serenityImage from "@/assets/serenity-meditation.jpg";
+import goldenSunriseBackground from "@/assets/golden-sunrise-background.jpg";
 import recoveryWealthLogo from "@/assets/recovery-wealth-logo-bold.png";
 
 const HeroSection = () => {
@@ -9,8 +9,8 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-45"
-        style={{ backgroundImage: `url(${serenityImage})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+        style={{ backgroundImage: `url(${goldenSunriseBackground})` }}
       />
       
       {/* Gradient Overlay */}
