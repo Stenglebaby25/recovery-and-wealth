@@ -15,7 +15,7 @@ const HeroSection = () => {
       
       {/* Soft Neutral Overlay */}
       <div 
-        className="absolute inset-0 bg-background/20"
+        className="absolute inset-0 bg-background/10"
       />
       
       {/* Warm Vignette Overlay */}
@@ -47,8 +47,11 @@ const HeroSection = () => {
           
           {/* New Intro Text */}
           <p 
-            className="text-lg md:text-xl text-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed font-medium"
-            style={{ textShadow: '0 1px 3px hsla(0, 0%, 100%, 0.8), 0 0 8px hsla(0, 0%, 100%, 0.5)' }}
+            className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed font-semibold"
+            style={{ 
+              color: 'hsl(220, 30%, 25%)',
+              textShadow: '0 1px 2px hsla(0, 0%, 100%, 0.9), 0 0 12px hsla(0, 0%, 100%, 0.7)' 
+            }}
           >
             Build wealth, recover financially, and create lasting change with our comprehensive learning platform. 
             Start your transformation today.
@@ -127,9 +130,9 @@ const HeroSection = () => {
           </div>
           
           {/* Recovery Gap Explanation */}
-          <div className="bg-card/50 backdrop-blur-sm rounded-lg p-6 mb-10 max-w-3xl mx-auto border border-border/50">
+          <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 mb-10 max-w-3xl mx-auto border border-border shadow-soft">
             <h3 className="text-lg font-semibold text-foreground mb-2">The Recovery Gap</h3>
-            <p className="text-muted-foreground text-sm leading-relaxed">
+            <p className="text-foreground/80 text-sm leading-relaxed">
               Traditional treatment programs overlook critical life skills like financial literacy, leaving a dangerous gap 
               that contributes to relapse. We bridge that gap with practical money skills that support lasting recovery.
             </p>
@@ -163,9 +166,9 @@ const HeroSection = () => {
           </div>
           
           {/* Trust Indicators */}
-          <div className="mt-12 text-sm text-muted-foreground">
-            <p>Created by people in recovery, for people in recovery</p>
-            <p className="mt-2">Compatible with 12-Step and SMART Recovery programs</p>
+          <div className="mt-12 bg-primary/10 backdrop-blur-sm rounded-lg py-4 px-6 inline-block border border-primary/20">
+            <p className="text-sm font-medium text-foreground">Created by people in recovery, for people in recovery</p>
+            <p className="mt-1 text-sm text-foreground/80">Compatible with 12-Step and SMART Recovery programs</p>
           </div>
         </div>
       </div>
