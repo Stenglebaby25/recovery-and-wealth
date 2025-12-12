@@ -7,22 +7,22 @@ import recoveryWealthLogo from "@/assets/recovery-wealth-logo-bold.png";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image */}
+      {/* Background Image - reduced opacity */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25"
         style={{ backgroundImage: `url(${heroBackground})` }}
       />
       
-      {/* Soft Neutral Overlay */}
+      {/* Stronger Neutral Overlay */}
       <div 
-        className="absolute inset-0 bg-background/10"
+        className="absolute inset-0 bg-background/40"
       />
       
       {/* Warm Vignette Overlay */}
       <div 
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse at center, transparent 40%, hsla(40, 30%, 92%, 0.3) 70%, hsla(40, 25%, 88%, 0.5) 100%)'
+          background: 'radial-gradient(ellipse at center, transparent 30%, hsla(40, 30%, 92%, 0.4) 60%, hsla(40, 25%, 88%, 0.6) 100%)'
         }}
       />
       
