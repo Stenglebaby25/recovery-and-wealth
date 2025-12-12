@@ -22,7 +22,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border/50 shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[hsl(40,25%,95%)] backdrop-blur-md border-b border-[hsl(40,15%,88%)] shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20 md:h-16">
           {/* Logo */}
@@ -30,7 +30,7 @@ const Navigation = () => {
             <img 
               src="/recovery-wealth-logo-bold.png" 
               alt="Recovery & Wealth" 
-              className="h-12 md:h-10 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+              className="h-14 md:h-12 w-auto cursor-pointer hover:opacity-90 transition-opacity"
             />
           </Link>
 
@@ -145,7 +145,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation Menu */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
+          <div className="md:hidden border-t border-[hsl(40,15%,88%)] bg-[hsl(40,25%,96%)] backdrop-blur-md">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {/* Tools Section */}
               <div className="px-3 py-2">
