@@ -13,8 +13,13 @@ const HeroSection = () => {
         style={{ backgroundImage: `url(${goldenSunriseBackground})` }}
       />
       
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-subtle opacity-80" />
+      {/* Muted Slate Blue Gradient Overlay */}
+      <div 
+        className="absolute inset-0 opacity-75"
+        style={{ 
+          background: 'linear-gradient(135deg, hsla(210, 25%, 35%, 0.85) 0%, hsla(200, 20%, 45%, 0.7) 40%, hsla(35, 40%, 60%, 0.4) 100%)' 
+        }}
+      />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
