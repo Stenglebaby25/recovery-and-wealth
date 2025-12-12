@@ -46,7 +46,10 @@ const HeroSection = () => {
           </h1>
           
           {/* New Intro Text */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p 
+            className="text-lg md:text-xl text-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed font-medium"
+            style={{ textShadow: '0 1px 3px hsla(0, 0%, 100%, 0.8), 0 0 8px hsla(0, 0%, 100%, 0.5)' }}
+          >
             Build wealth, recover financially, and create lasting change with our comprehensive learning platform. 
             Start your transformation today.
           </p>
