@@ -322,6 +322,48 @@ export type Database = {
         }
         Relationships: []
       }
+      halt_lesson_progress: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          exercise_steps_completed: Json | null
+          id: string
+          lesson_id: string
+          quiz_responses: Json | null
+          quiz_score: number | null
+          reflection_notes: string | null
+          self_assessment_rating: number | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          exercise_steps_completed?: Json | null
+          id?: string
+          lesson_id: string
+          quiz_responses?: Json | null
+          quiz_score?: number | null
+          reflection_notes?: string | null
+          self_assessment_rating?: number | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          exercise_steps_completed?: Json | null
+          id?: string
+          lesson_id?: string
+          quiz_responses?: Json | null
+          quiz_score?: number | null
+          reflection_notes?: string | null
+          self_assessment_rating?: number | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       leads: {
         Row: {
           created_at: string
