@@ -15,7 +15,7 @@ const HeroSection = () => {
       
       {/* Soft Neutral Overlay */}
       <div 
-        className="absolute inset-0 bg-background/40"
+        className="absolute inset-0 bg-background/30"
       />
       
       <div className="container mx-auto px-4 relative z-10">
