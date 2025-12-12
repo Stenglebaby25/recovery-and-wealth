@@ -18,6 +18,14 @@ const HeroSection = () => {
         className="absolute inset-0 bg-background/20"
       />
       
+      {/* Warm Vignette Overlay */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse at center, transparent 40%, hsla(40, 30%, 92%, 0.5) 70%, hsla(40, 25%, 88%, 0.8) 100%)'
+        }}
+      />
+      
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           {/* Recovery & Wealth Logo */}
