@@ -1,10 +1,16 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, Shield } from "lucide-react";
+import { Menu, X, Shield, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { Link } from "react-router-dom";
 import { ThemeSelector } from "./ThemeSelector";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,31 +35,63 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/tools" className="text-foreground hover:text-primary transition-colors">
-              Free Tools
-            </Link>
-            <Link to="/recovery-tools" className="text-foreground hover:text-primary transition-colors">
-              Recovery Tools
-            </Link>
-            <Link to="/halt-lessons" className="text-foreground hover:text-primary transition-colors">
-              H.A.L.T. Lessons
-            </Link>
-            {user ? (
-              <Link to="/" className="text-foreground hover:text-primary transition-colors">
-                Dashboard
-              </Link>
-            ) : (
-              <a href="#learning-hub" className="text-foreground hover:text-primary transition-colors">
-                Learning Hub
-              </a>
-            )}
-            <Link to="/coaching" className="text-foreground hover:text-primary transition-colors">
-              Coaching
-            </Link>
-            <Link to="/success-stories" className="text-foreground hover:text-primary transition-colors">
-              Success Stories
-            </Link>
+          <div className="hidden md:flex items-center space-x-6">
+            {/* Tools Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-foreground hover:text-primary transition-colors focus:outline-none">
+                Tools
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-popover z-50">
+                <DropdownMenuItem asChild>
+                  <Link to="/tools" className="w-full cursor-pointer">
+                    Free Tools
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/recovery-tools" className="w-full cursor-pointer">
+                    Recovery Tools
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Learn Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-foreground hover:text-primary transition-colors focus:outline-none">
+                Learn
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-popover z-50">
+                <DropdownMenuItem asChild>
+                  <Link to="/halt-lessons" className="w-full cursor-pointer">
+                    H.A.L.T. Lessons
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  {user ? (
+                    <Link to="/" className="w-full cursor-pointer">
+                      Dashboard
+                    </Link>
+                  ) : (
+                    <a href="#learning-hub" className="w-full cursor-pointer">
+                      Learning Hub
+                    </a>
+                  )}
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/coaching" className="w-full cursor-pointer">
+                    Coaching
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/success-stories" className="w-full cursor-pointer">
+                    Success Stories
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Link to="/pricing" className="text-foreground hover:text-primary transition-colors">
               Pricing
             </Link>
@@ -98,66 +136,80 @@ const Navigation = () => {
         {isMenuOpen && (
           <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link 
-                to="/tools" 
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Free Tools
-              </Link>
-              <Link 
-                to="/recovery-tools" 
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Recovery Tools
-              </Link>
-              <Link 
-                to="/halt-lessons" 
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                H.A.L.T. Lessons
-              </Link>
-              {user ? (
+              {/* Tools Section */}
+              <div className="px-3 py-2">
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Tools</p>
                 <Link 
-                  to="/" 
+                  to="/tools" 
                   className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Dashboard
+                  Free Tools
                 </Link>
-              ) : (
-                <a 
-                  href="#learning-hub" 
+                <Link 
+                  to="/recovery-tools" 
                   className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Learning Hub
-                </a>
-              )}
-              <Link 
-                to="/coaching" 
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Coaching
-              </Link>
-              <Link 
-                to="/success-stories" 
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Success Stories
-              </Link>
-              <Link 
-                to="/pricing" 
-                className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Pricing
-              </Link>
-              <div className="px-3 py-2 space-y-2">
+                  Recovery Tools
+                </Link>
+              </div>
+
+              {/* Learn Section */}
+              <div className="px-3 py-2 border-t border-border">
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">Learn</p>
+                <Link 
+                  to="/halt-lessons" 
+                  className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  H.A.L.T. Lessons
+                </Link>
+                {user ? (
+                  <Link 
+                    to="/" 
+                    className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Dashboard
+                  </Link>
+                ) : (
+                  <a 
+                    href="#learning-hub" 
+                    className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Learning Hub
+                  </a>
+                )}
+                <Link 
+                  to="/coaching" 
+                  className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Coaching
+                </Link>
+                <Link 
+                  to="/success-stories" 
+                  className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Success Stories
+                </Link>
+              </div>
+
+              {/* Other Links */}
+              <div className="border-t border-border">
+                <Link 
+                  to="/pricing" 
+                  className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Pricing
+                </Link>
+              </div>
+
+              <div className="px-3 py-2 space-y-2 border-t border-border">
                 <ThemeSelector fullWidth />
                 {user ? (
                   <>
