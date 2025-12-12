@@ -1,9 +1,10 @@
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { FileText, GitBranch, Clock, AlertTriangle, Download, CreditCard } from "lucide-react";
+import { FileText, GitBranch, AlertTriangle, Download, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CrisisModeButton from "@/components/recovery/CrisisModeButton";
 import AmendsPriorityTracker from "@/components/recovery/AmendsPriorityTracker";
+import PauseTimer from "@/components/recovery/PauseTimer";
 
 const RecoveryTools = () => {
   return (
@@ -176,15 +177,7 @@ const RecoveryTools = () => {
                     </div>
                   </div>
                   
-                  <div className="rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-950/20 p-8 md:p-12 text-center space-y-4">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
-                      <Clock className="w-8 h-8 text-slate-600 dark:text-slate-400" />
-                    </div>
-                    <div className="space-y-2">
-                      <p className="font-semibold text-slate-900 dark:text-slate-100">48-Hour Pause Timer</p>
-                      <p className="text-sm text-muted-foreground">Delayed gratification tool</p>
-                    </div>
-                  </div>
+                  <PauseTimer />
                 </div>
               </CardContent>
             </Card>
