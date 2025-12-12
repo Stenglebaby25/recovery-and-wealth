@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Heart, Calculator, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import goldenSunriseBackground from "@/assets/golden-sunrise-background.jpg";
+import heroBackground from "@/assets/hero-image.jpg";
 import recoveryWealthLogo from "@/assets/recovery-wealth-logo-bold.png";
 
 const HeroSection = () => {
@@ -9,16 +9,13 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
-        style={{ backgroundImage: `url(${goldenSunriseBackground})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
+        style={{ backgroundImage: `url(${heroBackground})` }}
       />
       
-      {/* Warm Cream Vignette Overlay */}
+      {/* Soft Neutral Overlay */}
       <div 
-        className="absolute inset-0"
-        style={{ 
-          background: 'radial-gradient(ellipse at center, transparent 20%, hsla(40, 30%, 92%, 0.6) 70%, hsla(40, 25%, 88%, 0.85) 100%)' 
-        }}
+        className="absolute inset-0 bg-background/60"
       />
       
       <div className="container mx-auto px-4 relative z-10">
