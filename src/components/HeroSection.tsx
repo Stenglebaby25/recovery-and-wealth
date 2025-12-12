@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Heart, Calculator, Clock, ArrowRight } from "lucide-react";
+import { Heart, Calculator, Clock, ArrowRight, Quote } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroBackground from "@/assets/serenity-meditation.jpg";
 import recoveryWealthLogo from "@/assets/recovery-wealth-logo-bold.png";
@@ -28,7 +28,7 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          {/* Recovery & Wealth Logo */}
+          {/* 1. Recovery & Wealth Logo */}
           <div className="mb-6 flex justify-center">
             <img 
               src={recoveryWealthLogo} 
@@ -37,7 +37,7 @@ const HeroSection = () => {
             />
           </div>
           
-          {/* Main Headline */}
+          {/* 2. Main Headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight animate-fade-in text-foreground">
             Your Journey to Financial{" "}
             <span className="text-primary">Recovery</span>
@@ -45,7 +45,7 @@ const HeroSection = () => {
             <span className="text-secondary">Wealth</span>
           </h1>
           
-          {/* New Intro Text */}
+          {/* 3. Intro Text */}
           <p 
             className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed font-medium text-foreground/90 bg-background/80 backdrop-blur-sm rounded-lg px-4 py-3 shadow-soft"
           >
@@ -53,7 +53,30 @@ const HeroSection = () => {
             Start your transformation today.
           </p>
           
-          {/* Free Tools Section - Right below intro */}
+          {/* 4. Recovery Gap Statistics - Enhanced & Prominent */}
+          <div className="bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 backdrop-blur-sm rounded-2xl p-8 mb-8 max-w-3xl mx-auto border border-primary/20 shadow-medium">
+            <h3 className="text-xl font-bold text-foreground mb-6">The Recovery Gap: Why Financial Literacy Matters</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-background/60 rounded-xl p-5 shadow-soft border border-border/50">
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">27%</div>
+                <div className="text-sm text-foreground font-medium">cite financial issues as major relapse reason</div>
+              </div>
+              <div className="bg-background/60 rounded-xl p-5 shadow-soft border border-border/50">
+                <div className="text-4xl md:text-5xl font-bold text-secondary mb-2">63%</div>
+                <div className="text-sm text-foreground font-medium">of Americans live paycheck-to-paycheck</div>
+              </div>
+              <div className="bg-background/60 rounded-xl p-5 shadow-soft border border-border/50">
+                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">40-60%</div>
+                <div className="text-sm text-foreground font-medium">relapse rate in first year of recovery</div>
+              </div>
+            </div>
+            <p className="text-foreground/80 text-sm mt-6 max-w-2xl mx-auto">
+              Traditional treatment programs overlook critical life skills like financial literacy, leaving a dangerous gap 
+              that contributes to relapse. We bridge that gap.
+            </p>
+          </div>
+          
+          {/* 5. Free Tools Section */}
           <div className="bg-card/80 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-2xl mx-auto border border-border shadow-soft">
             <h3 className="text-lg font-semibold text-foreground mb-4">Free Tools to Get Started</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -90,52 +113,8 @@ const HeroSection = () => {
             </Link>
           </div>
           
-          {/* Recovery Gap Statistics */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 max-w-3xl mx-auto animate-fade-in">
-            <div className="bg-card/60 backdrop-blur-sm rounded-lg p-4 shadow-soft border border-border/50 hover:shadow-medium transition-shadow">
-              <div className="text-3xl font-bold text-primary">27%</div>
-              <div className="text-sm text-muted-foreground font-medium">cite financial issues as major relapse reason</div>
-            </div>
-            <div className="bg-card/60 backdrop-blur-sm rounded-lg p-4 shadow-soft border border-border/50 hover:shadow-medium transition-shadow">
-              <div className="text-3xl font-bold text-secondary">63%</div>
-              <div className="text-sm text-muted-foreground font-medium">of Americans live paycheck-to-paycheck</div>
-            </div>
-            <div className="bg-card/60 backdrop-blur-sm rounded-lg p-4 shadow-soft border border-border/50 hover:shadow-medium transition-shadow">
-              <div className="text-3xl font-bold text-accent">40-60%</div>
-              <div className="text-sm text-muted-foreground font-medium">relapse rate in first year of recovery</div>
-            </div>
-          </div>
-          
-          {/* Introduction Video */}
-          <div className="mb-8 max-w-xl mx-auto">
-            <div className="bg-card/50 backdrop-blur-sm rounded-lg p-4 border border-border/50">
-              <h4 className="text-sm font-medium text-foreground mb-3 text-center">See Why This Matters</h4>
-              <div className="relative rounded-lg overflow-hidden">
-                <iframe 
-                  width="100%" 
-                  height="200" 
-                  src="https://www.youtube.com/embed/kB1NTdSIB48?si=Y_Vy7xdD7QvoPd15&autoplay=0&controls=1&rel=0" 
-                  title="Financial Struggles in Early Recovery"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowFullScreen
-                  className="w-full h-32 sm:h-48 md:h-[200px]"
-                ></iframe>
-              </div>
-            </div>
-          </div>
-          
-          {/* Recovery Gap Explanation */}
-          <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 mb-10 max-w-3xl mx-auto border border-border shadow-soft">
-            <h3 className="text-lg font-semibold text-foreground mb-2">The Recovery Gap</h3>
-            <p className="text-foreground/80 text-sm leading-relaxed">
-              Traditional treatment programs overlook critical life skills like financial literacy, leaving a dangerous gap 
-              that contributes to relapse. We bridge that gap with practical money skills that support lasting recovery.
-            </p>
-          </div>
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+          {/* 6. CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in mb-8">
             <Button 
               variant="default" 
               size="lg" 
@@ -161,8 +140,19 @@ const HeroSection = () => {
             </Button>
           </div>
           
-          {/* Trust Indicators */}
-          <div className="mt-12 bg-primary/10 backdrop-blur-sm rounded-lg py-4 px-6 inline-block border border-primary/20">
+          {/* 7. Testimonial */}
+          <div className="bg-background/70 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-2xl mx-auto border border-border/50 shadow-soft">
+            <Quote className="h-8 w-8 text-primary/40 mx-auto mb-3" />
+            <p className="text-foreground/90 italic text-lg leading-relaxed mb-4">
+              "I never realized how much my financial stress was affecting my recovery. This program gave me the tools to take control of my money and my life."
+            </p>
+            <div className="text-sm text-muted-foreground font-medium">
+              — Michael R., 18 months sober
+            </div>
+          </div>
+          
+          {/* 8. Trust Indicators */}
+          <div className="bg-primary/10 backdrop-blur-sm rounded-lg py-4 px-6 inline-block border border-primary/20">
             <p className="text-sm font-medium text-foreground">Created by people in recovery, for people in recovery</p>
             <p className="mt-1 text-sm text-foreground/80">Compatible with 12-Step and SMART Recovery programs</p>
           </div>
