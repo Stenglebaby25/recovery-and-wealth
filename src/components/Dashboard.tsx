@@ -32,6 +32,7 @@ import { BudgetAnalysis } from './BudgetAnalysis';
 import BillManagement from './BillManagement';
 import TestingPanel from './TestingPanel';
 import AIEducationChat from './AIEducationChat';
+import PremiumGate from './PremiumGate';
 
 const Dashboard = () => {
   const { user, isPremium } = useAuth();
@@ -209,18 +210,42 @@ const Dashboard = () => {
               <MoodJournal />
             </TabsContent>
 
-            {/* Expenses Tab */}
+            {/* Expenses Tab - Premium */}
             <TabsContent value="expenses">
-              <ExpenseTracker />
+              <PremiumGate 
+                feature="Expense Tracker"
+                description="Track your spending, set budget limits, and get real-time alerts when you're approaching your limits."
+                benefits={[
+                  "Track expenses across 7 categories",
+                  "Set custom monthly spending limits",
+                  "Get alerts at 80% and 100% of budget",
+                  "View spending trends with charts",
+                  "Analyze category breakdowns"
+                ]}
+              >
+                <ExpenseTracker />
+              </PremiumGate>
             </TabsContent>
             
             <TabsContent value="budget">
               <BudgetAnalysis />
             </TabsContent>
 
-            {/* Bills Tab */}
+            {/* Bills Tab - Premium */}
             <TabsContent value="bills">
-              <BillManagement />
+              <PremiumGate 
+                feature="Bill Management"
+                description="Never miss a bill payment again. Track due dates, set reminders, and stay on top of your finances."
+                benefits={[
+                  "Track all your recurring bills",
+                  "Set payment reminders",
+                  "Mark bills as paid",
+                  "Organize by category",
+                  "View upcoming due dates"
+                ]}
+              >
+                <BillManagement />
+              </PremiumGate>
             </TabsContent>
 
             {/* Prevention Tab */}
