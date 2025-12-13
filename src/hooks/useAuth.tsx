@@ -10,6 +10,8 @@ interface AuthContextType {
   signUp: (email: string, password: string, fullName?: string, accessCode?: string) => Promise<{ error: any }>;
   signIn: (email: string, password: string) => Promise<{ error: any }>;
   signOut: () => Promise<void>;
+  resetPassword: (email: string) => Promise<{ error: any }>;
+  updatePassword: (newPassword: string) => Promise<{ error: any }>;
   isPremium: boolean;
 }
 
@@ -185,6 +187,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     window.location.href = '/';
   };
 
+  const resetPassword = async (email: string) => {
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/reset-password`,
+    });
+    return { error };
+  };
+
+  const updatePassword = async (newPassword: string) => {
+    const { error } = await supabase.auth.updateUser({
+      password: newPassword,
+    });
+    return { error };
+  };
+
   const isPremium = profile?.subscription_status === 'premium' || profile?.subscription_status === 'enterprise';
 
   const value = {
@@ -195,6 +211,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     signUp,
     signIn,
     signOut,
+    resetPassword,
+    updatePassword,
     isPremium
   };
 
