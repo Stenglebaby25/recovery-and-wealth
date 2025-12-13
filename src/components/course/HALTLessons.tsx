@@ -8,10 +8,12 @@ import { Slider } from "@/components/ui/slider";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { CheckCircle, Clock, AlertTriangle, Heart, Brain, Users, Bed, BookOpen, PenLine, Target, Sparkles } from "lucide-react";
+import { CheckCircle, Clock, AlertTriangle, Heart, Brain, Users, Bed, BookOpen, PenLine, Target, Sparkles, ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
+import { Link } from "react-router-dom";
+import Navigation from "@/components/Navigation";
 
 interface QuizQuestion {
   id: string;
@@ -578,18 +580,27 @@ const HALTLessons = () => {
 
   if (isLoading) {
     return (
-      <div className="container mx-auto px-4 py-12 text-center">
-        <p className="text-muted-foreground">Loading your progress...</p>
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <div className="container mx-auto px-4 py-12 pt-24 text-center">
+          <p className="text-muted-foreground">Loading your progress...</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold text-center mb-4">
-          H.A.L.T. Recovery Lessons
-        </h1>
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      <div className="container mx-auto px-4 py-12 pt-24">
+        <div className="mb-8">
+          <Link to="/tools" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-4 transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Tools
+          </Link>
+          <h1 className="text-4xl font-bold text-center mb-4">
+            H.A.L.T. Recovery Lessons
+          </h1>
         <p className="text-xl text-muted-foreground text-center max-w-3xl mx-auto mb-6">
           Learn to identify and manage the four most common emotional triggers that lead to poor financial decisions in recovery.
         </p>
@@ -961,6 +972,7 @@ const HALTLessons = () => {
           Next Lesson
         </Button>
       </div>
+    </div>
     </div>
   );
 };
