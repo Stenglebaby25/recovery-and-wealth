@@ -107,32 +107,38 @@ const OpportunityCostVisualizer = () => {
 
   return (
     <div className="w-full max-w-6xl mx-auto space-y-8">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-2xl">
-            <Calculator className="h-6 w-6" />
-            Opportunity Cost Visualizer: Your Money's True Potential
+      <Card className="border-2 border-primary/20 shadow-lg bg-gradient-to-br from-card to-primary/5">
+        <CardHeader className="text-center pb-6">
+          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+            <Calculator className="h-8 w-8 text-primary" />
+          </div>
+          <CardTitle className="text-2xl md:text-3xl">
+            Opportunity Cost Visualizer
           </CardTitle>
-          <p className="text-muted-foreground">
-            See the real cost of addiction spending by visualizing what that same money could become through investing.
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            See what your money could become if invested instead of spent on substances
           </p>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="space-y-2">
-              <Label htmlFor="spending-amount">How much do you spend?</Label>
-              <Input
-                id="spending-amount"
-                type="number"
-                value={spendingAmount}
-                onChange={(e) => setSpendingAmount(e.target.value)}
-                placeholder="50"
-              />
+              <Label htmlFor="spending-amount" className="text-base font-medium">How much do you spend?</Label>
+              <div className="relative">
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+                <Input
+                  id="spending-amount"
+                  type="number"
+                  value={spendingAmount}
+                  onChange={(e) => setSpendingAmount(e.target.value)}
+                  placeholder="50"
+                  className="pl-7 h-12 text-lg"
+                />
+              </div>
             </div>
             <div className="space-y-2">
-              <Label>How often?</Label>
+              <Label className="text-base font-medium">How often?</Label>
               <Select value={frequency} onValueChange={setFrequency}>
-                <SelectTrigger>
+                <SelectTrigger className="h-12 text-lg">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -144,18 +150,20 @@ const OpportunityCostVisualizer = () => {
               </Select>
             </div>
             <div className="space-y-2">
-              <Label htmlFor="time-horizon">Time period (years)</Label>
+              <Label htmlFor="time-horizon" className="text-base font-medium">Time period (years)</Label>
               <Input
                 id="time-horizon"
                 type="number"
                 value={timeHorizon}
                 onChange={(e) => setTimeHorizon(e.target.value)}
                 placeholder="10"
+                className="h-12 text-lg"
               />
             </div>
           </div>
           
-          <Button onClick={calculate} className="w-full" size="lg">
+          <Button onClick={calculate} className="w-full h-14 text-lg font-semibold" size="lg">
+            <TrendingUp className="w-5 h-5 mr-2" />
             Calculate My Opportunity Cost
           </Button>
         </CardContent>
