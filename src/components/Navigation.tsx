@@ -69,15 +69,9 @@ const Navigation = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  {user ? (
-                    <Link to="/" className="w-full cursor-pointer">
-                      Dashboard
-                    </Link>
-                  ) : (
-                    <a href="#learning-hub" className="w-full cursor-pointer">
-                      Learning Hub
-                    </a>
-                  )}
+                  <Link to={user ? "/" : "/tools"} className="w-full cursor-pointer">
+                    {user ? "Dashboard" : "Learning Hub"}
+                  </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -176,23 +170,13 @@ const Navigation = () => {
                 >
                   H.A.L.T. Lessons
                 </Link>
-                {user ? (
-                  <Link 
-                    to="/" 
-                    className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Dashboard
-                  </Link>
-                ) : (
-                  <a 
-                    href="#learning-hub" 
-                    className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Learning Hub
-                  </a>
-                )}
+                <Link 
+                  to={user ? "/" : "/tools"} 
+                  className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {user ? "Dashboard" : "Learning Hub"}
+                </Link>
               </div>
 
               {/* About Section */}
