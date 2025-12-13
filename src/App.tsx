@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import Admin from "./pages/Admin";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import Coaching from "./pages/Coaching";
@@ -30,7 +32,9 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
-        <Route path="/admin" element={<Admin />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/admin" element={<Admin />} />
         <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/coaching" element={<Coaching />} />
             <Route path="/pricing" element={<Pricing />} />
