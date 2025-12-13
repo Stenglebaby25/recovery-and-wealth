@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Checkbox } from '@/components/ui/checkbox';
 import { AlertCircle, Eye, EyeOff } from 'lucide-react';
 import soberMoneyLogo from '@/assets/sober-money-mindset-logo.png';
 
@@ -16,6 +17,7 @@ export default function Auth() {
   const [fullName, setFullName] = useState('');
   const [accessCode, setAccessCode] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   
@@ -25,6 +27,12 @@ export default function Auth() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    
+    if (isSignUp && !acceptedTerms) {
+      setError('You must accept the Terms of Service and Privacy Policy to create an account.');
+      return;
+    }
+    
     setLoading(true);
 
     try {
@@ -139,6 +147,27 @@ export default function Auth() {
                 </div>
               )}
             </div>
+
+            {isSignUp && (
+              <div className="flex items-start space-x-3">
+                <Checkbox
+                  id="terms"
+                  checked={acceptedTerms}
+                  onCheckedChange={(checked) => setAcceptedTerms(checked === true)}
+                  className="mt-1"
+                />
+                <Label htmlFor="terms" className="text-sm leading-relaxed cursor-pointer">
+                  I agree to the{' '}
+                  <Link to="/terms" className="text-primary hover:underline" target="_blank">
+                    Terms of Service
+                  </Link>{' '}
+                  and{' '}
+                  <Link to="/privacy" className="text-primary hover:underline" target="_blank">
+                    Privacy Policy
+                  </Link>
+                </Label>
+              </div>
+            )}
 
             {error && (
               <Alert variant="destructive">
