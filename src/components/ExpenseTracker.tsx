@@ -588,34 +588,96 @@ export default function ExpenseTracker() {
         </CardContent>
       </Card>
 
-      <Card>
+      <Card className="border-0 shadow-soft">
         <CardHeader>
-          <CardTitle>Set Spending Limits</CardTitle>
+          <CardTitle className="flex items-center gap-2">
+            <Target className="h-5 w-5 text-primary" />
+            Spending Limits & Alerts
+          </CardTitle>
           <CardDescription>
-            Set monthly limits for categories to get alerts when you're close to overspending
+            Set monthly limits for categories to get alerts when you're close to overspending. 
+            Alerts trigger at 80% by default.
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {EXPENSE_CATEGORIES.map((category) => {
               const existingLimit = spendingLimits.find(l => l.category === category);
+              const spent = monthlySpending[category] || 0;
+              const percentage = existingLimit ? (spent / existingLimit.monthly_limit) * 100 : 0;
+              
               return (
-                <div key={category} className="flex items-center gap-2">
-                  <Label className="min-w-24 capitalize">{category}:</Label>
-                  <Input
-                    type="number"
-                    step="0.01"
-                    placeholder="Monthly limit"
-                    defaultValue={existingLimit?.monthly_limit || ""}
-                    onBlur={(e) => {
-                      if (e.target.value) {
-                        setSpendingLimit(category, e.target.value);
-                      }
-                    }}
-                  />
+                <div 
+                  key={category} 
+                  className={`p-4 rounded-xl border transition-all ${
+                    percentage >= 100 
+                      ? 'border-destructive/50 bg-destructive/5' 
+                      : percentage >= 80 
+                        ? 'border-amber-500/50 bg-amber-500/5'
+                        : 'border-border bg-card/50'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-medium capitalize">{category}</span>
+                    {existingLimit && (
+                      <Badge 
+                        variant={percentage >= 100 ? "destructive" : percentage >= 80 ? "secondary" : "outline"}
+                        className="text-xs"
+                      >
+                        {percentage > 0 ? `${percentage.toFixed(0)}%` : 'No spending'}
+                      </Badge>
+                    )}
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-muted-foreground w-12">Limit:</span>
+                      <div className="relative flex-1">
+                        <DollarSign className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground" />
+                        <Input
+                          type="number"
+                          step="0.01"
+                          placeholder="Set limit"
+                          className="pl-6 h-8 text-sm"
+                          defaultValue={existingLimit?.monthly_limit || ""}
+                          onBlur={(e) => {
+                            if (e.target.value) {
+                              setSpendingLimit(category, e.target.value);
+                            }
+                          }}
+                        />
+                      </div>
+                    </div>
+                    
+                    {existingLimit && (
+                      <div className="space-y-1">
+                        <Progress 
+                          value={Math.min(percentage, 100)} 
+                          className={`h-1.5 ${percentage >= 100 ? '[&>div]:bg-destructive' : percentage >= 80 ? '[&>div]:bg-amber-500' : ''}`}
+                        />
+                        <div className="flex justify-between text-xs text-muted-foreground">
+                          <span>${spent.toFixed(2)} spent</span>
+                          <span>${(existingLimit.monthly_limit - spent).toFixed(2)} left</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               );
             })}
+          </div>
+          
+          <div className="mt-6 p-4 rounded-lg bg-primary/5 border border-primary/10">
+            <div className="flex items-start gap-3">
+              <Bell className="h-5 w-5 text-primary mt-0.5" />
+              <div>
+                <h4 className="font-medium text-sm">How Alerts Work</h4>
+                <p className="text-xs text-muted-foreground mt-1">
+                  You'll receive a warning when you reach 80% of your budget, and an alert when you exceed 100%. 
+                  These alerts appear on this page and as toast notifications when you add expenses.
+                </p>
+              </div>
+            </div>
           </div>
         </CardContent>
       </Card>
