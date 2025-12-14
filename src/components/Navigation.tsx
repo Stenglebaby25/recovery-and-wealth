@@ -69,7 +69,7 @@ const Navigation = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to={user ? "/" : "/tools"} className="w-full cursor-pointer">
+                  <Link to={user ? "/" : "/learn"} className="w-full cursor-pointer">
                     {user ? "Dashboard" : "Learning Hub"}
                   </Link>
                 </DropdownMenuItem>
@@ -171,7 +171,7 @@ const Navigation = () => {
                   H.A.L.T. Lessons
                 </Link>
                 <Link 
-                  to={user ? "/" : "/tools"} 
+                  to={user ? "/" : "/learn"} 
                   className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
