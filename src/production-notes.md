@@ -1,51 +1,109 @@
 # Production Notes & Future Features
 
-## H.A.L.T. Recovery Lessons (PRIORITY)
-- **H**ungry - Financial decisions when experiencing hunger/basic needs
-- **A**ngry - Managing money during emotional stress and anger
-- **L**onely - Financial isolation and spending behaviors 
-- **T**ired - Decision fatigue and financial choices
+## ✅ COMPLETED FEATURES
 
-### Implementation Plan:
-- Find optimal placement for H.A.L.T. series in course structure
-- Create interactive modules for each acronym component
-- Include practical exercises for identifying triggers
-- Link to financial decision-making frameworks
+### H.A.L.T. Recovery Lessons
+- Interactive lessons for Hungry, Angry, Lonely, Tired triggers
+- Quizzes, reflection journaling, self-assessment sliders
+- Progress tracking with Supabase persistence
+- Financial decision-making frameworks linked
 
-## Advanced Learning & Content Enhancement
-- Expand advanced learning topics with detailed examples
-- Add advanced financial tools and calculators
-- Partner affiliate links with discount codes for traffic generation
-- Visual engagement improvements:
-  - Interactive graphs and charts
-  - Example scenarios with visual elements
-  - Infographics for complex concepts
-  - Image-based learning materials
-  - Video content integration
-- Content variety for better engagement (addressing concentration issues with text-heavy materials)
+### High-Priority Dashboard Features
+- ✅ Quick Daily Check-in (Dashboard with mood, sobriety, spending impulses, energy tracking)
+- ✅ Expense Tracker with Alerts (categorized logging, spending limits, trigger notifications)
+- ✅ Bill Reminders & Management (due date tracking, payment reminders, autopay support)
 
-## High-Priority Unique Features for Recovery Users:
+### Recovery Tools Page
+- ✅ Honesty Inventory Sheet (AmendsPriorityTracker)
+- ✅ Financial HALT Button (CrisisModeButton with guided mindfulness)
+- ✅ Decision Flowchart with 48-Hour Pause Timer
+- ✅ Downloadable PDFs for each tool
 
-### Quick Daily Check-in
-- **Placement**: Dashboard Overview tab or enhance existing MoodJournal component
-- **Purpose**: Simple, fast daily wellness check that complements the detailed mood journal
-- **Features**: Quick mood rating, sobriety status, spending impulses, energy level
-- **Goal**: Keep users engaged with minimal friction daily touchpoint
+### Learning Hub
+- ✅ Learning Hub Preview page for prospective users (/learn)
+- ✅ Course structure (Weeks 1-15 curriculum)
+- ✅ Lesson player with video, text, and quiz support
 
-### Expense Tracker with Alerts
-- **Placement**: New "Expenses" tab in Dashboard or Financial Tools section
-- **Purpose**: Real-time spending awareness crucial for recovery financial management
-- **Features**: Categorized expense logging, spending limit alerts, trigger spending notifications
-- **Goal**: Prevent impulsive spending that often accompanies recovery challenges
+---
 
-### Bill Reminders & Management
-- **Placement**: Financial Tools section or new "Bills" tab in Dashboard
-- **Purpose**: Essential for recovery users rebuilding financial responsibility
-- **Features**: Bill due date tracking, payment reminders, late fee prevention alerts
-- **Goal**: Support financial stability and reduce money-related stress
+## 🎯 CURRENT PRIORITIES
 
-## Other Future Enhancements:
-- Advanced debt management calculators
-- Recovery milestone celebration system
-- Automated savings integration guides
-- Community support features
+### 1. Milestone Celebration System (HIGH PRIORITY)
+- **Recovery Milestones**: Sobriety anniversaries, program progress, streak achievements
+- **Financial Milestones**: First emergency fund goal, debt payoff achievements, savings targets
+- **Combined Approach**: Link recovery progress to financial wins (e.g., "30 days sober = $X saved from not using")
+- **Features**: Visual celebrations, badge unlocks, shareable achievements, gamification integration
+- **Placement**: Dashboard notifications, dedicated celebration moments, progress dashboard enhancement
+
+### 2. Advanced Debt Management Calculators (HIGH PRIORITY)
+- Debt snowball vs avalanche comparison tool
+- Payoff timeline calculator with visual progress
+- Interest savings calculator
+- Recovery-specific debt prioritization (restitution, legal fees, etc.)
+- Integration with existing calculators section
+
+### 3. Affiliate/Partner Resource Hub (NEW)
+- **Purpose**: Curated list of helpful apps and financial tools for recovery
+- **Revenue Model**: Affiliate partnerships, discount codes for users
+- **Categories**: 
+  - Budgeting apps (YNAB, Mint alternatives)
+  - Sobriety/recovery apps
+  - Banking/savings tools
+  - Credit monitoring services
+  - Financial education platforms
+- **Implementation**: Dedicated section/page with partner links, discount code display
+- **Note**: Reference original web design section for layout inspiration
+
+### 4. Automated Savings Integration Guides (MEDIUM)
+- **Beginner Guidance**: Coaches handle initial setup conversations
+- **Self-Service Content**: Step-by-step guides for common banks/apps
+- **Partner Integration**: Potential affiliate with savings apps (Acorns, Qapital, etc.)
+- **Features**: Round-up savings explainers, automation setup tutorials
+- **Note**: May overlap with Affiliate/Partner Hub implementation
+
+---
+
+## 📋 CONTENT ENHANCEMENT BACKLOG
+
+### Visual Engagement Improvements
+- Interactive graphs and charts for financial data
+- Example scenarios with visual elements
+- Infographics for complex concepts
+- Image-based learning materials
+- Video content integration
+
+### Advanced Learning Topics
+- Expand Week 9-15 content with detailed examples
+- Add more interactive elements to lessons
+- Partner affiliate links with discount codes integrated into relevant lessons
+
+---
+
+## 🔜 DEFERRED/FUTURE
+
+### Circle.so Community Integration
+- **Status**: NOT READY - User still setting up Circle.so platform
+- **Plan**: SSO integration, tiered content access (free vs premium)
+- **Will implement**: When Circle platform is live and outline is ready
+
+### Other Future Ideas
+- Community support features (beyond Circle)
+- Advanced gamification expansions
+- Coach dashboard/portal enhancements
+
+---
+
+## 📝 IMPLEMENTATION NOTES
+
+### Milestone Celebration Approach
+Consider combining recovery and financial milestones into a unified celebration system:
+- "30 Days Strong" = show estimated money saved
+- "First $500 Emergency Fund" = recovery progress equivalent
+- Visual confetti/celebration moments
+- Optional social sharing (privacy-conscious)
+
+### Affiliate/Partner Strategy
+- Start with curated resource list
+- Add affiliate links where available
+- Track clicks/conversions if possible
+- Consider "Recovery Wealth Approved" badge for vetted partners
