@@ -3,6 +3,7 @@ import CalculatorsSection from "@/components/CalculatorsSection";
 import ResourceLibrary from "@/components/premium/ResourceLibrary";
 import FinancialImpactSection from "@/components/FinancialImpactSection";
 import OpportunityCostVisualizer from "@/components/OpportunityCostVisualizer";
+import DebtManagementCalculator from "@/components/DebtManagementCalculator";
 import QuickDailyCheckIn from "@/components/QuickDailyCheckIn";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -36,6 +37,11 @@ const Tools = () => {
 
         {/* Budget & Emergency Fund Calculators */}
         <CalculatorsSection />
+
+        {/* Advanced Debt Management Calculator */}
+        <section className="container mx-auto px-4 py-12">
+          <DebtManagementCalculator />
+        </section>
 
         {/* Premium Tools Teaser Section */}
         <section className="py-16 bg-gradient-to-br from-amber-50/50 to-primary/5 dark:from-amber-900/10 dark:to-primary/10">
