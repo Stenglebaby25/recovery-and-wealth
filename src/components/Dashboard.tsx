@@ -16,10 +16,12 @@ import {
   Shield,
   DollarSign,
   Calendar,
-  Bot
+  Bot,
+  Sparkles
 } from 'lucide-react';
 import LearningHub from './LearningHub';
 import ProgressDashboard from './gamification/ProgressDashboard';
+import MilestoneCelebration from './gamification/MilestoneCelebration';
 import HabitTracker from './gamification/HabitTracker';
 import RewardsCenter from './gamification/RewardsCenter';
 import ResourceLibrary from './premium/ResourceLibrary';
@@ -86,6 +88,10 @@ const Dashboard = () => {
                 <Target className="w-5 h-5" />
                 <span className="text-xs">Habits</span>
               </TabsTrigger>
+              <TabsTrigger value="milestones" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
+                <Sparkles className="w-5 h-5" />
+                <span className="text-xs">Milestones</span>
+              </TabsTrigger>
               <TabsTrigger value="achievements" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <Trophy className="w-5 h-5" />
                 <span className="text-xs">Progress</span>
@@ -134,10 +140,10 @@ const Dashboard = () => {
               <DailyCheckIn />
               
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Quick Stats */}
+                {/* Quick Stats & Milestones */}
                 <Card className="lg:col-span-2 border-0 shadow-soft bg-gradient-card">
                   <CardContent className="p-6">
-                    <ProgressDashboard />
+                    <MilestoneCelebration />
                   </CardContent>
                 </Card>
 
@@ -193,6 +199,11 @@ const Dashboard = () => {
             {/* Habits Tab */}
             <TabsContent value="habits">
               <HabitTracker />
+            </TabsContent>
+
+            {/* Milestones Tab */}
+            <TabsContent value="milestones">
+              <MilestoneCelebration />
             </TabsContent>
 
             {/* Achievements Tab */}
