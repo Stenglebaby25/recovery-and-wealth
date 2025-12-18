@@ -43,17 +43,13 @@
 - Recovery Priority method for amends-related debts
 - Integration on Tools page
 
-### 3. Affiliate/Partner Resource Hub (NEW)
+### 3. ✅ Affiliate/Partner Resource Hub (COMPLETED)
 - **Purpose**: Curated list of helpful apps and financial tools for recovery
-- **Revenue Model**: Affiliate partnerships, discount codes for users
-- **Categories**: 
-  - Budgeting apps (YNAB, Mint alternatives)
-  - Sobriety/recovery apps
-  - Banking/savings tools
-  - Credit monitoring services
-  - Financial education platforms
-- **Implementation**: Dedicated section/page with partner links, discount code display
-- **Note**: Reference original web design section for layout inspiration
+- **Categories**: Banking, Budgeting, Credit, Investing, Insurance, Education, Wellness
+- **Apps Included**: YNAB, RocketMoney, Bright Money, Credit Karma, Experian, Fundrise, Lemonade, Investopedia, Money Masters, Online Therapy, UltiSelf, Varo, Chime, Cash App
+- **Features**: Recovery-friendly badges, featured app highlights, filterable by category
+- **Placement**: Tools page between Debt Calculator and Premium Teaser
+- **Revenue Model**: Affiliate partnerships ready for integration
 
 ### 4. Automated Savings Integration Guides (MEDIUM)
 - **Beginner Guidance**: Coaches handle initial setup conversations

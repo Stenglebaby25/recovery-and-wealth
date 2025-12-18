@@ -4,6 +4,7 @@ import ResourceLibrary from "@/components/premium/ResourceLibrary";
 import FinancialImpactSection from "@/components/FinancialImpactSection";
 import OpportunityCostVisualizer from "@/components/OpportunityCostVisualizer";
 import DebtManagementCalculator from "@/components/DebtManagementCalculator";
+import PartnerResourceHub from "@/components/PartnerResourceHub";
 import QuickDailyCheckIn from "@/components/QuickDailyCheckIn";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -41,6 +42,11 @@ const Tools = () => {
         {/* Advanced Debt Management Calculator */}
         <section className="container mx-auto px-4 py-12">
           <DebtManagementCalculator />
+        </section>
+
+        {/* Partner Resource Hub */}
+        <section className="container mx-auto px-4 py-12 bg-muted/30">
+          <PartnerResourceHub />
         </section>
 
         {/* Premium Tools Teaser Section */}
