@@ -51,26 +51,25 @@
 - **Placement**: Tools page between Debt Calculator and Premium Teaser
 - **Revenue Model**: Affiliate partnerships ready for integration
 
-### 4. Automated Savings Integration Guides (MEDIUM)
-- **Beginner Guidance**: Coaches handle initial setup conversations
-- **Self-Service Content**: Step-by-step guides for common banks/apps
-- **Partner Integration**: Potential affiliate with savings apps (Acorns, Qapital, etc.)
-- **Features**: Round-up savings explainers, automation setup tutorials
-- **Note**: May overlap with Affiliate/Partner Hub implementation
+### 4. Savings Integration Overview (LOW)
+- **Scope Change**: Brief overview of savings automation concepts, NOT detailed competitor app guides
+- **Content**: General explanation of round-up savings, automation benefits
+- **Approach**: Keep high-level, coaches handle specific app recommendations
+- **Status**: Simplified scope - may be addressed through Partner Hub descriptions
 
 ---
 
 ## 📋 CONTENT ENHANCEMENT BACKLOG
 
 ### Visual Engagement Improvements
+- ✅ Most static visuals completed
+- **Remaining**: Video content creation (for marketing/community)
 - Interactive graphs and charts for financial data
-- Example scenarios with visual elements
 - Infographics for complex concepts
-- Image-based learning materials
-- Video content integration
 
 ### Advanced Learning Topics
-- Expand Week 9-15 content with detailed examples
+- **In Progress**: Some Week 9-15 content completed
+- **Focus**: Ensure topics are accessible, not too difficult
 - Add more interactive elements to lessons
 - Partner affiliate links with discount codes integrated into relevant lessons
 
