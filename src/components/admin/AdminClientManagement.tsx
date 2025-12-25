@@ -46,42 +46,45 @@ const AdminClientManagement = () => {
 
   const fetchData = async () => {
     try {
-      const [orgsResult, clientsResult] = await Promise.all([
-        supabase.from("organizations").select("id, name").eq("is_active", true).order("name"),
-        supabase
-          .from("profiles")
-          .select(`
-            user_id,
-            full_name,
-            sponsored_until,
-            organizations!inner(name)
-          `)
-          .not("organization_id", "is", null),
-      ]);
+      // Fetch organizations that admin can view
+      const { data: orgsData, error: orgsError } = await supabase
+        .from("organizations")
+        .select("id, name")
+        .eq("is_active", true)
+        .order("name");
 
-      if (orgsResult.error) throw orgsResult.error;
-      if (clientsResult.error) throw clientsResult.error;
+      if (orgsError) throw orgsError;
+      setOrganizations(orgsData || []);
 
-      setOrganizations(orgsResult.data || []);
+      // Fetch sponsored clients - join profiles with organizations
+      // We can't access auth.users from client, so we'll store email in profile or show user_id
+      const { data: clientsData, error: clientsError } = await supabase
+        .from("profiles")
+        .select(`
+          user_id,
+          full_name,
+          sponsored_until,
+          organization_id,
+          organizations!inner(name)
+        `)
+        .not("organization_id", "is", null)
+        .not("sponsored_until", "is", null);
 
-      // Get emails from auth.users
-      const { data: authUsers } = await supabase.auth.admin.listUsers();
-      
-      const clientsWithEmail: SponsoredClient[] = (clientsResult.data || []).map((client: any) => {
-        const authUser = authUsers?.users.find((u: any) => u.id === client.user_id);
-        return {
-          user_id: client.user_id,
-          full_name: client.full_name,
-          email: authUser?.email || "Unknown",
-          sponsored_until: client.sponsored_until,
-          organization_name: client.organizations.name,
-        };
-      });
+      if (clientsError) throw clientsError;
+
+      const clientsWithEmail: SponsoredClient[] = (clientsData || []).map((client: any) => ({
+        user_id: client.user_id,
+        full_name: client.full_name,
+        email: client.full_name || client.user_id.slice(0, 8) + "...", // Show name or partial ID
+        sponsored_until: client.sponsored_until,
+        organization_name: client.organizations.name,
+      }));
 
       setClients(clientsWithEmail);
     } catch (error: any) {
+      console.error("Fetch error:", error);
       toast({
-        title: "Error",
+        title: "Error loading data",
         description: error.message,
         variant: "destructive",
       });
@@ -101,40 +104,18 @@ const AdminClientManagement = () => {
     }
 
     try {
-      // Calculate sponsored_until date
-      const sponsoredUntil = new Date();
-      sponsoredUntil.setMonth(sponsoredUntil.getMonth() + parseInt(newClient.sponsored_months));
-
-      // Check if user exists, if not create them
-      const { data: existingUser } = await supabase.auth.admin.listUsers();
-      let userId = existingUser?.users.find((u: any) => u.email === newClient.email)?.id;
-
-      if (!userId) {
-        // Create new user with temporary password
-        const tempPassword = Math.random().toString(36).slice(-12) + "Aa1!";
-        const { data: newUser, error: createError } = await supabase.auth.admin.createUser({
+      // Call edge function to create/add client (requires service role)
+      const { data, error } = await supabase.functions.invoke("add-sponsored-client", {
+        body: {
           email: newClient.email,
-          password: tempPassword,
-          email_confirm: true,
-          user_metadata: { full_name: newClient.full_name },
-        });
-
-        if (createError) throw createError;
-        userId = newUser.user?.id;
-      }
-
-      // Update profile with sponsorship
-      const { error: updateError } = await supabase
-        .from("profiles")
-        .update({
+          full_name: newClient.full_name,
           organization_id: newClient.organization_id,
-          sponsored_until: sponsoredUntil.toISOString(),
-          subscription_status: "premium",
-          full_name: newClient.full_name || null,
-        })
-        .eq("user_id", userId);
+          sponsored_months: newClient.sponsored_months,
+        },
+      });
 
-      if (updateError) throw updateError;
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
 
       toast({
         title: "Success",
