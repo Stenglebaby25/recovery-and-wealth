@@ -70,6 +70,23 @@ const PricingSection = () => {
     }
   };
 
+  // B2B Stripe Payment Links
+  const b2bPaymentLinks: Record<string, string> = {
+    Starter: 'https://buy.stripe.com/28E5kxa8i6av766eLme3e04',
+    Innovator: 'https://buy.stripe.com/6oUfZb0xI8iD0HI5aMe3e05',
+    Pioneer: 'https://buy.stripe.com/7sY4gtcgqdCXeyybzae3e06',
+  };
+
+  const handleBusinessPlanSelection = (planName: string) => {
+    const paymentLink = b2bPaymentLinks[planName];
+    if (paymentLink) {
+      window.open(paymentLink, '_blank');
+    } else {
+      // Trendsetter and other custom plans still go through contact flow
+      handleBusinessContact(planName);
+    }
+  };
+
   const handleBusinessContact = async (planName: string) => {
     const result = await captureLead({
       email: 'business@contact.com',
@@ -165,7 +182,7 @@ const PricingSection = () => {
         "Group coaching sessions",
         "Basic customization"
       ],
-      cta: "Contact Sales",
+      cta: "Get Started",
       icon: Building,
     },
     {
@@ -181,7 +198,7 @@ const PricingSection = () => {
         "Integration support",
         "Access to CFP-certified coach network"
       ],
-      cta: "Contact Sales",
+      cta: "Get Started",
       icon: Users,
       popular: true,
     },
@@ -198,7 +215,7 @@ const PricingSection = () => {
         "Custom integrations",
         "Priority CFP coach access"
       ],
-      cta: "Contact Sales",
+      cta: "Get Started",
       icon: Star,
     },
   ];
@@ -306,8 +323,7 @@ const PricingSection = () => {
                   <Button 
                     variant="default" 
                     className="w-full"
-                    onClick={() => handleBusinessContact(plan.name)}
-                    disabled={isSubmitting}
+                    onClick={() => handleBusinessPlanSelection(plan.name)}
                   >
                     {plan.cta}
                   </Button>
