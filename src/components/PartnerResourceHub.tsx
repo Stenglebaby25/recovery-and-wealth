@@ -86,7 +86,22 @@ const partnerApps: PartnerApp[] = [
     url: 'https://www.experian.com/',
   },
   
-  // Investing
+  // Investing & Savings
+  {
+    name: 'Acorns',
+    description: 'Invest spare change automatically with round-ups. Build an emergency fund and invest for the future effortlessly.',
+    category: 'Investing',
+    url: 'https://www.acorns.com/',
+    featured: true,
+    recoveryFriendly: true
+  },
+  {
+    name: 'Stash',
+    description: 'Start investing with as little as $5. Automated round-ups, budgeting tools, and Stock-Back rewards.',
+    category: 'Investing',
+    url: 'https://www.stash.com/',
+    recoveryFriendly: true
+  },
   {
     name: 'Fundrise',
     description: 'Start investing in real estate with as little as $10. Build long-term wealth through diversified portfolios.',
