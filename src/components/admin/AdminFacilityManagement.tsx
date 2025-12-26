@@ -5,9 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Plus, Building2, Users } from "lucide-react";
+import { Loader2, Plus, Building2, Users, Copy, ExternalLink } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+
+// B2B Stripe Payment Links
+const B2B_PAYMENT_LINKS: Record<string, string> = {
+  starter: 'https://buy.stripe.com/28E5kxa8i6av766eLme3e04',
+  innovator: 'https://buy.stripe.com/6oUfZb0xI8iD0HI5aMe3e05',
+  pioneer: 'https://buy.stripe.com/7sY4gtcgqdCXeyybzae3e06',
+};
 
 interface Organization {
   id: string;
@@ -33,7 +40,7 @@ const AdminFacilityManagement = () => {
     contact_email: "",
     contact_phone: "",
     seat_count: 30,
-    subscription_tier: "basic",
+    subscription_tier: "starter",
   });
   const { toast } = useToast();
 
@@ -93,7 +100,7 @@ const AdminFacilityManagement = () => {
         description: `Treatment center created with access code: ${accessCode}`,
       });
 
-      setNewOrg({ name: "", contact_email: "", contact_phone: "", seat_count: 30, subscription_tier: "basic" });
+      setNewOrg({ name: "", contact_email: "", contact_phone: "", seat_count: 30, subscription_tier: "starter" });
       setIsDialogOpen(false);
       fetchOrganizations();
     } catch (error: any) {
@@ -129,6 +136,17 @@ const AdminFacilityManagement = () => {
     }
   };
 
+  const copyPaymentLink = (tier: string) => {
+    const link = B2B_PAYMENT_LINKS[tier.toLowerCase()];
+    if (link) {
+      navigator.clipboard.writeText(link);
+      toast({
+        title: "Copied",
+        description: `Payment link for ${tier} tier copied to clipboard`,
+      });
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center p-8">
@@ -146,15 +164,53 @@ const AdminFacilityManagement = () => {
               <Building2 className="h-5 w-5" />
               Treatment Centers
             </CardTitle>
-            <CardDescription>Manage treatment center facilities</CardDescription>
+            <CardDescription>Manage treatment center facilities and share payment links</CardDescription>
           </div>
-          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-            <DialogTrigger asChild>
-              <Button>
-                <Plus className="h-4 w-4 mr-2" />
-                Add Facility
-              </Button>
-            </DialogTrigger>
+          <div className="flex gap-2">
+            {/* Payment Links Quick Access */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline">
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  Payment Links
+                </Button>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>B2B Payment Links</DialogTitle>
+                  <DialogDescription>
+                    Share these links with qualified treatment centers to start their subscription
+                  </DialogDescription>
+                </DialogHeader>
+                <div className="space-y-4">
+                  {Object.entries(B2B_PAYMENT_LINKS).map(([tier, link]) => (
+                    <div key={tier} className="flex items-center justify-between p-3 bg-muted rounded-lg">
+                      <div>
+                        <span className="font-medium capitalize">{tier}</span>
+                        <span className="text-sm text-muted-foreground ml-2">
+                          {tier === 'starter' ? '$400/mo' : tier === 'innovator' ? '$800/mo' : '$2,000/mo'}
+                        </span>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button size="sm" variant="outline" onClick={() => copyPaymentLink(tier)}>
+                          <Copy className="h-4 w-4" />
+                        </Button>
+                        <Button size="sm" variant="outline" onClick={() => window.open(link, '_blank')}>
+                          <ExternalLink className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </DialogContent>
+            </Dialog>
+            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+              <DialogTrigger asChild>
+                <Button>
+                  <Plus className="h-4 w-4 mr-2" />
+                  Add Facility
+                </Button>
+              </DialogTrigger>
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>Create Treatment Center</DialogTitle>
@@ -210,9 +266,9 @@ const AdminFacilityManagement = () => {
                     onChange={(e) => setNewOrg({ ...newOrg, subscription_tier: e.target.value })}
                     className="w-full h-10 px-3 rounded-md border border-input bg-background"
                   >
-                    <option value="basic">Basic ($297/month)</option>
-                    <option value="premium">Premium ($497/month)</option>
-                    <option value="enterprise">Enterprise ($997/month)</option>
+                    <option value="starter">Starter ($400/month)</option>
+                    <option value="innovator">Innovator ($800/month)</option>
+                    <option value="pioneer">Pioneer ($2,000/month)</option>
                   </select>
                 </div>
               </div>
@@ -224,6 +280,7 @@ const AdminFacilityManagement = () => {
               </DialogFooter>
             </DialogContent>
           </Dialog>
+          </div>
         </div>
       </CardHeader>
       <CardContent>
