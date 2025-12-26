@@ -155,7 +155,7 @@ const PricingSection = () => {
   const businessPlans = [
     {
       name: "Starter",
-      price: "$250",
+      price: "$400",
       period: "per month",
       description: "Perfect for facilities with 20-40 clients",
       features: [
@@ -170,7 +170,7 @@ const PricingSection = () => {
     },
     {
       name: "Innovator",
-      price: "$500",
+      price: "$800",
       period: "per month",
       description: "Most popular for facilities with 40-100 clients",
       features: [
@@ -178,7 +178,8 @@ const PricingSection = () => {
         "Advanced analytics",
         "Custom branding",
         "Dedicated coach assignments",
-        "Integration support"
+        "Integration support",
+        "Access to CFP-certified coach network"
       ],
       cta: "Contact Sales",
       icon: Users,
@@ -186,7 +187,7 @@ const PricingSection = () => {
     },
     {
       name: "Pioneer",
-      price: "$1,250",
+      price: "$2,000",
       period: "per month",
       description: "For large facilities with 100+ clients",
       features: [
@@ -194,7 +195,8 @@ const PricingSection = () => {
         "White-label solution",
         "API access",
         "Dedicated account manager",
-        "Custom integrations"
+        "Custom integrations",
+        "Priority CFP coach access"
       ],
       cta: "Contact Sales",
       icon: Star,
