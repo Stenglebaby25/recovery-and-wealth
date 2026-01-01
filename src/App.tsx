@@ -23,6 +23,7 @@ import HALTLessons from "./components/course/HALTLessons";
 import AdvancedLessons from "./components/course/AdvancedLessons";
 import RecoveryTools from "./pages/RecoveryTools";
 import LearningHubPreview from "./pages/LearningHubPreview";
+import About from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +52,7 @@ const App = () => (
             <Route path="/halt-lessons" element={<HALTLessons />} />
             <Route path="/recovery-tools" element={<RecoveryTools />} />
             <Route path="/learn" element={<LearningHubPreview />} />
+            <Route path="/about" element={<About />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

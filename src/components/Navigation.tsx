@@ -84,6 +84,11 @@ const Navigation = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="bg-popover z-50">
                 <DropdownMenuItem asChild>
+                  <Link to="/about" className="w-full cursor-pointer">
+                    Our Story
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
                   <Link to="/coaching" className="w-full cursor-pointer">
                     Coaching
                   </Link>
@@ -182,6 +187,13 @@ const Navigation = () => {
               {/* About Section */}
               <div className="px-3 py-2 border-t border-border">
                 <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">About</p>
+                <Link 
+                  to="/about" 
+                  className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Our Story
+                </Link>
                 <Link 
                   to="/coaching" 
                   className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
