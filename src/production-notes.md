@@ -46,16 +46,20 @@
 ### 3. ✅ Affiliate/Partner Resource Hub (COMPLETED)
 - **Purpose**: Curated list of helpful apps and financial tools for recovery
 - **Categories**: Banking, Budgeting, Credit, Investing, Insurance, Education, Wellness
-- **Apps Included**: YNAB, RocketMoney, Bright Money, Credit Karma, Experian, Fundrise, Lemonade, Investopedia, Money Masters, Online Therapy, UltiSelf, Varo, Chime, Cash App
+- **Apps Included**: YNAB, RocketMoney, Bright Money, Credit Karma, Experian, Fundrise, Lemonade, Investopedia, Money Masters, Online Therapy, UltiSelf, Varo, Chime, Cash App, Acorns, Stash
 - **Features**: Recovery-friendly badges, featured app highlights, filterable by category
 - **Placement**: Tools page between Debt Calculator and Premium Teaser
 - **Revenue Model**: Affiliate partnerships ready for integration
 
-### 4. Savings Integration Overview (LOW)
-- **Scope Change**: Brief overview of savings automation concepts, NOT detailed competitor app guides
-- **Content**: General explanation of round-up savings, automation benefits
-- **Approach**: Keep high-level, coaches handle specific app recommendations
-- **Status**: Simplified scope - may be addressed through Partner Hub descriptions
+### 4. ✅ Savings Integration Overview (COMPLETED)
+- **Status**: Addressed through Partner Hub - Acorns & Stash added as featured round-up savings apps
+- **Content**: Round-up savings and automation covered via partner app descriptions
+
+### 5. ✅ About Us Page (COMPLETED)
+- **Content**: Founder story, Wall Street background, recovery journey origin
+- **Sections**: Our Story, Our Philosophy, What We Believe (core values)
+- **Navigation**: Added to About dropdown and mobile menu
+- **Route**: /about
 
 ---
 
