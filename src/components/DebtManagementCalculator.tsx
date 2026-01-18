@@ -17,9 +17,21 @@ import {
   Calendar,
   PiggyBank,
   Scale,
-  AlertTriangle
+  AlertTriangle,
+  LineChart as LineChartIcon
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { 
+  LineChart, 
+  Line, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid, 
+  Tooltip, 
+  ResponsiveContainer,
+  Legend,
+  ReferenceLine
+} from 'recharts';
 
 interface Debt {
   id: string;
@@ -182,6 +194,46 @@ const DebtManagementCalculator = () => {
     if (remainingMonths === 0) return `${years} year${years > 1 ? 's' : ''}`;
     return `${years}y ${remainingMonths}m`;
   };
+
+  // Generate timeline data for the payoff chart
+  const generateTimelineData = useMemo(() => {
+    if (debts.length === 0) return [];
+    
+    const maxMonths = Math.max(snowballTotalMonths, avalancheTotalMonths, recoveryTotalMonths);
+    const dataPoints = Math.min(maxMonths, 60); // Show up to 5 years
+    const data = [];
+    
+    for (let month = 0; month <= dataPoints; month += Math.max(1, Math.floor(dataPoints / 12))) {
+      const calculateRemainingBalance = (results: PayoffResult[]) => {
+        return debts.reduce((total, debt) => {
+          const result = results.find(r => r.debt.id === debt.id);
+          if (!result || month >= result.monthsToPayoff) return total;
+          
+          // Approximate remaining balance
+          const monthlyInterest = (debt.interestRate / 100) / 12;
+          const monthlyPayment = debt.minimumPayment;
+          let balance = debt.balance;
+          
+          for (let m = 0; m < month; m++) {
+            balance = balance * (1 + monthlyInterest) - monthlyPayment;
+            if (balance < 0) balance = 0;
+          }
+          
+          return total + Math.max(0, balance);
+        }, 0);
+      };
+
+      data.push({
+        month: `Mo ${month}`,
+        monthNum: month,
+        snowball: Math.round(calculateRemainingBalance(snowballResults)),
+        avalanche: Math.round(calculateRemainingBalance(avalancheResults)),
+        recovery: Math.round(calculateRemainingBalance(recoveryPriorityResults))
+      });
+    }
+    
+    return data;
+  }, [debts, snowballResults, avalancheResults, recoveryPriorityResults, snowballTotalMonths, avalancheTotalMonths, recoveryTotalMonths]);
 
   return (
     <div className="space-y-6">
@@ -434,6 +486,81 @@ const DebtManagementCalculator = () => {
                 </CardContent>
               </Card>
             </div>
+
+            {/* Debt Payoff Timeline Chart */}
+            {generateTimelineData.length > 1 && (
+              <Card className="mt-6">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-lg">
+                    <LineChartIcon className="h-5 w-5 text-primary" />
+                    Debt Payoff Timeline
+                  </CardTitle>
+                  <CardDescription>
+                    Watch your debt disappear over time with each strategy
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <LineChart data={generateTimelineData}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                      <XAxis 
+                        dataKey="month" 
+                        stroke="hsl(var(--muted-foreground))"
+                        fontSize={11}
+                      />
+                      <YAxis 
+                        stroke="hsl(var(--muted-foreground))"
+                        fontSize={11}
+                        tickFormatter={(value) => `$${(value / 1000).toFixed(0)}k`}
+                      />
+                      <Tooltip 
+                        contentStyle={{
+                          backgroundColor: "hsl(var(--card))",
+                          border: "1px solid hsl(var(--border))",
+                          borderRadius: "8px"
+                        }}
+                        formatter={(value: number, name: string) => [
+                          formatCurrency(value), 
+                          name === 'snowball' ? 'Snowball' : name === 'avalanche' ? 'Avalanche' : 'Recovery First'
+                        ]}
+                      />
+                      <Legend />
+                      <ReferenceLine y={0} stroke="hsl(var(--success))" strokeWidth={2} strokeDasharray="5 5" />
+                      <Line 
+                        type="monotone" 
+                        dataKey="snowball" 
+                        stroke="#3b82f6" 
+                        strokeWidth={2}
+                        dot={false}
+                        name="Snowball"
+                      />
+                      <Line 
+                        type="monotone" 
+                        dataKey="avalanche" 
+                        stroke="#f97316" 
+                        strokeWidth={2}
+                        dot={false}
+                        name="Avalanche"
+                      />
+                      <Line 
+                        type="monotone" 
+                        dataKey="recovery" 
+                        stroke="#f59e0b" 
+                        strokeWidth={2}
+                        dot={false}
+                        name="Recovery First"
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                  
+                  <div className="mt-4 p-3 bg-muted/50 rounded-lg">
+                    <p className="text-sm text-muted-foreground text-center">
+                      <strong>Goal:</strong> Reach $0 debt! The faster the line drops, the quicker you're debt-free.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
 
             <Card className="bg-primary/5 border-primary/20">
               <CardContent className="p-4">
