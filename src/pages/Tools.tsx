@@ -4,12 +4,13 @@ import ResourceLibrary from "@/components/premium/ResourceLibrary";
 import FinancialImpactSection from "@/components/FinancialImpactSection";
 import OpportunityCostVisualizer from "@/components/OpportunityCostVisualizer";
 import DebtManagementCalculator from "@/components/DebtManagementCalculator";
+import SobrietySavingsCounter from "@/components/SobrietySavingsCounter";
 import PartnerResourceHub from "@/components/PartnerResourceHub";
 import QuickDailyCheckIn from "@/components/QuickDailyCheckIn";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Crown, Sparkles, TrendingUp, Receipt, Bell, Brain } from "lucide-react";
+import { Crown, Sparkles, TrendingUp, Receipt, Bell, Brain, Heart } from "lucide-react";
 
 const Tools = () => {
   return (
@@ -28,8 +29,13 @@ const Tools = () => {
           </div>
         </section>
 
-        {/* Opportunity Cost Visualizer - HERO TOOL */}
+        {/* Sobriety Savings Counter - MOTIVATIONAL TOOL */}
         <section className="container mx-auto px-4 py-12">
+          <SobrietySavingsCounter />
+        </section>
+
+        {/* Opportunity Cost Visualizer - HERO TOOL */}
+        <section className="container mx-auto px-4 py-12 bg-muted/20">
           <OpportunityCostVisualizer />
         </section>
 
