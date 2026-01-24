@@ -221,6 +221,42 @@ export type Database = {
         }
         Relationships: []
       }
+      email_drip_queue: {
+        Row: {
+          created_at: string
+          email: string
+          email_type: string
+          id: string
+          metadata: Json | null
+          scheduled_for: string
+          sent_at: string | null
+          status: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          email_type: string
+          id?: string
+          metadata?: Json | null
+          scheduled_for: string
+          sent_at?: string | null
+          status?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          email_type?: string
+          id?: string
+          metadata?: Json | null
+          scheduled_for?: string
+          sent_at?: string | null
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       expenses: {
         Row: {
           amount: number
@@ -903,6 +939,33 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      user_learning_paths: {
+        Row: {
+          created_at: string
+          id: string
+          quiz_answers: Json
+          recommended_modules: Json
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          quiz_answers?: Json
+          recommended_modules?: Json
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          quiz_answers?: Json
+          recommended_modules?: Json
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
       }
       user_lesson_progress: {
         Row: {
