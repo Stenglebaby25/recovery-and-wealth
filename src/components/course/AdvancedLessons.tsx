@@ -207,8 +207,151 @@ const advancedLessons: AdvancedLesson[] = [
     }
   },
   {
-    id: "investment-basics",
+    id: "tax-basics-recovery",
     weekNumber: 10,
+    title: "Tax Basics & Recovery Deductions",
+    subtitle: "Claiming What You're Owed from Treatment Expenses",
+    icon: <DollarSign className="h-6 w-6 text-green-600" />,
+    description: "Treatment, legal fees, therapy—lots of recovery expenses are tax-deductible. Learn what counts and how to claim it so you don't leave money on the table.",
+    modules: [
+      {
+        title: "Why This Matters",
+        content: [
+          "You spent $25,000 on residential treatment last year. Your therapist told you that's tax-deductible. But you didn't know how to claim it, so you left $3,000 on the table.",
+          "Treatment, legal fees, therapy—lots of recovery expenses are deductible. Today you'll learn what counts and how to claim it.",
+          "Many people in recovery are unaware they can recoup thousands of dollars from treatment costs.",
+          "Understanding these deductions can significantly reduce your tax burden and support your financial recovery."
+        ]
+      },
+      {
+        title: "What Recovery Expenses Are Tax-Deductible?",
+        content: [
+          "MEDICAL EXPENSES (If Over 7.5% of Your Income): Inpatient treatment (residential, detox), outpatient therapy/counseling, medication (including MAT like Suboxone, Vivitrol), transportation to treatment (mileage, gas, parking).",
+          "NOT deductible: Sober living rent, non-medical support groups (AA/NA meetings, etc.).",
+          "HOW IT WORKS: Add up ALL medical expenses for the year. If they're more than 7.5% of your income, you can deduct the excess.",
+          "EXAMPLE: You earned $40,000. 7.5% = $3,000 threshold. Your treatment cost $25,000. You can deduct $22,000 ($25,000 - $3,000)."
+        ],
+        keyStats: [
+          "7.5% threshold: Medical expenses must exceed 7.5% of adjusted gross income",
+          "Average residential treatment costs $20,000-$40,000—often fully deductible",
+          "Transportation at 67 cents/mile (2024 IRS rate) adds up quickly"
+        ]
+      },
+      {
+        title: "Other Recovery-Related Deductions",
+        content: [
+          "LEGAL FEES: If related to criminal case from addiction, sometimes deductible. Consult a tax professional for your specific situation.",
+          "JOB TRAINING/EDUCATION: If you're learning a new career post-treatment, education expenses may be deductible or qualify for credits.",
+          "CHILDCARE: If you need childcare while you're in treatment or attending therapy, you might qualify for the childcare tax credit.",
+          "Keep records of everything—you never know what might qualify until you or a tax professional reviews it."
+        ]
+      },
+      {
+        title: "Step-by-Step: Claiming Your Deductions",
+        content: [
+          "STEP 1 - Gather Receipts: Treatment center bills, therapy session receipts, prescription receipts, mileage log (if you drove to appointments).",
+          "STEP 2 - Add It Up: Use the worksheet (download below). Total all medical expenses for the tax year.",
+          "STEP 3 - Compare to 7.5% Threshold: Your income × 0.075 = threshold. If your expenses are higher, you can deduct the difference.",
+          "STEP 4 - File Your Taxes: You MUST itemize deductions (can't take the standard deduction if claiming medical expenses). Use tax software (FreeTaxUSA, TurboTax) or hire a CPA. Keep receipts for 7 years in case of audit."
+        ]
+      }
+    ],
+    quizQuestions: [
+      {
+        id: "tax1",
+        question: "Can you deduct the cost of residential treatment?",
+        options: [
+          "Yes",
+          "No",
+          "Only if it's over $50,000",
+          "Only if you have private insurance"
+        ],
+        correctAnswer: 0,
+        explanation: "Yes! Residential treatment is considered a medical expense and is deductible if your total medical expenses exceed 7.5% of your income."
+      },
+      {
+        id: "tax2",
+        question: "What percentage of your income must medical expenses exceed to be deductible?",
+        options: [
+          "5%",
+          "7.5%",
+          "10%",
+          "15%"
+        ],
+        correctAnswer: 1,
+        explanation: "Medical expenses must exceed 7.5% of your adjusted gross income. You can only deduct the amount above that threshold."
+      },
+      {
+        id: "tax3",
+        question: "Can you deduct sober living rent?",
+        options: [
+          "Yes, it's part of treatment",
+          "No, it's not considered medical",
+          "Only the first 30 days",
+          "Only if prescribed by a doctor"
+        ],
+        correctAnswer: 1,
+        explanation: "Sober living rent is not considered a medical expense by the IRS, so it's not deductible. Only actual medical treatment costs qualify."
+      },
+      {
+        id: "tax4",
+        question: "If you earned $40,000 and spent $25,000 on treatment, how much can you deduct?",
+        options: [
+          "$25,000",
+          "$22,000",
+          "$3,000",
+          "$0"
+        ],
+        correctAnswer: 1,
+        explanation: "Your 7.5% threshold is $3,000 ($40,000 × 0.075). You can deduct the amount exceeding that: $25,000 - $3,000 = $22,000."
+      },
+      {
+        id: "tax5",
+        question: "Which of these is tax-deductible as a medical expense?",
+        options: [
+          "AA/NA meeting donations",
+          "Sober living rent",
+          "Transportation to therapy appointments",
+          "Recovery retreat vacation"
+        ],
+        correctAnswer: 2,
+        explanation: "Transportation to medical appointments (including therapy) is deductible at the IRS mileage rate. Keep a mileage log for documentation."
+      }
+    ],
+    reflectionPrompts: [
+      "What recovery-related expenses did you have this year that might be deductible? Make a list of everything you can remember.",
+      "Have you been keeping receipts and records for your treatment costs? What system could you set up to track these going forward?",
+      "How would an extra $1,000-$3,000 in tax savings impact your financial recovery this year?"
+    ],
+    downloadables: [
+      {
+        title: "Medical Expense Tracking Worksheet",
+        description: "Track all your medical and treatment expenses throughout the year for easy tax filing",
+        filename: "medical-expense-worksheet.pdf"
+      },
+      {
+        title: "Recovery Tax Deductions Cheat Sheet",
+        description: "Quick reference guide for what's deductible and what's not",
+        filename: "recovery-tax-deductions-cheatsheet.pdf"
+      }
+    ],
+    practicalExercise: {
+      title: "Medical Deduction Calculator",
+      steps: [
+        "Calculate your annual income (adjusted gross income from last year's tax return)",
+        "Multiply your income by 0.075 to find your threshold",
+        "Add up all treatment costs: residential, outpatient, detox",
+        "Add therapy and counseling session costs",
+        "Add prescription costs (including MAT medications)",
+        "Add transportation costs (mileage × $0.67/mile for 2024)",
+        "Calculate your total deduction: Total expenses minus your 7.5% threshold",
+        "Estimate tax savings: Deduction × your tax bracket (22% for most middle incomes)"
+      ]
+    }
+  },
+  {
+    id: "investment-basics",
+    weekNumber: 11,
     title: "Investment Basics",
     subtitle: "Building a Foundation for Recovery-Focused Wealth",
     icon: <TrendingUp className="h-6 w-6 text-emerald-500" />,
