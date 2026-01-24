@@ -2191,6 +2191,162 @@ const advancedLessons: AdvancedLesson[] = [
         "Schedule a time for the conversation (not via text)"
       ]
     }
+  },
+  {
+    id: "entrepreneurship-basics",
+    weekNumber: 21,
+    title: "Entrepreneurship Basics",
+    subtitle: "Starting a Business in Recovery",
+    icon: <Target className="h-6 w-6 text-purple-600" />,
+    description: "Many people in recovery become entrepreneurs—but it's risky without a plan. Learn how to test ideas, set up a business, and protect your recovery.",
+    modules: [
+      {
+        title: "Why This Matters",
+        content: [
+          "You're 2 years sober. You've learned graphic design, and people keep asking you to do projects. You're thinking: 'What if I started my own business?'",
+          "Many people in recovery become entrepreneurs—but it's risky without a plan. Today you'll learn the basics.",
+          "Entrepreneurship offers flexibility, purpose, and income potential—but also comes with stress that can threaten recovery.",
+          "With the right approach, you can build something meaningful while protecting your sobriety."
+        ]
+      },
+      {
+        title: "Why People in Recovery Start Businesses",
+        content: [
+          "FLEXIBILITY: Set your own hours, avoid 9-5 triggers and toxic work environments.",
+          "PURPOSE: Many recovery entrepreneurs help others, giving their work deeper meaning.",
+          "INCOME POTENTIAL: No salary cap—your earnings grow with your effort and skills.",
+          "AUTONOMY: Be your own boss, make your own decisions, build something you're proud of.",
+          "RISKS IN EARLY RECOVERY: Financial stress (businesses often lose money at first), isolation (working alone can be lonely), overwork (no boundaries = burnout = relapse risk)."
+        ],
+        keyStats: [
+          "50% of small businesses survive past 5 years",
+          "Sole proprietorship is free to start—just begin",
+          "LLC formation costs $50-500 depending on state"
+        ]
+      },
+      {
+        title: "Safe vs. Risky Business Ideas",
+        content: [
+          "✅ LOWER-RISK (Start Small): Freelance services (writing, design, coaching), trades (plumbing, electrical, landscaping), e-commerce (selling products online), consulting (based on your expertise).",
+          "❌ HIGHER-RISK (Wait Until More Sober Time): Restaurants/bars (triggers, long hours), real estate (needs capital, high stress), multi-level marketing (predatory, often fails), anything requiring huge loans/investors.",
+          "The best first business uses skills you already have, requires minimal startup capital, and can start as a side hustle.",
+          "Test your idea before going all-in—your stability is more important than any business opportunity."
+        ]
+      },
+      {
+        title: "Business Structures Explained",
+        content: [
+          "SOLE PROPRIETORSHIP: Simplest—no paperwork, just start. You = the business (no legal separation). Taxes reported on personal return (Schedule C). Best for testing ideas.",
+          "LLC (Limited Liability Company): Protects personal assets (if business gets sued, they can't take your house). Costs $50-500 to file (varies by state). Taxes usually pass-through (like sole prop). Form this when making $2K+/month.",
+          "S-CORP: Tax savings if you make $50K+ profit. More paperwork and costs. Talk to CPA before choosing this—it's for established, profitable businesses.",
+          "Start simple (sole prop), upgrade to LLC when profitable, consider S-Corp when business is mature."
+        ]
+      },
+      {
+        title: "Step-by-Step: Starting Your Business",
+        content: [
+          "STEP 1 - Test Before You Quit Your Job: Start as side business (nights/weekends). Get 3-5 paying customers first. Keep your stable income until business is proven.",
+          "STEP 2 - Write a Simple Business Plan (One Page): What I do, who I serve, how I make money, startup costs, first-year goal.",
+          "STEP 3 - Set Up Legal Structure: Start as sole proprietor (easiest). Form LLC when you're making $2K+/month (talk to attorney).",
+          "STEP 4 - Separate Your Money: Open business checking account. Get business credit card. Never mix personal and business funds.",
+          "STEP 5 - Track Everything: Use QuickBooks, Wave, or Excel. Every dollar in, every dollar out. Save 30% for taxes in separate account.",
+          "STEP 6 - Get Help: SCORE.org (free small business mentoring), local Small Business Development Center (free/cheap classes), accountant (worth the $500-1,000/year).",
+          "STEP 7 - Protect Your Recovery: Set work hours (no 80-hour weeks). Keep going to meetings/therapy. Have a sober support person who can call you out if you're overdoing it."
+        ]
+      }
+    ],
+    quizQuestions: [
+      {
+        id: "entrepreneur1",
+        question: "Should you quit your job to start a business in early recovery?",
+        options: [
+          "Yes, go all-in for maximum motivation",
+          "No, test it as a side business first",
+          "Yes, if you have a good idea",
+          "Only if you have 6 months savings"
+        ],
+        correctAnswer: 1,
+        explanation: "Test your business as a side hustle first while keeping stable income. Get 3-5 paying customers before considering going full-time. Your recovery needs financial stability."
+      },
+      {
+        id: "entrepreneur2",
+        question: "What's the simplest business structure?",
+        options: [
+          "LLC",
+          "Sole proprietorship",
+          "S-Corp",
+          "Corporation"
+        ],
+        correctAnswer: 1,
+        explanation: "Sole proprietorship is the simplest—there's no paperwork to file, you just start doing business. It's perfect for testing ideas before formalizing your structure."
+      },
+      {
+        id: "entrepreneur3",
+        question: "Should you mix personal and business bank accounts?",
+        options: [
+          "Yes, it's easier to manage",
+          "No, always keep them separate",
+          "Only for small amounts",
+          "Only if you're a sole proprietor"
+        ],
+        correctAnswer: 1,
+        explanation: "Always keep personal and business finances separate. It makes taxes easier, protects you legally, and helps you understand your true business profitability."
+      },
+      {
+        id: "entrepreneur4",
+        question: "When should you form an LLC?",
+        options: [
+          "Before you make any money",
+          "When you're making $2K+/month",
+          "Never, sole prop is always best",
+          "Only if you have employees"
+        ],
+        correctAnswer: 1,
+        explanation: "Consider forming an LLC when you're consistently making $2K+/month. At that point, the liability protection and tax benefits are worth the filing costs."
+      },
+      {
+        id: "entrepreneur5",
+        question: "Which business type should someone in recovery avoid?",
+        options: [
+          "Freelance design",
+          "Restaurant or bar",
+          "Consulting",
+          "Online e-commerce"
+        ],
+        correctAnswer: 1,
+        explanation: "Restaurants and bars involve triggers (alcohol), long hours, and high stress—all dangerous for recovery. Stick to businesses that support your sobriety, not threaten it."
+      }
+    ],
+    reflectionPrompts: [
+      "What skills or services do people often ask you for help with? Could any of these become a business?",
+      "How would running your own business affect your recovery—both positively and negatively?",
+      "What boundaries would you need to set to ensure business stress doesn't threaten your sobriety?"
+    ],
+    downloadables: [
+      {
+        title: "One-Page Business Plan Template",
+        description: "Simple template to plan your business idea: what you do, who you serve, how you'll make money",
+        filename: "one-page-business-plan.pdf"
+      },
+      {
+        title: "Startup Cost Worksheet",
+        description: "Calculate everything you need to start: equipment, licenses, marketing, and monthly expenses",
+        filename: "startup-cost-worksheet.pdf"
+      }
+    ],
+    practicalExercise: {
+      title: "Business Idea Validator",
+      steps: [
+        "Write down your business idea in one sentence",
+        "List the startup costs needed (be realistic)",
+        "Estimate expected monthly income in Year 1",
+        "Calculate time commitment needed per week",
+        "Assess: Is this compatible with your recovery commitments?",
+        "Identify 3 people who might pay for this service/product",
+        "Reach out to one potential customer this week for feedback",
+        "If feedback is positive, create your one-page business plan"
+      ]
+    }
   }
 ];
 
