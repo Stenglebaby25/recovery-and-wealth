@@ -2045,6 +2045,152 @@ const advancedLessons: AdvancedLesson[] = [
         "Open a separate savings account for gig taxes"
       ]
     }
+  },
+  {
+    id: "family-financial-repair",
+    weekNumber: 20,
+    title: "Family Financial Repair",
+    subtitle: "Making Amends for Financial Harm",
+    icon: <Heart className="h-6 w-6 text-pink-500" />,
+    description: "Repairing financial damage to family is hard—but possible. Learn how to approach amends conversations, create repayment plans, and rebuild trust.",
+    modules: [
+      {
+        title: "Why This Matters",
+        content: [
+          "You stole $5,000 from your mom during addiction. You want to make amends, but you only make $2,000/month. She's hurt, angry, and doesn't trust you with money.",
+          "Repairing financial damage to family is hard—but possible. Today you'll learn how.",
+          "Financial amends are often the most concrete way to demonstrate your commitment to change.",
+          "This isn't just about money—it's about rebuilding trust and restoring relationships."
+        ]
+      },
+      {
+        title: "Financial Damage Addiction Causes",
+        content: [
+          "COMMON FINANCIAL HARMS: Stolen money, pawned items, maxed-out credit cards in someone else's name, co-signed loans you defaulted on, unpaid rent/bills when living with family, lies and broken promises about money.",
+          "THE 12-STEP APPROACH (STEP 9): 'Make direct amends wherever possible, except when it would injure them or others.' Sometimes that means paying back. Sometimes it means changed behavior, not money.",
+          "Be honest about the full extent of the damage—don't minimize. Your family member knows the truth, and minimizing will damage trust further.",
+          "Recovery means taking responsibility, not making excuses."
+        ],
+        keyStats: [
+          "60% of family loans are never repaid—but recovery changes those odds",
+          "Consistent small payments build more trust than large promises",
+          "Written agreements protect both parties and prevent misunderstandings"
+        ]
+      },
+      {
+        title: "How to Approach Financial Amends",
+        content: [
+          "STEP 1 - Assess the Damage: Make a list of who you owe and how much. Be honest—don't minimize. Include everything: cash, items, credit damage, defaulted loans.",
+          "STEP 2 - Have the Conversation: 'I know I hurt you financially. I stole/borrowed/destroyed $____. I want to make this right.' 'I can't pay it all at once, but I can pay $__/month. Would that help repair our relationship?'",
+          "STEP 3 - Create a Written Agreement: Amount owed, monthly payment, timeline, both signatures. This protects both of you and prevents future misunderstandings.",
+          "STEP 4 - Prioritize Relationships Over Perfection: If you can only afford $25/month, that's better than $0. Consistent small payments show commitment.",
+          "STEP 5 - Accept That Some Won't Forgive: You can't control their response. Make the offer, let them decide. Your job is to make the effort—not to control the outcome."
+        ]
+      },
+      {
+        title: "Step-by-Step: Making Financial Amends",
+        content: [
+          "STEP 1 - Make Your List: Who did I hurt financially? How much do I owe each person? What can I realistically afford to repay?",
+          "STEP 2 - Start with One Person: Usually the person you hurt most or who you're closest to. Schedule a calm, sober conversation (not via text).",
+          "STEP 3 - Use the Script: 'I've been thinking a lot about the harm I caused when I was using. I know I [stole $____ / maxed out your credit card / didn't pay rent for __ months]. I can't undo that, but I want to make it right. I'm ___ months sober now and working. I can pay $__/month. I know it's not much, but I'm committed to this. Would you be open to that?'",
+          "STEP 4 - Write It Down: Use the amends agreement template (download below). Include: Amount, monthly payment, timeline, both signatures.",
+          "STEP 5 - Stick to It: Set up auto-payment if possible. Never miss a month without communicating first.",
+          "STEP 6 - Boundaries Around Future Money: Don't co-sign new loans. Don't lend money you can't afford to lose. Don't mix money and early recovery (stay independent)."
+        ]
+      }
+    ],
+    quizQuestions: [
+      {
+        id: "family1",
+        question: "Should you pay back stolen money immediately, even if it means going broke?",
+        options: [
+          "Yes, pay it all ASAP",
+          "No, set up a realistic payment plan",
+          "Yes, max out credit cards if needed",
+          "No, just apologize and move on"
+        ],
+        correctAnswer: 1,
+        explanation: "Set up a realistic payment plan you can sustain. Going broke to make amends faster could harm your recovery and actually delay repayment if you can't meet basic needs."
+      },
+      {
+        id: "family2",
+        question: "Is it okay to make a written agreement with family about repayment?",
+        options: [
+          "Yes, it protects both people",
+          "No, that's weird between family",
+          "Only if they demand it",
+          "Only for amounts over $10,000"
+        ],
+        correctAnswer: 0,
+        explanation: "Written agreements protect both parties. They prevent misunderstandings, set clear expectations, and demonstrate your commitment to following through."
+      },
+      {
+        id: "family3",
+        question: "If someone won't accept your amends, should you keep trying?",
+        options: [
+          "Yes, keep pushing until they accept",
+          "No, make the offer once and respect their decision",
+          "Yes, send money anyway",
+          "No, just forget about them"
+        ],
+        correctAnswer: 1,
+        explanation: "Make the offer sincerely, then respect their decision. You can't control their response—your job is to make the effort and demonstrate changed behavior over time."
+      },
+      {
+        id: "family4",
+        question: "What's better: paying $25/month consistently or promising $200/month and missing payments?",
+        options: [
+          "$200/month shows you're serious",
+          "$25/month consistently builds more trust",
+          "Neither—just pay when you can",
+          "Wait until you can pay it all at once"
+        ],
+        correctAnswer: 1,
+        explanation: "Consistent small payments build more trust than large promises you can't keep. Reliability demonstrates your commitment to change better than big gestures."
+      },
+      {
+        id: "family5",
+        question: "Should you have the amends conversation via text?",
+        options: [
+          "Yes, it's easier and less awkward",
+          "No, schedule a calm, in-person or phone conversation",
+          "Yes, you can carefully craft your words",
+          "Either way is fine"
+        ],
+        correctAnswer: 1,
+        explanation: "In-person or phone conversations show more respect and allow for genuine dialogue. Text is too impersonal for something this important and can be misinterpreted."
+      }
+    ],
+    reflectionPrompts: [
+      "Who did you hurt financially during addiction? Make a list of names and approximate amounts.",
+      "Which relationship would benefit most from making financial amends? What's stopping you from starting that conversation?",
+      "How does carrying the guilt of financial harm affect your recovery? How might making amends help?"
+    ],
+    downloadables: [
+      {
+        title: "Financial Amends Agreement Template",
+        description: "Fillable agreement template for formalizing repayment plans with family members",
+        filename: "financial-amends-agreement.pdf"
+      },
+      {
+        title: "Amends Conversation Script",
+        description: "Word-for-word scripts for initiating financial amends conversations with family",
+        filename: "amends-conversation-script.pdf"
+      }
+    ],
+    practicalExercise: {
+      title: "Amends Payment Plan Builder",
+      steps: [
+        "List all people you owe money to from your addiction period",
+        "Write the approximate amount owed to each person",
+        "Calculate your monthly income after essential expenses",
+        "Determine a realistic monthly payment you can sustain (even if small)",
+        "Calculate how long repayment will take at that rate",
+        "Choose one person to approach first (usually closest relationship or largest debt)",
+        "Practice your amends script out loud until it feels natural",
+        "Schedule a time for the conversation (not via text)"
+      ]
+    }
   }
 ];
 
