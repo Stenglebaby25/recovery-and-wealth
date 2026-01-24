@@ -1603,6 +1603,151 @@ const advancedLessons: AdvancedLesson[] = [
         "Opt OUT of overdraft protection and set up low-balance text alerts"
       ]
     }
+  },
+  {
+    id: "identity-protection",
+    weekNumber: 17,
+    title: "Identity Protection",
+    subtitle: "Fixing and Preventing Identity Theft",
+    icon: <Shield className="h-6 w-6 text-indigo-500" />,
+    description: "Identity theft is common in addiction. Learn how to check for fraudulent accounts, fix the damage, and protect yourself going forward.",
+    modules: [
+      {
+        title: "Why This Matters",
+        content: [
+          "During active addiction, you gave your ID and Social Security number to someone for drugs. Now you're getting collection calls for accounts you never opened. Your credit is destroyed.",
+          "Identity theft is common in addiction. Today you'll learn how to fix it and protect yourself going forward.",
+          "Many people in recovery discover fraudulent accounts they didn't know existed—addressing them is essential for financial recovery.",
+          "The good news: There are free tools and legal protections to help you recover from identity theft."
+        ]
+      },
+      {
+        title: "How Identity Theft Happens in Addiction",
+        content: [
+          "COMMON SCENARIOS: Trading ID for drugs, 'friends' opening accounts in your name, losing wallet/documents while using, giving info to scammers when desperate.",
+          "SIGNS YOU'RE A VICTIM: Accounts on credit report you don't recognize, collection calls for debts you never had, IRS says you filed taxes when you didn't, denied credit unexpectedly.",
+          "You may not discover the theft until months or years later when you're in recovery and trying to rebuild.",
+          "Don't feel shame—this is incredibly common, and there are clear steps to fix it."
+        ],
+        keyStats: [
+          "Fraud alerts are free and last 1 year (renewable)",
+          "Credit freezes are free and stay until you remove them",
+          "Credit bureaus must investigate disputes within 30 days"
+        ]
+      },
+      {
+        title: "Steps to Fix Identity Theft",
+        content: [
+          "STEP 1 - Place Fraud Alert: Call one credit bureau (Experian, Equifax, or TransUnion)—they notify the other two. Free, lasts 1 year (renewable). Makes it harder for thieves to open new accounts.",
+          "STEP 2 - Freeze Your Credit: Blocks anyone from checking your credit (including thieves). You unfreeze temporarily when YOU apply for credit. Free, stays until you remove it.",
+          "STEP 3 - File Reports: FTC report at IdentityTheft.gov, police report (get case number). Send copies to creditors.",
+          "STEP 4 - Dispute Fraudulent Accounts: Write to credit bureaus: 'This account is fraudulent.' Include police report, FTC report. Bureaus must investigate within 30 days."
+        ]
+      },
+      {
+        title: "Step-by-Step Recovery Process",
+        content: [
+          "STEP 1 - Pull Your Credit Reports: Go to AnnualCreditReport.com (free, official). Check all three bureaus. Circle accounts you don't recognize.",
+          "STEP 2 - File FTC Report: Go to IdentityTheft.gov. Answer questions, get recovery plan. Print affidavit (you'll need it for disputes).",
+          "STEP 3 - File Police Report: Go to local police station. Bring FTC affidavit, ID, proof of address. Get case number.",
+          "STEP 4 - Dispute Fraudulent Accounts: Write to Experian, Equifax, TransUnion. Template: 'The following accounts are fraudulent [list accounts]. I am a victim of identity theft. Please remove them from my report.' Include: FTC affidavit, police report, copy of ID.",
+          "STEP 5 - Freeze Your Credit: Do it online at Experian.com/freeze, Equifax.com/freeze, TransUnion.com/freeze.",
+          "STEP 6 - Monitor Going Forward: Use free credit monitoring (Credit Karma, Credit Sesame). Check reports every 4 months (rotate bureaus)."
+        ]
+      }
+    ],
+    quizQuestions: [
+      {
+        id: "identity1",
+        question: "How long does a fraud alert last?",
+        options: [
+          "6 months",
+          "1 year",
+          "Forever",
+          "7 years"
+        ],
+        correctAnswer: 1,
+        explanation: "A fraud alert lasts 1 year and is renewable. It's free and makes it harder for identity thieves to open new accounts in your name."
+      },
+      {
+        id: "identity2",
+        question: "Does freezing your credit cost money?",
+        options: [
+          "Yes, $10 per bureau",
+          "No, it's free",
+          "Only if you have bad credit",
+          "Only the first time"
+        ],
+        correctAnswer: 1,
+        explanation: "Credit freezes are completely free at all three bureaus. This is a federal law that took effect in 2018."
+      },
+      {
+        id: "identity3",
+        question: "Where do you file an identity theft report?",
+        options: [
+          "IdentityTheft.gov",
+          "IRS.gov",
+          "ChexSystems.com",
+          "Your bank's website"
+        ],
+        correctAnswer: 0,
+        explanation: "IdentityTheft.gov is the official FTC website for reporting identity theft. You'll get a recovery plan and an affidavit you can use for disputes."
+      },
+      {
+        id: "identity4",
+        question: "How long do credit bureaus have to investigate your dispute?",
+        options: [
+          "7 days",
+          "30 days",
+          "90 days",
+          "1 year"
+        ],
+        correctAnswer: 1,
+        explanation: "By law, credit bureaus must investigate disputes within 30 days and notify you of the results. This is your right under the Fair Credit Reporting Act."
+      },
+      {
+        id: "identity5",
+        question: "What should you bring to file a police report for identity theft?",
+        options: [
+          "Just your ID",
+          "FTC affidavit, ID, and proof of address",
+          "Only your credit reports",
+          "Nothing—they have all the information"
+        ],
+        correctAnswer: 1,
+        explanation: "Bring your FTC affidavit from IdentityTheft.gov, your ID, and proof of address. The police will give you a case number you'll need for disputes."
+      }
+    ],
+    reflectionPrompts: [
+      "Have you checked your credit reports recently? Were there any accounts you didn't recognize?",
+      "During active addiction, were there any situations where your personal information may have been compromised?",
+      "How would clearing fraudulent accounts from your credit report change your financial recovery journey?"
+    ],
+    downloadables: [
+      {
+        title: "Dispute Letter Templates",
+        description: "Ready-to-use templates for disputing fraudulent accounts with all three credit bureaus",
+        filename: "dispute-letter-templates.pdf"
+      },
+      {
+        title: "Fraud Documentation Organizer",
+        description: "Checklist and organizer for tracking all your identity theft recovery documents",
+        filename: "fraud-documentation-organizer.pdf"
+      }
+    ],
+    practicalExercise: {
+      title: "Identity Theft Recovery Checklist",
+      steps: [
+        "Pull all 3 credit reports from AnnualCreditReport.com",
+        "Review each report and identify any accounts you don't recognize",
+        "If you find fraudulent accounts, file an FTC report at IdentityTheft.gov",
+        "File a police report and get the case number",
+        "Send dispute letters to all three credit bureaus with documentation",
+        "Freeze your credit at Experian.com/freeze, Equifax.com/freeze, and TransUnion.com/freeze",
+        "Sign up for free credit monitoring at Credit Karma or Credit Sesame",
+        "Set calendar reminders to check your credit reports every 4 months"
+      ]
+    }
   }
 ];
 
