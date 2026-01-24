@@ -43,15 +43,15 @@ const App = () => (
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/admin" element={<Admin />} />
-        <Route path="/payment-success" element={<PaymentSuccess />} />
+            <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/coaching" element={<Coaching />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/tools" element={<Tools />} />
             <Route path="/course-demo" element={<CourseDemo />} />
             <Route path="/course-content" element={<CourseContentPreview />} />
-              <Route path="/halt-lessons" element={<HALTLessons />} />
-              <Route path="/advanced-lessons" element={<AdvancedLessons />} />
+            <Route path="/halt-lessons" element={<HALTLessons />} />
+            <Route path="/advanced-lessons" element={<AdvancedLessons />} />
             <Route path="/recovery-tools" element={<RecoveryTools />} />
             <Route path="/learn" element={<LearningHubPreview />} />
             <Route path="/about" element={<About />} />
