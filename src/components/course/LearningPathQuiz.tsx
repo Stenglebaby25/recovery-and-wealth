@@ -484,7 +484,8 @@ const LearningPathQuiz = () => {
   const saveQuizResults = async (recs: RecommendedModule[]) => {
     setIsSaving(true);
     try {
-      const { error } = await supabase.from("user_learning_paths").upsert({
+      // Using type assertion since table was just created and types haven't regenerated
+      const { error } = await (supabase.from("user_learning_paths" as any) as any).upsert({
         user_id: user?.id,
         quiz_answers: answers,
         recommended_modules: recs.map(r => ({
