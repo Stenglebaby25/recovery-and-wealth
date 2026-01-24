@@ -350,152 +350,152 @@ const advancedLessons: AdvancedLesson[] = [
     }
   },
   {
-    id: "investment-basics",
+    id: "investment-fundamentals",
     weekNumber: 11,
-    title: "Investment Basics",
-    subtitle: "Building a Foundation for Recovery-Focused Wealth",
+    title: "Investment Fundamentals",
+    subtitle: "Building Wealth Through Compound Interest",
     icon: <TrendingUp className="h-6 w-6 text-emerald-500" />,
-    description: "Learn the fundamentals of stocks, bonds, and long-term investing strategies that support your recovery journey without triggering addictive behaviors.",
+    description: "Starting small NOW—even $25/month—could mean $100,000+ by retirement. Learn the basics of 401(k)s, Roth IRAs, and index funds without the overwhelm.",
     modules: [
       {
-        title: "Understanding Stocks",
+        title: "Why This Matters",
         content: [
-          "A stock represents partial ownership (equity) in a company. When you buy stock, you become a shareholder with a stake in that company's success.",
-          "Companies issue stock to raise capital for growth, research, expansion, or paying off debt. Investors buy stocks hoping the company's value will increase.",
-          "Stock prices fluctuate based on supply and demand, company performance, economic conditions, and market sentiment.",
-          "There are two main types of stocks: Common Stock (voting rights, variable dividends) and Preferred Stock (fixed dividends, priority in bankruptcy, limited voting rights).",
-          "Stocks are traded on exchanges like NYSE, NASDAQ, and international markets. Trading occurs during market hours with prices updating in real-time."
+          "You're 35, one year sober, finally have a steady job with benefits. Your employer offers a 401(k) with 50% matching. But you're scared of 'investing' because you lost everything during addiction.",
+          "Here's the truth: Starting small NOW—even $25/month—could mean $100,000+ by retirement.",
+          "Today you'll learn the basics of investing in a way that supports your recovery, not threatens it.",
+          "The goal isn't to get rich quick—it's to build steady, boring wealth that gives you security and peace of mind."
+        ]
+      },
+      {
+        title: "The Big Idea: Compound Interest",
+        content: [
+          "You invest money → It grows → The growth ALSO grows. This is compound interest, and it's the most powerful wealth-building tool that exists.",
+          "EXAMPLE: $100/month for 30 years at 7% return = $122,000. You only put in $36,000! The rest is growth on growth.",
+          "The earlier you start, the more time compound interest has to work. Even small amounts matter enormously over decades.",
+          "Einstein allegedly called compound interest 'the eighth wonder of the world.' Whether he said it or not, it's true."
         ],
         keyStats: [
-          "The S&P 500 has historically returned about 10% annually over the long term",
-          "Individual stocks are higher risk - diversification reduces volatility",
-          "Time in the market beats timing the market for most investors"
+          "$100/month for 30 years at 7% = $122,000 (you only contributed $36,000)",
+          "Starting 10 years earlier can nearly double your retirement savings",
+          "The S&P 500 has historically returned about 10% annually over the long term"
         ]
       },
       {
-        title: "Understanding Bonds",
+        title: "Where to Invest (In Order)",
         content: [
-          "A bond is a loan you make to a government or corporation. In return, they pay you interest (the 'coupon') and return your principal at maturity.",
-          "Bonds are generally considered lower risk than stocks because they provide predictable income and return of principal.",
-          "Bond prices move inversely to interest rates - when rates rise, existing bond prices fall, and vice versa.",
-          "Types of bonds include: Government bonds (Treasury, municipal), Corporate bonds (investment-grade, high-yield), and Savings bonds (I-bonds, EE bonds).",
-          "Bond ratings (AAA to D) indicate creditworthiness. Higher-rated bonds are safer but offer lower yields."
-        ],
-        keyStats: [
-          "Government bonds are backed by the full faith of the issuing government",
-          "Corporate bonds offer higher yields but carry more default risk",
-          "Bonds typically provide stability during stock market downturns"
+          "1. EMPLOYER 401(k) - START HERE: Pre-tax money goes in automatically from your paycheck. Employer match = FREE MONEY (if they match 50%, that's an instant 50% return!). Pick investments (usually target-date funds—set it and forget it). Contribute at LEAST enough to get the full employer match.",
+          "2. ROTH IRA - AFTER YOU MAX THE MATCH: You contribute after-tax money, but it grows tax-free forever. Withdraw tax-free in retirement. 2024 limit: $7,000/year. Where to open: Vanguard, Fidelity, Schwab.",
+          "3. INDEX FUNDS - THE EASY WAY: Baskets of stocks that track the whole market (like S&P 500). Low fees, automatic diversification, no stock-picking required. Example: VTSAX (Vanguard Total Stock Market), FXAIX (Fidelity 500 Index)."
         ]
       },
       {
-        title: "Risk vs. Reward in Recovery",
+        title: "What NOT to Do",
         content: [
-          "Understanding your risk tolerance is crucial - especially in recovery where financial stress can trigger relapse.",
-          "The risk-reward tradeoff: Higher potential returns typically come with higher volatility and potential for loss.",
-          "Time horizon matters: Longer investment periods allow you to weather short-term volatility.",
-          "Diversification reduces risk by spreading investments across different asset classes, sectors, and geographies.",
-          "In recovery, prioritize 'boring' investments that don't trigger dopamine-seeking behaviors."
+          "DON'T pick individual stocks—too risky and requires constant attention that can become obsessive.",
+          "DON'T invest in crypto if you're in early recovery—too volatile, too addictive, too much like gambling.",
+          "DON'T try to 'time the market'—just invest consistently every month regardless of what the market is doing.",
+          "DON'T check your investments daily—it causes anxiety and leads to bad emotional decisions. Quarterly or annually is enough."
         ]
       },
       {
-        title: "Recovery-Safe Investment Approach",
+        title: "Step-by-Step: Getting Started",
         content: [
-          "Build your emergency fund FIRST - 3-6 months of expenses in high-yield savings before investing.",
-          "Start with index funds that track broad markets (S&P 500, Total Stock Market) for automatic diversification.",
-          "Use dollar-cost averaging: Invest the same amount regularly regardless of market conditions.",
-          "Automate your investments to remove emotional decision-making from the process.",
-          "Avoid checking your portfolio frequently - quarterly reviews are sufficient for long-term investors."
+          "STEP 1 - Sign Up for 401(k): Ask HR for enrollment form. Contribute at least enough to get full match (usually 3-6% of salary). Pick a target-date fund (example: 'Target 2050' if you're retiring around then).",
+          "STEP 2 - Open a Roth IRA (Optional, After 401k): Go to Vanguard.com or Fidelity.com. Open Roth IRA (15 minutes, free). Set up automatic monthly transfer ($50, $100, whatever you can afford). Buy an index fund (VTSAX, FXAIX, etc.).",
+          "STEP 3 - Set It and Forget It: Don't check daily (causes anxiety and bad decisions). Check quarterly or annually. Increase contributions when you get raises."
         ]
       }
     ],
     quizQuestions: [
       {
-        id: "inv1",
-        question: "What does owning a stock represent?",
+        id: "invf1",
+        question: "What's the #1 rule of 401(k) investing?",
         options: [
-          "A loan to a company",
-          "Partial ownership in a company",
-          "A guaranteed return on investment",
-          "A fixed income stream"
+          "Pick individual stocks for higher returns",
+          "Contribute enough to get the full employer match",
+          "Wait until you're completely debt-free",
+          "Check your balance daily to stay informed"
         ],
         correctAnswer: 1,
-        explanation: "A stock represents partial ownership (equity) in a company. As a shareholder, you own a piece of that company's assets and earnings."
+        explanation: "Always contribute at least enough to get your full employer match—it's literally free money. A 50% match is an instant 50% return on your investment."
       },
       {
-        id: "inv2",
-        question: "What happens to bond prices when interest rates rise?",
+        id: "invf2",
+        question: "What are index funds?",
         options: [
-          "Bond prices increase",
-          "Bond prices decrease",
-          "Bond prices stay the same",
-          "Bonds become worthless"
+          "Baskets of many stocks that track the market",
+          "High-risk individual stock picks",
+          "Savings accounts with higher interest",
+          "Cryptocurrency investments"
+        ],
+        correctAnswer: 0,
+        explanation: "Index funds are baskets of many stocks that track a market index (like the S&P 500). They offer automatic diversification with low fees."
+      },
+      {
+        id: "invf3",
+        question: "Should you check your investments daily?",
+        options: [
+          "Yes, stay on top of every market movement",
+          "No, check quarterly or annually",
+          "Only when the market is going up",
+          "Yes, but only before making trades"
         ],
         correctAnswer: 1,
-        explanation: "Bond prices move inversely to interest rates. When rates rise, existing bonds with lower rates become less attractive, causing their prices to fall."
+        explanation: "Checking daily causes anxiety and leads to emotional decisions. Quarterly or annual reviews are sufficient for long-term investors and better for your recovery."
       },
       {
-        id: "inv3",
-        question: "Why is diversification important for investors in recovery?",
+        id: "invf4",
+        question: "If you invest $100/month for 30 years at 7% return, approximately how much will you have?",
         options: [
-          "It guarantees higher returns",
-          "It eliminates all investment risk",
-          "It reduces volatility and emotional stress from losses",
-          "It allows you to check your portfolio more often"
+          "$36,000",
+          "$72,000",
+          "$122,000",
+          "$200,000"
         ],
         correctAnswer: 2,
-        explanation: "Diversification reduces volatility by spreading risk across different investments. This helps prevent the emotional stress that can trigger relapse."
+        explanation: "Thanks to compound interest, $100/month for 30 years at 7% grows to about $122,000—even though you only contributed $36,000. The rest is compound growth!"
       },
       {
-        id: "inv4",
-        question: "What should you build BEFORE starting to invest?",
+        id: "invf5",
+        question: "Why should people in early recovery avoid cryptocurrency?",
         options: [
-          "A stock portfolio",
-          "An emergency fund of 3-6 months expenses",
-          "A cryptocurrency collection",
-          "A brokerage account with margin trading"
+          "It's illegal",
+          "It's too volatile and can trigger addictive behaviors",
+          "It doesn't earn any returns",
+          "Banks don't allow it"
         ],
         correctAnswer: 1,
-        explanation: "An emergency fund prevents you from selling investments at a loss during financial emergencies and provides stability for your recovery."
-      },
-      {
-        id: "inv5",
-        question: "What is dollar-cost averaging?",
-        options: [
-          "Buying only when prices are low",
-          "Investing the same amount regularly regardless of market conditions",
-          "Selling investments when they reach a target price",
-          "Converting investments to different currencies"
-        ],
-        correctAnswer: 1,
-        explanation: "Dollar-cost averaging means investing a fixed amount regularly. This removes emotional timing decisions and smooths out market volatility over time."
+        explanation: "Cryptocurrency is extremely volatile and the constant price swings can trigger the same dopamine-seeking behaviors as gambling or substance use."
       }
     ],
     reflectionPrompts: [
-      "What is your current relationship with investing? Does checking markets or portfolios trigger any compulsive behaviors?",
-      "How does understanding the difference between investing and gambling help protect your recovery?",
-      "What specific guardrails could you put in place to keep investing 'boring' and recovery-safe?"
+      "What fears or past experiences have kept you from investing? How might you approach it differently now that you're in recovery?",
+      "Does your employer offer a 401(k) with matching? If so, are you contributing enough to get the full match?",
+      "What amount—even if small—could you realistically start investing each month without stressing your budget?"
     ],
     downloadables: [
       {
-        title: "Investment Basics Glossary",
-        description: "Key terms and definitions for stocks, bonds, and investing",
-        filename: "investment-glossary.pdf"
+        title: "Investment Getting Started Checklist",
+        description: "Step-by-step checklist for setting up your 401(k) and Roth IRA",
+        filename: "investment-getting-started-checklist.pdf"
       },
       {
-        title: "Recovery-Safe Investment Checklist",
-        description: "A checklist to evaluate if an investment approach supports your recovery",
-        filename: "recovery-investment-checklist.pdf"
+        title: "Compound Interest Calculator Guide",
+        description: "How to project your retirement savings based on different contribution amounts",
+        filename: "compound-interest-guide.pdf"
       }
     ],
     practicalExercise: {
-      title: "Investment Readiness Assessment",
+      title: "Compound Interest Calculator",
       steps: [
-        "Calculate your current emergency fund status (goal: 3-6 months expenses)",
-        "List any current investments and categorize them by risk level",
-        "Identify any investment behaviors that might trigger addictive patterns",
-        "Research one low-cost index fund and write down its expense ratio",
-        "Create a simple monthly investment amount you could automate",
-        "Set up a quarterly calendar reminder to review your investments (no more frequent)"
+        "Determine your monthly contribution amount (start with what you can afford, even $25)",
+        "Note your current age and target retirement age",
+        "Use a compound interest calculator (investor.gov has a free one)",
+        "Calculate your projected balance at retirement with 7% average return",
+        "See how much of that total is YOUR contributions vs. compound growth",
+        "Try increasing your monthly contribution by $25—see how much more you'd have",
+        "If you have a 401(k), calculate the total with employer match included",
+        "Set a goal to increase contributions by 1% each year"
       ]
     }
   },
