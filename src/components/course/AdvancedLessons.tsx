@@ -1892,6 +1892,159 @@ const advancedLessons: AdvancedLesson[] = [
         "Get any agreement in writing before making payment"
       ]
     }
+  },
+  {
+    id: "side-income-gig-economy",
+    weekNumber: 19,
+    title: "Side Income & Gig Economy",
+    subtitle: "Recovery-Safe Ways to Earn Extra Money",
+    icon: <TrendingUp className="h-6 w-6 text-green-600" />,
+    description: "Gig work can help—but some gigs are relapse traps. Learn which side hustles are safe for recovery and how to manage the taxes.",
+    modules: [
+      {
+        title: "Why This Matters",
+        content: [
+          "You make $2,000/month at your job. Rent is $800, bills are $600. You're surviving, but not saving. You need extra income.",
+          "Gig work can help—but some gigs are relapse traps (bartending, late-night delivery). Today you'll learn safe options.",
+          "The right side income can accelerate your financial recovery without putting your sobriety at risk.",
+          "But you need to choose carefully and understand the tax implications."
+        ]
+      },
+      {
+        title: "Recovery-Safe Gig Work",
+        content: [
+          "✅ LOW-RISK OPTIONS: DoorDash/Uber Eats (daytime only, avoid bar/dispensary deliveries), Rover/Wag (dog walking, pet sitting), TaskRabbit (handyman tasks, moving help, assembly), freelance writing/VA work (Upwork, Fiverr), tutoring (Wyzant, Tutor.com), lawn care/handyman (Nextdoor, Craigslist).",
+          "❌ HIGH-RISK OPTIONS TO AVOID: Bartending (triggers, late nights, around alcohol), nightclub security, late-night rideshare (drunk passengers), delivery to bars/liquor stores, casino work, anything involving old contacts from addiction.",
+          "Ask yourself: Will this put me in triggering environments? Will this disrupt my sleep, meetings, or therapy? Am I doing this for healthy reasons?",
+          "The goal is financial progress that SUPPORTS recovery, not money that threatens it."
+        ],
+        keyStats: [
+          "DoorDash drivers earn $15-25/hour on average",
+          "Rover pet sitters earn $25-35 per day per dog",
+          "TaskRabbit Taskers average $20-40/hour depending on task type"
+        ]
+      },
+      {
+        title: "Tax Implications of Gig Work",
+        content: [
+          "YOU'RE SELF-EMPLOYED: Even if it's part-time, gig income is self-employment income. You're responsible for your own taxes.",
+          "MUST PAY QUARTERLY ESTIMATED TAXES: 15.3% self-employment tax PLUS your income tax rate. Save 25-30% of every gig dollar for taxes.",
+          "TRACK ALL EXPENSES: Mileage (67 cents/mile in 2024), supplies, phone bill, equipment. These reduce your taxable income. Use apps: Stride (free), QuickBooks Self-Employed.",
+          "PAY QUARTERLY OR SAVE: Use IRS Form 1040-ES to pay quarterly, or save 30% in a separate account and pay annually."
+        ]
+      },
+      {
+        title: "Time Management & Boundaries",
+        content: [
+          "DON'T SACRIFICE RECOVERY FOR MONEY: Meetings, therapy, sleep > extra $50. Your sobriety is worth more than any side hustle.",
+          "SET BOUNDARIES: No gigs after 8pm, no Sundays (or whatever works for your schedule). Block time that doesn't conflict with recovery commitments.",
+          "START SMALL: One platform, a few hours per week. Don't overwhelm yourself—financial stress can be a trigger too.",
+          "SCHEDULE GIG TIME LIKE APPOINTMENTS: Put it on your calendar so it doesn't creep into recovery time."
+        ]
+      },
+      {
+        title: "Step-by-Step: Starting Your Side Hustle",
+        content: [
+          "STEP 1 - Pick Your Gig: Match your skills/interests to safe options. Start with ONE platform (don't overwhelm yourself).",
+          "STEP 2 - Sign Up: DoorDash requires background check, 18+, car/bike. Rover needs a profile and reviews. Upwork requires a portfolio and skills test.",
+          "STEP 3 - Set Your Schedule: Example: DoorDash Saturdays 10am-2pm = $80-120. Block time that doesn't conflict with recovery commitments.",
+          "STEP 4 - Track Everything: Download Stride app (free). Log mileage every time you drive. Save receipts for all expenses.",
+          "STEP 5 - Pay Quarterly Taxes: Use IRS Form 1040-ES. Estimate your gig income, pay 25-30% each quarter. Or save 30% in separate account, pay annually."
+        ]
+      }
+    ],
+    quizQuestions: [
+      {
+        id: "gig1",
+        question: "Which gig is safest for someone in recovery?",
+        options: [
+          "Bartending",
+          "Dog walking",
+          "Late-night Uber",
+          "Nightclub security"
+        ],
+        correctAnswer: 1,
+        explanation: "Dog walking (through Rover or Wag) is a recovery-safe gig. It's daytime, low-stress, doesn't involve alcohol or triggers, and gets you outside and active."
+      },
+      {
+        id: "gig2",
+        question: "Do you have to pay taxes on gig income?",
+        options: [
+          "Yes",
+          "No, it's under the table",
+          "Only if you earn over $10,000",
+          "Only if you work more than 20 hours"
+        ],
+        correctAnswer: 0,
+        explanation: "Yes! All gig income is taxable, regardless of amount. You're considered self-employed and must report all earnings on your tax return."
+      },
+      {
+        id: "gig3",
+        question: "How much should you save for taxes on gig income?",
+        options: [
+          "10%",
+          "25-30%",
+          "50%",
+          "You don't need to save anything"
+        ],
+        correctAnswer: 1,
+        explanation: "Save 25-30% of gig income for taxes. This covers your self-employment tax (15.3%) plus income tax. It's better to save too much than get hit with a surprise bill."
+      },
+      {
+        id: "gig4",
+        question: "What should come BEFORE extra gig hours in your priorities?",
+        options: [
+          "Buying new things",
+          "Meetings, therapy, and sleep",
+          "Maxing out your earnings",
+          "Building social media presence"
+        ],
+        correctAnswer: 1,
+        explanation: "Your recovery always comes first. Meetings, therapy, and adequate sleep are more important than extra income. Don't sacrifice your sobriety for money."
+      },
+      {
+        id: "gig5",
+        question: "What app can you use to track mileage for gig work?",
+        options: [
+          "Instagram",
+          "Stride",
+          "TikTok",
+          "You don't need to track mileage"
+        ],
+        correctAnswer: 1,
+        explanation: "Stride is a free app that tracks your mileage automatically. You can deduct 67 cents per mile (2024 rate) from your gig income, reducing your taxes."
+      }
+    ],
+    reflectionPrompts: [
+      "What skills do you have that could translate into safe side income? What do people often ask you for help with?",
+      "Are there any gig opportunities you've considered that might put your recovery at risk? What makes them risky?",
+      "How many hours per week could you realistically work on a side hustle without sacrificing recovery activities?"
+    ],
+    downloadables: [
+      {
+        title: "Gig Work Tax Tracker",
+        description: "Spreadsheet to track income, expenses, mileage, and estimated tax payments",
+        filename: "gig-work-tax-tracker.pdf"
+      },
+      {
+        title: "Safe Gig Platform Comparison",
+        description: "Side-by-side comparison of recovery-safe gig platforms with earnings, requirements, and risk levels",
+        filename: "safe-gig-platform-comparison.pdf"
+      }
+    ],
+    practicalExercise: {
+      title: "Gig Income Calculator",
+      steps: [
+        "List 2-3 recovery-safe gig options that match your skills and schedule",
+        "Research sign-up requirements for each platform",
+        "Calculate how many hours per week you can work WITHOUT impacting recovery",
+        "Estimate earnings: Hours × typical hourly rate for that gig",
+        "Calculate take-home: Subtract 30% for taxes",
+        "Choose ONE platform to start with this week",
+        "Download Stride app and set up mileage tracking",
+        "Open a separate savings account for gig taxes"
+      ]
+    }
   }
 ];
 
