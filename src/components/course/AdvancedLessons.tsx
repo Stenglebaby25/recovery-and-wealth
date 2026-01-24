@@ -64,6 +64,149 @@ interface LessonProgress {
 
 const advancedLessons: AdvancedLesson[] = [
   {
+    id: "insurance-essentials",
+    weekNumber: 9,
+    title: "Insurance Essentials",
+    subtitle: "Protecting Your Recovery with the Right Coverage",
+    icon: <Shield className="h-6 w-6 text-blue-500" />,
+    description: "Insurance feels boring—until you need it. Learn which types of coverage protect you in recovery and which can wait.",
+    modules: [
+      {
+        title: "Why This Matters",
+        content: [
+          "You're 8 months sober, working full-time, finally stable. Then you get in a car accident. $12,000 in medical bills. No health insurance. No disability coverage. Back to square one.",
+          "Insurance feels boring—until you need it. Today you'll learn which types protect you in recovery and which can wait.",
+          "The right insurance protects the stability you've worked so hard to build in recovery.",
+          "Without proper coverage, one unexpected event can derail months or years of financial progress."
+        ]
+      },
+      {
+        title: "The 3 Types That Matter Most in Early Recovery",
+        content: [
+          "HEALTH INSURANCE: Covers therapy, doctor visits, prescriptions, emergencies. Where to get it: Employer, ACA marketplace (healthcare.gov), Medicaid. Cost: $0-$300/month depending on income and plan.",
+          "Recovery-specific note: Mental health parity laws mean addiction treatment MUST be covered equally with other medical care.",
+          "DISABILITY INSURANCE: Replaces income if you're too sick/injured to work. Types: Short-term (3-6 months) vs. long-term (years). Where to get it: Employer benefit (often free or cheap) or private policy.",
+          "Why disability matters in recovery: If you relapse and need treatment again, disability insurance keeps income flowing while you heal.",
+          "LIFE INSURANCE (If You Have Dependents): Pays out when you die to support kids/family. Types: Term (cheap, temporary) vs. whole life (expensive, permanent).",
+          "When you need life insurance: If anyone depends on your income. When you don't: If you're single with no kids, skip it for now."
+        ],
+        keyStats: [
+          "Mental health parity: Addiction treatment must be covered equally with medical care",
+          "60% of bankruptcies are linked to medical bills",
+          "Short-term disability from employers is often free or costs just $10-20/month"
+        ]
+      },
+      {
+        title: "What Can Wait",
+        content: [
+          "AUTO INSURANCE: Required by law, but shop for lowest rates. Not urgent to upgrade—just meet your state's minimum requirements for now.",
+          "RENTERS INSURANCE: Cheap and smart ($15-30/month), protects your belongings. Important but not your first priority.",
+          "UMBRELLA POLICIES: Advanced coverage for high-net-worth individuals. Ignore this entirely until you own property and have significant assets.",
+          "Focus your energy and budget on the three essential types first. Everything else can come later as your financial stability grows."
+        ]
+      },
+      {
+        title: "Step-by-Step: Getting Covered",
+        content: [
+          "STEP 1 - Get Health Insurance (Priority #1): Check if your employer offers it (sign up during onboarding or open enrollment). If no employer coverage: Go to healthcare.gov, enter income, see if you qualify for subsidies. Low income? Apply for Medicaid at your state's website.",
+          "Action: Set a reminder to sign up during open enrollment (November 1 - January 15).",
+          "STEP 2 - Check for Disability Insurance: Ask HR: 'Do we have short-term or long-term disability benefits?' If yes, enroll (usually free or $10-20/month). If no, skip buying private policy for now (expensive, not urgent).",
+          "STEP 3 - Life Insurance (Only If Needed): If you have kids: Get term life insurance (20-year term, $250K-500K coverage). Shop quotes at Policygenius.com or Term4Sale.com. If no dependents: Skip this entirely."
+        ]
+      }
+    ],
+    quizQuestions: [
+      {
+        id: "ins1",
+        question: "Which insurance is MOST important in early recovery?",
+        options: [
+          "Life insurance",
+          "Health insurance",
+          "Disability insurance",
+          "Auto insurance"
+        ],
+        correctAnswer: 1,
+        explanation: "Health insurance is most critical because it covers therapy, medications, doctor visits, and emergencies—all essential for maintaining your recovery."
+      },
+      {
+        id: "ins2",
+        question: "If you're single with no kids, do you need life insurance?",
+        options: [
+          "Yes, everyone needs it",
+          "No, you can skip it",
+          "Only if you're over 40",
+          "Only if you have a mortgage"
+        ],
+        correctAnswer: 1,
+        explanation: "Life insurance is designed to support dependents after you die. If no one depends on your income, you can skip it and focus resources elsewhere."
+      },
+      {
+        id: "ins3",
+        question: "Where can you get free or low-cost health insurance if you're low income?",
+        options: [
+          "Medicaid",
+          "Private insurance broker",
+          "You can't, insurance is always expensive",
+          "Only through an employer"
+        ],
+        correctAnswer: 0,
+        explanation: "Medicaid provides free or low-cost health coverage for people with limited income. You can apply through your state's website or healthcare.gov."
+      },
+      {
+        id: "ins4",
+        question: "Why is disability insurance particularly important for someone in recovery?",
+        options: [
+          "It's required by law",
+          "It pays for your medications",
+          "It keeps income flowing if you need treatment again",
+          "It provides life insurance benefits"
+        ],
+        correctAnswer: 2,
+        explanation: "Disability insurance replaces your income if you can't work. If you relapse and need treatment, disability coverage ensures you still have money coming in."
+      },
+      {
+        id: "ins5",
+        question: "What does 'mental health parity' mean for your health insurance?",
+        options: [
+          "Mental health care costs extra",
+          "Addiction treatment must be covered equally with other medical care",
+          "You need separate insurance for mental health",
+          "Mental health is optional coverage"
+        ],
+        correctAnswer: 1,
+        explanation: "Mental health parity laws require insurance companies to cover addiction treatment and mental health care at the same level as physical health conditions."
+      }
+    ],
+    reflectionPrompts: [
+      "What would happen to your recovery if you faced a major medical expense right now without insurance? How would financial stress impact your sobriety?",
+      "Have you ever avoided seeking treatment or therapy because of cost concerns? How might proper coverage change your approach to self-care?",
+      "What's one insurance type you've been putting off that you now realize is important for protecting your recovery?"
+    ],
+    downloadables: [
+      {
+        title: "Insurance Coverage Checklist",
+        description: "A printable checklist to track which insurance types you have and which you still need",
+        filename: "insurance-checklist.pdf"
+      },
+      {
+        title: "Health Insurance Enrollment Guide",
+        description: "Step-by-step guide for signing up through your employer, healthcare.gov, or Medicaid",
+        filename: "health-insurance-enrollment-guide.pdf"
+      }
+    ],
+    practicalExercise: {
+      title: "Insurance Coverage Checker",
+      steps: [
+        "Check: Do you currently have health insurance? If no, set a reminder for open enrollment (Nov 1 - Jan 15) or visit healthcare.gov today",
+        "Check: Do you have kids or other dependents who rely on your income? If yes, get a term life insurance quote at Policygenius.com",
+        "Check: Does your employer offer disability insurance? Ask HR this week and enroll if available",
+        "Create your personalized to-do list based on your answers above",
+        "Set a calendar reminder to review your insurance coverage every year during open enrollment",
+        "Identify one insurance gap you can close this month and take the first step"
+      ]
+    }
+  },
+  {
     id: "investment-basics",
     weekNumber: 10,
     title: "Investment Basics",
