@@ -1748,6 +1748,150 @@ const advancedLessons: AdvancedLesson[] = [
         "Set calendar reminders to check your credit reports every 4 months"
       ]
     }
+  },
+  {
+    id: "negotiation-skills",
+    weekNumber: 18,
+    title: "Negotiation Skills",
+    subtitle: "Scripts That Save You Money",
+    icon: <Users className="h-6 w-6 text-emerald-600" />,
+    description: "Negotiation is a skill—and it saves money. Learn the exact words to use when negotiating medical bills, debt settlements, salary, and more.",
+    modules: [
+      {
+        title: "Why This Matters",
+        content: [
+          "You owe $8,000 in medical bills from treatment. You call the hospital and say 'I can't pay.' They say 'Too bad, pay or we'll send to collections.'",
+          "But if you'd said the RIGHT words, they might have cut the bill in half. Negotiation is a skill—and it saves money.",
+          "Most people don't know that almost everything is negotiable: medical bills, credit card debt, rent, even salary.",
+          "Learning these scripts can save you thousands of dollars over your lifetime."
+        ]
+      },
+      {
+        title: "What You Can Negotiate",
+        content: [
+          "MEDICAL BILLS: Hospitals, doctors, dentists—most have financial assistance programs and are willing to reduce bills or set up payment plans.",
+          "CREDIT CARD DEBT: Settlement for less than owed is common, especially if the debt is old or you're clearly struggling.",
+          "RENT: Sometimes negotiable, especially if you're a good tenant with on-time payment history.",
+          "SALARY: Job offers and raises are often negotiable—most employers expect you to negotiate.",
+          "COURT FINES: Hardship reductions are common when you can document financial difficulty."
+        ],
+        keyStats: [
+          "Hospitals routinely reduce bills by 20-50% for patients who ask",
+          "Credit card companies often settle for 40-60 cents on the dollar",
+          "70% of people who negotiate salary get more money"
+        ]
+      },
+      {
+        title: "The Golden Rules of Negotiation",
+        content: [
+          "RULE 1 - Be Polite, Not Aggressive: 'I need help' works better than 'This is unfair!' Remember: The person you're talking to didn't create the bill.",
+          "RULE 2 - Have a Number in Mind: Don't say 'I can't pay anything.' Say 'I can pay $50/month' or 'I can pay $2,000 to settle this $5,000 debt.'",
+          "RULE 3 - Get It in Writing: Verbal agreements don't count. Get email confirmation or a signed letter before you pay.",
+          "RULE 4 - Know When to Escalate: If first person says no, ask for supervisor. If supervisor says no, try again in a month (different person might say yes)."
+        ]
+      },
+      {
+        title: "Real Scripts for Common Situations",
+        content: [
+          "MEDICAL BILL SCRIPT: 'Hello, I received a bill for $____. I recently completed treatment for substance use disorder and I'm rebuilding my finances. I want to pay this, but I can't afford the full amount. Can you help me? Options I'm hoping for: Payment plan of $__/month, reduced balance (uninsured/cash discount), or financial assistance/charity care application. What's possible?'",
+          "CREDIT CARD DEBT SETTLEMENT: 'I owe $____ on this account. I've been in treatment and I'm working to get back on my feet. I can't pay the full amount, but I can pay $____ as a lump sum to settle this debt. If you accept, I need this in writing: The account will be marked \"paid as agreed\" or \"settled\" and you won't pursue further collection.'",
+          "SALARY NEGOTIATION: 'Thank you for the offer. I'm excited about this role. Based on my research and the value I'll bring, I was hoping for $____ [10-15% higher]. Is there flexibility in the salary?'",
+          "RENT NEGOTIATION: 'I've been a great tenant for [X months]—paid on time, no complaints. I see rent is increasing to $____. I'd like to stay, but that's a stretch for my budget. Can we keep it at $____ for another year? I'm happy to sign a longer lease.'"
+        ]
+      }
+    ],
+    quizQuestions: [
+      {
+        id: "negotiate1",
+        question: "What's the first rule of negotiation?",
+        options: [
+          "Be aggressive and demand what you want",
+          "Be polite and explain your situation",
+          "Threaten to never pay",
+          "Refuse to speak to anyone but the CEO"
+        ],
+        correctAnswer: 1,
+        explanation: "Being polite and explaining your situation works far better than aggression. Remember, the person you're speaking with didn't create the bill and is more likely to help if you're respectful."
+      },
+      {
+        id: "negotiate2",
+        question: "Should you get negotiated agreements in writing?",
+        options: [
+          "Yes, always",
+          "No, verbal is fine",
+          "Only for amounts over $1,000",
+          "Only if you don't trust them"
+        ],
+        correctAnswer: 0,
+        explanation: "Always get agreements in writing before you pay. Verbal agreements aren't enforceable, and you need proof of what was agreed to protect yourself."
+      },
+      {
+        id: "negotiate3",
+        question: "If the first person says no, should you give up?",
+        options: [
+          "Yes, they have final authority",
+          "No, ask for a supervisor or try again later",
+          "Yes, it's rude to escalate",
+          "No, threaten legal action"
+        ],
+        correctAnswer: 1,
+        explanation: "Don't give up after one 'no.' Ask to speak with a supervisor, or call back another day when you might get a different representative with more authority or willingness to help."
+      },
+      {
+        id: "negotiate4",
+        question: "When negotiating, should you say 'I can't pay anything'?",
+        options: [
+          "Yes, it shows you're desperate",
+          "No, always have a specific number in mind",
+          "Yes, they'll feel sorry for you",
+          "It doesn't matter what you say"
+        ],
+        correctAnswer: 1,
+        explanation: "Always have a specific number in mind. 'I can pay $50/month' or 'I can settle for $2,000' gives them something to work with. 'I can't pay anything' ends the conversation."
+      },
+      {
+        id: "negotiate5",
+        question: "What percentage do hospitals often reduce bills for patients who ask?",
+        options: [
+          "5-10%",
+          "20-50%",
+          "They never reduce bills",
+          "100%"
+        ],
+        correctAnswer: 1,
+        explanation: "Hospitals routinely reduce bills by 20-50% for patients who ask, especially if you're uninsured, low-income, or can pay in a lump sum. Financial assistance programs can reduce even more."
+      }
+    ],
+    reflectionPrompts: [
+      "What bills or debts do you currently have that might be negotiable? What's stopping you from making those calls?",
+      "Have you ever accepted a salary offer without negotiating? How might you approach it differently next time?",
+      "What fears or beliefs do you have about negotiation? How might those be holding you back financially?"
+    ],
+    downloadables: [
+      {
+        title: "Negotiation Scripts Collection",
+        description: "Word-for-word scripts for medical bills, credit card debt, salary, rent, and court fines",
+        filename: "negotiation-scripts.pdf"
+      },
+      {
+        title: "Negotiation Tracking Worksheet",
+        description: "Track your negotiation attempts, outcomes, and follow-up actions",
+        filename: "negotiation-tracking-worksheet.pdf"
+      }
+    ],
+    practicalExercise: {
+      title: "Negotiation Script Builder",
+      steps: [
+        "Identify one bill or debt you want to negotiate this week",
+        "Write down the total amount owed",
+        "Calculate what you can realistically pay (monthly payment or lump sum)",
+        "Write out your situation briefly: 'I'm in recovery, rebuilding finances, working at [job]'",
+        "Practice your script out loud until it feels natural",
+        "Make the call—ask for financial assistance, payment plan, or settlement",
+        "If they say no, ask for supervisor or note to call back later",
+        "Get any agreement in writing before making payment"
+      ]
+    }
   }
 ];
 
