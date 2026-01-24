@@ -1314,6 +1314,150 @@ const advancedLessons: AdvancedLesson[] = [
         "Write a personal commitment statement about how investing supports your recovery"
       ]
     }
+  },
+  {
+    id: "housing-rental-strategies",
+    weekNumber: 15,
+    title: "Housing & Rental Strategies",
+    subtitle: "Rebuilding Your Rental History and Path to Homeownership",
+    icon: <Users className="h-6 w-6 text-teal-500" />,
+    description: "Bad rental history doesn't mean you're stuck forever. Learn how to rebuild, work with second-chance landlords, and eventually own a home.",
+    modules: [
+      {
+        title: "Why This Matters",
+        content: [
+          "You're ready to move out of sober living. But you have an eviction on your record from 3 years ago when you were using. Every landlord rejects your application.",
+          "Bad rental history doesn't mean you're stuck forever. Today you'll learn how to rebuild and eventually own a home.",
+          "Housing stability is crucial for recovery—having a safe, stable place to live supports every other aspect of your journey.",
+          "Understanding the system and knowing your options gives you power to move forward despite past challenges."
+        ]
+      },
+      {
+        title: "Common Barriers and How to Overcome Them",
+        content: [
+          "COMMON BARRIERS: Evictions on record (stay for 7 years), no recent rental history (lived in sober living, treatment, with family), low credit score, criminal background.",
+          "STRATEGY 1 - Work with Second-Chance Landlords: Smaller, independent landlords (not big corporate complexes). Explain your situation honestly: 'I completed treatment, I'm ___ months sober, I have steady income.' Offer references: Treatment center staff, employer, sober living manager.",
+          "STRATEGY 2 - Offer More Money Upfront: Double security deposit, first + last month's rent, 3-6 months prepaid rent (if you have savings or family help).",
+          "STRATEGY 3 - Get a Co-Signer: Parent, family member, or sober friend with good credit who guarantees rent if you can't pay.",
+          "STRATEGY 4 - Build Rental References: Get letter from sober living: 'Paid rent on time for 6 months.' Start with month-to-month rentals to prove yourself."
+        ],
+        keyStats: [
+          "Evictions stay on your record for 7 years",
+          "Independent landlords are 3x more likely to work with applicants who have past issues",
+          "60% of landlords will consider applicants with past evictions if they can show current stability"
+        ]
+      },
+      {
+        title: "Path to Homeownership",
+        content: [
+          "WHEN YOU'RE READY (Usually 2-3 Years Sober): Credit score 620+ (FHA loans accept 580+), down payment 3-5% (FHA) or 10-20% (conventional), steady employment for 2 years preferred, debt-to-income ratio under 43%.",
+          "FIRST-TIME HOMEBUYER PROGRAMS: FHA loans (low down payment, easier approval), state/local down payment assistance grants, USDA loans (rural areas, 0% down).",
+          "Don't rush homeownership—focus on building credit, saving, and maintaining stability first.",
+          "Homeownership comes with responsibilities (maintenance, insurance, taxes) so make sure you're truly ready before committing."
+        ]
+      },
+      {
+        title: "Step-by-Step: Finding Housing",
+        content: [
+          "STEP 1 - Clean Up Your Rental History: Pull your rental history report (like a credit report for renters). Dispute any errors. If you have evictions, write a brief explanation letter.",
+          "STEP 2 - Find Second-Chance Housing: Search Craigslist, Facebook Marketplace (smaller landlords). Use services like Rhino or The Guarantors (rent guarantors). Avoid big corporate apartments (they auto-reject low credit).",
+          "STEP 3 - Prepare Your Application Packet: Recent pay stubs (2-3 months), letter from employer, letter from treatment center or sober living, personal statement: 'I had challenges in the past, but I've turned my life around. Here's proof.'",
+          "STEP 4 - For Homeownership (Later): Build credit to 620+ (use credit builder from Foundations). Save 3-5% down payment ($10K for $200K house). Get pre-approved by lender (shows sellers you're serious)."
+        ]
+      }
+    ],
+    quizQuestions: [
+      {
+        id: "housing1",
+        question: "How long do evictions stay on your record?",
+        options: [
+          "3 years",
+          "7 years",
+          "Forever",
+          "10 years"
+        ],
+        correctAnswer: 1,
+        explanation: "Evictions typically stay on your rental history report for 7 years. However, you can still find housing by working with independent landlords and demonstrating current stability."
+      },
+      {
+        id: "housing2",
+        question: "What's a good strategy if you have bad rental history?",
+        options: [
+          "Offer a larger security deposit",
+          "Lie on the application",
+          "Only apply to big apartment complexes",
+          "Wait 10 years for it to clear"
+        ],
+        correctAnswer: 0,
+        explanation: "Offering a larger security deposit (double or more) shows landlords you're serious and reduces their risk. Never lie on applications—it can lead to immediate eviction."
+      },
+      {
+        id: "housing3",
+        question: "What credit score do you need for an FHA home loan?",
+        options: [
+          "720+",
+          "620+ (580+ with larger down payment)",
+          "800+",
+          "500+"
+        ],
+        correctAnswer: 1,
+        explanation: "FHA loans accept credit scores as low as 580 (with 3.5% down) or 500 (with 10% down), making homeownership more accessible for people rebuilding credit."
+      },
+      {
+        id: "housing4",
+        question: "Which type of landlord is more likely to work with you if you have past rental issues?",
+        options: [
+          "Large corporate apartment complexes",
+          "Small, independent landlords",
+          "Government housing authorities",
+          "Real estate investment companies"
+        ],
+        correctAnswer: 1,
+        explanation: "Small, independent landlords have more flexibility and can make case-by-case decisions. Corporate complexes often have strict automated screening that rejects applicants with past issues."
+      },
+      {
+        id: "housing5",
+        question: "What should you include in a rental application packet?",
+        options: [
+          "Just the application form",
+          "Pay stubs, employer letter, personal statement, and references",
+          "Only your credit report",
+          "Photos of your belongings"
+        ],
+        correctAnswer: 1,
+        explanation: "A complete packet with pay stubs, employer letter, personal statement about your recovery, and references shows landlords you're prepared and serious about being a good tenant."
+      }
+    ],
+    reflectionPrompts: [
+      "What housing barriers have you faced in your recovery? How have they affected your stability and sobriety?",
+      "Who could serve as a reference or co-signer for you? What relationships might you need to rebuild first?",
+      "What does stable housing mean for your recovery? How would it change your daily life?"
+    ],
+    downloadables: [
+      {
+        title: "Rental Application Packet Checklist",
+        description: "Complete checklist of documents to prepare for rental applications, including templates",
+        filename: "rental-application-checklist.pdf"
+      },
+      {
+        title: "Eviction Explanation Letter Template",
+        description: "Fill-in-the-blank letter template to explain past evictions to potential landlords",
+        filename: "eviction-explanation-letter.pdf"
+      }
+    ],
+    practicalExercise: {
+      title: "Rent vs. Buy Calculator",
+      steps: [
+        "Calculate your current monthly rent or housing costs",
+        "Determine how long you plan to stay in your next home (1-5+ years)",
+        "Calculate what you've saved (or could save) for a down payment",
+        "Compare: Renting costs over your planned stay vs. buying costs (down payment + mortgage)",
+        "Assess your readiness: Do you have 620+ credit, steady 2-year employment, and emergency fund?",
+        "Create your housing timeline: When could you realistically buy if you start preparing now?",
+        "Prepare one element of your rental application packet this week",
+        "Research second-chance landlords or housing programs in your area"
+      ]
+    }
   }
 ];
 
