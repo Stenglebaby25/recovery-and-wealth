@@ -649,8 +649,153 @@ const advancedLessons: AdvancedLesson[] = [
     }
   },
   {
-    id: "healthy-money-boundaries",
+    id: "legal-financial-recovery",
     weekNumber: 13,
+    title: "Legal Financial Recovery",
+    subtitle: "Managing Court Debt Without Going Under",
+    icon: <AlertTriangle className="h-6 w-6 text-amber-500" />,
+    description: "Restitution, fines, probation fees—court debt is serious, but courts WANT you to succeed. Learn how to manage it without jeopardizing your recovery.",
+    modules: [
+      {
+        title: "Why This Matters",
+        content: [
+          "You owe $5,000 in restitution, $1,200 in fines, and $50/month in probation fees. You just started a job making $2,000/month. One missed payment could mean a warrant.",
+          "Court debt is serious, but courts WANT you to succeed. Today you'll learn how to manage it without going under.",
+          "Many people in recovery feel overwhelmed by legal financial obligations, but there are legitimate ways to make these debts manageable.",
+          "Understanding your options can mean the difference between staying compliant and facing serious consequences."
+        ]
+      },
+      {
+        title: "Types of Court-Ordered Payments",
+        content: [
+          "RESTITUTION: Money paid to victims to compensate for harm. Priority: HIGHEST—courts care most about this. Cannot be discharged in bankruptcy. This should always be your top payment priority.",
+          "FINES: Punishment paid to the court/government. Can sometimes be reduced for financial hardship. Courts have discretion here.",
+          "COURT FEES: Administrative costs (filing, processing). Often can be waived if you're low-income. Always ask about fee waiver options.",
+          "SUPERVISION FEES: Monthly probation/parole officer fees ($50-100/month). Drug testing costs ($15-25 per test). These add up but are often negotiable."
+        ],
+        keyStats: [
+          "Restitution CANNOT be discharged in bankruptcy—it must be paid",
+          "Most courts offer payment plans based on ability to pay",
+          "Community service can sometimes replace monetary payments"
+        ]
+      },
+      {
+        title: "What Happens If You Don't Pay",
+        content: [
+          "WARRANTS ISSUED: Missing payments without communication can result in a warrant for your arrest.",
+          "PROBATION VIOLATION: Non-payment is often treated as a violation of your probation terms.",
+          "JAIL TIME: Rare, but possible in some jurisdictions for willful non-payment.",
+          "EXTENDED PROBATION: Your supervision period may be extended until debts are paid.",
+          "GOOD NEWS: Courts have payment plan options, hardship reductions are common, and community service can sometimes replace payments. Communication is key."
+        ]
+      },
+      {
+        title: "Step-by-Step: Managing Court Debt",
+        content: [
+          "STEP 1 - Get Your Total Debt in Writing: Call court clerk: 'I need a payment summary for case #_____.' Ask for email or printed copy. Verify all amounts are correct—errors happen.",
+          "STEP 2 - Calculate What You Can Afford: Use your budget from the Foundations module. Be realistic—$50/month consistently is better than promising $200 and failing.",
+          "STEP 3 - Set Up Payment Plan: Call court clerk or probation officer. Script: 'I owe $_____ and want to stay compliant. I can afford $___/month. Can we set up a plan?' Get agreement in writing (email confirmation).",
+          "STEP 4 - Request Hardship Reduction (If Needed): File motion with court showing financial hardship. Provide: Pay stubs, rent receipt, proof of treatment completion. Courts often reduce fees or allow community service instead.",
+          "STEP 5 - Never Miss Without Communicating: If you can't make a payment, call IMMEDIATELY. Courts are forgiving if you communicate—not if you ghost them."
+        ]
+      }
+    ],
+    quizQuestions: [
+      {
+        id: "legal1",
+        question: "What's the highest priority court payment?",
+        options: [
+          "Fines",
+          "Restitution",
+          "Supervision fees",
+          "Court fees"
+        ],
+        correctAnswer: 1,
+        explanation: "Restitution—money paid to victims—is always the highest priority. Courts care most about making victims whole, and restitution cannot be discharged in bankruptcy."
+      },
+      {
+        id: "legal2",
+        question: "What should you do if you can't make a payment?",
+        options: [
+          "Ignore it and hope they forget",
+          "Call immediately and explain",
+          "Wait until they contact you",
+          "Just pay double next month"
+        ],
+        correctAnswer: 1,
+        explanation: "Always call immediately if you can't make a payment. Courts are much more forgiving when you communicate proactively rather than going silent."
+      },
+      {
+        id: "legal3",
+        question: "Can court fees sometimes be waived for low income?",
+        options: [
+          "Yes",
+          "No",
+          "Only for first-time offenders",
+          "Only if you hire a lawyer"
+        ],
+        correctAnswer: 0,
+        explanation: "Yes! Court fees (administrative costs) can often be waived or reduced for people with low income. Always ask about fee waiver options."
+      },
+      {
+        id: "legal4",
+        question: "Can restitution be discharged in bankruptcy?",
+        options: [
+          "Yes, all debts can be discharged",
+          "No, restitution must be paid regardless",
+          "Only in Chapter 7 bankruptcy",
+          "Only if the victim agrees"
+        ],
+        correctAnswer: 1,
+        explanation: "Restitution cannot be discharged in bankruptcy. Unlike other debts, you are legally obligated to pay restitution regardless of your bankruptcy status."
+      },
+      {
+        id: "legal5",
+        question: "What's better: promising to pay $200/month or consistently paying $50/month?",
+        options: [
+          "Promising $200/month shows good faith",
+          "Consistently paying $50/month you can afford",
+          "Neither—just pay when you can",
+          "Pay nothing until you can afford the full amount"
+        ],
+        correctAnswer: 1,
+        explanation: "Consistent smaller payments are always better than larger promises you can't keep. Courts value reliability and compliance over big promises that lead to missed payments."
+      }
+    ],
+    reflectionPrompts: [
+      "What court-ordered payments do you currently owe? Do you have a complete list with accurate amounts?",
+      "Have you been avoiding communication with the court about your financial situation? What's one step you could take this week to get back on track?",
+      "How does the stress of court debt affect your recovery? What would it feel like to have a manageable payment plan in place?"
+    ],
+    downloadables: [
+      {
+        title: "Court Payment Plan Request Letter Template",
+        description: "A fill-in-the-blank letter template for requesting a payment plan from the court",
+        filename: "court-payment-plan-request.pdf"
+      },
+      {
+        title: "Hardship Reduction Motion Guide",
+        description: "Step-by-step guide for filing a financial hardship motion with required documentation checklist",
+        filename: "hardship-reduction-guide.pdf"
+      }
+    ],
+    practicalExercise: {
+      title: "Court Payment Budget Planner",
+      steps: [
+        "List all court-ordered payments: restitution amount, fines, fees, monthly supervision costs",
+        "Calculate your total monthly income after taxes",
+        "List your essential monthly expenses (rent, utilities, food, transportation)",
+        "Calculate remaining income: Monthly income minus essential expenses",
+        "Determine a realistic monthly court payment (should leave buffer for emergencies)",
+        "If your calculated payment is less than required, prepare hardship documentation",
+        "Call court clerk or probation officer to discuss payment plan options",
+        "Get any agreement in writing and set up calendar reminders for payments"
+      ]
+    }
+  },
+  {
+    id: "healthy-money-boundaries",
+    weekNumber: 14,
     title: "Healthy Money Boundaries",
     subtitle: "Protecting Your Financial Recovery in Relationships",
     icon: <Shield className="h-6 w-6 text-blue-500" />,
