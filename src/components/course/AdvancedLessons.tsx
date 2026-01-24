@@ -500,8 +500,157 @@ const advancedLessons: AdvancedLesson[] = [
     }
   },
   {
+    id: "healthcare-navigation",
+    weekNumber: 12,
+    title: "Healthcare Navigation",
+    subtitle: "Understanding Insurance, Bills & HSAs",
+    icon: <Heart className="h-6 w-6 text-red-500" />,
+    description: "Understanding your health insurance can save you thousands. Learn how to decode your plan, maximize benefits, and negotiate medical bills.",
+    modules: [
+      {
+        title: "Why This Matters",
+        content: [
+          "You finished treatment and got a $15,000 hospital bill. Your insurance should have covered it, but they denied the claim. You don't know what 'deductible' or 'out-of-pocket max' means. The bills keep piling up.",
+          "Understanding your health insurance can save you thousands of dollars and countless hours of stress.",
+          "Today you'll learn how to navigate the healthcare system—a critical skill for protecting your recovery and your finances."
+        ]
+      },
+      {
+        title: "Key Insurance Terms You Need to Know",
+        content: [
+          "PREMIUM: What you pay monthly for insurance, whether you use it or not. This is like a subscription fee for your coverage.",
+          "DEDUCTIBLE: What you pay out-of-pocket BEFORE insurance kicks in. If your deductible is $3,000, you pay the first $3,000 of care yourself.",
+          "COPAY: Fixed amount you pay per visit. Typically $20-30 for a doctor visit, $40-60 for a specialist.",
+          "OUT-OF-POCKET MAX: The MOST you'll pay in a year. After you hit this amount, insurance covers 100% of everything.",
+          "IN-NETWORK vs. OUT-OF-NETWORK: In-network providers have contracts with your insurance and cost less. Out-of-network providers can cost 2-3x more."
+        ],
+        keyStats: [
+          "The average deductible for individual plans is $1,735 (2024)",
+          "60% of Americans don't understand basic health insurance terms",
+          "Billing errors appear on 30-40% of hospital bills"
+        ]
+      },
+      {
+        title: "Example Breakdown: How It Works",
+        content: [
+          "Let's say your plan has: Premium $150/month, Deductible $3,000, Out-of-pocket max $6,000.",
+          "WHAT THIS MEANS: You pay $150/month just to have insurance. Then you pay the first $3,000 of medical care yourself. After that, you pay copays and coinsurance until you've paid $6,000 total. After $6,000, insurance pays 100% of everything for the rest of the year.",
+          "If you have a $15,000 treatment stay: You'd pay $6,000 (your out-of-pocket max), and insurance pays the remaining $9,000."
+        ]
+      },
+      {
+        title: "HSAs and FSAs: Tax-Free Medical Savings",
+        content: [
+          "HSA (Health Savings Account): Tax-free savings for medical expenses. Only available with high-deductible plans. TRIPLE tax benefit: Money goes in tax-free, grows tax-free, comes out tax-free for medical expenses. Use it for therapy, prescriptions, treatment follow-up. 2024 limit: $4,150 for individuals.",
+          "FSA (Flexible Spending Account): Similar to HSA but 'use it or lose it' each year. Good for predictable expenses like monthly therapy sessions. Available with any employer health plan.",
+          "Both can be used for: Therapy copays, prescriptions (including MAT), medical equipment, some wellness expenses."
+        ]
+      },
+      {
+        title: "Step-by-Step: Navigating Your Healthcare",
+        content: [
+          "STEP 1 - Understand Your Plan: Find your insurance card (front and back). Look up your plan details online or call the number on the card. Ask: What's my deductible? What's my out-of-pocket max? Is my therapist/doctor in-network? Does this plan cover mental health/addiction services? (It legally must, but confirm.)",
+          "STEP 2 - Maximize Your Benefits: If you have an HSA, contribute what you can (max $4,150/year for individuals). Keep receipts for all medical expenses. Always use in-network providers whenever possible.",
+          "STEP 3 - Handle Medical Bills: Always ask for itemized bills (catches billing errors). Call the billing department: 'I'm self-pay/struggling, what discounts are available?' Set up payment plans ($50-100/month is usually acceptable). Apply for financial assistance—most hospitals have charity care programs."
+        ]
+      }
+    ],
+    quizQuestions: [
+      {
+        id: "hc1",
+        question: "What's a deductible?",
+        options: [
+          "Monthly payment for insurance",
+          "Amount you pay before insurance kicks in",
+          "Maximum you'll pay all year",
+          "A copay for doctor visits"
+        ],
+        correctAnswer: 1,
+        explanation: "A deductible is the amount you pay out-of-pocket before your insurance starts covering costs. If your deductible is $3,000, you pay the first $3,000 yourself."
+      },
+      {
+        id: "hc2",
+        question: "Can you use an HSA for therapy sessions?",
+        options: [
+          "Yes",
+          "No",
+          "Only if prescribed by a doctor",
+          "Only for group therapy"
+        ],
+        correctAnswer: 0,
+        explanation: "Yes! HSA funds can be used for therapy, counseling, and other mental health services—including addiction treatment and MAT prescriptions."
+      },
+      {
+        id: "hc3",
+        question: "Should you always ask for an itemized bill?",
+        options: [
+          "Yes, it catches errors",
+          "No, just pay what they say",
+          "Only for bills over $1,000",
+          "Only if you have insurance"
+        ],
+        correctAnswer: 0,
+        explanation: "Always request an itemized bill. Studies show billing errors appear on 30-40% of hospital bills. An itemized bill helps you spot duplicate charges or services you didn't receive."
+      },
+      {
+        id: "hc4",
+        question: "What happens after you hit your out-of-pocket maximum?",
+        options: [
+          "You have to switch insurance plans",
+          "Insurance covers 100% of remaining costs for the year",
+          "Your deductible resets",
+          "You lose coverage for the rest of the year"
+        ],
+        correctAnswer: 1,
+        explanation: "Once you've paid your out-of-pocket maximum, your insurance covers 100% of all covered services for the rest of the plan year."
+      },
+      {
+        id: "hc5",
+        question: "What's the main difference between an HSA and FSA?",
+        options: [
+          "HSAs have no contribution limit",
+          "FSAs are 'use it or lose it' each year",
+          "HSAs can only be used for prescriptions",
+          "FSAs offer better tax benefits"
+        ],
+        correctAnswer: 1,
+        explanation: "FSA funds typically must be used by year-end or you lose them (with some exceptions). HSA funds roll over indefinitely and can even be invested for growth."
+      }
+    ],
+    reflectionPrompts: [
+      "Do you know your current insurance plan's deductible and out-of-pocket maximum? If not, what's stopping you from finding out?",
+      "Have you ever avoided seeking care because you didn't understand what it would cost? How might understanding your plan change that?",
+      "Are there any unpaid medical bills you've been avoiding? What's one step you could take this week to address them?"
+    ],
+    downloadables: [
+      {
+        title: "Insurance Card Decoder Guide",
+        description: "How to read your insurance card and understand your plan benefits",
+        filename: "insurance-card-decoder.pdf"
+      },
+      {
+        title: "Medical Bill Negotiation Script",
+        description: "Word-for-word scripts for negotiating lower bills and payment plans",
+        filename: "medical-bill-negotiation-script.pdf"
+      }
+    ],
+    practicalExercise: {
+      title: "Insurance Plan Decoder",
+      steps: [
+        "Find your insurance card (front and back) and your plan documents",
+        "Write down your plan name and type (HMO, PPO, HDHP)",
+        "Locate your deductible amount and write it down",
+        "Find your out-of-pocket maximum amount",
+        "Note your monthly premium (check your paystub if employer-provided)",
+        "Check if your current providers (therapist, doctor) are in-network",
+        "Calculate: If you had a $10,000 treatment bill, what would you actually pay?",
+        "If you have an HSA, check your current balance and contribution amount"
+      ]
+    }
+  },
+  {
     id: "healthy-money-boundaries",
-    weekNumber: 11,
+    weekNumber: 13,
     title: "Healthy Money Boundaries",
     subtitle: "Protecting Your Financial Recovery in Relationships",
     icon: <Shield className="h-6 w-6 text-blue-500" />,
