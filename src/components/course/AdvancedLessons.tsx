@@ -1458,6 +1458,151 @@ const advancedLessons: AdvancedLesson[] = [
         "Research second-chance landlords or housing programs in your area"
       ]
     }
+  },
+  {
+    id: "banking-relationships",
+    weekNumber: 16,
+    title: "Banking Relationships",
+    subtitle: "Rebuilding Access to Traditional Banking",
+    icon: <DollarSign className="h-6 w-6 text-blue-600" />,
+    description: "Second-chance banking exists. Learn how to check your ChexSystems report, dispute errors, and rebuild your banking relationships after addiction.",
+    modules: [
+      {
+        title: "Why This Matters",
+        content: [
+          "You try to open a checking account. The bank says you're in ChexSystems for unpaid overdraft fees from 4 years ago. No account for you.",
+          "You can't get direct deposit, can't pay bills online, stuck cashing checks at payday loan places (3% fee).",
+          "Second-chance banking exists. Today you'll learn how to rebuild.",
+          "Having a bank account is essential for financial stability—it affects your ability to get paid, save money, and build credit."
+        ]
+      },
+      {
+        title: "What is ChexSystems?",
+        content: [
+          "LIKE A CREDIT REPORT, BUT FOR BANKING: ChexSystems tracks bounced checks, overdrafts, and fraud. Banks check it before approving accounts. Negative marks stay for 5 years.",
+          "WHY PEOPLE IN RECOVERY GET BLOCKED: Overdrafts during active addiction, closed accounts with negative balances, check fraud (writing bad checks).",
+          "THE GOOD NEWS: Unlike credit reports that last 7-10 years, ChexSystems marks clear after 5 years. And many banks don't check it at all.",
+          "You can get a free ChexSystems report once per year at ChexSystems.com—just like your credit report."
+        ],
+        keyStats: [
+          "ChexSystems negative marks stay for 5 years",
+          "Over 80% of traditional banks check ChexSystems",
+          "Payday check-cashing fees average 3-5%—that's $150/year on a $3,000 monthly income"
+        ]
+      },
+      {
+        title: "Second-Chance Banking Options",
+        content: [
+          "OPTION 1 - Online Banks (No ChexSystems Check): Chime, Varo, Current, Go2Bank. These banks don't check ChexSystems and have no monthly fees.",
+          "OPTION 2 - Credit Unions: Often more forgiving than big banks. Many offer 'Fresh Start' programs specifically for people rebuilding. Local and community-focused.",
+          "OPTION 3 - Secured Checking Accounts: You deposit $100-500 as collateral. Bank gives you a checking account. After 6-12 months of good use, upgrade to regular account.",
+          "REBUILDING STRATEGY: Get second-chance account → Use it responsibly for 6-12 months → Apply for traditional bank with your new clean record."
+        ]
+      },
+      {
+        title: "Step-by-Step: Rebuilding Banking Access",
+        content: [
+          "STEP 1 - Check Your ChexSystems Report: Go to ChexSystems.com and request your free annual report. Look for errors or old accounts you may have forgotten about.",
+          "STEP 2 - Dispute Errors: If anything is wrong, file a dispute online. Provide proof (bank statements, payment records). Errors are more common than you'd think.",
+          "STEP 3 - Pay Off Old Negative Balances: If you owe $200 to an old bank, pay it. Ask the bank to remove the negative mark from ChexSystems (they sometimes will as a courtesy).",
+          "STEP 4 - Open Second-Chance Account: Apply at Chime.com or a local credit union. No minimum balance, no monthly fees (usually). Get direct deposit set up immediately.",
+          "STEP 5 - Use It Responsibly: Never overdraft (opt OUT of overdraft protection). Keep $50-100 buffer in account at all times. Set up account alerts (text when balance is low).",
+          "STEP 6 - Rebuild to Traditional Banking: After 6-12 months of responsible use, apply at Wells Fargo, Chase, or Bank of America. You'll likely get approved now."
+        ]
+      }
+    ],
+    quizQuestions: [
+      {
+        id: "banking1",
+        question: "How long do negative marks stay in ChexSystems?",
+        options: [
+          "2 years",
+          "5 years",
+          "Forever",
+          "7 years"
+        ],
+        correctAnswer: 1,
+        explanation: "ChexSystems negative marks stay on your report for 5 years—shorter than credit report marks. After that, they're automatically removed."
+      },
+      {
+        id: "banking2",
+        question: "Which bank doesn't check ChexSystems?",
+        options: [
+          "Chase",
+          "Chime",
+          "Wells Fargo",
+          "Bank of America"
+        ],
+        correctAnswer: 1,
+        explanation: "Chime is an online bank that doesn't check ChexSystems, making it accessible for people with past banking issues. Other online banks like Varo and Current also skip ChexSystems."
+      },
+      {
+        id: "banking3",
+        question: "Should you opt IN or OUT of overdraft protection?",
+        options: [
+          "Opt IN so you can spend more than you have",
+          "Opt OUT so you can't overdraft",
+          "It doesn't matter either way",
+          "Only opt in if you have savings"
+        ],
+        correctAnswer: 1,
+        explanation: "Opt OUT of overdraft protection. This prevents you from spending more than you have and getting hit with expensive overdraft fees. Your card will simply be declined if you don't have funds."
+      },
+      {
+        id: "banking4",
+        question: "What's the first step to rebuilding your banking access?",
+        options: [
+          "Apply at a major bank immediately",
+          "Check your ChexSystems report for errors",
+          "Wait 10 years for marks to clear",
+          "Use cash only forever"
+        ],
+        correctAnswer: 1,
+        explanation: "Start by checking your ChexSystems report. You may find errors to dispute, or discover that old debts are smaller than you thought. Knowledge is power in rebuilding."
+      },
+      {
+        id: "banking5",
+        question: "What should you keep as a buffer in your checking account?",
+        options: [
+          "$0 - spend everything",
+          "$50-100 minimum buffer",
+          "$1,000 minimum",
+          "$10,000 minimum"
+        ],
+        correctAnswer: 1,
+        explanation: "Keep at least $50-100 as a buffer in your checking account to avoid accidental overdrafts. This small cushion protects you from fees and helps maintain your good banking record."
+      }
+    ],
+    reflectionPrompts: [
+      "Have you been denied a bank account in the past? How did it affect your daily life and financial management?",
+      "What banking habits from your past might you need to change to maintain a healthy account?",
+      "How would having a traditional bank account with direct deposit change your financial situation?"
+    ],
+    downloadables: [
+      {
+        title: "Second-Chance Bank Comparison Chart",
+        description: "Side-by-side comparison of Chime, Varo, Current, and credit union Fresh Start programs",
+        filename: "second-chance-bank-comparison.pdf"
+      },
+      {
+        title: "ChexSystems Dispute Letter Template",
+        description: "Fill-in-the-blank letter for disputing errors on your ChexSystems report",
+        filename: "chexsystems-dispute-letter.pdf"
+      }
+    ],
+    practicalExercise: {
+      title: "Banking Options Finder",
+      steps: [
+        "Check if you're in ChexSystems: Request your free report at ChexSystems.com",
+        "Review your report for errors or accounts you forgot about",
+        "If you find errors, file a dispute with documentation",
+        "If you owe money to an old bank, call to negotiate payment and removal",
+        "Research second-chance options: Chime, Varo, or local credit union Fresh Start programs",
+        "Open a second-chance account this week (takes 10-15 minutes online)",
+        "Set up direct deposit with your employer immediately",
+        "Opt OUT of overdraft protection and set up low-balance text alerts"
+      ]
+    }
   }
 ];
 
