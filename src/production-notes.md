@@ -86,6 +86,18 @@
 - **Plan**: SSO integration, tiered content access (free vs premium)
 - **Will implement**: When Circle platform is live and outline is ready
 
+### Advanced Lessons Downloadable PDFs
+- **Status**: Placeholder buttons added with "Coming Soon" badge
+- **Action Needed**: Create actual PDF worksheets for each Advanced module
+- **Files Needed**: 26 total worksheets across 13 modules (2 per module)
+- **Will implement**: When PDF content is finalized and uploaded to storage
+
+### Sync Advanced Lessons to Database (Optional)
+- **Status**: Deferred - Content works fine as frontend-only
+- **Note**: Advanced modules (Weeks 9-21) are hardcoded in AdvancedLessons.tsx
+- **Benefit**: Would allow Admin to manage content via CMS
+- **Will implement**: If user wants centralized content management
+
 ### Other Future Ideas
 - Community support features (beyond Circle)
 - Advanced gamification expansions

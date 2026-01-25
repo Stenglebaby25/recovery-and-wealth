@@ -2653,10 +2653,21 @@ const AdvancedLessons = () => {
                       <ul className="space-y-3">
                         {currentLesson.downloadables.map((dl, i) => (
                           <li key={i}>
-                            <Button variant="outline" size="sm" className="w-full justify-start h-auto py-2 px-3">
-                              <FileText className="w-4 h-4 mr-2 shrink-0" />
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="w-full justify-start h-auto py-2 px-3 opacity-75 hover:opacity-100"
+                              onClick={() => toast({
+                                title: "Coming Soon!",
+                                description: `The "${dl.title}" worksheet is being finalized and will be available for download shortly.`,
+                              })}
+                            >
+                              <FileText className="w-4 h-4 mr-2 shrink-0 text-muted-foreground" />
                               <div className="text-left min-w-0 flex-1 overflow-hidden">
-                                <div className="font-medium text-sm truncate">{dl.title}</div>
+                                <div className="font-medium text-sm truncate flex items-center gap-2">
+                                  {dl.title}
+                                  <Badge variant="outline" className="text-[10px] px-1.5 py-0">Soon</Badge>
+                                </div>
                                 <div className="text-xs text-muted-foreground line-clamp-2">{dl.description}</div>
                               </div>
                             </Button>
