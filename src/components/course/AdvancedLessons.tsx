@@ -11,13 +11,14 @@ import { Progress } from "@/components/ui/progress";
 import { 
   CheckCircle, Clock, ArrowLeft, ArrowRight, BookOpen, PenLine, Target, 
   Download, TrendingUp, Shield, Heart, Users, DollarSign, AlertTriangle,
-  Lightbulb, FileText, ChevronRight, Lock
+  Lightbulb, FileText, ChevronRight, Lock, Printer
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+import PrintableWorksheet from "@/components/course/PrintableWorksheet";
 
 interface QuizQuestion {
   id: string;
@@ -2363,6 +2364,7 @@ const AdvancedLessons = () => {
   const [reflectionNotes, setReflectionNotes] = useState("");
   const [selfRating, setSelfRating] = useState([5]);
   const [exerciseSteps, setExerciseSteps] = useState<boolean[]>([]);
+  const [showWorksheet, setShowWorksheet] = useState(false);
 
   const currentLesson = advancedLessons[currentLessonIndex];
 
@@ -2649,8 +2651,23 @@ const AdvancedLessons = () => {
                         Downloadable Resources
                       </CardTitle>
                     </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-3">
+                    <CardContent className="space-y-3">
+                      {/* Print Worksheet Button */}
+                      <Button 
+                        variant="default" 
+                        size="sm" 
+                        className="w-full justify-start h-auto py-3 px-3"
+                        onClick={() => setShowWorksheet(true)}
+                      >
+                        <Printer className="w-4 h-4 mr-2 shrink-0" />
+                        <div className="text-left min-w-0 flex-1 overflow-hidden">
+                          <div className="font-medium text-sm">Print Lesson Worksheet</div>
+                          <div className="text-xs opacity-80">Save as PDF or print for offline use</div>
+                        </div>
+                      </Button>
+                      
+                      {/* Additional downloadables */}
+                      <ul className="space-y-2">
                         {currentLesson.downloadables.map((dl, i) => (
                           <li key={i}>
                             <Button 
@@ -2659,7 +2676,7 @@ const AdvancedLessons = () => {
                               className="w-full justify-start h-auto py-2 px-3 opacity-75 hover:opacity-100"
                               onClick={() => toast({
                                 title: "Coming Soon!",
-                                description: `The "${dl.title}" worksheet is being finalized and will be available for download shortly.`,
+                                description: `The "${dl.title}" supplemental worksheet is being finalized.`,
                               })}
                             >
                               <FileText className="w-4 h-4 mr-2 shrink-0 text-muted-foreground" />
@@ -2999,6 +3016,14 @@ const AdvancedLessons = () => {
           </CardContent>
         </Card>
       </div>
+
+      {/* Printable Worksheet Modal */}
+      {showWorksheet && (
+        <PrintableWorksheet 
+          lesson={currentLesson}
+          onClose={() => setShowWorksheet(false)}
+        />
+      )}
     </div>
   );
 };
