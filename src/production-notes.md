@@ -87,16 +87,15 @@
 - **Will implement**: When Circle platform is live and outline is ready
 
 ### Advanced Lessons Downloadable PDFs
-- **Status**: Placeholder buttons added with "Coming Soon" badge
-- **Action Needed**: Create actual PDF worksheets for each Advanced module
-- **Files Needed**: 26 total worksheets across 13 modules (2 per module)
-- **Will implement**: When PDF content is finalized and uploaded to storage
+- **Status**: ✅ Print-to-PDF button implemented
+- **Feature**: Users can print/save any lesson as a formatted worksheet directly from the browser
+- **Supplemental PDFs**: Placeholder buttons for additional specialized worksheets (2 per module)
+- **Will implement supplemental**: When specialized PDF content beyond lesson material is needed
 
-### Sync Advanced Lessons to Database (Optional)
-- **Status**: Deferred - Content works fine as frontend-only
-- **Note**: Advanced modules (Weeks 9-21) are hardcoded in AdvancedLessons.tsx
-- **Benefit**: Would allow Admin to manage content via CMS
-- **Will implement**: If user wants centralized content management
+### Advanced Lessons Database Sync
+- **Status**: ✅ COMPLETED
+- **Details**: 13 advanced modules (Weeks 9-21) synced to courses table with learning_pathway='advanced'
+- **Admin visibility**: All modules now appear in Admin Content Management
 
 ### Other Future Ideas
 - Community support features (beyond Circle)
