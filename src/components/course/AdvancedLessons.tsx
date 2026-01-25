@@ -2653,11 +2653,11 @@ const AdvancedLessons = () => {
                       <ul className="space-y-3">
                         {currentLesson.downloadables.map((dl, i) => (
                           <li key={i}>
-                            <Button variant="outline" size="sm" className="w-full justify-start h-auto py-2">
+                            <Button variant="outline" size="sm" className="w-full justify-start h-auto py-2 px-3">
                               <FileText className="w-4 h-4 mr-2 shrink-0" />
-                              <div className="text-left">
-                                <div className="font-medium text-sm">{dl.title}</div>
-                                <div className="text-xs text-muted-foreground">{dl.description}</div>
+                              <div className="text-left min-w-0 flex-1 overflow-hidden">
+                                <div className="font-medium text-sm truncate">{dl.title}</div>
+                                <div className="text-xs text-muted-foreground line-clamp-2">{dl.description}</div>
                               </div>
                             </Button>
                           </li>
