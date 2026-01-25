@@ -69,6 +69,16 @@ const Navigation = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
+                  <Link to="/advanced-lessons" className="w-full cursor-pointer">
+                    Advanced Lessons
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/learning-path-quiz" className="w-full cursor-pointer">
+                    Learning Path Quiz
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
                   <Link to={user ? "/" : "/learn"} className="w-full cursor-pointer">
                     {user ? "Dashboard" : "Learning Hub"}
                   </Link>
@@ -174,6 +184,20 @@ const Navigation = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   H.A.L.T. Lessons
+                </Link>
+                <Link 
+                  to="/advanced-lessons" 
+                  className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Advanced Lessons
+                </Link>
+                <Link 
+                  to="/learning-path-quiz" 
+                  className="block px-3 py-2 text-foreground hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Learning Path Quiz
                 </Link>
                 <Link 
                   to={user ? "/" : "/learn"} 
