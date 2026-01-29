@@ -2,30 +2,45 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
-import { MessageSquare, Video, Users, Calendar } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { MessageSquare, Video, Users, Calendar, Mail } from "lucide-react";
 import communityTreeImage from "@/assets/family-tree-community.png";
 import { useLeadCapture } from "@/hooks/useLeadCapture";
 import { useState } from "react";
+import { CoachingInquiryForm } from "./CoachingInquiryForm";
+import { Label } from "@/components/ui/label";
 
 const CoachingSection = () => {
   const { captureLead, isSubmitting } = useLeadCapture();
-  const [email, setEmail] = useState('');
+  const [emailDialogOpen, setEmailDialogOpen] = useState(false);
+  const [selectedTopic, setSelectedTopic] = useState('');
+  const [captureEmail, setCaptureEmail] = useState('');
 
-  const handleCoachingInterest = async (coachingType: string) => {
-    const result = await captureLead({
-      email: 'coaching@interest.com',
-      leadType: 'coaching_interest',
-      sourcePage: '/coaching',
-      metadata: { coaching_type: coachingType }
-    });
+  const handleOpenEmailCapture = (topic: string) => {
+    setSelectedTopic(topic);
+    setCaptureEmail('');
+    setEmailDialogOpen(true);
   };
 
-  const handleCommunityJoin = async () => {
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!captureEmail.trim()) return;
+
     const result = await captureLead({
-      email: 'community@interest.com',
-      leadType: 'community_join',
-      sourcePage: '/coaching'
+      email: captureEmail.trim(),
+      leadType: 'coaching_interest',
+      sourcePage: '/coaching',
+      metadata: { coaching_type: selectedTopic }
     });
+
+    if (result.success) {
+      setEmailDialogOpen(false);
+      setCaptureEmail('');
+    }
+  };
+
+  const handleCommunityJoin = () => {
+    handleOpenEmailCapture('Community Support');
   };
 
   const coachingTypes = [
@@ -123,7 +138,7 @@ const CoachingSection = () => {
                   <Button 
                     variant={type.variant} 
                     className="w-full"
-                    onClick={() => handleCoachingInterest(type.title)}
+                    onClick={() => handleOpenEmailCapture(type.title)}
                     disabled={isSubmitting}
                   >
                     {type.cta}
@@ -159,7 +174,7 @@ const CoachingSection = () => {
                       variant="outline" 
                       size="sm" 
                       className="w-full"
-                      onClick={() => handleCoachingInterest(`1-on-1 with ${coach.name}`)}
+                      onClick={() => handleOpenEmailCapture(`1-on-1 with ${coach.name}`)}
                       disabled={isSubmitting}
                     >
                       Book with {coach.name.split(' ')[0]}
@@ -168,6 +183,11 @@ const CoachingSection = () => {
                 </Card>
               ))}
             </div>
+          </div>
+
+          {/* Coaching Inquiry Form */}
+          <div className="mb-16 max-w-2xl mx-auto">
+            <CoachingInquiryForm />
           </div>
 
           {/* Community Stats */}
@@ -222,6 +242,46 @@ const CoachingSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Email Capture Dialog */}
+      <Dialog open={emailDialogOpen} onOpenChange={setEmailDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <Mail className="w-5 h-5 text-primary" />
+              Get Started with {selectedTopic}
+            </DialogTitle>
+            <DialogDescription>
+              Enter your email and we'll send you next steps for {selectedTopic.toLowerCase()}.
+            </DialogDescription>
+          </DialogHeader>
+          <form onSubmit={handleEmailSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="capture-email">Email Address</Label>
+              <Input
+                id="capture-email"
+                type="email"
+                placeholder="your.email@example.com"
+                value={captureEmail}
+                onChange={(e) => setCaptureEmail(e.target.value)}
+                required
+                autoFocus
+              />
+            </div>
+            <div className="flex gap-2">
+              <Button type="button" variant="outline" onClick={() => setEmailDialogOpen(false)} className="flex-1">
+                Cancel
+              </Button>
+              <Button type="submit" className="flex-1" disabled={isSubmitting}>
+                {isSubmitting ? 'Submitting...' : 'Get Started'}
+              </Button>
+            </div>
+            <p className="text-xs text-center text-muted-foreground">
+              We respect your privacy. Unsubscribe anytime.
+            </p>
+          </form>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
