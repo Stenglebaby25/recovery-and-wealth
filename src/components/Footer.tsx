@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { NewsletterSignup } from '@/components/NewsletterSignup';
+import { FooterContactForm } from '@/components/FooterContactForm';
 
 const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
             <img 
@@ -60,6 +61,11 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
+          </div>
+
+          {/* Contact Form */}
+          <div>
+            <FooterContactForm />
           </div>
 
           {/* Newsletter */}
