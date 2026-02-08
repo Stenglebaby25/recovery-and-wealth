@@ -1,4 +1,5 @@
 import HeroSection from "@/components/HeroSection";
+import SocialSection from "@/components/SocialSection";
 import Footer from "@/components/Footer";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -281,6 +282,7 @@ const MarketingHomepage = () => {
         </div>
       </section>
       
+      <SocialSection />
       <Footer />
     </>
   );
