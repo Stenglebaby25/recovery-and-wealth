@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Instagram, Twitter, Youtube, Music } from 'lucide-react';
 import { NewsletterSignup } from '@/components/NewsletterSignup';
 import { FooterContactForm } from '@/components/FooterContactForm';
 
@@ -74,9 +75,27 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Recovery & Wealth. All rights reserved.</p>
-          <p className="mt-1">Created by people in recovery, for people in recovery.</p>
+        <div className="border-t border-border mt-8 pt-8">
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex items-center gap-4">
+              <a href="https://youtube.com/@sobermoneymindset?si=ZA1FzPFe0g4CIDbB" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="YouTube">
+                <Youtube className="w-5 h-5" />
+              </a>
+              <a href="https://www.instagram.com/sobermoneymindset?igsh=ZHFldWhqb3ljaDI3" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="https://x.com/SoberMoneyMind?s=09" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Twitter">
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a href="https://www.tiktok.com/@sobermoneymindset?_t=ZP-8zi2CxGFwCc&_r=1" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="TikTok">
+                <Music className="w-5 h-5" />
+              </a>
+            </div>
+            <div className="text-center text-sm text-muted-foreground">
+              <p>© {new Date().getFullYear()} Recovery & Wealth. All rights reserved.</p>
+              <p className="mt-1">Created by people in recovery, for people in recovery.</p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
