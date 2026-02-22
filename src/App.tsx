@@ -25,6 +25,7 @@ import RecoveryTools from "./pages/RecoveryTools";
 import LearningHubPreview from "./pages/LearningHubPreview";
 import About from "./pages/About";
 import LearningPathQuizPage from "./pages/LearningPathQuizPage";
+import WeekLessons from "./pages/WeekLessons";
 
 const queryClient = new QueryClient();
 
@@ -56,6 +57,7 @@ const App = () => (
             <Route path="/learn" element={<LearningHubPreview />} />
             <Route path="/about" element={<About />} />
             <Route path="/learning-path-quiz" element={<LearningPathQuizPage />} />
+            <Route path="/course/week/:weekNumber" element={<WeekLessons />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
