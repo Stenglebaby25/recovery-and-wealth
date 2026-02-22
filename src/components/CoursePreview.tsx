@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { CheckCircle, Clock, Users, Target } from "lucide-react";
 
 const CoursePreview = () => {
+  const navigate = useNavigate();
   const weeks = [
     {
       week: 1,
@@ -146,6 +148,7 @@ const CoursePreview = () => {
                     variant={week.completed ? "success" : "default"} 
                     size="sm"
                     className="w-full"
+                    onClick={() => navigate(`/course/week/${week.week}`)}
                   >
                     {week.completed ? "Review Lesson" : "Start Lesson"}
                   </Button>

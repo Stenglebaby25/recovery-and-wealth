@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import CoursePreview from '@/components/CoursePreview';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,6 +18,7 @@ import {
 } from 'lucide-react';
 
 const CourseContentPreview = () => {
+  const navigate = useNavigate();
   const [selectedWeek, setSelectedWeek] = useState<number | null>(null);
 
   // Course content with the actual lesson materials you've uploaded
@@ -232,8 +234,16 @@ const CourseContentPreview = () => {
                             </div>
                           </div>
 
+                          {/* Start Full Lesson Button */}
+                          <div className="mt-6 flex gap-3">
+                            <Button onClick={() => navigate(`/course/week/${week}`)}>
+                              <BookOpen className="w-4 h-4 mr-2" />
+                              Start Full Lesson
+                            </Button>
+                          </div>
+
                           {/* Implementation Status */}
-                          <div className="mt-6 p-4 bg-muted/50 rounded-lg">
+                          <div className="mt-4 p-4 bg-muted/50 rounded-lg">
                             <h5 className="font-medium mb-2">Implementation Notes:</h5>
                             <ul className="text-sm text-muted-foreground space-y-1">
                               <li>• Course structure and content uploaded and reviewed</li>
