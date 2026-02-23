@@ -2344,8 +2344,179 @@ const advancedLessons: AdvancedLesson[] = [
         "Calculate time commitment needed per week",
         "Assess: Is this compatible with your recovery commitments?",
         "Identify 3 people who might pay for this service/product",
-        "Reach out to one potential customer this week for feedback",
-        "If feedback is positive, create your one-page business plan"
+      "Reach out to one potential customer this week for feedback",
+      "If feedback is positive, create your one-page business plan"
+    ]
+    }
+  },
+  {
+    id: "automated-investing-robo-advisors",
+    weekNumber: 22,
+    title: "Automated Investing & Robo-Advisors",
+    subtitle: "Grow Your Emergency Fund on Autopilot",
+    icon: <TrendingUp className="h-6 w-6 text-emerald-500" />,
+    description: "Learn how apps like Acorns and Stash can build your emergency fund and investment portfolio automatically — with minimal effort and zero manual trades.",
+    modules: [
+      {
+        title: "Why This Matters",
+        content: [
+          "You're 6 months sober, finally have a checking account, and you keep hearing about 'investing.' But the stock market feels like gambling — and that's a trigger.",
+          "Here's the truth: automated investing through robo-advisors is the OPPOSITE of gambling. It's slow, boring, and systematic — which is exactly why it works for people in recovery.",
+          "These platforms invest small amounts automatically, adjust your portfolio based on your risk tolerance, and require ZERO decision-making after setup.",
+          "The result? Your emergency fund and investments grow while you focus on what matters — your recovery, your job, your life."
+        ]
+      },
+      {
+        title: "What Are Robo-Advisors?",
+        content: [
+          "ROBO-ADVISORS are automated investment platforms that build and manage a diversified portfolio for you. No stock picking. No market timing. No emotional decisions.",
+          "HOW THEY WORK: You answer questions about your goals and risk tolerance → The algorithm builds a portfolio of low-cost index funds → Your money is automatically invested and rebalanced → You do nothing — the system handles everything.",
+          "WHY THEY'RE RECOVERY-FRIENDLY: No impulsive trading (it's automated), diversified (not betting on one stock), low minimums ($1-$5 to start), set-and-forget design reduces financial anxiety.",
+          "ROBO-ADVISORS vs. TRADITIONAL: Traditional brokers charge 1-2% fees; robo-advisors charge 0-0.25%. No minimum balance requirements. No intimidating jargon or pressure to trade."
+        ],
+        keyStats: [
+          "Robo-advisors manage over $460 billion in assets globally",
+          "Average fees: 0-0.25% vs 1-2% for human advisors",
+          "Round-ups can add $30-$50/month to investments automatically"
+        ]
+      },
+      {
+        title: "Platform Deep-Dive: Acorns",
+        content: [
+          "ACORNS ROUND-UPS: Link your debit card → Every purchase rounds up to the nearest dollar → Spare change is automatically invested. Example: Buy coffee for $4.25 → $0.75 is invested. Over a month, that's $30-50 invested without thinking about it.",
+          "ACORNS PORTFOLIOS: Choose from Conservative to Aggressive (5 levels). Each portfolio is a mix of stocks and bonds via ETFs. The platform rebalances automatically — you never need to touch it.",
+          "ACORNS EMERGENCY FUND: Earn 3%+ APY on savings (much higher than bank accounts). Money is accessible anytime. Great for building your first $1,000 emergency fund.",
+          "PRICING: $3/month (Personal) includes investing + retirement + checking. $5/month (Family) adds custodial accounts for kids. Everyone is surprised when their balance grows — that's the magic of automation."
+        ],
+        keyStats: [
+          "Average Acorns user invests $30-50/month through round-ups alone",
+          "Acorns has over 10 million users",
+          "$3/month is less than one coffee — and it builds real wealth"
+        ]
+      },
+      {
+        title: "Platform Deep-Dive: Stash",
+        content: [
+          "STASH STOCK-BACK: Earn stock rewards when you shop with the Stash debit card. Buy from Amazon → Get Amazon stock. Buy from Starbucks → Get Starbucks stock. Your spending literally builds your portfolio.",
+          "STASH SMART PORTFOLIO: Like a robo-advisor — automated, diversified investing. Starts at $5 minimum. Choose your risk level and Stash handles the rest.",
+          "STASH ROUND-UPS: Similar to Acorns — round up purchases and invest the difference. Can be set to 2x, 5x, or 10x multiplier for faster growth.",
+          "WHY STASH FOR RECOVERY: Fractional shares mean you own real companies for $1+. Educational content built in — learn as you invest. No pressure to trade actively. The portfolio adjusts automatically between conservative and aggressive based on your settings."
+        ],
+        keyStats: [
+          "Start investing with just $5 on Stash",
+          "Stock-Back rewards turn everyday spending into ownership",
+          "Stash offers 10x round-up multiplier for aggressive savers"
+        ]
+      },
+      {
+        title: "Automated Portfolio Management Explained",
+        content: [
+          "WHAT 'AUTOMATED' REALLY MEANS: The platform automatically rebalances your portfolio. If stocks go up too much (more risk), it sells some and buys bonds. If bonds go up, it buys more stocks. You never have to decide — it maintains your chosen risk level.",
+          "CONSERVATIVE vs. AGGRESSIVE: Conservative (mostly bonds): Slower growth, less volatility. Good for emergency funds. Moderate (50/50): Balanced approach for medium-term goals. Aggressive (mostly stocks): Higher growth potential, more ups and downs. Good for long-term (5+ years).",
+          "TAX-LOSS HARVESTING: Some robo-advisors automatically sell losing investments to reduce your tax bill, then immediately buy similar investments. This happens behind the scenes — another benefit of automation.",
+          "DOLLAR-COST AVERAGING: By investing small amounts regularly (weekly or monthly), you buy more shares when prices are low and fewer when prices are high. This reduces the impact of market swings — perfect for avoiding the emotional rollercoaster."
+        ],
+        keyStats: [
+          "Automatic rebalancing keeps your portfolio aligned with your goals",
+          "Dollar-cost averaging reduces timing risk by 30-40%",
+          "Tax-loss harvesting can save $100-$500+/year in taxes"
+        ]
+      },
+      {
+        title: "Building Your Emergency Fund on Autopilot",
+        content: [
+          "STEP 1 — Set up round-ups: Link your main debit card to Acorns or Stash. Every purchase contributes to your fund automatically.",
+          "STEP 2 — Add a recurring deposit: Even $5/week ($20/month) adds up. In one year: $240 + round-ups + interest = $400-600 emergency fund.",
+          "STEP 3 — Use high-yield savings: Acorns and Stash both offer savings accounts earning 3-5% APY vs. 0.01% at traditional banks.",
+          "STEP 4 — Don't touch it: The hardest part. Set it and forget it. When you hit $1,000, celebrate — that's a HUGE milestone in recovery.",
+          "THE SURPRISE FACTOR: People in recovery who set up automated savings are consistently shocked at how fast it grows. $30/month in round-ups + $20/month recurring = $600/year before any investment growth. With average market returns, that could be $650-700 after one year."
+        ],
+        keyStats: [
+          "High-yield savings earn 300-500x more than traditional banks",
+          "$50/month automated = $600/year + investment returns",
+          "Having $1,000 in emergency savings prevents 60% of financial crises"
+        ]
+      }
+    ],
+    quizQuestions: [
+      {
+        id: "robo1",
+        question: "What makes robo-advisors recovery-friendly compared to active stock trading?",
+        options: [
+          "They guarantee higher returns",
+          "They automate decisions, removing impulsive trading temptation",
+          "They only invest in recovery-related companies",
+          "They require large minimum investments"
+        ],
+        correctAnswer: 1,
+        explanation: "Robo-advisors automate investing decisions, which removes the impulsive, gambling-like behavior of active trading. This set-and-forget approach is ideal for people in recovery."
+      },
+      {
+        id: "robo2",
+        question: "How do round-ups work on platforms like Acorns?",
+        options: [
+          "They round your bank balance up to the nearest $100",
+          "They round each purchase up to the nearest dollar and invest the difference",
+          "They double your deposits",
+          "They round down your spending to save money"
+        ],
+        correctAnswer: 1,
+        explanation: "Round-ups take each purchase, round it up to the nearest dollar, and invest that spare change automatically. A $4.25 coffee means $0.75 gets invested."
+      },
+      {
+        id: "robo3",
+        question: "What does 'automatic rebalancing' mean?",
+        options: [
+          "The platform sells all your investments monthly",
+          "You manually adjust your portfolio each quarter",
+          "The platform adjusts your mix of stocks and bonds to maintain your chosen risk level",
+          "It moves all money to savings when markets drop"
+        ],
+        correctAnswer: 2,
+        explanation: "Automatic rebalancing means the platform continuously adjusts your portfolio to maintain the risk level you chose — selling overweighted assets and buying underweighted ones."
+      },
+      {
+        id: "robo4",
+        question: "What is dollar-cost averaging?",
+        options: [
+          "Buying only when stocks are at their lowest price",
+          "Investing a fixed amount regularly regardless of market conditions",
+          "Converting dollars to other currencies for better rates",
+          "Only investing in dollar-denominated stocks"
+        ],
+        correctAnswer: 1,
+        explanation: "Dollar-cost averaging means investing a fixed amount regularly (weekly/monthly). You buy more shares when prices are low and fewer when high, reducing the impact of market volatility."
+      }
+    ],
+    reflectionPrompts: [
+      "How do you currently feel about investing? Does it feel more like a calculated plan or a gamble?",
+      "What small automated amount could you commit to this week without feeling financial stress?",
+      "How would having a $1,000 emergency fund change your sense of security in recovery?",
+      "What spending round-ups surprised you when you calculated them? Are there purchases you could redirect?"
+    ],
+    downloadables: [
+      {
+        title: "Automated Investing Setup Checklist",
+        description: "Step-by-step guide to setting up Acorns, Stash, or both",
+        filename: "Automated_Investing_Setup_Checklist.pdf"
+      },
+      {
+        title: "Emergency Fund Growth Tracker",
+        description: "Track your automated savings progress month by month",
+        filename: "Emergency_Fund_Growth_Tracker.pdf"
+      }
+    ],
+    practicalExercise: {
+      title: "Set Up Your First Automated Investment",
+      steps: [
+        "Download Acorns or Stash (or both) on your phone",
+        "Complete the risk assessment questionnaire honestly",
+        "Link your primary debit card for round-ups",
+        "Set up a $5/week recurring deposit",
+        "Choose your portfolio risk level (start conservative if unsure)",
+        "Enable round-ups and set multiplier to 1x to start",
+        "Set a calendar reminder to check your balance in 30 days (but DON'T check daily)",
+        "Calculate: At your current spending, how much will round-ups invest per month?"
       ]
     }
   }

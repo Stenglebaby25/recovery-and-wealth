@@ -9,7 +9,7 @@ const corsHeaders = {
 interface ScheduleEmailRequest {
   user_id: string;
   email: string;
-  email_type: "foundations_complete" | "module_reminder" | "progress_nudge" | "milestone_celebration" | "reengagement";
+  email_type: "foundations_complete" | "module_reminder" | "progress_nudge" | "milestone_celebration" | "reengagement" | "discharge_transition";
   delay_days?: number; // Days from now to schedule
   metadata?: Record<string, any>;
 }
