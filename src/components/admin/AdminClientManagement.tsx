@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Plus, UserPlus, UserMinus } from "lucide-react";
+import { Loader2, Plus, UserPlus, UserMinus, Send } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
@@ -30,8 +30,9 @@ const AdminClientManagement = () => {
   const [loading, setLoading] = useState(true);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [dischargeDialogOpen, setDischargeDialogOpen] = useState(false);
-  const [selectedClient, setSelectedClient] = useState<string | null>(null);
+  const [selectedClient, setSelectedClient] = useState<SponsoredClient | null>(null);
   const [dischargeReason, setDischargeReason] = useState("");
+  const [dischargeType, setDischargeType] = useState<string>("completed");
   const [newClient, setNewClient] = useState({
     email: "",
     full_name: "",
@@ -185,6 +186,14 @@ const AdminClientManagement = () => {
       const now = new Date().toISOString();
       const trialEnd = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString();
 
+      const dischargeLabels: Record<string, string> = {
+        completed: "Completed treatment program",
+        discharged: "Discharged (clinical decision)",
+        ama: "Left AMA (Against Medical Advice)",
+      };
+
+      const reasonText = dischargeReason || dischargeLabels[dischargeType] || "Completed treatment program";
+
       // Update profile: end sponsorship, start trial, add discharge info
       const { error: profileError } = await supabase
         .from("profiles")
@@ -193,9 +202,9 @@ const AdminClientManagement = () => {
           trial_started_at: now,
           trial_expires_at: trialEnd,
           discharge_date: now,
-          discharge_reason: dischargeReason || "Completed treatment program",
+          discharge_reason: `[${dischargeType.toUpperCase()}] ${reasonText}`,
         })
-        .eq("user_id", selectedClient);
+        .eq("user_id", selectedClient.user_id);
 
       if (profileError) throw profileError;
 
@@ -203,18 +212,38 @@ const AdminClientManagement = () => {
       const { error: memberError } = await supabase
         .from("organization_members")
         .delete()
-        .eq("user_id", selectedClient);
+        .eq("user_id", selectedClient.user_id);
 
       if (memberError) throw memberError;
 
+      // Auto-trigger discharge transition email
+      try {
+        await supabase.functions.invoke("schedule-email-drip", {
+          body: {
+            user_id: selectedClient.user_id,
+            email: selectedClient.email,
+            email_type: "discharge_transition",
+            delay_days: 0,
+            metadata: {
+              discharge_type: dischargeType,
+              trial_days: 14,
+            },
+          },
+        });
+      } catch (emailError) {
+        console.error("Failed to schedule discharge email:", emailError);
+        // Don't block discharge if email fails
+      }
+
       toast({
         title: "Success",
-        description: "Client discharged and moved to 14-day trial",
+        description: "Client discharged, moved to 14-day trial, and transition email scheduled",
       });
 
       setDischargeDialogOpen(false);
       setSelectedClient(null);
       setDischargeReason("");
+      setDischargeType("completed");
       fetchData();
     } catch (error: any) {
       toast({
@@ -351,7 +380,7 @@ const AdminClientManagement = () => {
                     variant="destructive"
                     size="sm"
                     onClick={() => {
-                      setSelectedClient(client.user_id);
+                      setSelectedClient(client);
                       setDischargeDialogOpen(true);
                     }}
                   >
@@ -383,14 +412,34 @@ const AdminClientManagement = () => {
           </DialogHeader>
           <div className="space-y-4">
             <div>
-              <Label htmlFor="reason">Discharge Reason (Optional)</Label>
+              <Label htmlFor="discharge-type">Discharge Type *</Label>
+              <Select
+                value={dischargeType}
+                onValueChange={(value) => setDischargeType(value)}
+              >
+                <SelectTrigger id="discharge-type">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="completed">Completed Program</SelectItem>
+                  <SelectItem value="discharged">Discharged (Clinical Decision)</SelectItem>
+                  <SelectItem value="ama">Left AMA (Against Medical Advice)</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Label htmlFor="reason">Additional Notes (Optional)</Label>
               <Textarea
                 id="reason"
                 value={dischargeReason}
                 onChange={(e) => setDischargeReason(e.target.value)}
-                placeholder="e.g., Completed PHP program, Graduated to outpatient care"
+                placeholder="e.g., Graduated to outpatient care, transferred to sober living"
                 rows={3}
               />
+            </div>
+            <div className="bg-muted/50 rounded-lg p-3 text-sm text-muted-foreground flex items-start gap-2">
+              <Send className="h-4 w-4 mt-0.5 shrink-0" />
+              <span>A transition email will be automatically sent to the client with their 14-day free trial details and individual signup information.</span>
             </div>
           </div>
           <DialogFooter>

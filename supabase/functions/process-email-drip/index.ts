@@ -197,6 +197,61 @@ const emailTemplates: Record<string, { subject: string; getHtml: (data: any) => 
       </body>
       </html>
     `
+  },
+  discharge_transition: {
+    subject: "🌟 Your Recovery Journey Continues — Keep Your Progress!",
+    getHtml: (data) => `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      </head>
+      <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f7f7f7;">
+        <div style="max-width: 600px; margin: 0 auto; background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <div style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: white; padding: 40px 30px; text-align: center;">
+            <h1 style="margin: 0; font-size: 28px;">Your Journey Continues 🌟</h1>
+            <p style="margin: 10px 0 0 0; font-size: 16px; opacity: 0.9;">Everything you've built is still here</p>
+          </div>
+          <div style="padding: 40px 30px;">
+            <p style="font-size: 16px;">Hi${data.name ? ` ${data.name}` : ''},</p>
+            <p style="font-size: 16px;">As you transition from your treatment program, we want you to know that <strong>all of your progress, journal entries, check-ins, and course work are saved and waiting for you</strong>.</p>
+            
+            <div style="background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0;">
+              <h3 style="margin: 0 0 10px 0; color: #059669;">🎁 Your ${data.trial_days || 14}-Day Free Trial</h3>
+              <p style="margin: 0; font-size: 15px; color: #065f46;">You have <strong>${data.trial_days || 14} days of full premium access</strong> — same tools, same courses, same community features. No credit card required.</p>
+            </div>
+
+            <h3 style="color: #059669; margin-top: 30px;">What's Included in Premium:</h3>
+            <ul style="font-size: 15px; color: #555;">
+              <li>📚 All 21+ advanced financial recovery modules</li>
+              <li>🧠 AI-powered financial coaching chat</li>
+              <li>📊 Full dashboard with expense tracking & bill management</li>
+              <li>👥 Premium community access with alumni chapters</li>
+              <li>📥 Downloadable worksheets & resources</li>
+            </ul>
+            
+            <div style="background: #f8fafc; border-radius: 8px; padding: 20px; margin: 25px 0; text-align: center;">
+              <p style="margin: 0 0 5px 0; font-size: 14px; color: #64748b;">After your trial, continue for:</p>
+              <p style="margin: 0; font-size: 20px; font-weight: bold; color: #059669;">$4.99/month or $49.99/year</p>
+              <p style="margin: 5px 0 0 0; font-size: 13px; color: #94a3b8;">Annual plan saves you $10/year</p>
+            </div>
+
+            <div style="text-align: center; margin: 35px 0;">
+              <a href="https://recovery-and-wealth.lovable.app" style="display: inline-block; background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: white; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: bold; font-size: 16px;">
+                Continue Your Journey →
+              </a>
+            </div>
+            
+            <p style="font-size: 14px; color: #666; text-align: center;">Same login. Same data. Same progress. Just keep going. 💚</p>
+          </div>
+          <div style="background: #f1f5f9; padding: 20px 30px; text-align: center;">
+            <p style="margin: 0; font-size: 13px; color: #94a3b8;">Questions? Reply to this email or visit our support page.</p>
+          </div>
+        </div>
+      </body>
+      </html>
+    `
   }
 };
 
