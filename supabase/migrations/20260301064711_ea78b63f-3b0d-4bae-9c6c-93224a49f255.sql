@@ -1,0 +1,2 @@
+ALTER TABLE public.email_drip_queue DROP CONSTRAINT email_drip_queue_email_type_check;
+ALTER TABLE public.email_drip_queue ADD CONSTRAINT email_drip_queue_email_type_check CHECK (email_type = ANY (ARRAY['foundations_complete'::text, 'module_reminder'::text, 'progress_nudge'::text, 'milestone_celebration'::text, 'reengagement'::text, 'discharge_transition'::text]));
