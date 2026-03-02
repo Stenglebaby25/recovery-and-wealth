@@ -12,8 +12,10 @@ import {
   GraduationCap, 
   Heart,
   Star,
-  Sparkles
+  Sparkles,
+  BookOpen
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface PartnerApp {
   name: string;
@@ -22,6 +24,7 @@ interface PartnerApp {
   url: string;
   featured?: boolean;
   recoveryFriendly?: boolean;
+  courseLink?: { label: string; path: string };
 }
 
 const partnerApps: PartnerApp[] = [
@@ -93,14 +96,16 @@ const partnerApps: PartnerApp[] = [
     category: 'Investing',
     url: 'https://www.acorns.com/',
     featured: true,
-    recoveryFriendly: true
+    recoveryFriendly: true,
+    courseLink: { label: 'Week 22: Robo-Advisors Lesson', path: '/course/week/22' }
   },
   {
     name: 'Stash',
     description: 'Start investing with as little as $5. Automated round-ups, budgeting tools, and Stock-Back rewards.',
     category: 'Investing',
     url: 'https://www.stash.com/',
-    recoveryFriendly: true
+    recoveryFriendly: true,
+    courseLink: { label: 'Week 22: Robo-Advisors Lesson', path: '/course/week/22' }
   },
   {
     name: 'Fundrise',
@@ -247,14 +252,24 @@ const PartnerResourceHub = () => {
                     <CardDescription className="text-sm leading-relaxed">
                       {app.description}
                     </CardDescription>
-                    <Button 
-                      variant="outline" 
-                      className="w-full group"
-                      onClick={() => window.open(app.url, '_blank', 'noopener,noreferrer')}
-                    >
-                      Visit {app.name}
-                      <ExternalLink className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Button>
+                    <div className="space-y-2">
+                      <Button 
+                        variant="outline" 
+                        className="w-full group"
+                        onClick={() => window.open(app.url, '_blank', 'noopener,noreferrer')}
+                      >
+                        Visit {app.name}
+                        <ExternalLink className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                      {app.courseLink && (
+                        <Link to={app.courseLink.path}>
+                          <Button variant="ghost" size="sm" className="w-full text-xs text-primary hover:text-primary/80">
+                            <BookOpen className="h-3 w-3 mr-1" />
+                            {app.courseLink.label}
+                          </Button>
+                        </Link>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               );
