@@ -43,14 +43,17 @@ const WeekLessons = () => {
     if (user) fetchProgress();
   }, [user, courses]);
 
+  const isAdvanced = week > 8;
+
   const fetchWeekContent = async () => {
     setLoading(true);
     try {
+      const pathway = isAdvanced ? 'advanced' : 'foundation';
       const { data: coursesData, error: coursesError } = await supabase
         .from('courses')
         .select('id, title, description, week_number')
         .eq('week_number', week)
-        .eq('learning_pathway', 'foundation');
+        .eq('learning_pathway', pathway);
 
       if (coursesError) throw coursesError;
 
@@ -122,6 +125,20 @@ const WeekLessons = () => {
     6: "Career & Income Growth",
     7: "Mind Over Money",
     8: "Building a Support System & Sustaining Your Journey",
+    9: "Insurance Essentials for Recovery",
+    10: "Tax Basics & Filing Strategies",
+    11: "Investment Fundamentals",
+    12: "Healthcare Navigation",
+    13: "Legal Financial Recovery",
+    14: "Housing & Rental Strategies",
+    15: "Banking Relationships",
+    16: "Identity Protection",
+    17: "Negotiation Skills",
+    18: "Side Income & Gig Economy",
+    19: "Family Financial Repair",
+    20: "Entrepreneurship Basics",
+    21: "Advanced Credit Building",
+    22: "Automated Investing & Robo-Advisors",
   };
 
   return (
@@ -131,14 +148,16 @@ const WeekLessons = () => {
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-4xl mx-auto">
             {/* Back button */}
-            <Button variant="outline" onClick={() => navigate('/course-content')} className="mb-6">
+            <Button variant="outline" onClick={() => navigate(isAdvanced ? '/advanced-lessons' : '/course-content')} className="mb-6">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Course Overview
+              {isAdvanced ? 'Back to Advanced Lessons' : 'Back to Course Overview'}
             </Button>
 
             {/* Header */}
             <div className="mb-10">
-              <Badge variant="outline" className="mb-3">Week {week} of 8</Badge>
+              <Badge variant="outline" className="mb-3">
+                {isAdvanced ? `Advanced Series — Week ${week}` : `Week ${week} of 8`}
+              </Badge>
               <h1 className="text-3xl font-bold mb-3">
                 {weekTitles[week] || `Week ${week}`}
               </h1>
@@ -167,7 +186,7 @@ const WeekLessons = () => {
                         ← Week {week - 1}
                       </Button>
                     )}
-                    {week < 8 && (
+                    {week < 22 && (
                       <Button variant="outline" onClick={() => navigate(`/course/week/${week + 1}`)}>
                         Week {week + 1} →
                       </Button>
@@ -235,7 +254,7 @@ const WeekLessons = () => {
                       ← Week {week - 1}
                     </Button>
                   ) : <div />}
-                  {week < 8 && (
+                  {week < 22 && (
                     <Button variant="outline" onClick={() => navigate(`/course/week/${week + 1}`)}>
                       Week {week + 1} →
                     </Button>
