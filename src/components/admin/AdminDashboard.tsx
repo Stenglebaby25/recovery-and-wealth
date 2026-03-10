@@ -130,6 +130,10 @@ const AdminDashboard = () => {
                 <TrendingUp className="w-5 h-5" />
                 <span className="text-xs">Analytics</span>
               </TabsTrigger>
+              <TabsTrigger value="tasks" className="flex flex-col gap-1 py-3 data-[state=active]:bg-highlight/10 data-[state=active]:text-highlight transition-all">
+                <Send className="w-5 h-5" />
+                <span className="text-xs">Tasks</span>
+              </TabsTrigger>
             </TabsList>
 
             {/* Overview Tab */}
