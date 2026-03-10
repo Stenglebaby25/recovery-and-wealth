@@ -265,6 +265,11 @@ const AdminDashboard = () => {
             <TabsContent value="analytics">
               <AdminAnalytics />
             </TabsContent>
+
+            {/* Tasks Export Tab */}
+            <TabsContent value="tasks">
+              <AdminTaskExport />
+            </TabsContent>
           </Tabs>
         </div>
       </div>
