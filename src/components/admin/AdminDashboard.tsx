@@ -13,7 +13,8 @@ import {
   Settings,
   BarChart3,
   Database,
-  AlertTriangle
+  AlertTriangle,
+  Send
 } from 'lucide-react';
 import AdminUserManagement from './AdminUserManagement';
 import AdminContentManagement from './AdminContentManagement';
@@ -22,6 +23,7 @@ import AdminAnalytics from './AdminAnalytics';
 import AdminFacilityManagement from './AdminFacilityManagement';
 import AdminClientManagement from './AdminClientManagement';
 import AdminReviewerCodes from './AdminReviewerCodes';
+import AdminTaskExport from './AdminTaskExport';
 
 const AdminDashboard = () => {
   const { isAdmin, adminLoading, user } = useAdminAuth();
@@ -96,7 +98,7 @@ const AdminDashboard = () => {
 
           {/* Admin Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-8 h-auto bg-gradient-card border-0 shadow-soft">
+            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-9 h-auto bg-gradient-card border-0 shadow-soft">
               <TabsTrigger value="overview" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <BarChart3 className="w-5 h-5" />
                 <span className="text-xs">Overview</span>
@@ -128,6 +130,10 @@ const AdminDashboard = () => {
               <TabsTrigger value="analytics" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <TrendingUp className="w-5 h-5" />
                 <span className="text-xs">Analytics</span>
+              </TabsTrigger>
+              <TabsTrigger value="tasks" className="flex flex-col gap-1 py-3 data-[state=active]:bg-highlight/10 data-[state=active]:text-highlight transition-all">
+                <Send className="w-5 h-5" />
+                <span className="text-xs">Tasks</span>
               </TabsTrigger>
             </TabsList>
 
@@ -258,6 +264,11 @@ const AdminDashboard = () => {
             {/* Analytics Tab */}
             <TabsContent value="analytics">
               <AdminAnalytics />
+            </TabsContent>
+
+            {/* Tasks Export Tab */}
+            <TabsContent value="tasks">
+              <AdminTaskExport />
             </TabsContent>
           </Tabs>
         </div>
