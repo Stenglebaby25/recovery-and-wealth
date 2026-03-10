@@ -13,7 +13,8 @@ import {
   Settings,
   BarChart3,
   Database,
-  AlertTriangle
+  AlertTriangle,
+  Send
 } from 'lucide-react';
 import AdminUserManagement from './AdminUserManagement';
 import AdminContentManagement from './AdminContentManagement';
