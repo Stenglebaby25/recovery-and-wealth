@@ -22,6 +22,7 @@ import AdminAnalytics from './AdminAnalytics';
 import AdminFacilityManagement from './AdminFacilityManagement';
 import AdminClientManagement from './AdminClientManagement';
 import AdminReviewerCodes from './AdminReviewerCodes';
+import AdminTaskExport from './AdminTaskExport';
 
 const AdminDashboard = () => {
   const { isAdmin, adminLoading, user } = useAdminAuth();
