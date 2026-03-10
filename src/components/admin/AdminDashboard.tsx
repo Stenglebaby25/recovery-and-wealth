@@ -98,7 +98,7 @@ const AdminDashboard = () => {
 
           {/* Admin Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-8 h-auto bg-gradient-card border-0 shadow-soft">
+            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-9 h-auto bg-gradient-card border-0 shadow-soft">
               <TabsTrigger value="overview" className="flex flex-col gap-1 py-3 data-[state=active]:bg-primary/10 data-[state=active]:text-primary transition-all">
                 <BarChart3 className="w-5 h-5" />
                 <span className="text-xs">Overview</span>
