@@ -22,9 +22,11 @@ export const FooterContactForm = () => {
     setIsSubmitting(true);
 
     try {
+      const id = crypto.randomUUID();
       const { error } = await supabase
         .from('leads')
         .insert({
+          id,
           email: email.trim(),
           lead_type: 'coaching_interest',
           source_page: 'footer_contact',
@@ -36,12 +38,21 @@ export const FooterContactForm = () => {
 
       if (error) throw error;
 
+      // Send confirmation email to the person who submitted
+      await supabase.functions.invoke('send-transactional-email', {
+        body: {
+          templateName: 'contact-confirmation',
+          recipientEmail: email.trim(),
+          idempotencyKey: `contact-confirm-${id}`,
+        },
+      });
+
       setIsSubmitted(true);
       setEmail('');
       setMessage('');
       toast({
         title: "Message sent!",
-        description: "We'll get back to you soon.",
+        description: "We'll get back to you soon. Check your inbox for a confirmation.",
       });
     } catch (error) {
       console.error('Contact form error:', error);
