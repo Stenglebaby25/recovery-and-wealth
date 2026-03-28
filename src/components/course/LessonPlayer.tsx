@@ -412,21 +412,23 @@ const LessonPlayer: React.FC<LessonPlayerProps> = ({ lessonId, onComplete, onBac
               <CardContent>
                 {lesson.video_url ? (
                   <div className="space-y-4">
-                    <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-                      <div className="text-center">
-                        <Play className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                        <p className="text-muted-foreground">Video player will be integrated here</p>
-                        <p className="text-sm text-muted-foreground mt-2">{lesson.video_url}</p>
+                    <div className="aspect-video bg-muted rounded-lg overflow-hidden">
+                      <iframe
+                        src={lesson.video_url}
+                        title={lesson.title}
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allow="encrypted-media; fullscreen;"
+                        allowFullScreen
+                      />
+                    </div>
+                    {lesson.video_duration && lesson.video_duration > 0 && (
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-muted-foreground">
+                          Duration: {Math.floor(lesson.video_duration / 60)}:{String(lesson.video_duration % 60).padStart(2, '0')}
+                        </span>
                       </div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">
-                        Duration: {Math.floor((lesson.video_duration || 0) / 60)}:{String((lesson.video_duration || 0) % 60).padStart(2, '0')}
-                      </span>
-                      <span className="text-sm text-muted-foreground">
-                        Progress: {Math.floor((progress.video_progress / (lesson.video_duration || 1)) * 100)}%
-                      </span>
-                    </div>
+                    )}
                   </div>
                 ) : (
                   <p className="text-muted-foreground">No video content available for this lesson.</p>
