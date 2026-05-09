@@ -41,7 +41,7 @@ const ContactConfirmationEmail = ({ name }: ContactConfirmationProps) => (
           Best regards,<br />The {SITE_NAME} Team
         </Text>
         <Text style={replyNote}>
-          You can reply directly to this email to reach us at ryan@recoveryandwealth.com
+          You can reply directly to this email to reach us at info@recoveryandwealth.com
         </Text>
       </Container>
     </Body>

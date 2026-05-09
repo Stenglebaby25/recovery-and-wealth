@@ -111,7 +111,7 @@ const Unsubscribe = () => {
               <XCircle className="w-10 h-10 text-destructive mx-auto" />
               <h1 className="text-xl font-semibold text-foreground">Something Went Wrong</h1>
               <p className="text-muted-foreground text-sm">
-                Please try again or contact us at ryan@recoveryandwealth.com.
+                Please try again or contact us at info@recoveryandwealth.com.
               </p>
             </>
           )}
