@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Send, Bot, User } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 type Message = { 
   role: "user" | "assistant"; 
@@ -30,10 +31,20 @@ const AIEducationChat = () => {
   }, [messages]);
 
   const streamChat = async (userMessage: Message) => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+      toast({
+        title: "Sign in required",
+        description: "Please sign in to use the AI assistant.",
+        variant: "destructive",
+      });
+      throw new Error("Not authenticated");
+    }
     const resp = await fetch(CHAT_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${session.access_token}`,
       },
       body: JSON.stringify({ messages: [...messages, userMessage] }),
     });
