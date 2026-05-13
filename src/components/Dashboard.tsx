@@ -70,8 +70,8 @@ const Dashboard = () => {
             </p>
           </div>
 
-          {/* Testing Panel - Only show in development */}
-          <TestingPanel />
+          {/* Testing Panel - Only in development */}
+          {import.meta.env.DEV && <TestingPanel />}
 
           {/* Dashboard Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8 animate-scale-in">
