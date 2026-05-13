@@ -62,11 +62,22 @@ const handler = async (req: Request): Promise<Response> => {
     const callerId = userData.user.id;
     const callerEmail = userData.user.email;
 
+    // Admins can schedule emails for any user; everyone else is forced to themselves
+    const { data: roleRow } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", callerId)
+      .eq("role", "admin")
+      .maybeSingle();
+    const isAdmin = !!roleRow;
+
     const body = await req.json();
 
-    // Force user_id and email to the authenticated caller to prevent injection
-    body.user_id = callerId;
-    body.email = callerEmail;
+    if (!isAdmin) {
+      // Non-admins can only schedule for themselves
+      body.user_id = callerId;
+      body.email = callerEmail;
+    }
     
     // Handle both single email and sequence scheduling
     if (body.trigger === "foundations_complete") {
