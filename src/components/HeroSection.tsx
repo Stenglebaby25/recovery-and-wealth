@@ -130,7 +130,7 @@ const HeroSection = () => {
             </Button>
           </div>
           
-          {/* 7. Testimonial */}
+          {/* 6. Testimonial */}
           <div className="bg-background/70 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-2xl mx-auto border border-border/50 shadow-soft">
             <Quote className="h-8 w-8 text-primary/40 mx-auto mb-3" />
             <p className="text-foreground/90 italic text-lg leading-relaxed mb-4">
