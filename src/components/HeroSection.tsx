@@ -66,7 +66,7 @@ const HeroSection = () => {
             </p>
           </div>
           
-          {/* 5. Free Tools Section */}
+          {/* 4. Free Tools Section */}
           <div className="bg-card/80 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-2xl mx-auto border border-border shadow-soft">
             <h3 className="text-lg font-semibold text-foreground mb-4">Free Tools to Get Started</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
