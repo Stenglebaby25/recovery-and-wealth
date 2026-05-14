@@ -103,7 +103,7 @@ const HeroSection = () => {
             </Link>
           </div>
           
-          {/* 6. CTA Buttons */}
+          {/* 5. CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in mb-8">
             <Button 
               variant="default" 
