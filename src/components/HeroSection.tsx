@@ -43,7 +43,7 @@ const HeroSection = () => {
             Start your transformation today.
           </p>
           
-          {/* 4. Recovery Gap Statistics - Enhanced & Prominent */}
+          {/* 3. Recovery Gap Statistics - Enhanced & Prominent */}
           <div className="bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 backdrop-blur-sm rounded-2xl p-8 mb-8 max-w-3xl mx-auto border border-primary/20 shadow-medium">
             <h3 className="text-xl font-bold text-foreground mb-6">The Recovery Gap: Why Financial Literacy Matters</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
