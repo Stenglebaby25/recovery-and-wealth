@@ -141,9 +141,7 @@ const HeroSection = () => {
             </div>
           </div>
           
-          {/* 8. Trust Indicators */}
-          
-          {/* 9. Trust Indicators */}
+          {/* 7. Trust Indicators */}
           <div className="bg-primary/10 backdrop-blur-sm rounded-lg py-4 px-6 inline-block border border-primary/20">
             <p className="text-sm font-medium text-foreground">Created by people in recovery, for people in recovery</p>
             <p className="mt-1 text-sm text-foreground/80">Compatible with 12-Step and SMART Recovery programs</p>
