@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Heart, Calculator, Clock, ArrowRight, Quote } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroBackground from "@/assets/serenity-meditation.jpg";
-import recoveryWealthLogo from "@/assets/recovery-wealth-logo-bold.png";
 
 const HeroSection = () => {
   return (
