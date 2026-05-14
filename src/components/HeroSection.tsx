@@ -35,7 +35,7 @@ const HeroSection = () => {
             <span className="text-secondary">Wealth</span>
           </h1>
           
-          {/* 3. Intro Text */}
+          {/* 2. Intro Text */}
           <p 
             className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed font-medium text-foreground/90 bg-background/80 backdrop-blur-sm rounded-lg px-4 py-3 shadow-soft"
           >
