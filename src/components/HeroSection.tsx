@@ -27,16 +27,7 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          {/* 1. Recovery & Wealth Logo */}
-          <div className="mb-6 flex justify-center">
-            <img 
-              src={recoveryWealthLogo} 
-              alt="Recovery & Wealth" 
-              className="h-24 md:h-32 w-auto object-contain"
-            />
-          </div>
-          
-          {/* 2. Main Headline */}
+          {/* 1. Main Headline */}
           <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight animate-fade-in text-foreground">
             Your Journey to Financial{" "}
             <span className="text-primary">Recovery</span>
