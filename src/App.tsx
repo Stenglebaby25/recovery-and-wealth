@@ -27,6 +27,7 @@ import About from "./pages/About";
 import LearningPathQuizPage from "./pages/LearningPathQuizPage";
 import WeekLessons from "./pages/WeekLessons";
 import Unsubscribe from "./pages/Unsubscribe";
+import SobrietyCalculator from "./pages/SobrietyCalculator";
 
 const queryClient = new QueryClient();
 
@@ -60,6 +61,7 @@ const App = () => (
             <Route path="/learning-path-quiz" element={<LearningPathQuizPage />} />
             <Route path="/course/week/:weekNumber" element={<WeekLessons />} />
             <Route path="/unsubscribe" element={<Unsubscribe />} />
+            <Route path="/sobriety-calculator" element={<SobrietyCalculator />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
