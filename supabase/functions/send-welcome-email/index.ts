@@ -1,6 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -11,16 +10,9 @@ const corsHeaders = {
 };
 
 interface WelcomeEmailRequest {
+  email: string;
   fullName?: string;
 }
-
-const escapeHtml = (str: string) =>
-  str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
 
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
@@ -29,30 +21,7 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    // Require authenticated user
-    const authHeader = req.headers.get("Authorization");
-    if (!authHeader?.startsWith("Bearer ")) {
-      return new Response(JSON.stringify({ error: "Unauthorized" }), {
-        status: 401,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-    const supabase = createClient(
-      Deno.env.get("SUPABASE_URL")!,
-      Deno.env.get("SUPABASE_ANON_KEY")!,
-    );
-    const token = authHeader.replace("Bearer ", "");
-    const { data: userData, error: userErr } = await supabase.auth.getUser(token);
-    if (userErr || !userData?.user?.email) {
-      return new Response(JSON.stringify({ error: "Unauthorized" }), {
-        status: 401,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
-    const email = userData.user.email;
-    const body: WelcomeEmailRequest = await req.json().catch(() => ({}));
-    const rawFullName = (body.fullName ?? "").toString().slice(0, 100);
-    const fullName = rawFullName ? escapeHtml(rawFullName) : "";
+    const { email, fullName }: WelcomeEmailRequest = await req.json();
     
     console.log(`Sending welcome email to: ${email}`);
 

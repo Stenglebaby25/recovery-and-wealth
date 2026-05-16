@@ -36,48 +36,11 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    // Require authenticated user
-    const authHeader = req.headers.get("Authorization");
-    if (!authHeader?.startsWith("Bearer ")) {
-      return new Response(
-        JSON.stringify({ error: "Unauthorized" }),
-        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Verify caller and get their auth user
-    const anonClient = createClient(supabaseUrl, Deno.env.get("SUPABASE_ANON_KEY")!);
-    const token = authHeader.replace("Bearer ", "");
-    const { data: userData, error: userErr } = await anonClient.auth.getUser(token);
-    if (userErr || !userData?.user) {
-      return new Response(
-        JSON.stringify({ error: "Unauthorized" }),
-        { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-    const callerId = userData.user.id;
-    const callerEmail = userData.user.email;
-
-    // Admins can schedule emails for any user; everyone else is forced to themselves
-    const { data: roleRow } = await supabase
-      .from("user_roles")
-      .select("role")
-      .eq("user_id", callerId)
-      .eq("role", "admin")
-      .maybeSingle();
-    const isAdmin = !!roleRow;
-
     const body = await req.json();
-
-    if (!isAdmin) {
-      // Non-admins can only schedule for themselves
-      body.user_id = callerId;
-      body.email = callerEmail;
-    }
     
     // Handle both single email and sequence scheduling
     if (body.trigger === "foundations_complete") {
